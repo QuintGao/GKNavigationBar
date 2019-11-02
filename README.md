@@ -1,0 +1,2 @@
+# GKNavigationBar
+GKNavigationBarViewController的分类实现方式，耦合度底，使用更加便捷
