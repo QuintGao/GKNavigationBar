@@ -1,0 +1,24 @@
+PODS:
+  - JXCategoryView (1.5.2)
+  - Masonry (1.1.0)
+  - MJRefresh (3.2.0)
+
+DEPENDENCIES:
+  - JXCategoryView
+  - Masonry
+  - MJRefresh
+
+SPEC REPOS:
+  trunk:
+    - JXCategoryView
+    - Masonry
+    - MJRefresh
+
+SPEC CHECKSUMS:
+  JXCategoryView: b284d35a7a8772eada05dd78642233e1eb763ea8
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
+
+PODFILE CHECKSUM: d4f8631eb2936c9a28915bcf895d2cdc4dc5e134
+
+COCOAPODS: 1.8.4
