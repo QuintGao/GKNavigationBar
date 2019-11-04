@@ -43,3 +43,4 @@ self.gk_navBackgroundColor = [UIColor red]
 
 ## 版本记录
 * 0.0.1 - 2019.11.03 对GKNavigationBarViewController做了修改，使用更方便
+* 0.0.2 - 2019.11.04 优化代码，解决只调用gk_navigationItem时导航栏不出现的bug

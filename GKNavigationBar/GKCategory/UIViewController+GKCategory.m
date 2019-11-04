@@ -252,7 +252,6 @@ static char kAssociatedObjectKey_navigationBar;
     GKCustomNavigationBar *navigationBar = objc_getAssociatedObject(self, &kAssociatedObjectKey_navigationBar);
     if (!navigationBar) {
         navigationBar = [[GKCustomNavigationBar alloc] init];
-        navigationBar.items = @[self.gk_navigationItem];
         [self.view addSubview:navigationBar];
         
         self.gk_NavBarInit = YES;
@@ -267,6 +266,8 @@ static char kAssociatedObjectKey_navigationBar;
 static char kAssociatedObjectKey_navigationItem;
 - (void)setGk_navigationItem:(UINavigationItem *)gk_navigationItem {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navigationItem, gk_navigationItem, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    self.gk_navigationBar.items = @[gk_navigationItem];
 }
 
 - (UINavigationItem *)gk_navigationItem {
@@ -352,7 +353,6 @@ static char kAssociatedObjectKey_navTitleView;
 - (void)setGk_navTitleView:(UIView *)gk_navTitleView {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navTitleView, gk_navTitleView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    self.gk_navigationBar.items = @[self.gk_navigationItem];
     self.gk_navigationItem.titleView = gk_navTitleView;
 }
 
@@ -388,7 +388,6 @@ static char kAssociatedObjectKey_navLeftBarButtonItem;
 - (void)setGk_navLeftBarButtonItem:(UIBarButtonItem *)gk_navLeftBarButtonItem {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navLeftBarButtonItem, gk_navLeftBarButtonItem, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    self.gk_navigationBar.items = @[self.gk_navigationItem];
     self.gk_navigationItem.leftBarButtonItem = gk_navLeftBarButtonItem;
 }
 
@@ -400,7 +399,6 @@ static char kAssociatedObjectKey_navLeftBarButtonItems;
 - (void)setGk_navLeftBarButtonItems:(NSArray<UIBarButtonItem *> *)gk_navLeftBarButtonItems {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navLeftBarButtonItems, gk_navLeftBarButtonItems, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    self.gk_navigationBar.items = @[self.gk_navigationItem];
     self.gk_navigationItem.leftBarButtonItems = gk_navLeftBarButtonItems;
 }
 
@@ -412,7 +410,6 @@ static char kAssociatedObjectKey_navRightBarButtonItem;
 - (void)setGk_navRightBarButtonItem:(UIBarButtonItem *)gk_navRightBarButtonItem {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navRightBarButtonItem, gk_navRightBarButtonItem, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    self.gk_navigationBar.items = @[self.gk_navigationItem];
     self.gk_navigationItem.rightBarButtonItem = gk_navRightBarButtonItem;
 }
 
@@ -424,7 +421,6 @@ static char kAssociatedObjectKey_navRightBarButtonItems;
 - (void)setGk_navRightBarButtonItems:(NSArray<UIBarButtonItem *> *)gk_navRightBarButtonItems {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navRightBarButtonItems, gk_navRightBarButtonItems, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    self.gk_navigationBar.items = @[self.gk_navigationItem];
     self.gk_navigationItem.rightBarButtonItems = gk_navRightBarButtonItems;
 }
 
