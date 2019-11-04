@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"tab001";
+    self.gk_navigationItem.title = @"tab001";
     self.gk_navBackgroundColor = [UIColor cyanColor];
     
     self.contentText = @"我禁止了UITabBarController的滑动返回手势。\n我push的时候不隐藏tabbar";

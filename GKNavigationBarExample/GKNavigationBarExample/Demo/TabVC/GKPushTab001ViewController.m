@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"tab001";
+    self.gk_navigationItem.title = @"tab001";
     self.gk_navBackgroundColor = [UIColor cyanColor];
     
     if (self.isScale) {
