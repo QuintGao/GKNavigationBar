@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "79672E92236EC8EB0054300B"
-               BuildableName = "GKNavigationBarFramework.framework"
+               BuildableName = "GKNavigationBar.framework"
                BlueprintName = "GKNavigationBarFramework"
                ReferencedContainer = "container:GKNavigationBarExample.xcodeproj">
             </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "79672E92236EC8EB0054300B"
-            BuildableName = "GKNavigationBarFramework.framework"
+            BuildableName = "GKNavigationBar.framework"
             BlueprintName = "GKNavigationBarFramework"
             ReferencedContainer = "container:GKNavigationBarExample.xcodeproj">
          </BuildableReference>
