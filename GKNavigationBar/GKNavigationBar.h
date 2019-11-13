@@ -11,5 +11,6 @@
 
 #import "GKCategory.h"
 #import "GKNavigationBarConfigure.h"
+#import "GKTransitionDelegateHandler.h"
 
 #endif /* GKNavigationBar_h */

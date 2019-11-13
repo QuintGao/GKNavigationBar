@@ -7,21 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		79672E0C236D88450054300B /* TZImageCropManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672DF1236D88440054300B /* TZImageCropManager.m */; };
-		79672E0D236D88450054300B /* TZAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672DF3236D88440054300B /* TZAssetCell.m */; };
-		79672E0E236D88450054300B /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672DF4236D88440054300B /* TZVideoPlayerController.m */; };
-		79672E0F236D88450054300B /* TZAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672DF5236D88440054300B /* TZAssetModel.m */; };
-		79672E10236D88450054300B /* NSBundle+TZImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672DF6236D88440054300B /* NSBundle+TZImagePicker.m */; };
-		79672E11236D88450054300B /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672DF9236D88440054300B /* UIView+Layout.m */; };
-		79672E12236D88450054300B /* TZPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672DFA236D88440054300B /* TZPhotoPreviewController.m */; };
-		79672E13236D88450054300B /* TZImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 79672DFB236D88440054300B /* TZImagePickerController.bundle */; };
-		79672E14236D88450054300B /* TZProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672DFC236D88440054300B /* TZProgressView.m */; };
-		79672E15236D88450054300B /* TZImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672DFF236D88440054300B /* TZImageManager.m */; };
-		79672E16236D88450054300B /* TZPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E01236D88440054300B /* TZPhotoPickerController.m */; };
-		79672E17236D88450054300B /* TZPhotoPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E02236D88440054300B /* TZPhotoPreviewCell.m */; };
-		79672E18236D88450054300B /* TZImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E08236D88440054300B /* TZImagePickerController.m */; };
-		79672E19236D88450054300B /* TZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E09236D88440054300B /* TZLocationManager.m */; };
-		79672E1A236D88450054300B /* TZGifPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E0A236D88440054300B /* TZGifPhotoPreviewController.m */; };
 		79672E6D236D8C1B0054300B /* GKTransitionDelegateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E4E236D8BDA0054300B /* GKTransitionDelegateHandler.m */; };
 		79672E78236D8C960054300B /* GKNavigationBarConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E57236D8BDA0054300B /* GKNavigationBarConfigure.m */; };
 		79672E79236D8C960054300B /* GKPopAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E4F236D8BDA0054300B /* GKPopAnimatedTransition.m */; };
@@ -38,10 +23,6 @@
 		79672E88236EB41A0054300B /* UIViewController+FullScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E87236EB41A0054300B /* UIViewController+FullScreen.m */; };
 		79672E8B236EC0520054300B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 79672E8A236EC0520054300B /* README.md */; };
 		79672E8D236EC0740054300B /* GKNavigationBar.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 79672E8C236EC0740054300B /* GKNavigationBar.podspec */; };
-		79672E9C236EC8EB0054300B /* GKNavigationBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79672E93236EC8EB0054300B /* GKNavigationBar.framework */; };
-		79672EA3236EC8EB0054300B /* GKNavigationBarFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672EA2236EC8EB0054300B /* GKNavigationBarFrameworkTests.m */; };
-		79672EA8236EC8EB0054300B /* GKNavigationBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79672E93236EC8EB0054300B /* GKNavigationBar.framework */; };
-		79672EAA236EC8EB0054300B /* GKNavigationBar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79672E93236EC8EB0054300B /* GKNavigationBar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		79672EB1236EC9350054300B /* GKNavigationBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 79672E83236EA7530054300B /* GKNavigationBar.bundle */; };
 		79672EB2236EC95A0054300B /* GKNavigationBarConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E57236D8BDA0054300B /* GKNavigationBarConfigure.m */; };
 		79672EB3236EC95B0054300B /* GKTransitionDelegateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E4E236D8BDA0054300B /* GKTransitionDelegateHandler.m */; };
@@ -75,7 +56,6 @@
 		796CF7FF236D781700983E9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 796CF7FD236D781700983E9B /* LaunchScreen.storyboard */; };
 		796CF802236D781700983E9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF801236D781700983E9B /* main.m */; };
 		796CF80C236D781700983E9B /* GKNavigationBarExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF80B236D781700983E9B /* GKNavigationBarExampleTests.m */; };
-		796CF817236D781800983E9B /* GKNavigationBarExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF816236D781800983E9B /* GKNavigationBarExampleUITests.m */; };
 		796CF8AE236D7BBF00983E9B /* GKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF844236D7BBF00983E9B /* GKMainViewController.m */; };
 		796CF8AF236D7BBF00983E9B /* GKTabBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF848236D7BBF00983E9B /* GKTabBaseViewController.m */; };
 		796CF8B0236D7BBF00983E9B /* GKDemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF849236D7BBF00983E9B /* GKDemoBaseViewController.m */; };
@@ -128,35 +108,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		79672E9D236EC8EB0054300B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 796CF7E4236D781400983E9B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 79672E92236EC8EB0054300B;
-			remoteInfo = GKNavigationBarFramework;
-		};
-		79672E9F236EC8EB0054300B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 796CF7E4236D781400983E9B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 796CF7EB236D781400983E9B;
-			remoteInfo = GKNavigationBarExample;
-		};
-		79672EA6236EC8EB0054300B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 796CF7E4236D781400983E9B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 79672E92236EC8EB0054300B;
-			remoteInfo = GKNavigationBarFramework;
-		};
 		796CF808236D781700983E9B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 796CF7E4236D781400983E9B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 796CF7EB236D781400983E9B;
-			remoteInfo = GKNavigationBarExample;
-		};
-		796CF813236D781800983E9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 796CF7E4236D781400983E9B /* Project object */;
 			proxyType = 1;
@@ -165,51 +117,8 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		79672EA9236EC8EB0054300B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				79672EAA236EC8EB0054300B /* GKNavigationBar.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		15E89D0D10B663CF9EF209C1 /* Pods_GKNavigationBarExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GKNavigationBarExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		79672DEF236D88440054300B /* TZPhotoPreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPreviewCell.h; sourceTree = "<group>"; };
-		79672DF0236D88440054300B /* TZPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPickerController.h; sourceTree = "<group>"; };
-		79672DF1236D88440054300B /* TZImageCropManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImageCropManager.m; sourceTree = "<group>"; };
-		79672DF2236D88440054300B /* TZImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImageManager.h; sourceTree = "<group>"; };
-		79672DF3236D88440054300B /* TZAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZAssetCell.m; sourceTree = "<group>"; };
-		79672DF4236D88440054300B /* TZVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZVideoPlayerController.m; sourceTree = "<group>"; };
-		79672DF5236D88440054300B /* TZAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZAssetModel.m; sourceTree = "<group>"; };
-		79672DF6236D88440054300B /* NSBundle+TZImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+TZImagePicker.m"; sourceTree = "<group>"; };
-		79672DF7236D88440054300B /* TZLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZLocationManager.h; sourceTree = "<group>"; };
-		79672DF8236D88440054300B /* TZImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImagePickerController.h; sourceTree = "<group>"; };
-		79672DF9236D88440054300B /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
-		79672DFA236D88440054300B /* TZPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPreviewController.m; sourceTree = "<group>"; };
-		79672DFB236D88440054300B /* TZImagePickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TZImagePickerController.bundle; sourceTree = "<group>"; };
-		79672DFC236D88440054300B /* TZProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZProgressView.m; sourceTree = "<group>"; };
-		79672DFD236D88440054300B /* TZGifPhotoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZGifPhotoPreviewController.h; sourceTree = "<group>"; };
-		79672DFE236D88440054300B /* TZAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetCell.h; sourceTree = "<group>"; };
-		79672DFF236D88440054300B /* TZImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImageManager.m; sourceTree = "<group>"; };
-		79672E00236D88440054300B /* TZImageCropManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImageCropManager.h; sourceTree = "<group>"; };
-		79672E01236D88440054300B /* TZPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPickerController.m; sourceTree = "<group>"; };
-		79672E02236D88440054300B /* TZPhotoPreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPreviewCell.m; sourceTree = "<group>"; };
-		79672E03236D88440054300B /* NSBundle+TZImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+TZImagePicker.h"; sourceTree = "<group>"; };
-		79672E04236D88440054300B /* TZAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetModel.h; sourceTree = "<group>"; };
-		79672E05236D88440054300B /* TZVideoPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZVideoPlayerController.h; sourceTree = "<group>"; };
-		79672E06236D88440054300B /* TZPhotoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPreviewController.h; sourceTree = "<group>"; };
-		79672E07236D88440054300B /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
-		79672E08236D88440054300B /* TZImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImagePickerController.m; sourceTree = "<group>"; };
-		79672E09236D88440054300B /* TZLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZLocationManager.m; sourceTree = "<group>"; };
-		79672E0A236D88440054300B /* TZGifPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZGifPhotoPreviewController.m; sourceTree = "<group>"; };
-		79672E0B236D88440054300B /* TZProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZProgressView.h; sourceTree = "<group>"; };
 		79672E4C236D8BDA0054300B /* GKPushAnimatedTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKPushAnimatedTransition.h; sourceTree = "<group>"; };
 		79672E4D236D8BDA0054300B /* GKBaseAnimatedTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKBaseAnimatedTransition.h; sourceTree = "<group>"; };
 		79672E4E236D8BDA0054300B /* GKTransitionDelegateHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKTransitionDelegateHandler.m; sourceTree = "<group>"; };
@@ -245,7 +154,6 @@
 		79672E8C236EC0740054300B /* GKNavigationBar.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GKNavigationBar.podspec; path = ../../GKNavigationBar.podspec; sourceTree = "<group>"; };
 		79672E93236EC8EB0054300B /* GKNavigationBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GKNavigationBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79672E96236EC8EB0054300B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		79672E9B236EC8EB0054300B /* GKNavigationBarFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKNavigationBarFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79672EA2236EC8EB0054300B /* GKNavigationBarFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNavigationBarFrameworkTests.m; sourceTree = "<group>"; };
 		79672EA4236EC8EB0054300B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		796CF7EC236D781400983E9B /* GKNavigationBarExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GKNavigationBarExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,7 +166,6 @@
 		796CF807236D781700983E9B /* GKNavigationBarExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKNavigationBarExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		796CF80B236D781700983E9B /* GKNavigationBarExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNavigationBarExampleTests.m; sourceTree = "<group>"; };
 		796CF80D236D781800983E9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		796CF812236D781800983E9B /* GKNavigationBarExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKNavigationBarExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		796CF816236D781800983E9B /* GKNavigationBarExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNavigationBarExampleUITests.m; sourceTree = "<group>"; };
 		796CF818236D781800983E9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		796CF844236D7BBF00983E9B /* GKMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKMainViewController.m; sourceTree = "<group>"; };
@@ -370,31 +277,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		79672E98236EC8EB0054300B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				79672E9C236EC8EB0054300B /* GKNavigationBar.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		796CF7E9236D781400983E9B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A8DAB537E488DAD24E9CB664 /* Pods_GKNavigationBarExample.framework in Frameworks */,
-				79672EA8236EC8EB0054300B /* GKNavigationBar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		796CF804236D781700983E9B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		796CF80F236D781800983E9B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -419,42 +310,6 @@
 				15E89D0D10B663CF9EF209C1 /* Pods_GKNavigationBarExample.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		79672DEE236D88440054300B /* TZImagePickerController */ = {
-			isa = PBXGroup;
-			children = (
-				79672DEF236D88440054300B /* TZPhotoPreviewCell.h */,
-				79672DF0236D88440054300B /* TZPhotoPickerController.h */,
-				79672DF1236D88440054300B /* TZImageCropManager.m */,
-				79672DF2236D88440054300B /* TZImageManager.h */,
-				79672DF3236D88440054300B /* TZAssetCell.m */,
-				79672DF4236D88440054300B /* TZVideoPlayerController.m */,
-				79672DF5236D88440054300B /* TZAssetModel.m */,
-				79672DF6236D88440054300B /* NSBundle+TZImagePicker.m */,
-				79672DF7236D88440054300B /* TZLocationManager.h */,
-				79672DF8236D88440054300B /* TZImagePickerController.h */,
-				79672DF9236D88440054300B /* UIView+Layout.m */,
-				79672DFA236D88440054300B /* TZPhotoPreviewController.m */,
-				79672DFB236D88440054300B /* TZImagePickerController.bundle */,
-				79672DFC236D88440054300B /* TZProgressView.m */,
-				79672DFD236D88440054300B /* TZGifPhotoPreviewController.h */,
-				79672DFE236D88440054300B /* TZAssetCell.h */,
-				79672DFF236D88440054300B /* TZImageManager.m */,
-				79672E00236D88440054300B /* TZImageCropManager.h */,
-				79672E01236D88440054300B /* TZPhotoPickerController.m */,
-				79672E02236D88440054300B /* TZPhotoPreviewCell.m */,
-				79672E03236D88440054300B /* NSBundle+TZImagePicker.h */,
-				79672E04236D88440054300B /* TZAssetModel.h */,
-				79672E05236D88440054300B /* TZVideoPlayerController.h */,
-				79672E06236D88440054300B /* TZPhotoPreviewController.h */,
-				79672E07236D88440054300B /* UIView+Layout.h */,
-				79672E08236D88440054300B /* TZImagePickerController.m */,
-				79672E09236D88440054300B /* TZLocationManager.m */,
-				79672E0A236D88440054300B /* TZGifPhotoPreviewController.m */,
-				79672E0B236D88440054300B /* TZProgressView.h */,
-			);
-			path = TZImagePickerController;
 			sourceTree = "<group>";
 		};
 		79672E4A236D8BDA0054300B /* GKNavigationBar */ = {
@@ -553,9 +408,7 @@
 			children = (
 				796CF7EC236D781400983E9B /* GKNavigationBarExample.app */,
 				796CF807236D781700983E9B /* GKNavigationBarExampleTests.xctest */,
-				796CF812236D781800983E9B /* GKNavigationBarExampleUITests.xctest */,
 				79672E93236EC8EB0054300B /* GKNavigationBar.framework */,
-				79672E9B236EC8EB0054300B /* GKNavigationBarFrameworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -575,7 +428,6 @@
 				79672E89236EC04A0054300B /* .travis.yml */,
 				79672E8A236EC0520054300B /* README.md */,
 				79672E8C236EC0740054300B /* GKNavigationBar.podspec */,
-				79672DEE236D88440054300B /* TZImagePickerController */,
 			);
 			path = GKNavigationBarExample;
 			sourceTree = "<group>";
@@ -829,25 +681,6 @@
 			productReference = 79672E93236EC8EB0054300B /* GKNavigationBar.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		79672E9A236EC8EB0054300B /* GKNavigationBarFrameworkTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 79672EAE236EC8EB0054300B /* Build configuration list for PBXNativeTarget "GKNavigationBarFrameworkTests" */;
-			buildPhases = (
-				79672E97236EC8EB0054300B /* Sources */,
-				79672E98236EC8EB0054300B /* Frameworks */,
-				79672E99236EC8EB0054300B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				79672E9E236EC8EB0054300B /* PBXTargetDependency */,
-				79672EA0236EC8EB0054300B /* PBXTargetDependency */,
-			);
-			name = GKNavigationBarFrameworkTests;
-			productName = GKNavigationBarFrameworkTests;
-			productReference = 79672E9B236EC8EB0054300B /* GKNavigationBarFrameworkTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		796CF7EB236D781400983E9B /* GKNavigationBarExample */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 796CF81B236D781800983E9B /* Build configuration list for PBXNativeTarget "GKNavigationBarExample" */;
@@ -857,12 +690,10 @@
 				796CF7E9236D781400983E9B /* Frameworks */,
 				796CF7EA236D781400983E9B /* Resources */,
 				0DBF1882C0DD8B41D56C35D5 /* [CP] Embed Pods Frameworks */,
-				79672EA9236EC8EB0054300B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				79672EA7236EC8EB0054300B /* PBXTargetDependency */,
 			);
 			name = GKNavigationBarExample;
 			productName = GKNavigationBarExample;
@@ -887,24 +718,6 @@
 			productReference = 796CF807236D781700983E9B /* GKNavigationBarExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		796CF811236D781800983E9B /* GKNavigationBarExampleUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 796CF821236D781800983E9B /* Build configuration list for PBXNativeTarget "GKNavigationBarExampleUITests" */;
-			buildPhases = (
-				796CF80E236D781800983E9B /* Sources */,
-				796CF80F236D781800983E9B /* Frameworks */,
-				796CF810236D781800983E9B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				796CF814236D781800983E9B /* PBXTargetDependency */,
-			);
-			name = GKNavigationBarExampleUITests;
-			productName = GKNavigationBarExampleUITests;
-			productReference = 796CF812236D781800983E9B /* GKNavigationBarExampleUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -917,18 +730,10 @@
 					79672E92236EC8EB0054300B = {
 						CreatedOnToolsVersion = 11.1;
 					};
-					79672E9A236EC8EB0054300B = {
-						CreatedOnToolsVersion = 11.1;
-						TestTargetID = 796CF7EB236D781400983E9B;
-					};
 					796CF7EB236D781400983E9B = {
 						CreatedOnToolsVersion = 11.1;
 					};
 					796CF806236D781700983E9B = {
-						CreatedOnToolsVersion = 11.1;
-						TestTargetID = 796CF7EB236D781400983E9B;
-					};
-					796CF811236D781800983E9B = {
 						CreatedOnToolsVersion = 11.1;
 						TestTargetID = 796CF7EB236D781400983E9B;
 					};
@@ -949,9 +754,7 @@
 			targets = (
 				796CF7EB236D781400983E9B /* GKNavigationBarExample */,
 				796CF806236D781700983E9B /* GKNavigationBarExampleTests */,
-				796CF811236D781800983E9B /* GKNavigationBarExampleUITests */,
 				79672E92236EC8EB0054300B /* GKNavigationBarFramework */,
-				79672E9A236EC8EB0054300B /* GKNavigationBarFrameworkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -965,18 +768,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		79672E99236EC8EB0054300B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		796CF7EA236D781400983E9B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79672E13236D88450054300B /* TZImagePickerController.bundle in Resources */,
 				79672E84236EA7530054300B /* GKNavigationBar.bundle in Resources */,
 				79672E8D236EC0740054300B /* GKNavigationBar.podspec in Resources */,
 				79672E8B236EC0520054300B /* README.md in Resources */,
@@ -986,13 +781,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		796CF805236D781700983E9B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		796CF810236D781800983E9B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1063,14 +851,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		79672E97236EC8EB0054300B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				79672EA3236EC8EB0054300B /* GKNavigationBarFrameworkTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		796CF7E8236D781400983E9B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1091,7 +871,6 @@
 				796CF8C4236D7BBF00983E9B /* GKWYNewsHomeViewController.m in Sources */,
 				796CF8B2236D7BBF00983E9B /* GKPushTab002ViewController.m in Sources */,
 				796CF8B4236D7BBF00983E9B /* GKTab003ViewController.m in Sources */,
-				79672E11236D88450054300B /* UIView+Layout.m in Sources */,
 				796CF8B8236D7BBF00983E9B /* GKToutiaoMineViewController.m in Sources */,
 				796CF8B7236D7BBF00983E9B /* GKToutiaoViewController.m in Sources */,
 				796CF8D7236D7BBF00983E9B /* GKDemo004ViewController.m in Sources */,
@@ -1099,30 +878,19 @@
 				796CF8B0236D7BBF00983E9B /* GKDemoBaseViewController.m in Sources */,
 				796CF8CA236D7BBF00983E9B /* GKWYNewsLiveViewController.m in Sources */,
 				796CF8C7236D7BBF00983E9B /* GKWYNewsCommentViewController.m in Sources */,
-				79672E1A236D88450054300B /* TZGifPhotoPreviewController.m in Sources */,
 				796CF7F1236D781400983E9B /* AppDelegate.m in Sources */,
-				79672E12236D88450054300B /* TZPhotoPreviewController.m in Sources */,
-				79672E0C236D88450054300B /* TZImageCropManager.m in Sources */,
 				796CF8D5236D7BBF00983E9B /* GKDemo005ViewController.m in Sources */,
-				79672E10236D88450054300B /* NSBundle+TZImagePicker.m in Sources */,
 				796CF8C5236D7BBF00983E9B /* GKWYNewsNewViewController.m in Sources */,
 				796CF8C8236D7BBF00983E9B /* GKWYNewsDetailViewController.m in Sources */,
 				796CF8BF236D7BBF00983E9B /* GKWYMusicFindViewController.m in Sources */,
-				79672E15236D88450054300B /* TZImageManager.m in Sources */,
 				796CF8BD236D7BBF00983E9B /* GKWYMusicDetailViewController.m in Sources */,
 				79672E88236EB41A0054300B /* UIViewController+FullScreen.m in Sources */,
-				79672E0D236D88450054300B /* TZAssetCell.m in Sources */,
-				79672E19236D88450054300B /* TZLocationManager.m in Sources */,
-				79672E17236D88450054300B /* TZPhotoPreviewCell.m in Sources */,
 				796CF8D0236D7BBF00983E9B /* GKDemo011ViewController.m in Sources */,
 				796CF8C3236D7BBF00983E9B /* GKWYNewsViewController.m in Sources */,
 				796CF8DC236D7BBF00983E9B /* GKDouyinPersonalViewController.m in Sources */,
 				796CF8CE236D7BBF00983E9B /* GKDemo001ViewController.m in Sources */,
-				79672E0E236D88450054300B /* TZVideoPlayerController.m in Sources */,
 				796CF8B9236D7BBF00983E9B /* GKToutiaoDetailViewController.m in Sources */,
 				796CF8CC236D7BBF00983E9B /* GKDemo009ViewController.m in Sources */,
-				79672E18236D88450054300B /* TZImagePickerController.m in Sources */,
-				79672E16236D88450054300B /* TZPhotoPickerController.m in Sources */,
 				796CF8BE236D7BBF00983E9B /* GKWYMusicFriendViewController.m in Sources */,
 				796CF8BA236D7BBF00983E9B /* GKToutiaoVideoViewController.m in Sources */,
 				796CF8DD236D7BBF00983E9B /* GKDouyinHomeSearchViewController.m in Sources */,
@@ -1139,7 +907,6 @@
 				796CF8B3236D7BBF00983E9B /* GKTab001ViewController.m in Sources */,
 				796CF8DB236D7BBF00983E9B /* GKDouyinScrollView.m in Sources */,
 				796CF8C2236D7BBF00983E9B /* GKWYMusicViewController.m in Sources */,
-				79672E0F236D88450054300B /* TZAssetModel.m in Sources */,
 				796CF802236D781700983E9B /* main.m in Sources */,
 				796CF8D2236D7BBF00983E9B /* GKDemo007ViewController.m in Sources */,
 				796CF8DA236D7BBF00983E9B /* GKDouyinHomeViewController.m in Sources */,
@@ -1147,7 +914,6 @@
 				796CF8CB236D7BBF00983E9B /* GKDemo010ViewController.m in Sources */,
 				796CF8AF236D7BBF00983E9B /* GKTabBaseViewController.m in Sources */,
 				796CF8CD236D7BBF00983E9B /* GKDemo006ViewController.m in Sources */,
-				79672E14236D88450054300B /* TZProgressView.m in Sources */,
 				796CF8C0236D7BBF00983E9B /* GKWYMusicMineViewController.m in Sources */,
 				796CF8BC236D7BBF00983E9B /* GKToutiaoHomeViewController.m in Sources */,
 				796CF8D9236D7BBF00983E9B /* GKDouyinHomePlayerViewController.m in Sources */,
@@ -1163,41 +929,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		796CF80E236D781800983E9B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				796CF817236D781800983E9B /* GKNavigationBarExampleUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		79672E9E236EC8EB0054300B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 79672E92236EC8EB0054300B /* GKNavigationBarFramework */;
-			targetProxy = 79672E9D236EC8EB0054300B /* PBXContainerItemProxy */;
-		};
-		79672EA0236EC8EB0054300B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 796CF7EB236D781400983E9B /* GKNavigationBarExample */;
-			targetProxy = 79672E9F236EC8EB0054300B /* PBXContainerItemProxy */;
-		};
-		79672EA7236EC8EB0054300B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 79672E92236EC8EB0054300B /* GKNavigationBarFramework */;
-			targetProxy = 79672EA6236EC8EB0054300B /* PBXContainerItemProxy */;
-		};
 		796CF809236D781700983E9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 796CF7EB236D781400983E9B /* GKNavigationBarExample */;
 			targetProxy = 796CF808236D781700983E9B /* PBXContainerItemProxy */;
-		};
-		796CF814236D781800983E9B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 796CF7EB236D781400983E9B /* GKNavigationBarExample */;
-			targetProxy = 796CF813236D781800983E9B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1264,40 +1002,6 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		79672EAF236EC8EB0054300B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GKNavigationBarFrameworkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKNavigationBarFrameworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GKNavigationBarExample.app/GKNavigationBarExample";
-			};
-			name = Debug;
-		};
-		79672EB0236EC8EB0054300B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GKNavigationBarFrameworkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKNavigationBarFrameworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GKNavigationBarExample.app/GKNavigationBarExample";
 			};
 			name = Release;
 		};
@@ -1487,40 +1191,6 @@
 			};
 			name = Release;
 		};
-		796CF822236D781800983E9B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GKNavigationBarExampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKNavigationBarExampleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GKNavigationBarExample;
-			};
-			name = Debug;
-		};
-		796CF823236D781800983E9B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GKNavigationBarExampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKNavigationBarExampleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GKNavigationBarExample;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1529,15 +1199,6 @@
 			buildConfigurations = (
 				79672EAC236EC8EB0054300B /* Debug */,
 				79672EAD236EC8EB0054300B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		79672EAE236EC8EB0054300B /* Build configuration list for PBXNativeTarget "GKNavigationBarFrameworkTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				79672EAF236EC8EB0054300B /* Debug */,
-				79672EB0236EC8EB0054300B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1565,15 +1226,6 @@
 			buildConfigurations = (
 				796CF81F236D781800983E9B /* Debug */,
 				796CF820236D781800983E9B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		796CF821236D781800983E9B /* Build configuration list for PBXNativeTarget "GKNavigationBarExampleUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				796CF822236D781800983E9B /* Debug */,
-				796CF823236D781800983E9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

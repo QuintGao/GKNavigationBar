@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GKPushAnimatedTransition.h"
+#import "GKPopAnimatedTransition.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

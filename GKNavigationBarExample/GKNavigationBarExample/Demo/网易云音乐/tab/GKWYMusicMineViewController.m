@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"我的音乐";
+    self.gk_navigationItem.title = @"我的音乐";
     
     self.gk_navLeftBarButtonItem = [UIBarButtonItem itemWithTitle:@"更多" target:self action:@selector(hideTabBar)];
     

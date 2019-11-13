@@ -9,8 +9,6 @@
 #import "GKTransitionDelegateHandler.h"
 #import "UIViewController+GKCategory.h"
 #import "UINavigationController+GKCategory.h"
-#import "GKPushAnimatedTransition.h"
-#import "GKPopAnimatedTransition.h"
 
 @interface GKNavigationControllerDelegateHandler()
 

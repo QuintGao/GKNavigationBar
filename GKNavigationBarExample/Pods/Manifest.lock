@@ -2,13 +2,17 @@ PODS:
   - JXCategoryView (1.5.2)
   - Masonry (1.1.0)
   - MJRefresh (3.2.0)
+  - TZImagePickerController (3.2.4)
 
 DEPENDENCIES:
   - JXCategoryView
   - Masonry
   - MJRefresh
+  - TZImagePickerController
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - TZImagePickerController
   trunk:
     - JXCategoryView
     - Masonry
@@ -18,7 +22,8 @@ SPEC CHECKSUMS:
   JXCategoryView: b284d35a7a8772eada05dd78642233e1eb763ea8
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
+  TZImagePickerController: d259369c5c2cc96299e53da868ae5be1b24353cd
 
-PODFILE CHECKSUM: d4f8631eb2936c9a28915bcf895d2cdc4dc5e134
+PODFILE CHECKSUM: 092d9e6f70cf162f30be4d2327885033185fa2aa
 
 COCOAPODS: 1.8.4

@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"tab003";
+    self.gk_navigationItem.title = @"tab003";
     self.gk_navBackgroundColor = [UIColor magentaColor];
     
     self.contentText = @"我设置了UITabBarController的滑动范围为距离屏幕左边100像素";

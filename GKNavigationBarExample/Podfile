@@ -8,5 +8,6 @@ target 'GKNavigationBarExample' do
   pod 'Masonry'
   pod 'JXCategoryView'
   pod 'MJRefresh'
+  pod 'TZImagePickerController'
 
 end
