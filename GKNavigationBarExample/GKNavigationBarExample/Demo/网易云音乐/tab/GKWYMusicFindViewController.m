@@ -22,9 +22,9 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.gk_navLeftBarButtonItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"cm2_topbar_icn_playing"] target:self action:@selector(hideTabBar)];
+    self.gk_navLeftBarButtonItem = [UIBarButtonItem gk_itemWithImage:[UIImage imageNamed:@"cm2_topbar_icn_playing"] target:self action:@selector(hideTabBar)];
     
-    self.gk_navRightBarButtonItem = [UIBarButtonItem itemWithTitle:@"关闭" target:self action:@selector(closeAction)];
+    self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"关闭" target:self action:@selector(closeAction)];
     
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 250, 30)];
     textField.layer.cornerRadius = 15;

@@ -102,7 +102,7 @@ static char kAssociatedObjectKey_backStyle;
         UIImage *backImage = [UIImage gk_imageNamed:imageName];
         
         if (self.gk_NavBarInit) {
-            self.gk_navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:backImage target:self action:@selector(backItemClick:)];
+            self.gk_navigationItem.leftBarButtonItem = [UIBarButtonItem gk_itemWithImage:backImage target:self action:@selector(backItemClick:)];
         }
     }
 }
@@ -441,7 +441,7 @@ static char kAssociatedObjectKey_navItemLeftSpace;
 }
 
 - (CGFloat)gk_navItemLeftSpace {
-    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_navItemLeftSpace) boolValue];
+    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_navItemLeftSpace) floatValue];
 }
 
 static char kAssociatedObjectKey_navItemRightSpace;
@@ -457,7 +457,7 @@ static char kAssociatedObjectKey_navItemRightSpace;
 }
 
 - (CGFloat)gk_navItemRightSpace {
-    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_navItemRightSpace) boolValue];
+    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_navItemRightSpace) floatValue];
 }
 
 #pragma mark - Public Methods
@@ -560,7 +560,7 @@ static char kAssociatedObjectKey_lastNavItemRightSpace;
 }
 
 - (CGFloat)last_navItemRightSpace {
-    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_lastNavItemRightSpace) boolValue];
+    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_lastNavItemRightSpace) floatValue];
 }
 
 static char kAssociatedObjectKey_isSettingItemSpace;

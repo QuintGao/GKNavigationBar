@@ -17,7 +17,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.gk_navRightBarButtonItem = [UIBarButtonItem itemWithTitle:@"关闭" target:self action:@selector(closeAction)];
+    self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"关闭" target:self action:@selector(closeAction)];
 }
 
 - (void)closeAction {

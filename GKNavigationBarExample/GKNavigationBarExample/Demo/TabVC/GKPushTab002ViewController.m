@@ -27,7 +27,7 @@
         self.contentText = @"我支持左滑push，不隐藏tabbar，不带缩放";
     }
     
-    self.gk_navRightBarButtonItem = [UIBarButtonItem itemWithTitle:@"返回" target:self action:@selector(dismiss)];
+    self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"返回" target:self action:@selector(dismiss)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

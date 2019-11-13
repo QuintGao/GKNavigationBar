@@ -32,7 +32,7 @@
     self.gk_navBackgroundColor = [UIColor clearColor];
     self.gk_statusBarHidden = YES;
     
-    self.gk_navRightBarButtonItem = [UIBarButtonItem itemWithTitle:@"关闭" target:self action:@selector(closeAction)];
+    self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"关闭" target:self action:@selector(closeAction)];
     
     [self.view addSubview:self.scrollView];
     self.scrollView.frame = self.view.bounds;

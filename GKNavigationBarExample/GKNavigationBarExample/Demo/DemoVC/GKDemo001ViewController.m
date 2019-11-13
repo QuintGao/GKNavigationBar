@@ -30,9 +30,9 @@
     self.gk_navItemRightSpace       = 12.0f;
     self.gk_navItemLeftSpace        = 16.0f;
     
-    UIBarButtonItem *cancelBtn = [UIBarButtonItem itemWithTitle:@"取消" target:self action:@selector(dismiss)];
+    UIBarButtonItem *cancelBtn = [UIBarButtonItem gk_itemWithTitle:@"取消" target:self action:@selector(dismiss)];
     
-    UIBarButtonItem *backBtn = [UIBarButtonItem itemWithTitle:@"返回" target:self action:@selector(dismiss)];
+    UIBarButtonItem *backBtn = [UIBarButtonItem gk_itemWithTitle:@"返回" target:self action:@selector(dismiss)];
     self.gk_navLeftBarButtonItem    = backBtn;
     self.gk_navRightBarButtonItem   = cancelBtn;
     

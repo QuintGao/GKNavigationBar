@@ -22,15 +22,15 @@
     
     self.gk_navBackgroundColor = [UIColor colorWithRed:(200 / 255.0) green:(39 / 255.0) blue:(39 / 255.0) alpha:1.0];
     
-    UIBarButtonItem *backItem = [UIBarButtonItem itemWithTitle:@"返回" target:self action:@selector(backAction)];
+    UIBarButtonItem *backItem = [UIBarButtonItem gk_itemWithTitle:@"返回" target:self action:@selector(backAction)];
     
-    UIBarButtonItem *moreItem = [UIBarButtonItem itemWithTitle:@"更多" target:self action:@selector(moreAction)];
+    UIBarButtonItem *moreItem = [UIBarButtonItem gk_itemWithTitle:@"更多" target:self action:@selector(moreAction)];
     
     self.gk_navLeftBarButtonItems = @[backItem, moreItem];
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.gk_navRightBarButtonItem = [UIBarButtonItem itemWithTitle:@"关闭" target:self action:@selector(closeAction)];
+    self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"关闭" target:self action:@selector(closeAction)];
 }
 
 - (void)backAction {

@@ -22,7 +22,7 @@
     
     self.gk_navBackgroundColor = [UIColor colorWithRed:(212 / 255.0) green:(25 /255.0) blue:(37 / 255.0) alpha:1.0];
     
-    self.gk_navRightBarButtonItem = [UIBarButtonItem itemWithTitle:@"关闭" target:self action:@selector(closeAction)];
+    self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"关闭" target:self action:@selector(closeAction)];
     
     UIImageView *pageImage = [UIImageView new];
     pageImage.frame = CGRectMake(0, GK_STATUSBAR_NAVBAR_HEIGHT, self.view.frame.size.width, self.view.frame.size.height - GK_STATUSBAR_NAVBAR_HEIGHT - GK_TABBAR_HEIGHT);

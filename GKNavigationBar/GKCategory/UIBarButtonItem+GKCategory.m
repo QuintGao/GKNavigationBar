@@ -10,27 +10,27 @@
 
 @implementation UIBarButtonItem (GKCategory)
 
-+ (instancetype)itemWithTitle:(NSString *)title target:(id)target action:(SEL)action {
++ (instancetype)gk_itemWithTitle:(NSString *)title target:(id)target action:(SEL)action {
     UIImage *image = nil;
-    return [self itemWithTitle:title image:image target:target action:action];
+    return [self gk_itemWithTitle:title image:image target:target action:action];
 }
 
-+ (instancetype)itemWithImage:(UIImage *)image target:(id)target action:(SEL)action {
++ (instancetype)gk_itemWithImage:(UIImage *)image target:(id)target action:(SEL)action {
     NSString *title = nil;
-    return [self itemWithTitle:title image:image target:target action:action];
+    return [self gk_itemWithTitle:title image:image target:target action:action];
 }
 
-+ (instancetype)itemWithTitle:(NSString *)title image:(UIImage *)image target:(id)target action:(SEL)action {
++ (instancetype)gk_itemWithTitle:(NSString *)title image:(UIImage *)image target:(id)target action:(SEL)action {
     UIImage *highLightImage = nil;
-    return [self itemWithTitle:title image:image highLightImage:highLightImage target:target action:action];
+    return [self gk_itemWithTitle:title image:image highLightImage:highLightImage target:target action:action];
 }
 
-+ (instancetype)itemWithImage:(UIImage *)image highLightImage:(UIImage *)highLightImage target:(id)target action:(SEL)action {
++ (instancetype)gk_itemWithImage:(UIImage *)image highLightImage:(UIImage *)highLightImage target:(id)target action:(SEL)action {
     NSString *title = nil;
-    return [self itemWithTitle:title image:image highLightImage:highLightImage target:target action:action];
+    return [self gk_itemWithTitle:title image:image highLightImage:highLightImage target:target action:action];
 }
 
-+ (instancetype)itemWithTitle:(NSString *)title image:(UIImage *)image highLightImage:(UIImage *)highLightImage target:(id)target action:(SEL)action {
++ (instancetype)gk_itemWithTitle:(NSString *)title image:(UIImage *)image highLightImage:(UIImage *)highLightImage target:(id)target action:(SEL)action {
     UIButton *button = [UIButton new];
     if (title) {
         [button setTitle:title forState:UIControlStateNormal];

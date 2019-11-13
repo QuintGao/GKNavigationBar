@@ -56,8 +56,6 @@
     self.gk_navTitleFont = [UIFont systemFontOfSize:18.0f];
     self.gk_navTitleColor = [UIColor whiteColor];
     
-    
-    
     [self setupTableView];
 }
 

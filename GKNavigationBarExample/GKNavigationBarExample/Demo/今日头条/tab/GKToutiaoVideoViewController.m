@@ -19,7 +19,7 @@
     [super viewDidLoad];
     
     self.gk_navBackgroundImage = [UIImage imageNamed:@"video_nav"];
-    self.gk_navRightBarButtonItem = [UIBarButtonItem itemWithTitle:@"关闭" target:self action:@selector(closeAction)];
+    self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"关闭" target:self action:@selector(closeAction)];
     
     UIImageView *pageImage = [UIImageView new];
     pageImage.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - GK_TABBAR_HEIGHT);

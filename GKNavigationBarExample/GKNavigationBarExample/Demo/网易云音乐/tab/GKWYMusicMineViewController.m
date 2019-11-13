@@ -20,9 +20,9 @@
     
     self.gk_navigationItem.title = @"我的音乐";
     
-    self.gk_navLeftBarButtonItem = [UIBarButtonItem itemWithTitle:@"更多" target:self action:@selector(hideTabBar)];
+    self.gk_navLeftBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"更多" target:self action:@selector(hideTabBar)];
     
-    self.gk_navRightBarButtonItem = [UIBarButtonItem itemWithTitle:@"关闭" target:self action:@selector(closeAction)];
+    self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"关闭" target:self action:@selector(closeAction)];
     
     self.gk_navBackgroundColor = [UIColor colorWithRed:(200 / 255.0) green:(39 / 255.0) blue:(39 / 255.0) alpha:1.0];
     
