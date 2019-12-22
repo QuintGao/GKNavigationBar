@@ -42,6 +42,7 @@ self.gk_navBackgroundColor = [UIColor red]
 更多属性及方法可在demo中查看
 
 ## 版本记录
+* 0.0.4 - 2019.12.22 优化状态栏切换功能
 * 0.0.3 - 2019.11.12 修复设置导航栏左右间距无效的问题
 * 0.0.2 - 2019.11.04 优化代码，解决只调用gk_navigationItem时导航栏不出现的bug
 * 0.0.1 - 2019.11.03 对GKNavigationBarViewController做了修改，使用更方便

@@ -22,8 +22,10 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
+    self.gk_navBarAlpha = 0.5f;
+    self.gk_statusBarStyle = UIStatusBarStyleDefault;
     self.gk_navigationItem.title = @"控制器002";
-    self.gk_navBackgroundColor = [UIColor clearColor];
+    self.gk_navBackgroundColor = [UIColor blueColor];
     self.gk_backStyle = GKNavigationBarBackStyleBlack;
     
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -39,9 +41,6 @@
     [btn setTitle:@"Push" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
-    
-    
-    self.gk_statusBarStyle = UIStatusBarStyleDefault;
 }
 
 - (void)btnAction {

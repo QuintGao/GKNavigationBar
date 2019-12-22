@@ -11,23 +11,19 @@
 @implementation UIBarButtonItem (GKCategory)
 
 + (instancetype)gk_itemWithTitle:(NSString *)title target:(id)target action:(SEL)action {
-    UIImage *image = nil;
-    return [self gk_itemWithTitle:title image:image target:target action:action];
+    return [self gk_itemWithTitle:title image:nil target:target action:action];
 }
 
 + (instancetype)gk_itemWithImage:(UIImage *)image target:(id)target action:(SEL)action {
-    NSString *title = nil;
-    return [self gk_itemWithTitle:title image:image target:target action:action];
+    return [self gk_itemWithTitle:nil image:image target:target action:action];
 }
 
 + (instancetype)gk_itemWithTitle:(NSString *)title image:(UIImage *)image target:(id)target action:(SEL)action {
-    UIImage *highLightImage = nil;
-    return [self gk_itemWithTitle:title image:image highLightImage:highLightImage target:target action:action];
+    return [self gk_itemWithTitle:title image:image highLightImage:nil target:target action:action];
 }
 
 + (instancetype)gk_itemWithImage:(UIImage *)image highLightImage:(UIImage *)highLightImage target:(id)target action:(SEL)action {
-    NSString *title = nil;
-    return [self gk_itemWithTitle:title image:image highLightImage:highLightImage target:target action:action];
+    return [self gk_itemWithTitle:nil image:image highLightImage:highLightImage target:target action:action];
 }
 
 + (instancetype)gk_itemWithTitle:(NSString *)title image:(UIImage *)image highLightImage:(UIImage *)highLightImage target:(id)target action:(SEL)action {

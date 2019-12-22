@@ -51,8 +51,8 @@ static char kAssociatedObjectKey_maxPopDistance;
 static char kAssociatedObjectKey_navBarAlpha;
 - (void)setGk_navBarAlpha:(CGFloat)gk_navBarAlpha {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navBarAlpha, @(gk_navBarAlpha), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
-    [self setupNavBarAlpha:gk_navBarAlpha];
+
+    self.gk_navigationBar.gk_navBarBackgroundAlpha = gk_navBarAlpha;
 }
 
 - (CGFloat)gk_navBarAlpha {
@@ -71,7 +71,8 @@ static char kAssociatedObjectKey_statusBarHidden;
 }
 
 - (BOOL)gk_statusBarHidden {
-    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_statusBarHidden) boolValue];
+    id hidden = objc_getAssociatedObject(self, &kAssociatedObjectKey_statusBarHidden);
+    return (hidden != nil) ? [hidden boolValue] : GKConfigure.statusBarHidden;
 }
 
 static char kAssociatedObjectKey_statusBarStyle;
@@ -87,7 +88,7 @@ static char kAssociatedObjectKey_statusBarStyle;
 
 - (UIStatusBarStyle)gk_statusBarStyle {
     id style = objc_getAssociatedObject(self, &kAssociatedObjectKey_statusBarStyle);
-    return (style != nil) ? [style integerValue] : UIStatusBarStyleDefault;
+    return (style != nil) ? [style integerValue] : GKConfigure.statusBarStyle;
 }
 
 static char kAssociatedObjectKey_backStyle;
@@ -110,7 +111,7 @@ static char kAssociatedObjectKey_backStyle;
 - (GKNavigationBarBackStyle)gk_backStyle {
     id style = objc_getAssociatedObject(self, &kAssociatedObjectKey_backStyle);
     
-    return (style != nil) ? [style integerValue] : GKNavigationBarBackStyleNone;
+    return (style != nil) ? [style integerValue] : GKConfigure.backStyle;
 }
 
 static char kAssociatedObjectKey_pushDelegate;
@@ -135,31 +136,6 @@ static char kAssociatedObjectKey_popDelegate;
 // 发送属性改变通知
 - (void)postPropertyChangeNotification {
     [[NSNotificationCenter defaultCenter] postNotificationName:GKViewControllerPropertyChangedNotification object:@{@"viewController": self}];
-}
-
-- (void)setupNavBarAlpha:(CGFloat)alpha {
-    if (self.gk_NavBarInit) {
-        self.gk_navigationBar.gk_navBarBackgroundAlpha = alpha;
-    }else {
-        UINavigationBar *navBar = self.navigationController.navigationBar;
-        
-        UIView *barBackgroundView = [navBar.subviews objectAtIndex:0]; // _UIBarBackground
-        UIImageView *backgroundImageView = [barBackgroundView.subviews objectAtIndex:0]; // UIImageView
-        if (navBar.isTranslucent) {
-            if (backgroundImageView != nil && backgroundImageView.image != nil) {
-                barBackgroundView.alpha = alpha;
-            }else {
-                UIView *backgroundEffectView = [barBackgroundView.subviews objectAtIndex:1]; // UIVisualEffectView
-                if (backgroundEffectView != nil) {
-                    backgroundEffectView.alpha = alpha;
-                }
-            }
-        }else {
-            barBackgroundView.alpha = alpha;
-        }
-        // 分割线
-        navBar.clipsToBounds = alpha == 0.0f;
-    }
 }
 
 - (void)backItemClick:(id)sender {
@@ -218,7 +194,7 @@ static char kAssociatedObjectKey_popDelegate;
         // 重置navItem_space
         [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
             configure.gk_navItemLeftSpace  = self.last_navItemLeftSpace;
-            configure.gk_navItemRightSpace = self.gk_navItemRightSpace;
+            configure.gk_navItemRightSpace = self.last_navItemRightSpace;
         }];
     }
     [self gk_viewWillDisappear:animated];
@@ -297,7 +273,8 @@ static char kAssociatedObjectKey_navBackgroundColor;
 }
 
 - (UIColor *)gk_navBackgroundColor {
-    return objc_getAssociatedObject(self, &kAssociatedObjectKey_navBackgroundColor);
+    id objc = objc_getAssociatedObject(self, &kAssociatedObjectKey_navBackgroundColor);
+    return (objc != nil) ? objc : GKConfigure.backgroundColor;
 }
 
 static char kAssociatedObjectKey_navBackgroundImage;
@@ -364,24 +341,24 @@ static char kAssociatedObjectKey_navTitleColor;
 - (void)setGk_navTitleColor:(UIColor *)gk_navTitleColor {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navTitleColor, gk_navTitleColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    UIFont *titleFont = self.gk_navTitleFont ? self.gk_navTitleFont : GKConfigure.titleFont;
-    self.gk_navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: gk_navTitleColor, NSFontAttributeName: titleFont};
+    self.gk_navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: gk_navTitleColor, NSFontAttributeName: self.gk_navTitleFont};
 }
 
 - (UIColor *)gk_navTitleColor {
-    return objc_getAssociatedObject(self, &kAssociatedObjectKey_navTitleColor);
+    id objc = objc_getAssociatedObject(self, &kAssociatedObjectKey_navTitleColor);
+    return (objc != nil) ? objc : GKConfigure.titleColor;
 }
 
 static char kAssociatedObjectKey_navTitleFont;
 - (void)setGk_navTitleFont:(UIFont *)gk_navTitleFont {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navTitleFont, gk_navTitleFont, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    UIColor *titleColor = self.gk_navTitleColor ? self.gk_navTitleColor : GKConfigure.titleColor;
-    self.gk_navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: titleColor, NSFontAttributeName: gk_navTitleFont};
+    self.gk_navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: self.gk_navTitleColor, NSFontAttributeName: gk_navTitleFont};
 }
 
 - (UIFont *)gk_navTitleFont {
-    return objc_getAssociatedObject(self, &kAssociatedObjectKey_navTitleFont);
+    id objc = objc_getAssociatedObject(self, &kAssociatedObjectKey_navTitleFont);
+    return (objc != nil) ? objc : GKConfigure.titleFont;
 }
 
 static char kAssociatedObjectKey_navLeftBarButtonItem;
@@ -496,24 +473,8 @@ static char kAssociatedObjectKey_navItemRightSpace;
 
 #pragma mark - Private Methods
 - (void)setupNavBarAppearance {
+    GKNavigationBarConfigure *configure = GKConfigure;
     
-    GKNavigationBarConfigure *configure = [GKNavigationBarConfigure sharedInstance];
-    
-    if (configure.backgroundColor) {
-        self.gk_navBackgroundColor = configure.backgroundColor;
-    }
-    
-    if (configure.titleColor) {
-        self.gk_navTitleColor = configure.titleColor;
-    }
-    
-    if (configure.titleFont) {
-        self.gk_navTitleFont = configure.titleFont;
-    }
-    
-    self.gk_statusBarHidden     = configure.statusBarHidden;
-    self.gk_statusBarStyle      = configure.statusBarStyle;
-    self.gk_backStyle           = configure.backStyle;
     self.isSettingItemSpace     = YES;
     self.gk_navItemLeftSpace    = configure.gk_navItemLeftSpace;
     self.gk_navItemRightSpace   = configure.gk_navItemRightSpace;

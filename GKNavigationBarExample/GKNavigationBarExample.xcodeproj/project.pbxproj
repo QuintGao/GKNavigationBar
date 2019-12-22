@@ -104,6 +104,8 @@
 		796CF8DB236D7BBF00983E9B /* GKDouyinScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF8AA236D7BBF00983E9B /* GKDouyinScrollView.m */; };
 		796CF8DC236D7BBF00983E9B /* GKDouyinPersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF8AB236D7BBF00983E9B /* GKDouyinPersonalViewController.m */; };
 		796CF8DD236D7BBF00983E9B /* GKDouyinHomeSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF8AC236D7BBF00983E9B /* GKDouyinHomeSearchViewController.m */; };
+		79C6AFEC237ED92900C636B9 /* GKDemo014ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C6AFEB237ED92900C636B9 /* GKDemo014ViewController.m */; };
+		79C6AFEE237EDC7000C636B9 /* 014.txt in Resources */ = {isa = PBXBuildFile; fileRef = 79C6AFED237EDC7000C636B9 /* 014.txt */; };
 		A8DAB537E488DAD24E9CB664 /* Pods_GKNavigationBarExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E89D0D10B663CF9EF209C1 /* Pods_GKNavigationBarExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -265,6 +267,9 @@
 		796CF8AC236D7BBF00983E9B /* GKDouyinHomeSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDouyinHomeSearchViewController.m; sourceTree = "<group>"; };
 		796CF8AD236D7BBF00983E9B /* GKDouyinHomePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDouyinHomePlayerViewController.h; sourceTree = "<group>"; };
 		796CF8DE236D7BD900983E9B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		79C6AFEA237ED92900C636B9 /* GKDemo014ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKDemo014ViewController.h; sourceTree = "<group>"; };
+		79C6AFEB237ED92900C636B9 /* GKDemo014ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKDemo014ViewController.m; sourceTree = "<group>"; };
+		79C6AFED237EDC7000C636B9 /* 014.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 014.txt; sourceTree = "<group>"; };
 		C2B06F1CBCB2622ACE63E239 /* Pods-GKNavigationBarExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKNavigationBarExample.release.xcconfig"; path = "Target Support Files/Pods-GKNavigationBarExample/Pods-GKNavigationBarExample.release.xcconfig"; sourceTree = "<group>"; };
 		C3518698EA725761EF29764E /* Pods-GKNavigationBarExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKNavigationBarExample.debug.xcconfig"; path = "Target Support Files/Pods-GKNavigationBarExample/Pods-GKNavigationBarExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -614,6 +619,9 @@
 				796CF89A236D7BBF00983E9B /* GKDemo013ViewController.m */,
 				796CF899236D7BBF00983E9B /* GKDemo013PushViewController.h */,
 				796CF88E236D7BBF00983E9B /* GKDemo013PushViewController.m */,
+				79C6AFEA237ED92900C636B9 /* GKDemo014ViewController.h */,
+				79C6AFEB237ED92900C636B9 /* GKDemo014ViewController.m */,
+				79C6AFED237EDC7000C636B9 /* 014.txt */,
 			);
 			path = DemoVC;
 			sourceTree = "<group>";
@@ -772,6 +780,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79C6AFEE237EDC7000C636B9 /* 014.txt in Resources */,
 				79672E84236EA7530054300B /* GKNavigationBar.bundle in Resources */,
 				79672E8D236EC0740054300B /* GKNavigationBar.podspec in Resources */,
 				79672E8B236EC0520054300B /* README.md in Resources */,
@@ -886,6 +895,7 @@
 				796CF8BD236D7BBF00983E9B /* GKWYMusicDetailViewController.m in Sources */,
 				79672E88236EB41A0054300B /* UIViewController+FullScreen.m in Sources */,
 				796CF8D0236D7BBF00983E9B /* GKDemo011ViewController.m in Sources */,
+				79C6AFEC237ED92900C636B9 /* GKDemo014ViewController.m in Sources */,
 				796CF8C3236D7BBF00983E9B /* GKWYNewsViewController.m in Sources */,
 				796CF8DC236D7BBF00983E9B /* GKDouyinPersonalViewController.m in Sources */,
 				796CF8CE236D7BBF00983E9B /* GKDemo001ViewController.m in Sources */,

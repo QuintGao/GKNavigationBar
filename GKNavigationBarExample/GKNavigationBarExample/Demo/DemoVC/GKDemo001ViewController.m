@@ -16,14 +16,20 @@
 
 @implementation GKDemo001ViewController
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.gk_statusBarStyle = UIStatusBarStyleLightContent;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    self.gk_statusBarStyle       = UIStatusBarStyleLightContent;
     self.gk_navigationItem.title = @"控制器001";
-    
     self.view.backgroundColor    = [UIColor whiteColor];
     self.gk_navBackgroundColor   = [UIColor orangeColor];
-    self.gk_statusBarStyle       = UIStatusBarStyleLightContent;
     self.gk_backStyle            = GKNavigationBarBackStyleWhite;
     self.gk_navLineHidden        = YES;
     
