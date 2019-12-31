@@ -15,6 +15,13 @@
 
 @implementation GKWYMusicFriendViewController
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.gk_statusBarStyle = UIStatusBarStyleLightContent;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

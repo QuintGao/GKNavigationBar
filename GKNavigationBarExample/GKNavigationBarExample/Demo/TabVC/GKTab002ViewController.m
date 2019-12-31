@@ -15,6 +15,13 @@
 
 @implementation GKTab002ViewController
 
+- (instancetype)init {
+    if ([super init]) {
+        self.gk_statusBarStyle = UIStatusBarStyleLightContent;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
