@@ -15,6 +15,13 @@
 
 @implementation GKWYMusicMineViewController
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.gk_statusBarStyle = UIStatusBarStyleLightContent;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -38,6 +45,10 @@
     
     pageImage.userInteractionEnabled = YES;
     [pageImage addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pageAction)]];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)pageAction {

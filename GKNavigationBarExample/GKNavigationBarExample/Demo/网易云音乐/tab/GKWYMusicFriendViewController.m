@@ -40,6 +40,10 @@
     self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"关闭" target:self action:@selector(closeAction)];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)backAction {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

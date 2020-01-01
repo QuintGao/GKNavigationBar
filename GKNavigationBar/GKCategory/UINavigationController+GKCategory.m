@@ -91,6 +91,14 @@ static char kAssociatedObjectKey_openGestureHandle;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:GKViewControllerPropertyChangedNotification object:nil];
 }
 
+- (UIViewController *)childViewControllerForStatusBarHidden {
+    return self.topViewController;
+}
+
+- (UIViewController *)childViewControllerForStatusBarStyle {
+    return self.topViewController;
+}
+
 #pragma mark - Notifiaction
 - (void)propertyChangeNotification:(NSNotification *)notification {
     UIViewController *vc = (UIViewController *)notification.object[@"viewController"];
