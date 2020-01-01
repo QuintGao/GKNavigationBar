@@ -213,8 +213,6 @@ static char kAssociatedObjectKey_popDelegate;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-    NSLog(@"%zd", self.gk_statusBarStyle);
-    
     return self.gk_statusBarStyle;
 }
 
