@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.gk_statusBarStyle       = UIStatusBarStyleLightContent;
+    self.gk_statusBarStyle       = UIStatusBarStyleLightContent;
     self.gk_navigationItem.title = @"控制器001";
     self.view.backgroundColor    = [UIColor whiteColor];
     self.gk_navBackgroundColor   = [UIColor orangeColor];
