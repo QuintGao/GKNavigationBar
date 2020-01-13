@@ -44,6 +44,9 @@ NO)
 // 设备版本号，只获取到第二级的版本号，例如 10.3.1 只会获取到10.3
 #define GKDeviceVersion             [UIDevice currentDevice].systemVersion.doubleValue
 
+// 导航栏间距，用于不同控制器之间的间距
+static const CGFloat GKNavigationBarItemSpace = -1;
+
 // 返回按钮样式
 typedef NS_ENUM(NSUInteger, GKNavigationBarBackStyle) {
     GKNavigationBarBackStyleNone,   // 无返回按钮

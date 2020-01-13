@@ -170,6 +170,14 @@ static char kAssociatedObjectKey_popDelegate;
             [self.view bringSubviewToFront:self.gk_navigationBar];
         }
         
+        if (self.gk_navItemLeftSpace == GKNavigationBarItemSpace) {
+            self.gk_navItemLeftSpace = GKConfigure.gk_navItemLeftSpace;
+        }
+        
+        if (self.gk_navItemRightSpace == GKNavigationBarItemSpace) {
+            self.gk_navItemRightSpace = GKConfigure.gk_navItemRightSpace;
+        }
+        
         // 重置navItem_space
         [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
             configure.gk_navItemLeftSpace  = self.gk_navItemLeftSpace;
@@ -409,11 +417,10 @@ static char kAssociatedObjectKey_navItemLeftSpace;
 - (void)setGk_navItemLeftSpace:(CGFloat)gk_navItemLeftSpace {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navItemLeftSpace, @(gk_navItemLeftSpace), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    if (self.isSettingItemSpace) return;
+    if (gk_navItemLeftSpace == GKNavigationBarItemSpace) return;
     
     [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
         configure.gk_navItemLeftSpace = gk_navItemLeftSpace;
-        configure.gk_navItemRightSpace = self.gk_navItemRightSpace;
     }];
 }
 
@@ -425,10 +432,9 @@ static char kAssociatedObjectKey_navItemRightSpace;
 - (void)setGk_navItemRightSpace:(CGFloat)gk_navItemRightSpace {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navItemRightSpace, @(gk_navItemRightSpace), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    if (self.isSettingItemSpace) return;
+    if (gk_navItemRightSpace == GKNavigationBarItemSpace) return;
     
     [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
-        configure.gk_navItemLeftSpace = self.gk_navItemLeftSpace;
         configure.gk_navItemRightSpace = gk_navItemRightSpace;
     }];
 }
@@ -475,12 +481,10 @@ static char kAssociatedObjectKey_navItemRightSpace;
 - (void)setupNavBarAppearance {
     GKNavigationBarConfigure *configure = GKConfigure;
     
-    self.isSettingItemSpace     = YES;
-    self.gk_navItemLeftSpace    = configure.gk_navItemLeftSpace;
-    self.gk_navItemRightSpace   = configure.gk_navItemRightSpace;
+    self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
+    self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
     self.last_navItemLeftSpace  = configure.gk_navItemLeftSpace;
     self.last_navItemRightSpace = configure.gk_navItemRightSpace;
-    self.isSettingItemSpace     = NO;
 }
 
 - (void)setupNavBarFrame {
@@ -522,15 +526,6 @@ static char kAssociatedObjectKey_lastNavItemRightSpace;
 
 - (CGFloat)last_navItemRightSpace {
     return [objc_getAssociatedObject(self, &kAssociatedObjectKey_lastNavItemRightSpace) floatValue];
-}
-
-static char kAssociatedObjectKey_isSettingItemSpace;
-- (void)setIsSettingItemSpace:(BOOL)isSettingItemSpace {
-    objc_setAssociatedObject(self, &kAssociatedObjectKey_isSettingItemSpace, @(isSettingItemSpace), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (BOOL)isSettingItemSpace {
-    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_isSettingItemSpace) boolValue];
 }
 
 @end

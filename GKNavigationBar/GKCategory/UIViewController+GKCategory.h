@@ -111,7 +111,6 @@ UIKIT_EXTERN NSString *const GKViewControllerPropertyChangedNotification;
 #pragma mark - 内部使用不必关心
 @property (nonatomic, assign, readonly) CGFloat last_navItemLeftSpace;
 @property (nonatomic, assign, readonly) CGFloat last_navItemRightSpace;
-@property (nonatomic, assign, readonly) BOOL    isSettingItemSpace;
 
 @end
 
