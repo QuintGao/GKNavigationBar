@@ -58,13 +58,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat gk_scaleX;
 @property (nonatomic, assign) CGFloat gk_scaleY;
 
+/// 导航栏左右间距，内部使用
+@property (nonatomic, assign, readonly) CGFloat navItemLeftSpace;
+@property (nonatomic, assign, readonly) CGFloat navItemRightSpace;
+
 /// 单例，设置一次全局使用
 + (instancetype)sharedInstance;
 
 /// 设置默认配置
 - (void)setupDefaultConfigure;
 
-/// 设置自定义配置
+/// 设置自定义配置，此方法只需调用一次
 /// @param block 配置回调
 - (void)setupCustomConfigure:(void (^)(GKNavigationBarConfigure *configure))block;
 

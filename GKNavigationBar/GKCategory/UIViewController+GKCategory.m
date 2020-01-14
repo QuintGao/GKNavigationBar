@@ -187,6 +187,7 @@ static char kAssociatedObjectKey_popDelegate;
         // 状态栏是否隐藏
         self.gk_navigationBar.gk_statusBarHidden = self.gk_statusBarHidden;
     }
+    
     [self gk_viewWillAppear:animated];
 }
 
@@ -198,13 +199,11 @@ static char kAssociatedObjectKey_popDelegate;
 }
 
 - (void)gk_viewWillDisappear:(BOOL)animated {
-    if (self.gk_NavBarInit) {
-        // 重置navItem_space
-        [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
-            configure.gk_navItemLeftSpace  = self.last_navItemLeftSpace;
-            configure.gk_navItemRightSpace = self.last_navItemRightSpace;
-        }];
-    }
+    [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
+        configure.gk_navItemLeftSpace  = configure.navItemLeftSpace;
+        configure.gk_navItemRightSpace = configure.navItemRightSpace;
+    }];
+    
     [self gk_viewWillDisappear:animated];
 }
 
@@ -241,8 +240,9 @@ static char kAssociatedObjectKey_navigationBar;
         self.gk_NavBarInit = YES;
         self.gk_navigationBar = navigationBar;
         
-        // 设置导航栏外观
-        [self setupNavBarAppearance];
+        // 设置默认导航栏间距
+        self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
+        self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
     }
     return navigationBar;
 }
@@ -478,15 +478,6 @@ static char kAssociatedObjectKey_navItemRightSpace;
 }
 
 #pragma mark - Private Methods
-- (void)setupNavBarAppearance {
-    GKNavigationBarConfigure *configure = GKConfigure;
-    
-    self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
-    self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
-    self.last_navItemLeftSpace  = configure.gk_navItemLeftSpace;
-    self.last_navItemRightSpace = configure.gk_navItemRightSpace;
-}
-
 - (void)setupNavBarFrame {
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat height = [UIScreen mainScreen].bounds.size.height;
@@ -508,24 +499,6 @@ static char kAssociatedObjectKey_navItemRightSpace;
     self.gk_navigationBar.frame = CGRectMake(0, 0, width, navBarH);
     self.gk_navigationBar.gk_statusBarHidden = self.gk_statusBarHidden;
     [self.gk_navigationBar layoutSubviews];
-}
-
-static char kAssociatedObjectKey_lastNavItemLeftSpace;
-- (void)setLast_navItemLeftSpace:(CGFloat)last_navItemLeftSpace {
-    objc_setAssociatedObject(self, &kAssociatedObjectKey_lastNavItemLeftSpace, @(last_navItemLeftSpace), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (CGFloat)last_navItemLeftSpace {
-    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_lastNavItemLeftSpace) floatValue];
-}
-
-static char kAssociatedObjectKey_lastNavItemRightSpace;
-- (void)setLast_navItemRightSpace:(CGFloat)last_navItemRightSpace {
-    objc_setAssociatedObject(self, &kAssociatedObjectKey_lastNavItemRightSpace, @(last_navItemRightSpace), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (CGFloat)last_navItemRightSpace {
-    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_lastNavItemRightSpace) floatValue];
 }
 
 @end

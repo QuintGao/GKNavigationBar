@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60E2CA2923CC743900FB903C /* GKDemo015ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E2CA2823CC743900FB903C /* GKDemo015ViewController.m */; };
 		79672E6D236D8C1B0054300B /* GKTransitionDelegateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E4E236D8BDA0054300B /* GKTransitionDelegateHandler.m */; };
 		79672E78236D8C960054300B /* GKNavigationBarConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E57236D8BDA0054300B /* GKNavigationBarConfigure.m */; };
 		79672E79236D8C960054300B /* GKPopAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E4F236D8BDA0054300B /* GKPopAnimatedTransition.m */; };
@@ -121,6 +122,8 @@
 
 /* Begin PBXFileReference section */
 		15E89D0D10B663CF9EF209C1 /* Pods_GKNavigationBarExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GKNavigationBarExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		60E2CA2723CC743900FB903C /* GKDemo015ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKDemo015ViewController.h; sourceTree = "<group>"; };
+		60E2CA2823CC743900FB903C /* GKDemo015ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKDemo015ViewController.m; sourceTree = "<group>"; };
 		79672E4C236D8BDA0054300B /* GKPushAnimatedTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKPushAnimatedTransition.h; sourceTree = "<group>"; };
 		79672E4D236D8BDA0054300B /* GKBaseAnimatedTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKBaseAnimatedTransition.h; sourceTree = "<group>"; };
 		79672E4E236D8BDA0054300B /* GKTransitionDelegateHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKTransitionDelegateHandler.m; sourceTree = "<group>"; };
@@ -621,6 +624,8 @@
 				796CF88E236D7BBF00983E9B /* GKDemo013PushViewController.m */,
 				79C6AFEA237ED92900C636B9 /* GKDemo014ViewController.h */,
 				79C6AFEB237ED92900C636B9 /* GKDemo014ViewController.m */,
+				60E2CA2723CC743900FB903C /* GKDemo015ViewController.h */,
+				60E2CA2823CC743900FB903C /* GKDemo015ViewController.m */,
 				79C6AFED237EDC7000C636B9 /* 014.txt */,
 			);
 			path = DemoVC;
@@ -928,6 +933,7 @@
 				796CF8BC236D7BBF00983E9B /* GKToutiaoHomeViewController.m in Sources */,
 				796CF8D9236D7BBF00983E9B /* GKDouyinHomePlayerViewController.m in Sources */,
 				796CF8B5236D7BBF00983E9B /* GKTab002ViewController.m in Sources */,
+				60E2CA2923CC743900FB903C /* GKDemo015ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1130,7 +1136,9 @@
 			baseConfigurationReference = C3518698EA725761EF29764E /* Pods-GKNavigationBarExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer: xinjun zhang (DNJGV7XB9Q)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = X52753HQNM;
 				GCC_PREFIX_HEADER = GKNavigationBarExample/PrefixHeader.pch;
 				INFOPLIST_FILE = GKNavigationBarExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1138,8 +1146,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKNavigationBarExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.gknavigationbar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = aystfm_dev_test;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1149,7 +1158,9 @@
 			baseConfigurationReference = C2B06F1CBCB2622ACE63E239 /* Pods-GKNavigationBarExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer: xinjun zhang (DNJGV7XB9Q)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = X52753HQNM;
 				GCC_PREFIX_HEADER = GKNavigationBarExample/PrefixHeader.pch;
 				INFOPLIST_FILE = GKNavigationBarExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1157,8 +1168,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKNavigationBarExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.gknavigationbar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = aystfm_dev_test;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

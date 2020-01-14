@@ -13,6 +13,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        self.translucent = NO;
         self.gk_navBarBackgroundAlpha = 1.0f;
     }
     return self;

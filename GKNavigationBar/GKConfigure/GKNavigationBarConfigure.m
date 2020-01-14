@@ -8,6 +8,13 @@
 
 #import "GKNavigationBarConfigure.h"
 
+@interface GKNavigationBarConfigure()
+
+@property (nonatomic, assign) CGFloat navItemLeftSpace;
+@property (nonatomic, assign) CGFloat navItemRightSpace;
+
+@end
+
 @implementation GKNavigationBarConfigure
 
 + (instancetype)sharedInstance {
@@ -29,6 +36,8 @@
     self.gk_disableFixSpace = NO;
     self.gk_navItemLeftSpace = 0;
     self.gk_navItemRightSpace = 0;
+    self.navItemLeftSpace = 0;
+    self.navItemRightSpace = 0;
     
     self.statusBarHidden = NO;
     self.statusBarStyle = UIStatusBarStyleDefault;
@@ -46,6 +55,9 @@
     [self setupDefaultConfigure];
     
     !block ? : block(self);
+    
+    self.navItemLeftSpace  = self.gk_navItemLeftSpace;
+    self.navItemRightSpace = self.gk_navItemRightSpace;
 }
 
 - (void)updateConfigure:(void (^)(GKNavigationBarConfigure * _Nonnull))block {

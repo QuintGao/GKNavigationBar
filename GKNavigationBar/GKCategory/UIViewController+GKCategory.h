@@ -108,10 +108,6 @@ UIKIT_EXTERN NSString *const GKViewControllerPropertyChangedNotification;
 /// 获取当前controller里的最高层可见的viewController
 - (nullable UIViewController *)gk_visibleViewControllerIfExist;
 
-#pragma mark - 内部使用不必关心
-@property (nonatomic, assign, readonly) CGFloat last_navItemLeftSpace;
-@property (nonatomic, assign, readonly) CGFloat last_navItemRightSpace;
-
 @end
 
 NS_ASSUME_NONNULL_END
