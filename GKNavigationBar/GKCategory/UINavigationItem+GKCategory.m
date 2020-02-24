@@ -26,7 +26,7 @@
                                               @"setRightBarButtonItems:animated:"];
             
             [oriSels enumerateObjectsUsingBlock:^(NSString * _Nonnull oriSel, NSUInteger idx, BOOL * _Nonnull stop) {
-                gk_swizzled_instanceMethod(self, oriSel, self);
+                gk_swizzled_instanceMethod(self, oriSel, [NSObject class]);
             }];
         });
     }
