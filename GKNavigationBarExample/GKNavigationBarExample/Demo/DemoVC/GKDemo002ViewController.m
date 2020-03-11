@@ -9,7 +9,7 @@
 #import "GKDemo002ViewController.h"
 #import "GKDemo003ViewController.h"
 
-@interface GKDemo002ViewController ()<UIScrollViewDelegate>
+@interface GKDemo002ViewController ()<UIScrollViewDelegate, GKViewControllerPopDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 
@@ -41,6 +41,20 @@
     [btn setTitle:@"Push" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+    
+    self.gk_popDelegate = self;
+}
+
+#pragma mark - GKViewControllerPopDelegate
+- (void)viewControllerPopScrollBegan {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"你确定要退出吗？" preferredStyle:UIAlertControllerStyleAlert];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.gk_popDelegate = nil;
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }]];
+    [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 - (void)btnAction {
