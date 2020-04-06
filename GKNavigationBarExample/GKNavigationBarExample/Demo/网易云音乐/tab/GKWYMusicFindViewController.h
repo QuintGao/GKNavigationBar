@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GKBaseViewController.h"
 
-@interface GKWYMusicFindViewController : UIViewController
+@interface GKWYMusicFindViewController : GKBaseViewController
 
 @end

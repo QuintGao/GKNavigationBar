@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                    = "GKNavigationBar"
-  s.version                 = "1.0.2"
+  s.version                 = "1.0.3"
   s.summary                 = "自定义导航栏--导航栏联动"
   s.homepage                = "https://github.com/QuintGao/GKNavigationBar"
   s.license                 = "MIT"
@@ -12,7 +12,6 @@ Pod::Spec.new do |s|
   s.source_files            = "GKNavigationBar/**/*.{h,m}"
   s.public_header_files     = "GKNavigationBar/**/*.h"
   s.resource                = "GKNavigationBar/GKNavigationBar.bundle"
-  s.frameworks              = "Foundation", "UIKit"
 end
 
 

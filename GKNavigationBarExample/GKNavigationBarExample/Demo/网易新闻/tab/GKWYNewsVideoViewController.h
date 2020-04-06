@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GKTabBaseViewController.h"
 
-@interface GKWYNewsVideoViewController : UIViewController
+@interface GKWYNewsVideoViewController : GKTabBaseViewController
 
 @end

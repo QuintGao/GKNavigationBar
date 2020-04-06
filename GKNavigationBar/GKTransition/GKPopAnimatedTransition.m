@@ -33,7 +33,7 @@
         self.shadowView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
         [toView addSubview:self.shadowView];
         
-        if (GKDeviceVersion >= 11.0f) {
+        if (@available(iOS 11.0, *)) {
             CGRect frame = toView.frame;
             frame.origin.x = GKConfigure.gk_translationX;
             frame.origin.y = GKConfigure.gk_translationY;
@@ -47,15 +47,15 @@
     }
     
     self.fromViewController.view.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.fromViewController.view.layer.shadowOpacity = 0.5f;
-    self.fromViewController.view.layer.shadowRadius = 8.0f;
+    self.fromViewController.view.layer.shadowOpacity = 0.2f;
+    self.fromViewController.view.layer.shadowRadius = 4.0f;
     
     [UIView animateWithDuration:[self transitionDuration:self.transitionContext] animations:^{
         self.fromViewController.view.frame = CGRectMake(GK_SCREEN_WIDTH, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
         if (self.isScale) {
             self.shadowView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0];
         }
-        if (GKDeviceVersion >= 11.0f) {
+        if (@available(iOS 11.0, *)) {
             toView.frame = CGRectMake(0, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
         }else {
             toView.transform = CGAffineTransformIdentity;

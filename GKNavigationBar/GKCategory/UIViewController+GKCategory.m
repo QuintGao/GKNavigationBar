@@ -56,18 +56,15 @@ static char kAssociatedObjectKey_navBarAlpha;
 }
 
 - (CGFloat)gk_navBarAlpha {
-    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_navBarAlpha) floatValue];
+    id obj = objc_getAssociatedObject(self, &kAssociatedObjectKey_navBarAlpha);
+    return obj ? [obj floatValue] : 1.0f;
 }
 
 static char kAssociatedObjectKey_statusBarHidden;
 - (void)setGk_statusBarHidden:(BOOL)gk_statusBarHidden {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_statusBarHidden, @(gk_statusBarHidden), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
-        [self prefersStatusBarHidden];
-        
-        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
-    }
+    [self setNeedsStatusBarAppearanceUpdate];
 }
 
 - (BOOL)gk_statusBarHidden {
@@ -79,11 +76,7 @@ static char kAssociatedObjectKey_statusBarStyle;
 - (void)setGk_statusBarStyle:(UIStatusBarStyle)gk_statusBarStyle {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_statusBarStyle, @(gk_statusBarStyle), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
-        [self preferredStatusBarStyle];
-        
-        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
-    }
+    [self setNeedsStatusBarAppearanceUpdate];
 }
 
 - (UIStatusBarStyle)gk_statusBarStyle {
@@ -97,7 +90,7 @@ static char kAssociatedObjectKey_backStyle;
     
     if (self.navigationController.childViewControllers.count <= 1) return;
     
-    if (self.gk_backStyle != GKNavigationBarBackStyleNone) {
+    if (gk_backStyle != GKNavigationBarBackStyleNone) {
         NSString *imageName = gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white";
         
         UIImage *backImage = [UIImage gk_imageNamed:imageName];
@@ -110,13 +103,14 @@ static char kAssociatedObjectKey_backStyle;
 
 - (GKNavigationBarBackStyle)gk_backStyle {
     id style = objc_getAssociatedObject(self, &kAssociatedObjectKey_backStyle);
-    
-    return (style != nil) ? [style integerValue] : GKConfigure.backStyle;
+    return (style != nil) ? [style integerValue] : GKNavigationBarBackStyleNone;
 }
 
 static char kAssociatedObjectKey_pushDelegate;
 - (void)setGk_pushDelegate:(id<GKViewControllerPushDelegate>)gk_pushDelegate {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_pushDelegate, gk_pushDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    [self postPropertyChangeNotification];
 }
 
 - (id<GKViewControllerPushDelegate>)gk_pushDelegate {
@@ -126,6 +120,8 @@ static char kAssociatedObjectKey_pushDelegate;
 static char kAssociatedObjectKey_popDelegate;
 - (void)setGk_popDelegate:(id<GKViewControllerPopDelegate>)gk_popDelegate {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_popDelegate, gk_popDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    [self postPropertyChangeNotification];
 }
 
 - (id<GKViewControllerPopDelegate>)gk_popDelegate {
@@ -192,9 +188,8 @@ static char kAssociatedObjectKey_popDelegate;
 }
 
 - (void)gk_viewDidAppear:(BOOL)animated {
-    // 每次视图出现是重新设置当前控制器的手势
-    [[NSNotificationCenter defaultCenter] postNotificationName:GKViewControllerPropertyChangedNotification object:@{@"viewController": self}];
-    
+    [self postPropertyChangeNotification];
+
     [self gk_viewDidAppear:animated];
 }
 
@@ -228,6 +223,7 @@ static char kAssociatedObjectKey_navigationBar;
 - (void)setGk_navigationBar:(GKCustomNavigationBar *)gk_navigationBar {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navigationBar, gk_navigationBar, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
+    [self setupNavBarAppearance];
     [self setupNavBarFrame];
 }
 
@@ -239,10 +235,6 @@ static char kAssociatedObjectKey_navigationBar;
         
         self.gk_NavBarInit = YES;
         self.gk_navigationBar = navigationBar;
-        
-        // 设置默认导航栏间距
-        self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
-        self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
     }
     return navigationBar;
 }
@@ -277,7 +269,9 @@ static char kAssociatedObjectKey_navBackgroundColor;
 - (void)setGk_navBackgroundColor:(UIColor *)gk_navBackgroundColor {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navBackgroundColor, gk_navBackgroundColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    [self.gk_navigationBar setBackgroundImage:[UIImage gk_imageWithColor:gk_navBackgroundColor] forBarMetrics:UIBarMetricsDefault];
+    if (gk_navBackgroundColor) {
+        [self.gk_navigationBar setBackgroundImage:[UIImage gk_imageWithColor:gk_navBackgroundColor] forBarMetrics:UIBarMetricsDefault];
+    }
 }
 
 - (UIColor *)gk_navBackgroundColor {
@@ -324,14 +318,34 @@ static char kAssociatedObjectKey_navLineHidden;
     
     self.gk_navigationBar.gk_navLineHidden = gk_navLineHidden;
     
-    if (GKDeviceVersion >= 11.0f) {
-        self.gk_navShadowImage = gk_navLineHidden ? [UIImage new] : self.gk_navShadowImage;
+    if (@available(iOS 11.0, *)) {
+        UIImage *shadowImage = nil;
+        if (gk_navLineHidden) {
+            shadowImage = [UIImage new];
+        }else if (self.gk_navShadowImage) {
+            shadowImage = self.gk_navShadowImage;
+        }else if (self.gk_navShadowColor) {
+            shadowImage = [UIImage gk_changeImage:[UIImage gk_imageNamed:@"nav_line"] color:self.gk_navShadowColor];
+        }
+        
+        self.gk_navigationBar.shadowImage = shadowImage;
     }
     [self.gk_navigationBar layoutSubviews];
 }
 
 - (BOOL)gk_navLineHidden {
     return [objc_getAssociatedObject(self, &kAssociatedObjectKey_navLineHidden) boolValue];
+}
+
+static char kAssociatedObjectKey_navTitle;
+- (void)setGk_navTitle:(NSString *)gk_navTitle {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_navTitle, gk_navTitle, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    self.gk_navigationItem.title = gk_navTitle;
+}
+
+- (NSString *)gk_navTitle {
+    return objc_getAssociatedObject(self, &kAssociatedObjectKey_navTitle);
 }
 
 static char kAssociatedObjectKey_navTitleView;
@@ -349,7 +363,9 @@ static char kAssociatedObjectKey_navTitleColor;
 - (void)setGk_navTitleColor:(UIColor *)gk_navTitleColor {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navTitleColor, gk_navTitleColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    self.gk_navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: gk_navTitleColor, NSFontAttributeName: self.gk_navTitleFont};
+    if (gk_navTitleColor && self.gk_navTitleFont) {
+        self.gk_navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: gk_navTitleColor, NSFontAttributeName: self.gk_navTitleFont};
+    }
 }
 
 - (UIColor *)gk_navTitleColor {
@@ -361,7 +377,9 @@ static char kAssociatedObjectKey_navTitleFont;
 - (void)setGk_navTitleFont:(UIFont *)gk_navTitleFont {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navTitleFont, gk_navTitleFont, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    self.gk_navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: self.gk_navTitleColor, NSFontAttributeName: gk_navTitleFont};
+    if (gk_navTitleFont && self.gk_navTitleColor) {
+        self.gk_navigationBar.titleTextAttributes = @{NSFontAttributeName: gk_navTitleFont, NSForegroundColorAttributeName: self.gk_navTitleColor};
+    }
 }
 
 - (UIFont *)gk_navTitleFont {
@@ -478,6 +496,22 @@ static char kAssociatedObjectKey_navItemRightSpace;
 }
 
 #pragma mark - Private Methods
+- (void)setupNavBarAppearance {
+    // 设置默认导航栏间距
+    self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
+    self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
+    
+    // 设置默认背景色
+    self.gk_navBackgroundColor = GKConfigure.backgroundColor;
+    
+    // 设置默认标题大小及颜色
+    self.gk_navTitleFont = GKConfigure.titleFont;
+    self.gk_navTitleColor = GKConfigure.titleColor;
+    
+    // 设置默认返回样式
+    self.gk_backStyle = GKConfigure.backStyle;
+}
+
 - (void)setupNavBarFrame {
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat height = [UIScreen mainScreen].bounds.size.height;

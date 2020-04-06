@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GKTabBaseViewController.h"
 
-@interface GKToutiaoMicroViewController : UIViewController
+@interface GKToutiaoMicroViewController : GKTabBaseViewController
 
 @end

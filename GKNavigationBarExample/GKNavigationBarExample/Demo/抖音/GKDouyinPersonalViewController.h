@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GKBaseViewController.h"
 
-@interface GKDouyinPersonalViewController : UIViewController
+@interface GKDouyinPersonalViewController : GKBaseViewController
 
 @end

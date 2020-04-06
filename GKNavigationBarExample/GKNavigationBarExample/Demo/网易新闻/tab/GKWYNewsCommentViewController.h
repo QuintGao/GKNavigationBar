@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GKBaseViewController.h"
 
-@interface GKWYNewsCommentViewController : UIViewController
+@interface GKWYNewsCommentViewController : GKBaseViewController
 
 @end

@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "UIView+Extension.h"
+#import "GKBaseViewController.h"
 
-@interface GKDemoBaseViewController : UIViewController
+@interface GKDemoBaseViewController : GKBaseViewController
 
 @end

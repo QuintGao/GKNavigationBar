@@ -13,7 +13,6 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.translucent = NO;
         self.gk_navBarBackgroundAlpha = 1.0f;
     }
     return self;
@@ -23,7 +22,7 @@
     [super layoutSubviews];
     
     // 适配iOS11，遍历所有子控件，向下移动状态栏高度
-    if (GKDeviceVersion >= 11.0f) {
+    if (@available(iOS 11.0, *)) {
         [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if ([obj isKindOfClass:NSClassFromString(@"_UIBarBackground")]) {
                 CGRect frame = obj.frame;
@@ -71,12 +70,14 @@
     _gk_navBarBackgroundAlpha = gk_navBarBackgroundAlpha;
     
     [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (GKDeviceVersion >= 10.0f && [obj isKindOfClass:NSClassFromString(@"_UIBarBackground")]) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (obj.alpha != gk_navBarBackgroundAlpha) {
-                    obj.alpha = gk_navBarBackgroundAlpha;
-                }
-            });
+        if (@available(iOS 10.0, *)) {
+            if ([obj isKindOfClass:NSClassFromString(@"_UIBarBackground")]) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (obj.alpha != gk_navBarBackgroundAlpha) {
+                        obj.alpha = gk_navBarBackgroundAlpha;
+                    }
+                });
+            }
         }else if ([obj isKindOfClass:NSClassFromString(@"_UINavigationBarBackground")]) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (obj.alpha != gk_navBarBackgroundAlpha) {

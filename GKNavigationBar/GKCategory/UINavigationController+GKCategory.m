@@ -68,7 +68,6 @@ static char kAssociatedObjectKey_openGestureHandle;
 }
 
 - (void)gk_viewDidLoad {
-    
     if (self.gk_openGestureHandle) {
         // 处理特殊控制器
         if ([self isKindOfClass:[UIImagePickerController class]]) return;
@@ -83,7 +82,6 @@ static char kAssociatedObjectKey_openGestureHandle;
         // 注册控制器属性改变通知
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(propertyChangeNotification:) name:GKViewControllerPropertyChangedNotification object:nil];
     }
-    
     [self gk_viewDidLoad];
 }
 

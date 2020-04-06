@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GKTabBaseViewController.h"
 
-@interface GKWYMusicFriendViewController : UIViewController
+@interface GKWYMusicFriendViewController : GKTabBaseViewController
 
 @end

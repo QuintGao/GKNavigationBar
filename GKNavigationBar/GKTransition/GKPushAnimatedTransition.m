@@ -39,13 +39,13 @@
     // 设置toViewController
     self.toViewController.view.frame = CGRectMake(GK_SCREEN_WIDTH, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
     self.toViewController.view.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.toViewController.view.layer.shadowOpacity = 0.6f;
-    self.toViewController.view.layer.shadowRadius = 8.0f;
+    self.toViewController.view.layer.shadowOpacity = 0.2f;
+    self.toViewController.view.layer.shadowRadius = 4.0f;
     
     [UIView animateWithDuration:[self transitionDuration:self.transitionContext] animations:^{
         if (self.isScale) {
             self.shadowView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
-            if (GKDeviceVersion >= 11.0f) {
+            if (@available(iOS 11.0, *)) {
                 CGRect frame = fromView.frame;
                 frame.origin.x = GKConfigure.gk_translationX;
                 frame.origin.y = GKConfigure.gk_translationY;

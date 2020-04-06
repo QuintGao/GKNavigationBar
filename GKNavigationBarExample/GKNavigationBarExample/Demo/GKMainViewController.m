@@ -9,7 +9,6 @@
 #import "GKMainViewController.h"
 #import "GKToutiaoViewController.h"
 #import "GKWYMusicViewController.h"
-#import "GKTab001ViewController.h"
 #import "GKWYNewsViewController.h"
 #import "GKDouyinHomeViewController.h"
 
@@ -25,20 +24,10 @@
 
 - (NSArray *)dataSource {
     if (!_dataSource) {
-        _dataSource = @[@"push一个变色导航栏控制器",
-                        @"push一个透明导航栏控制器",
-                        @"push一个无导航栏控制器",
-                        @"push一个UITabBarController",
-                        @"present一个UITabBarController",
-                        @"push一个UITableView",
-                        @"push一个UIScrollView",
-                        @"嵌套TZImagePickerController",
-                        @"调用系统相册或相机",
-                        @"导航条按钮测试",
-                        @"分页滑动",
+        _dataSource = @[@"导航功能测试",
+                        @"UIScrollView使用（手势冲突）",
+                        @"TZImagePickerController使用",
                         @"系统导航",
-                        @"左滑push",
-                        @"WebView交互",
                         @"抖音左右滑动",
                         @"今日头条",
                         @"网易云音乐",
@@ -47,12 +36,19 @@
     return _dataSource;
 }
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.gk_statusBarStyle = UIStatusBarStyleLightContent;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.gk_navigationItem.title = @"MainVC";
-    self.gk_navBackgroundColor = [UIColor blackColor];
+    self.gk_navBackgroundColor = [UIColor redColor];
     self.gk_statusBarStyle = UIStatusBarStyleLightContent;
     self.gk_navTitleFont = [UIFont systemFontOfSize:18.0f];
     self.gk_navTitleColor = [UIColor whiteColor];
@@ -71,6 +67,11 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.dataSource = self;
     self.tableView.delegate   = self;
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
     [self.view addSubview:self.tableView];
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -105,52 +106,34 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSString *className = [[NSString alloc] initWithFormat:@"GKDemo0%02zdViewController", indexPath.row + 1];
+    NSString *className = [[NSString alloc] initWithFormat:@"GKDemo0%02zdViewController", indexPath.row];
     
     Class class = NSClassFromString(className);
     
     UIViewController *vc = [[class alloc] init];
     
-    if (indexPath.row == 4) {
-        vc.modalPresentationStyle = UIModalPresentationFullScreen;
-        
-        [self presentViewController:vc animated:YES completion:nil];
-        
-        return;
+    if (vc) {
+        [self.navigationController pushViewController:vc animated:YES];
+    }else {
+        if (indexPath.row == 4) {
+            UINavigationController *nav = [UINavigationController rootVC:[GKDouyinHomeViewController new]];
+            nav.gk_openScrollLeftPush = YES;
+            nav.modalPresentationStyle = UIModalPresentationFullScreen;
+            [self presentViewController:nav animated:YES completion:nil];
+        }else if (indexPath.row == 5) {
+            GKToutiaoViewController *toutiaoVC = [GKToutiaoViewController new];
+            toutiaoVC.modalPresentationStyle = UIModalPresentationFullScreen;
+            [self presentViewController:toutiaoVC animated:YES completion:nil];
+        }else if (indexPath.row == 6) {
+            GKWYMusicViewController *musicVC = [GKWYMusicViewController new];
+            musicVC.modalPresentationStyle = UIModalPresentationFullScreen;
+            [self presentViewController:musicVC animated:YES completion:nil];
+        }else if (indexPath.row == 7) {
+            GKWYNewsViewController *newsVC = [GKWYNewsViewController new];
+            newsVC.modalPresentationStyle = UIModalPresentationFullScreen;
+            [self presentViewController:newsVC animated:YES completion:nil];
+        }
     }
-    
-    if (indexPath.row == 14) {
-        GKDouyinHomeViewController *douyinVC = [GKDouyinHomeViewController new];
-        
-        // 设置导航控制器并开启左滑push
-        UINavigationController *nav = [UINavigationController rootVC:douyinVC transitionScale:NO];
-        nav.gk_openScrollLeftPush = YES;
-        
-        nav.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:nav animated:YES completion:nil];
-        
-        return;
-    }else if (indexPath.row == 15) {
-        GKToutiaoViewController *toutiaoVC = [GKToutiaoViewController new];
-        toutiaoVC.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:toutiaoVC animated:YES completion:nil];
-        
-        return;
-    }else if (indexPath.row == 16) {
-        GKWYMusicViewController *wyMusicVC = [GKWYMusicViewController new];
-        
-        wyMusicVC.modalPresentationStyle = UIModalPresentationFullScreen;
-        // 根视图控制器是UITabBarController,不缩放
-        [self presentViewController:wyMusicVC animated:YES completion:nil];
-        return;
-    }else if (indexPath.row == 17) {
-        GKWYNewsViewController *newsVC = [GKWYNewsViewController new];
-        
-        newsVC.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:newsVC animated:YES completion:nil];
-        return;
-    }
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

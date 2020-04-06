@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GKTabBaseViewController.h"
 
-@interface GKToutiaoVideoViewController : UIViewController
+@interface GKToutiaoVideoViewController : GKTabBaseViewController
 
 @end

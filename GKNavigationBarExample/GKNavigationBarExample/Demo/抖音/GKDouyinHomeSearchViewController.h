@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GKBaseViewController.h"
 
-@interface GKDouyinHomeSearchViewController : UIViewController
+@interface GKDouyinHomeSearchViewController : GKBaseViewController
 
 @end

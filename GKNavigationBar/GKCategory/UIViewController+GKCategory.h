@@ -84,7 +84,8 @@ UIKIT_EXTERN NSString *const GKViewControllerPropertyChangedNotification;
 @property (nonatomic, strong) UIImage               *gk_navShadowImage;
 @property (nonatomic, assign) BOOL                  gk_navLineHidden;
 
-@property (nullable, nonatomic, strong) UIView                *gk_navTitleView;
+@property (nullable, nonatomic, strong) NSString    *gk_navTitle;
+@property (nullable, nonatomic, strong) UIView      *gk_navTitleView;
 @property (nonatomic, strong) UIColor               *gk_navTitleColor;
 @property (nonatomic, strong) UIFont                *gk_navTitleFont;
 
