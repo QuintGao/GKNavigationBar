@@ -6,8 +6,6 @@ target 'GKNavigationBarExample' do
   use_frameworks!
 
   pod 'Masonry'
-  pod 'JXCategoryView'
-  pod 'MJRefresh'
   pod 'TZImagePickerController'
 
 end

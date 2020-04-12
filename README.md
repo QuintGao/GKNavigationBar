@@ -9,6 +9,9 @@ GKNavigationBarViewController的分类实现方式，耦合度底，使用更加
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/QuintGao/GKNavigationBar)
 [![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
 
+
+Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/GKNavigationBarSwift)
+
 ## 介绍：(本框架的特性)
 
 * 无侵入性，低耦合性
