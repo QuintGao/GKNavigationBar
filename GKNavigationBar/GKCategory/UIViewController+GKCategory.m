@@ -275,8 +275,7 @@ static char kAssociatedObjectKey_navBackgroundColor;
 }
 
 - (UIColor *)gk_navBackgroundColor {
-    id objc = objc_getAssociatedObject(self, &kAssociatedObjectKey_navBackgroundColor);
-    return (objc != nil) ? objc : GKConfigure.backgroundColor;
+    return objc_getAssociatedObject(self, &kAssociatedObjectKey_navBackgroundColor);
 }
 
 static char kAssociatedObjectKey_navBackgroundImage;
@@ -502,14 +501,23 @@ static char kAssociatedObjectKey_navItemRightSpace;
     self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
     
     // 设置默认背景色
-    self.gk_navBackgroundColor = GKConfigure.backgroundColor;
+    if (self.gk_navBackgroundColor == nil) {
+        self.gk_navBackgroundColor = GKConfigure.backgroundColor;
+    }
     
     // 设置默认标题大小及颜色
-    self.gk_navTitleFont = GKConfigure.titleFont;
-    self.gk_navTitleColor = GKConfigure.titleColor;
+    if (self.gk_navTitleFont == nil) {
+        self.gk_navTitleFont = GKConfigure.titleFont;
+    }
+    
+    if (self.gk_navTitleColor == nil) {
+        self.gk_navTitleColor = GKConfigure.titleColor;
+    }
     
     // 设置默认返回样式
-    self.gk_backStyle = GKConfigure.backStyle;
+    if (self.gk_backStyle == GKNavigationBarBackStyleNone) {
+        self.gk_backStyle = GKConfigure.backStyle;
+    }
 }
 
 - (void)setupNavBarFrame {
