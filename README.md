@@ -23,6 +23,29 @@ Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/G
 * 可实现push，pop时控制器缩放效果（如：今日头条）
 * 可实现左滑push一个控制器的效果（如：网易新闻）
 
+## 重要！！！
+1、如果切换控制器的时候出现状态栏显示异常（一半黑一半白等）
+解决办法：在控制器初始化方法里面设置状态栏样式
+```
+- (instancetype)init {
+    if (self = [super init]) {
+        self.gk_statusBarStyle = UIStatusBarStyleLightContent;
+    }
+    return self;
+}
+```
+2、Xcode 11.4 在调试的时候会出现状态栏样式改变不了的情况
+解决办法：在基类控制器里实现下面两个方法
+```
+- (BOOL)prefersStatusBarHidden {
+    return self.gk_statusBarHidden;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return self.gk_statusBarStyle;
+}
+```
+
 ## 使用说明
 
 #### 1、在AppDelegate中添加导航配置
