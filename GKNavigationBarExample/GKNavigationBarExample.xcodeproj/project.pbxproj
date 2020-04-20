@@ -56,7 +56,6 @@
 		796CF7FC236D781700983E9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 796CF7FB236D781700983E9B /* Assets.xcassets */; };
 		796CF7FF236D781700983E9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 796CF7FD236D781700983E9B /* LaunchScreen.storyboard */; };
 		796CF802236D781700983E9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF801236D781700983E9B /* main.m */; };
-		796CF80C236D781700983E9B /* GKNavigationBarExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF80B236D781700983E9B /* GKNavigationBarExampleTests.m */; };
 		796CF8AE236D7BBF00983E9B /* GKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF844236D7BBF00983E9B /* GKMainViewController.m */; };
 		796CF8AF236D7BBF00983E9B /* GKTabBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF848236D7BBF00983E9B /* GKTabBaseViewController.m */; };
 		796CF8B0236D7BBF00983E9B /* GKDemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF849236D7BBF00983E9B /* GKDemoBaseViewController.m */; };
@@ -155,10 +154,6 @@
 		796CF800236D781700983E9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		796CF801236D781700983E9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		796CF807236D781700983E9B /* GKNavigationBarExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKNavigationBarExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		796CF80B236D781700983E9B /* GKNavigationBarExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNavigationBarExampleTests.m; sourceTree = "<group>"; };
-		796CF80D236D781800983E9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		796CF816236D781800983E9B /* GKNavigationBarExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNavigationBarExampleUITests.m; sourceTree = "<group>"; };
-		796CF818236D781800983E9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		796CF844236D7BBF00983E9B /* GKMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKMainViewController.m; sourceTree = "<group>"; };
 		796CF846236D7BBF00983E9B /* GKDemoBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDemoBaseViewController.h; sourceTree = "<group>"; };
 		796CF847236D7BBF00983E9B /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -358,8 +353,6 @@
 			isa = PBXGroup;
 			children = (
 				796CF7EE236D781400983E9B /* GKNavigationBarExample */,
-				796CF80A236D781700983E9B /* GKNavigationBarExampleTests */,
-				796CF815236D781800983E9B /* GKNavigationBarExampleUITests */,
 				79672E94236EC8EB0054300B /* GKNavigationBarFramework */,
 				79672EA1236EC8EB0054300B /* GKNavigationBarFrameworkTests */,
 				796CF7ED236D781400983E9B /* Products */,
@@ -395,24 +388,6 @@
 				79672E8C236EC0740054300B /* GKNavigationBar.podspec */,
 			);
 			path = GKNavigationBarExample;
-			sourceTree = "<group>";
-		};
-		796CF80A236D781700983E9B /* GKNavigationBarExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				796CF80B236D781700983E9B /* GKNavigationBarExampleTests.m */,
-				796CF80D236D781800983E9B /* Info.plist */,
-			);
-			path = GKNavigationBarExampleTests;
-			sourceTree = "<group>";
-		};
-		796CF815236D781800983E9B /* GKNavigationBarExampleUITests */ = {
-			isa = PBXGroup;
-			children = (
-				796CF816236D781800983E9B /* GKNavigationBarExampleUITests.m */,
-				796CF818236D781800983E9B /* Info.plist */,
-			);
-			path = GKNavigationBarExampleUITests;
 			sourceTree = "<group>";
 		};
 		796CF843236D7BBF00983E9B /* Demo */ = {
@@ -847,7 +822,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				796CF80C236D781700983E9B /* GKNavigationBarExampleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
