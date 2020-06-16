@@ -195,8 +195,13 @@ static char kAssociatedObjectKey_popDelegate;
 
 - (void)gk_viewWillDisappear:(BOOL)animated {
     [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
-        configure.gk_navItemLeftSpace  = configure.navItemLeftSpace;
-        configure.gk_navItemRightSpace = configure.navItemRightSpace;
+        if (configure.gk_navItemLeftSpace == self.gk_navItemLeftSpace) {
+            configure.gk_navItemLeftSpace = configure.navItemLeftSpace;
+        }
+        
+        if (configure.gk_navItemRightSpace == self.gk_navItemRightSpace) {
+            configure.gk_navItemRightSpace = configure.navItemRightSpace;
+        }
     }];
     
     [self gk_viewWillDisappear:animated];
@@ -526,7 +531,11 @@ static char kAssociatedObjectKey_navItemRightSpace;
     
     CGFloat navBarH = 0.0f;
     if (width > height) { // 横屏
-        if (GK_NOTCHED_SCREEN) {
+        if (GK_IS_iPad) {
+            CGFloat statusBarH = [UIApplication sharedApplication].statusBarFrame.size.height;
+            CGFloat navigaBarH = self.navigationController.navigationBar.frame.size.height;
+            navBarH = statusBarH + navigaBarH;
+        }else if (GK_NOTCHED_SCREEN) {
             navBarH = GK_NAVBAR_HEIGHT;
         }else {
             if (width == 736.0f && height == 414.0f) {  // plus横屏
