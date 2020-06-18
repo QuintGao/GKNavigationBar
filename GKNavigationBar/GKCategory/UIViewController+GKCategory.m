@@ -147,7 +147,6 @@ static char kAssociatedObjectKey_popDelegate;
     dispatch_once(&onceToken, ^{
         NSArray <NSString *> *oriSels = @[@"viewWillAppear:",
                                           @"viewDidAppear:",
-                                          @"viewWillDisappear:",
                                           @"viewWillLayoutSubviews"];
         
         [oriSels enumerateObjectsUsingBlock:^(NSString * _Nonnull oriSel, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -167,11 +166,11 @@ static char kAssociatedObjectKey_popDelegate;
         }
         
         if (self.gk_navItemLeftSpace == GKNavigationBarItemSpace) {
-            self.gk_navItemLeftSpace = GKConfigure.gk_navItemLeftSpace;
+            self.gk_navItemLeftSpace = GKConfigure.navItemLeftSpace;
         }
         
         if (self.gk_navItemRightSpace == GKNavigationBarItemSpace) {
-            self.gk_navItemRightSpace = GKConfigure.gk_navItemRightSpace;
+            self.gk_navItemRightSpace = GKConfigure.navItemRightSpace;
         }
         
         // 重置navItem_space
@@ -191,20 +190,6 @@ static char kAssociatedObjectKey_popDelegate;
     [self postPropertyChangeNotification];
 
     [self gk_viewDidAppear:animated];
-}
-
-- (void)gk_viewWillDisappear:(BOOL)animated {
-    [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
-        if (configure.gk_navItemLeftSpace == self.gk_navItemLeftSpace) {
-            configure.gk_navItemLeftSpace = configure.navItemLeftSpace;
-        }
-        
-        if (configure.gk_navItemRightSpace == self.gk_navItemRightSpace) {
-            configure.gk_navItemRightSpace = configure.navItemRightSpace;
-        }
-    }];
-    
-    [self gk_viewWillDisappear:animated];
 }
 
 - (void)gk_viewWillLayoutSubviews {
