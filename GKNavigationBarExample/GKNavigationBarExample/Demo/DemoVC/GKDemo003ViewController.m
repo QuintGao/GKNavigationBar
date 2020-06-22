@@ -7,6 +7,7 @@
 //
 
 #import "GKDemo003ViewController.h"
+#import "GKDemo000ViewController.h"
 
 @interface GKDemo003ViewController ()
 
@@ -20,6 +21,16 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.navigationItem.title = @"系统导航";
+    
+    self.gk_navItemRightSpace = 20.0f;
+    UIBarButtonItem *rightItem = [UIBarButtonItem gk_itemWithTitle:@"哈哈" target:self action:@selector(click)];
+    rightItem.customView.backgroundColor = UIColor.redColor;
+    self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+- (void)click {
+    GKDemo000ViewController *demoVC = [GKDemo000ViewController new];
+    [self.navigationController pushViewController:demoVC animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

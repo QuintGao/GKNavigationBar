@@ -145,7 +145,8 @@ static char kAssociatedObjectKey_popDelegate;
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSArray <NSString *> *oriSels = @[@"viewWillAppear:",
+        NSArray <NSString *> *oriSels = @[@"viewDidLoad",
+                                          @"viewWillAppear:",
                                           @"viewDidAppear:",
                                           @"viewWillLayoutSubviews"];
         
@@ -153,6 +154,13 @@ static char kAssociatedObjectKey_popDelegate;
             gk_swizzled_instanceMethod(self, oriSel, self);
         }];
     });
+}
+
+- (void)gk_viewDidLoad {
+    // 设置默认导航栏间距
+    self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
+    self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
+    [self gk_viewDidLoad];
 }
 
 - (void)gk_viewWillAppear:(BOOL)animated {
@@ -165,23 +173,23 @@ static char kAssociatedObjectKey_popDelegate;
             [self.view bringSubviewToFront:self.gk_navigationBar];
         }
         
-        if (self.gk_navItemLeftSpace == GKNavigationBarItemSpace) {
-            self.gk_navItemLeftSpace = GKConfigure.navItemLeftSpace;
-        }
-        
-        if (self.gk_navItemRightSpace == GKNavigationBarItemSpace) {
-            self.gk_navItemRightSpace = GKConfigure.navItemRightSpace;
-        }
-        
-        // 重置navItem_space
-        [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
-            configure.gk_navItemLeftSpace  = self.gk_navItemLeftSpace;
-            configure.gk_navItemRightSpace = self.gk_navItemRightSpace;
-        }];
-        
         // 状态栏是否隐藏
         self.gk_navigationBar.gk_statusBarHidden = self.gk_statusBarHidden;
     }
+    
+    if (self.gk_navItemLeftSpace == GKNavigationBarItemSpace) {
+        self.gk_navItemLeftSpace = GKConfigure.navItemLeftSpace;
+    }
+    
+    if (self.gk_navItemRightSpace == GKNavigationBarItemSpace) {
+        self.gk_navItemRightSpace = GKConfigure.navItemRightSpace;
+    }
+    
+    // 重置navItem_space
+    [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
+        configure.gk_navItemLeftSpace  = self.gk_navItemLeftSpace;
+        configure.gk_navItemRightSpace = self.gk_navItemRightSpace;
+    }];
     
     [self gk_viewWillAppear:animated];
 }
@@ -486,10 +494,6 @@ static char kAssociatedObjectKey_navItemRightSpace;
 
 #pragma mark - Private Methods
 - (void)setupNavBarAppearance {
-    // 设置默认导航栏间距
-    self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
-    self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
-    
     // 设置默认背景色
     if (self.gk_navBackgroundColor == nil) {
         self.gk_navBackgroundColor = GKConfigure.backgroundColor;
