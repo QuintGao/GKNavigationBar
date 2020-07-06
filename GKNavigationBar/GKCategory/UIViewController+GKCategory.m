@@ -164,6 +164,19 @@ static char kAssociatedObjectKey_popDelegate;
 }
 
 - (void)gk_viewWillAppear:(BOOL)animated {
+    if ([self isKindOfClass:[UINavigationController class]]) return;
+    if ([self isKindOfClass:[UITabBarController class]]) return;
+    if (!self.navigationController) return;
+    
+    __block BOOL exist = NO;
+    [GKConfigure.shiledVCs enumerateObjectsUsingBlock:^(UIViewController *vc, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([self isKindOfClass:vc.class]) {
+            exist = YES;
+            *stop = YES;
+        }
+    }];
+    if (exist) return;
+    
     if (self.gk_NavBarInit) {
         // 隐藏系统导航栏
         [self.navigationController setNavigationBarHidden:YES];

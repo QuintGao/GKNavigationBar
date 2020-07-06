@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GKMainViewController.h"
+#import "GKWYMusicViewController.h"
 
 @interface AppDelegate ()
 
