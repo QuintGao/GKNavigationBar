@@ -84,21 +84,22 @@ static char kAssociatedObjectKey_statusBarStyle;
     return (style != nil) ? [style integerValue] : GKConfigure.statusBarStyle;
 }
 
+static char kAssociatedObjectKey_backImage;
+- (void)setGk_backImage:(UIImage *)gk_backImage {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_backImage, gk_backImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    [self setBackItemImage:gk_backImage];
+}
+
+- (UIImage *)gk_backImage {
+    return objc_getAssociatedObject(self, &kAssociatedObjectKey_backImage);
+}
+
 static char kAssociatedObjectKey_backStyle;
 - (void)setGk_backStyle:(GKNavigationBarBackStyle)gk_backStyle {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_backStyle, @(gk_backStyle), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    if (self.navigationController.childViewControllers.count <= 1) return;
-    
-    if (gk_backStyle != GKNavigationBarBackStyleNone) {
-        NSString *imageName = gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white";
-        
-        UIImage *backImage = [UIImage gk_imageNamed:imageName];
-        
-        if (self.gk_NavBarInit) {
-            self.gk_navigationItem.leftBarButtonItem = [UIBarButtonItem gk_itemWithImage:backImage target:self action:@selector(backItemClick:)];
-        }
-    }
+    [self setBackItemImage:self.gk_backImage];
 }
 
 - (GKNavigationBarBackStyle)gk_backStyle {
@@ -132,6 +133,23 @@ static char kAssociatedObjectKey_popDelegate;
 // 发送属性改变通知
 - (void)postPropertyChangeNotification {
     [[NSNotificationCenter defaultCenter] postNotificationName:GKViewControllerPropertyChangedNotification object:@{@"viewController": self}];
+}
+
+- (void)setBackItemImage:(UIImage *)image {
+    // 根控制器不作处理
+    if (self.navigationController.childViewControllers.count <= 1) return;
+    
+    if (!image) {
+        if (self.gk_backStyle != GKNavigationBarBackStyleNone) {
+            NSString *imageName = self.gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white";
+            image = [UIImage gk_imageNamed:imageName];
+        }
+    }
+    
+    // 没有image
+    if (!image) return;
+    
+    self.gk_navLeftBarButtonItem = [UIBarButtonItem gk_itemWithImage:image target:self action:@selector(backItemClick:)];
 }
 
 - (void)backItemClick:(id)sender {
