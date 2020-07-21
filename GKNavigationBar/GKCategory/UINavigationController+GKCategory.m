@@ -101,6 +101,20 @@ static char kAssociatedObjectKey_openGestureHandle;
 - (void)propertyChangeNotification:(NSNotification *)notification {
     UIViewController *vc = (UIViewController *)notification.object[@"viewController"];
     
+    // 不处理导航控制器和tabbar控制器
+    if ([vc isKindOfClass:[UINavigationController class]]) return;
+    if ([vc isKindOfClass:[UITabBarController class]]) return;
+    if (!vc.navigationController) return;
+    
+    __block BOOL exist = NO;
+    [GKConfigure.shiledGuestureVCs enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([vc isKindOfClass:[obj class]]) {
+            exist = YES;
+            *stop = YES;
+        }
+    }];
+    if (exist) return;
+    
     BOOL isRootVC = (vc == self.viewControllers.firstObject);
     
     // 手势处理

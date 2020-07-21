@@ -63,7 +63,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) CGFloat navItemRightSpace;
 
 // 调整导航栏间距时需要屏蔽的VC
-@property (nonatomic, strong, readonly) NSArray *shiledVCs;
+@property (nonatomic, strong, readonly) NSArray *shiledItemSpaceVCs;
+
+// 需要屏蔽手势处理的VC
+@property (nonatomic, strong, readonly) NSArray *shiledGuestureVCs;
 
 /// 单例，设置一次全局使用
 + (instancetype)sharedInstance;
@@ -80,7 +83,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateConfigure:(void (^)(GKNavigationBarConfigure *configure))block;
 
 /// 屏蔽某些控制器对导航栏间距调整的影响
-- (void)setupShiledVCs:(NSArray *)vcs;
+- (void)setupItemSpaceShiledVCs:(NSArray *)vcs;
+
+/// 屏蔽某些控制器对手势处理的影响
+- (void)setupGuestureShiledVCs:(NSArray *)vcs;
 
 #pragma mark - 内部方法
 

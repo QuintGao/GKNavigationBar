@@ -187,7 +187,7 @@ static char kAssociatedObjectKey_popDelegate;
     if (!self.navigationController) return;
     
     __block BOOL exist = NO;
-    [GKConfigure.shiledVCs enumerateObjectsUsingBlock:^(UIViewController *vc, NSUInteger idx, BOOL * _Nonnull stop) {
+    [GKConfigure.shiledItemSpaceVCs enumerateObjectsUsingBlock:^(UIViewController *vc, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([self isKindOfClass:vc.class]) {
             exist = YES;
             *stop = YES;
