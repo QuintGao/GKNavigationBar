@@ -13,9 +13,6 @@
 @property (nonatomic, assign) CGFloat navItemLeftSpace;
 @property (nonatomic, assign) CGFloat navItemRightSpace;
 
-@property (nonatomic, strong) NSArray *shiledItemSpaceVCs;
-@property (nonatomic, strong) NSArray *shiledGuestureVCs;
-
 @end
 
 @implementation GKNavigationBarConfigure

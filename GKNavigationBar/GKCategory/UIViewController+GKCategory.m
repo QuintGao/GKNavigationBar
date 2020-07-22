@@ -48,18 +48,6 @@ static char kAssociatedObjectKey_maxPopDistance;
     return [objc_getAssociatedObject(self, &kAssociatedObjectKey_maxPopDistance) floatValue];
 }
 
-static char kAssociatedObjectKey_navBarAlpha;
-- (void)setGk_navBarAlpha:(CGFloat)gk_navBarAlpha {
-    objc_setAssociatedObject(self, &kAssociatedObjectKey_navBarAlpha, @(gk_navBarAlpha), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
-    self.gk_navigationBar.gk_navBarBackgroundAlpha = gk_navBarAlpha;
-}
-
-- (CGFloat)gk_navBarAlpha {
-    id obj = objc_getAssociatedObject(self, &kAssociatedObjectKey_navBarAlpha);
-    return obj ? [obj floatValue] : 1.0f;
-}
-
 static char kAssociatedObjectKey_statusBarHidden;
 - (void)setGk_statusBarHidden:(BOOL)gk_statusBarHidden {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_statusBarHidden, @(gk_statusBarHidden), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -82,29 +70,6 @@ static char kAssociatedObjectKey_statusBarStyle;
 - (UIStatusBarStyle)gk_statusBarStyle {
     id style = objc_getAssociatedObject(self, &kAssociatedObjectKey_statusBarStyle);
     return (style != nil) ? [style integerValue] : GKConfigure.statusBarStyle;
-}
-
-static char kAssociatedObjectKey_backImage;
-- (void)setGk_backImage:(UIImage *)gk_backImage {
-    objc_setAssociatedObject(self, &kAssociatedObjectKey_backImage, gk_backImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
-    [self setBackItemImage:gk_backImage];
-}
-
-- (UIImage *)gk_backImage {
-    return objc_getAssociatedObject(self, &kAssociatedObjectKey_backImage);
-}
-
-static char kAssociatedObjectKey_backStyle;
-- (void)setGk_backStyle:(GKNavigationBarBackStyle)gk_backStyle {
-    objc_setAssociatedObject(self, &kAssociatedObjectKey_backStyle, @(gk_backStyle), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
-    [self setBackItemImage:self.gk_backImage];
-}
-
-- (GKNavigationBarBackStyle)gk_backStyle {
-    id style = objc_getAssociatedObject(self, &kAssociatedObjectKey_backStyle);
-    return (style != nil) ? [style integerValue] : GKNavigationBarBackStyleNone;
 }
 
 static char kAssociatedObjectKey_pushDelegate;
@@ -133,27 +98,6 @@ static char kAssociatedObjectKey_popDelegate;
 // 发送属性改变通知
 - (void)postPropertyChangeNotification {
     [[NSNotificationCenter defaultCenter] postNotificationName:GKViewControllerPropertyChangedNotification object:@{@"viewController": self}];
-}
-
-- (void)setBackItemImage:(UIImage *)image {
-    // 根控制器不作处理
-    if (self.navigationController.childViewControllers.count <= 1) return;
-    
-    if (!image) {
-        if (self.gk_backStyle != GKNavigationBarBackStyleNone) {
-            NSString *imageName = self.gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white";
-            image = [UIImage gk_imageNamed:imageName];
-        }
-    }
-    
-    // 没有image
-    if (!image) return;
-    
-    self.gk_navLeftBarButtonItem = [UIBarButtonItem gk_itemWithImage:image target:self action:@selector(backItemClick:)];
-}
-
-- (void)backItemClick:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
@@ -294,6 +238,41 @@ static char kAssociatedObjectKey_navbarInit;
 }
 
 #pragma mark - 常用属性快速设置
+static char kAssociatedObjectKey_navBarAlpha;
+- (void)setGk_navBarAlpha:(CGFloat)gk_navBarAlpha {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_navBarAlpha, @(gk_navBarAlpha), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+    self.gk_navigationBar.gk_navBarBackgroundAlpha = gk_navBarAlpha;
+}
+
+- (CGFloat)gk_navBarAlpha {
+    id obj = objc_getAssociatedObject(self, &kAssociatedObjectKey_navBarAlpha);
+    return obj ? [obj floatValue] : 1.0f;
+}
+
+static char kAssociatedObjectKey_backImage;
+- (void)setGk_backImage:(UIImage *)gk_backImage {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_backImage, gk_backImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    [self setBackItemImage:gk_backImage];
+}
+
+- (UIImage *)gk_backImage {
+    return objc_getAssociatedObject(self, &kAssociatedObjectKey_backImage);
+}
+
+static char kAssociatedObjectKey_backStyle;
+- (void)setGk_backStyle:(GKNavigationBarBackStyle)gk_backStyle {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_backStyle, @(gk_backStyle), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    [self setBackItemImage:self.gk_backImage];
+}
+
+- (GKNavigationBarBackStyle)gk_backStyle {
+    id style = objc_getAssociatedObject(self, &kAssociatedObjectKey_backStyle);
+    return (style != nil) ? [style integerValue] : GKNavigationBarBackStyleNone;
+}
+
 static char kAssociatedObjectKey_navBackgroundColor;
 - (void)setGk_navBackgroundColor:(UIColor *)gk_navBackgroundColor {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navBackgroundColor, gk_navBackgroundColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -502,25 +481,8 @@ static char kAssociatedObjectKey_navItemRightSpace;
     [self setupNavBarFrame];
 }
 
-- (UIViewController *)gk_visibleViewControllerIfExist {
-    if (self.presentedViewController) {
-        return [self.presentedViewController gk_visibleViewControllerIfExist];
-    }
-    
-    if ([self isKindOfClass:[UINavigationController class]]) {
-        return [((UINavigationController *)self).visibleViewController gk_visibleViewControllerIfExist];
-    }
-    
-    if ([self isKindOfClass:[UITabBarController class]]) {
-        return [((UITabBarController *)self).selectedViewController gk_visibleViewControllerIfExist];
-    }
-    
-    if (self.isViewLoaded && self.view.window) {
-        return self;
-    }else {
-        NSLog(@"找不到可见的控制器，viewController.self = %@，self.view.window = %@", self, self.view.window);
-        return nil;
-    }
+- (void)backItemClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Private Methods
@@ -530,13 +492,19 @@ static char kAssociatedObjectKey_navItemRightSpace;
         self.gk_navBackgroundColor = GKConfigure.backgroundColor;
     }
     
-    // 设置默认标题大小及颜色
+    // 设置默认标题字体
     if (self.gk_navTitleFont == nil) {
         self.gk_navTitleFont = GKConfigure.titleFont;
     }
     
+    // 设置默认标题颜色
     if (self.gk_navTitleColor == nil) {
         self.gk_navTitleColor = GKConfigure.titleColor;
+    }
+    
+    // 设置默认返回图片
+    if (self.gk_backImage == nil) {
+        self.gk_backImage = GKConfigure.backImage;
     }
     
     // 设置默认返回样式
@@ -570,6 +538,25 @@ static char kAssociatedObjectKey_navItemRightSpace;
     self.gk_navigationBar.frame = CGRectMake(0, 0, width, navBarH);
     self.gk_navigationBar.gk_statusBarHidden = self.gk_statusBarHidden;
     [self.gk_navigationBar layoutSubviews];
+}
+
+- (void)setBackItemImage:(UIImage *)image {
+    if (!self.gk_NavBarInit) return;
+    
+    // 根控制器不作处理
+    if (self.navigationController.childViewControllers.count <= 1) return;
+    
+    if (!image) {
+        if (self.gk_backStyle != GKNavigationBarBackStyleNone) {
+            NSString *imageName = self.gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white";
+            image = [UIImage gk_imageNamed:imageName];
+        }
+    }
+    
+    // 没有image
+    if (!image) return;
+    
+    self.gk_navLeftBarButtonItem = [UIBarButtonItem gk_itemWithImage:image target:self action:@selector(backItemClick:)];
 }
 
 @end
