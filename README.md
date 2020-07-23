@@ -50,6 +50,14 @@ Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/G
 
 ## 使用说明
 
+### 使用方式
+#### 1、直接拖入GKNavigationBar文件夹到项目，#import "GKNavigationBar.h"，开始使用
+
+#### 2、pod方式 Podfile中添加 pod 'GKNavigationBar'，执行pod install 或pod update 安装，#import <GKNavigationBar/GKNavigationBar.h>，开始使用
+
+#### 3、Carthage方式Cartfile中添加 github "QuintGao/GKNavigationBar"，执行carthage update --platform iOS，#import <GKNavigationBar/GKNavigationBar.h>，开始使用
+
+### 使用方法
 #### 1、在AppDelegate中添加导航配置
 
 ```
