@@ -63,11 +63,11 @@ static char kAssociatedObjectKey_openGestureHandle;
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        gk_swizzled_instanceMethod(self, @"viewDidLoad", self);
+        gk_swizzled_instanceMethod(@"gkNav", self, @"viewDidLoad", self);
     });
 }
 
-- (void)gk_viewDidLoad {
+- (void)gkNav_viewDidLoad {
     if (self.gk_openGestureHandle) {
         // 处理特殊控制器
         if ([self isKindOfClass:[UIImagePickerController class]]) return;
@@ -82,7 +82,7 @@ static char kAssociatedObjectKey_openGestureHandle;
         // 注册控制器属性改变通知
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(propertyChangeNotification:) name:GKViewControllerPropertyChangedNotification object:nil];
     }
-    [self gk_viewDidLoad];
+    [self gkNav_viewDidLoad];
 }
 
 - (void)dealloc {
