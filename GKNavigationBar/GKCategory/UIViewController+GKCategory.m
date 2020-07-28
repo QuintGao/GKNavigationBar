@@ -128,13 +128,23 @@ static char kAssociatedObjectKey_popDelegate;
 - (void)gk_viewWillAppear:(BOOL)animated {
     if ([self isKindOfClass:[UINavigationController class]]) return;
     if ([self isKindOfClass:[UITabBarController class]]) return;
+    if ([self isKindOfClass:[UIImagePickerController class]]) return;
+    if ([self isKindOfClass:[UIVideoEditorController class]]) return;
+    if ([NSStringFromClass(self.class) isEqualToString:@"PUPhotoPickerHostViewController"]) return;
     if (!self.navigationController) return;
     
     __block BOOL exist = NO;
-    [GKConfigure.shiledItemSpaceVCs enumerateObjectsUsingBlock:^(UIViewController *vc, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([self isKindOfClass:vc.class]) {
-            exist = YES;
-            *stop = YES;
+    [GKConfigure.shiledItemSpaceVCs enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[UIViewController class]]) {
+            if ([self isKindOfClass:[obj class]]) {
+                exist = YES;
+                *stop = YES;
+            }
+        }else if ([obj isKindOfClass:[NSString class]]) {
+            if ([NSStringFromClass(self.class) isEqualToString:obj]) {
+                exist = YES;
+                *stop = YES;
+            }
         }
     }];
     if (exist) return;
@@ -377,7 +387,7 @@ static char kAssociatedObjectKey_navTitleColor;
 
 - (UIColor *)gk_navTitleColor {
     id objc = objc_getAssociatedObject(self, &kAssociatedObjectKey_navTitleColor);
-    return (objc != nil) ? objc : GKConfigure.titleColor;
+    return objc;
 }
 
 static char kAssociatedObjectKey_navTitleFont;
@@ -391,7 +401,7 @@ static char kAssociatedObjectKey_navTitleFont;
 
 - (UIFont *)gk_navTitleFont {
     id objc = objc_getAssociatedObject(self, &kAssociatedObjectKey_navTitleFont);
-    return (objc != nil) ? objc : GKConfigure.titleFont;
+    return objc;
 }
 
 static char kAssociatedObjectKey_navLeftBarButtonItem;
