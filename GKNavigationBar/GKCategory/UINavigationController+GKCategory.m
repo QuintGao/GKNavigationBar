@@ -109,7 +109,7 @@ static char kAssociatedObjectKey_openGestureHandle;
     
     __block BOOL exist = NO;
     [GKConfigure.shiledGuestureVCs enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:[UIViewController class]]) {
+        if ([[obj class] isSubclassOfClass:[UIViewController class]]) {
             if ([self isKindOfClass:[obj class]]) {
                 exist = YES;
                 *stop = YES;

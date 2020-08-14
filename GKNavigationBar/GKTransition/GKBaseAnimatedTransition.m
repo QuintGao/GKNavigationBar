@@ -11,7 +11,7 @@
 @implementation GKBaseAnimatedTransition
 
 + (instancetype)transitionWithScale:(BOOL)isScale {
-    return [[self alloc] initWithScale:isScale];
+    return [[GKBaseAnimatedTransition alloc] initWithScale:isScale];
 }
 
 - (instancetype)initWithScale:(BOOL)isScale {

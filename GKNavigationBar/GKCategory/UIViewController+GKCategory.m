@@ -122,20 +122,11 @@ static char kAssociatedObjectKey_popDelegate;
     // 设置默认导航栏间距
     self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
     self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
-    [self gk_viewDidLoad];
-}
-
-- (void)gk_viewWillAppear:(BOOL)animated {
-    if ([self isKindOfClass:[UINavigationController class]]) return;
-    if ([self isKindOfClass:[UITabBarController class]]) return;
-    if ([self isKindOfClass:[UIImagePickerController class]]) return;
-    if ([self isKindOfClass:[UIVideoEditorController class]]) return;
-    if ([NSStringFromClass(self.class) isEqualToString:@"PUPhotoPickerHostViewController"]) return;
-    if (!self.navigationController) return;
     
+    // 判断是否需要屏蔽导航栏间距调整
     __block BOOL exist = NO;
     [GKConfigure.shiledItemSpaceVCs enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:[UIViewController class]]) {
+        if ([[obj class] isSubclassOfClass:[UIViewController class]]) {
             if ([self isKindOfClass:[obj class]]) {
                 exist = YES;
                 *stop = YES;
@@ -147,7 +138,21 @@ static char kAssociatedObjectKey_popDelegate;
             }
         }
     }];
-    if (exist) return;
+    
+    [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
+        configure.gk_disableFixSpace = exist;
+    }];
+    
+    [self gk_viewDidLoad];
+}
+
+- (void)gk_viewWillAppear:(BOOL)animated {
+    if ([self isKindOfClass:[UINavigationController class]]) return;
+    if ([self isKindOfClass:[UITabBarController class]]) return;
+    if ([self isKindOfClass:[UIImagePickerController class]]) return;
+    if ([self isKindOfClass:[UIVideoEditorController class]]) return;
+    if ([NSStringFromClass(self.class) isEqualToString:@"PUPhotoPickerHostViewController"]) return;
+    if (!self.navigationController) return;
     
     if (self.gk_NavBarInit) {
         // 隐藏系统导航栏
@@ -162,19 +167,22 @@ static char kAssociatedObjectKey_popDelegate;
         self.gk_navigationBar.gk_statusBarHidden = self.gk_statusBarHidden;
     }
     
-    if (self.gk_navItemLeftSpace == GKNavigationBarItemSpace) {
-        self.gk_navItemLeftSpace = GKConfigure.navItemLeftSpace;
+    // 允许调整导航栏间距
+    if (!GKConfigure.gk_disableFixSpace) {
+        if (self.gk_navItemLeftSpace == GKNavigationBarItemSpace) {
+            self.gk_navItemLeftSpace = GKConfigure.navItemLeftSpace;
+        }
+        
+        if (self.gk_navItemRightSpace == GKNavigationBarItemSpace) {
+            self.gk_navItemRightSpace = GKConfigure.navItemRightSpace;
+        }
+        
+        // 重置navItem_space
+        [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
+            configure.gk_navItemLeftSpace  = self.gk_navItemLeftSpace;
+            configure.gk_navItemRightSpace = self.gk_navItemRightSpace;
+        }];
     }
-    
-    if (self.gk_navItemRightSpace == GKNavigationBarItemSpace) {
-        self.gk_navItemRightSpace = GKConfigure.navItemRightSpace;
-    }
-    
-    // 重置navItem_space
-    [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
-        configure.gk_navItemLeftSpace  = self.gk_navItemLeftSpace;
-        configure.gk_navItemRightSpace = self.gk_navItemRightSpace;
-    }];
     
     [self gk_viewWillAppear:animated];
 }

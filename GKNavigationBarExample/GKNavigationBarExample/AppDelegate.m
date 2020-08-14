@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "GKMainViewController.h"
 #import "GKWYMusicViewController.h"
+#import <TZImagePickerController/TZImagePickerController.h>
 
 @interface AppDelegate ()
 
@@ -33,10 +34,10 @@
         // 导航栏返回按钮样式
         configure.backStyle = GKNavigationBarBackStyleBlack;
         // 导航栏左右item间距
-        configure.gk_navItemLeftSpace = 12.0f;
-        configure.gk_navItemRightSpace = 12.0f;
+        configure.gk_navItemLeftSpace = 30.0f;
+        configure.gk_navItemRightSpace = 30.0f;
         
-        configure.shiledItemSpaceVCs = @[@"PUPhotoPickerHostViewController"];
+        configure.shiledItemSpaceVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController"];
     }];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
