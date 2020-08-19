@@ -26,7 +26,13 @@ Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/G
 ## 重要！！！
 感谢使用该库，如果在使用过程中遇到问题可查看issue或提交issue，或者进QQ群1047100313  
 
-1、如果切换控制器的时候出现状态栏显示异常（一半黑一半白等）
+1、手势不生效？
+看看是否使用了+ (instancetype)rootVC:(UIViewController *)rootVC 方法初始化导航控制器
+
+2、导航栏不显示？
+看看是否调用了跟导航栏相关的方法，注意：只有调用跟导航栏相关的方法才会初始化导航栏！
+
+3、切换控制器的时候出现状态栏显示异常（一半黑一半白等）
 解决办法：在控制器初始化方法里面设置状态栏样式
 ```
 - (instancetype)init {
@@ -36,7 +42,7 @@ Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/G
     return self;
 }
 ```
-2、Xcode 11.4 在调试的时候会出现状态栏样式改变不了的情况
+4、Xcode 11.4 在调试的时候会出现状态栏样式改变不了的情况
 解决办法：在基类控制器里实现下面两个方法
 ```
 - (BOOL)prefersStatusBarHidden {
