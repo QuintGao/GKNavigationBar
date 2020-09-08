@@ -57,6 +57,7 @@
     self.gk_navBackgroundColor = [UIColor redColor];
     self.gk_navShadowColor = [UIColor blackColor];
     self.gk_backStyle = GKNavigationBarBackStyleWhite;
+    self.gk_navItemRightSpace = 0;
     self.gk_navRightBarButtonItem = self.moreItem;
     
     self.leftPushSwitch.on = NO;
