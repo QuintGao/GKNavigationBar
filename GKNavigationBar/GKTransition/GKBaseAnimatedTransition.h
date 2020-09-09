@@ -25,10 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) UIViewController *fromViewController;
 @property (nonatomic, weak) UIViewController *toViewController;
 
-
-/// 默认初始化方法
+/// 初始化
 /// @param isScale 是否需要缩放
-+ (instancetype)transitionWithScale:(BOOL)isScale;
+- (instancetype)initWithScale:(BOOL)isScale;
 
 /// 动画
 - (void)animateTransition;

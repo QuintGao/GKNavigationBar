@@ -10,10 +10,6 @@
 
 @implementation GKBaseAnimatedTransition
 
-+ (instancetype)transitionWithScale:(BOOL)isScale {
-    return [[GKBaseAnimatedTransition alloc] initWithScale:isScale];
-}
-
 - (instancetype)initWithScale:(BOOL)isScale {
     if (self = [super init]) {
         self.isScale = isScale;

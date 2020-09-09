@@ -29,9 +29,9 @@
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
     if (self.navigationController.gk_transitionScale || (self.navigationController.gk_openScrollLeftPush && self.pushTransition)) {
         if (operation == UINavigationControllerOperationPush) {
-            return [GKPushAnimatedTransition transitionWithScale:self.navigationController.gk_transitionScale];
+            return [[GKPushAnimatedTransition alloc] initWithScale:self.navigationController.gk_transitionScale];
         }else if (operation == UINavigationControllerOperationPop) {
-            return [GKPopAnimatedTransition transitionWithScale:self.navigationController.gk_transitionScale];
+            return [[GKPopAnimatedTransition alloc] initWithScale:self.navigationController.gk_transitionScale];
         }
     }
     return nil;
