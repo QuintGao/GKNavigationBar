@@ -95,16 +95,6 @@
 		A8DAB537E488DAD24E9CB664 /* Pods_GKNavigationBarExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E89D0D10B663CF9EF209C1 /* Pods_GKNavigationBarExample.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		796CF808236D781700983E9B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 796CF7E4236D781400983E9B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 796CF7EB236D781400983E9B;
-			remoteInfo = GKNavigationBarExample;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		15E89D0D10B663CF9EF209C1 /* Pods_GKNavigationBarExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GKNavigationBarExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		794AFC30242F07E900BECA1B /* GKBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKBaseViewController.h; sourceTree = "<group>"; };
@@ -144,8 +134,6 @@
 		79672E8C236EC0740054300B /* GKNavigationBar.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GKNavigationBar.podspec; path = ../../GKNavigationBar.podspec; sourceTree = "<group>"; };
 		79672E93236EC8EB0054300B /* GKNavigationBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GKNavigationBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79672E96236EC8EB0054300B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		79672EA2236EC8EB0054300B /* GKNavigationBarFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNavigationBarFrameworkTests.m; sourceTree = "<group>"; };
-		79672EA4236EC8EB0054300B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		796CF7EC236D781400983E9B /* GKNavigationBarExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GKNavigationBarExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796CF7EF236D781400983E9B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		796CF7F0236D781400983E9B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -153,7 +141,6 @@
 		796CF7FE236D781700983E9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		796CF800236D781700983E9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		796CF801236D781700983E9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		796CF807236D781700983E9B /* GKNavigationBarExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKNavigationBarExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		796CF844236D7BBF00983E9B /* GKMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKMainViewController.m; sourceTree = "<group>"; };
 		796CF846236D7BBF00983E9B /* GKDemoBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDemoBaseViewController.h; sourceTree = "<group>"; };
 		796CF847236D7BBF00983E9B /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -245,13 +232,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		796CF804236D781700983E9B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -340,21 +320,11 @@
 			path = GKNavigationBarFramework;
 			sourceTree = "<group>";
 		};
-		79672EA1236EC8EB0054300B /* GKNavigationBarFrameworkTests */ = {
-			isa = PBXGroup;
-			children = (
-				79672EA2236EC8EB0054300B /* GKNavigationBarFrameworkTests.m */,
-				79672EA4236EC8EB0054300B /* Info.plist */,
-			);
-			path = GKNavigationBarFrameworkTests;
-			sourceTree = "<group>";
-		};
 		796CF7E3236D781400983E9B = {
 			isa = PBXGroup;
 			children = (
 				796CF7EE236D781400983E9B /* GKNavigationBarExample */,
 				79672E94236EC8EB0054300B /* GKNavigationBarFramework */,
-				79672EA1236EC8EB0054300B /* GKNavigationBarFrameworkTests */,
 				796CF7ED236D781400983E9B /* Products */,
 				47416ADDE20463BCCDF87981 /* Pods */,
 				53FBA5D7D76F97E088636095 /* Frameworks */,
@@ -365,7 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				796CF7EC236D781400983E9B /* GKNavigationBarExample.app */,
-				796CF807236D781700983E9B /* GKNavigationBarExampleTests.xctest */,
 				79672E93236EC8EB0054300B /* GKNavigationBar.framework */,
 			);
 			name = Products;
@@ -608,24 +577,6 @@
 			productReference = 796CF7EC236D781400983E9B /* GKNavigationBarExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		796CF806236D781700983E9B /* GKNavigationBarExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 796CF81E236D781800983E9B /* Build configuration list for PBXNativeTarget "GKNavigationBarExampleTests" */;
-			buildPhases = (
-				796CF803236D781700983E9B /* Sources */,
-				796CF804236D781700983E9B /* Frameworks */,
-				796CF805236D781700983E9B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				796CF809236D781700983E9B /* PBXTargetDependency */,
-			);
-			name = GKNavigationBarExampleTests;
-			productName = GKNavigationBarExampleTests;
-			productReference = 796CF807236D781700983E9B /* GKNavigationBarExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -640,10 +591,6 @@
 					};
 					796CF7EB236D781400983E9B = {
 						CreatedOnToolsVersion = 11.1;
-					};
-					796CF806236D781700983E9B = {
-						CreatedOnToolsVersion = 11.1;
-						TestTargetID = 796CF7EB236D781400983E9B;
 					};
 				};
 			};
@@ -661,7 +608,6 @@
 			projectRoot = "";
 			targets = (
 				796CF7EB236D781400983E9B /* GKNavigationBarExample */,
-				796CF806236D781700983E9B /* GKNavigationBarExampleTests */,
 				79672E92236EC8EB0054300B /* GKNavigationBarFramework */,
 			);
 		};
@@ -687,13 +633,6 @@
 				79672E8B236EC0520054300B /* README.md in Resources */,
 				796CF7FF236D781700983E9B /* LaunchScreen.storyboard in Resources */,
 				796CF7FC236D781700983E9B /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		796CF805236D781700983E9B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,22 +757,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		796CF803236D781700983E9B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		796CF809236D781700983E9B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 796CF7EB236D781400983E9B /* GKNavigationBarExample */;
-			targetProxy = 796CF808236D781700983E9B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		796CF7FD236D781700983E9B /* LaunchScreen.storyboard */ = {
@@ -1057,44 +981,6 @@
 			};
 			name = Release;
 		};
-		796CF81F236D781800983E9B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GKNavigationBarExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKNavigationBarExampleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GKNavigationBarExample.app/GKNavigationBarExample";
-			};
-			name = Debug;
-		};
-		796CF820236D781800983E9B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GKNavigationBarExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKNavigationBarExampleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GKNavigationBarExample.app/GKNavigationBarExample";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1121,15 +1007,6 @@
 			buildConfigurations = (
 				796CF81C236D781800983E9B /* Debug */,
 				796CF81D236D781800983E9B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		796CF81E236D781800983E9B /* Build configuration list for PBXNativeTarget "GKNavigationBarExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				796CF81F236D781800983E9B /* Debug */,
-				796CF820236D781800983E9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
