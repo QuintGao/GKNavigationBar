@@ -9,6 +9,10 @@
 #import "GKWYNewsHomeViewController.h"
 #import "GKWYNewsDetailViewController.h"
 
+@interface GKWYNewsHomeViewController()<GKViewControllerPushDelegate>
+
+@end
+
 @implementation GKWYNewsHomeViewController
 
 - (void)viewDidLoad {
@@ -27,6 +31,12 @@
     
     pageImage.userInteractionEnabled = YES;
     [pageImage addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pageAction)]];
+    
+    self.gk_pushDelegate = self;
+}
+
+- (void)dealloc {
+    self.gk_pushDelegate = nil;
 }
 
 - (void)pageAction {
@@ -37,6 +47,11 @@
 
 - (void)closeAction {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - GKViewControllerPushDelegate
+- (void)pushToNextViewController {
+    [self pageAction];
 }
 
 @end

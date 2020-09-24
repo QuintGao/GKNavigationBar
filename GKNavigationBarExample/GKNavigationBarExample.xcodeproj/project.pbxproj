@@ -947,7 +947,7 @@
 				DEVELOPMENT_TEAM = X52753HQNM;
 				GCC_PREFIX_HEADER = GKNavigationBarExample/PrefixHeader.pch;
 				INFOPLIST_FILE = GKNavigationBarExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -969,7 +969,7 @@
 				DEVELOPMENT_TEAM = X52753HQNM;
 				GCC_PREFIX_HEADER = GKNavigationBarExample/PrefixHeader.pch;
 				INFOPLIST_FILE = GKNavigationBarExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
