@@ -9,8 +9,9 @@
 #ifndef GKNavigationBarDefine_h
 #define GKNavigationBarDefine_h
 
+@class GKNavigationBarConfigure;
+
 #import <objc/runtime.h>
-#import "GKNavigationBarConfigure.h"
 
 // 配置类宏定义
 #define GKConfigure                 [GKNavigationBarConfigure sharedInstance]

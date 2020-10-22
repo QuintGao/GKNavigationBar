@@ -8,6 +8,7 @@
 
 #import "UINavigationItem+GKCategory.h"
 #import "GKNavigationBarDefine.h"
+#import "GKNavigationBarConfigure.h"
 
 @implementation UINavigationItem (GKCategory)
 
