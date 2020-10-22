@@ -94,6 +94,24 @@ static char kAssociatedObjectKey_popDelegate;
     return objc_getAssociatedObject(self, &kAssociatedObjectKey_popDelegate);
 }
 
+static char kAssociatedObjectKey_pushTransition;
+- (id<UIViewControllerAnimatedTransitioning>)gk_pushTransition {
+    return objc_getAssociatedObject(self, &kAssociatedObjectKey_pushTransition);
+}
+
+- (void)setGk_pushTransition:(id<UIViewControllerAnimatedTransitioning>)gk_pushTransition {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_pushTransition, gk_pushTransition, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+static char kAssociatedObjectKey_popTransition;
+- (id<UIViewControllerAnimatedTransitioning>)gk_popTransition {
+    return objc_getAssociatedObject(self, &kAssociatedObjectKey_popTransition);
+}
+
+- (void)setGk_popTransition:(id<UIViewControllerAnimatedTransitioning>)gk_popTransition {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_popTransition, gk_popTransition, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 #pragma mark - Private Methods
 // 发送属性改变通知
 - (void)postPropertyChangeNotification {
@@ -501,6 +519,24 @@ static char kAssociatedObjectKey_navItemRightSpace;
 
 - (void)backItemClick:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (UIViewController *)gk_visibleViewControllerIfExist {
+    if (self.presentedViewController) {
+        return [self.presentedViewController gk_visibleViewControllerIfExist];
+    }
+    if ([self isKindOfClass:[UINavigationController class]]) {
+        return [((UINavigationController *)self).topViewController gk_visibleViewControllerIfExist];
+    }
+    if ([self isKindOfClass:[UITabBarController class]]) {
+        return [((UITabBarController *)self).selectedViewController gk_visibleViewControllerIfExist];
+    }
+    if ([self isViewLoaded] && self.view.window) {
+        return self;
+    }else {
+        NSLog(@"找不到可见的控制器，viewcontroller.self = %@，self.view.window=%@", self, self.view.window);
+        return nil;
+    }
 }
 
 #pragma mark - Private Methods
