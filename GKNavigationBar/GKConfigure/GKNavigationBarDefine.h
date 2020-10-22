@@ -10,6 +10,10 @@
 #define GKNavigationBarDefine_h
 
 #import <objc/runtime.h>
+#import "GKNavigationBarConfigure.h"
+
+// 配置类宏定义
+#define GKConfigure                 [GKNavigationBarConfigure sharedInstance]
 
 // 屏幕相关
 #define GK_SCREEN_WIDTH             [UIScreen mainScreen].bounds.size.width

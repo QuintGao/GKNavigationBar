@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "GKNavigationBarDefine.h"
 
-// 配置类宏定义
-#define GKConfigure [GKNavigationBarConfigure sharedInstance]
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GKNavigationBarConfigure : NSObject

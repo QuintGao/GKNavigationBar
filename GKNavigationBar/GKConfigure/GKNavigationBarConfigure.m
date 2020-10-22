@@ -7,6 +7,7 @@
 //
 
 #import "GKNavigationBarConfigure.h"
+#import "UIViewController+GKCategory.h"
 
 @interface GKNavigationBarConfigure()
 
@@ -102,28 +103,31 @@
 }
 
 - (UIWindow *)getKeyWindow {
+    UIWindow *window = nil;
     if (@available(iOS 13.0, *)) {
         for (UIWindowScene* windowScene in [UIApplication sharedApplication].connectedScenes) {
             if (windowScene.activationState == UISceneActivationStateForegroundActive) {
-                for (UIWindow *window in windowScene.windows) {
+                for (UIWindow *w in windowScene.windows) {
                     if (window.isKeyWindow) {
-                        return window;
+                        window = w;
                         break;
                     }
                 }
             }
         }
-    } else {
-        UIWindow *window = UIApplication.sharedApplication.windows.firstObject;
+    }
+    
+    if (!window) {
+        window = [UIApplication sharedApplication].windows.firstObject;
         if (!window.isKeyWindow) {
-            UIWindow *keyWindow = UIApplication.sharedApplication.keyWindow;
+            UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
             if (CGRectEqualToRect(keyWindow.bounds, UIScreen.mainScreen.bounds)) {
                 window = keyWindow;
             }
         }
-        return window;
     }
-    return nil;
+    
+    return window;
 }
 
 
