@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		608FC6FA25469C9C003DB82F /* GKWXDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608FC6EC25469C9C003DB82F /* GKWXDetailViewController.m */; };
+		608FC6FB25469C9C003DB82F /* GKWXHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608FC6EF25469C9C003DB82F /* GKWXHomeViewController.m */; };
+		608FC6FC25469C9C003DB82F /* GKWXMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608FC6F125469C9C003DB82F /* GKWXMineViewController.m */; };
+		608FC6FD25469C9C003DB82F /* GKWXFindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608FC6F225469C9C003DB82F /* GKWXFindViewController.m */; };
+		608FC6FE25469C9C003DB82F /* GKWXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608FC6F425469C9C003DB82F /* GKWXViewController.m */; };
+		608FC6FF25469C9C003DB82F /* GKFloatTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 608FC6F625469C9C003DB82F /* GKFloatTransition.m */; };
+		608FC70025469C9C003DB82F /* GKFloatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 608FC6F725469C9C003DB82F /* GKFloatView.m */; };
 		794AFC32242F07EA00BECA1B /* GKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794AFC31242F07E900BECA1B /* GKBaseViewController.m */; };
 		794AFC37242F4FB600BECA1B /* GKBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794AFC36242F4FB600BECA1B /* GKBaseNavigationController.m */; };
 		79672E6D236D8C1B0054300B /* GKTransitionDelegateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E4E236D8BDA0054300B /* GKTransitionDelegateHandler.m */; };
@@ -97,6 +104,20 @@
 
 /* Begin PBXFileReference section */
 		15E89D0D10B663CF9EF209C1 /* Pods_GKNavigationBarExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GKNavigationBarExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		608FC6EA25469C9C003DB82F /* GKWXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWXViewController.h; sourceTree = "<group>"; };
+		608FC6EC25469C9C003DB82F /* GKWXDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWXDetailViewController.m; sourceTree = "<group>"; };
+		608FC6ED25469C9C003DB82F /* GKWXFindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWXFindViewController.h; sourceTree = "<group>"; };
+		608FC6EE25469C9C003DB82F /* GKWXMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWXMineViewController.h; sourceTree = "<group>"; };
+		608FC6EF25469C9C003DB82F /* GKWXHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWXHomeViewController.m; sourceTree = "<group>"; };
+		608FC6F025469C9C003DB82F /* GKWXDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWXDetailViewController.h; sourceTree = "<group>"; };
+		608FC6F125469C9C003DB82F /* GKWXMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWXMineViewController.m; sourceTree = "<group>"; };
+		608FC6F225469C9C003DB82F /* GKWXFindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWXFindViewController.m; sourceTree = "<group>"; };
+		608FC6F325469C9C003DB82F /* GKWXHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWXHomeViewController.h; sourceTree = "<group>"; };
+		608FC6F425469C9C003DB82F /* GKWXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWXViewController.m; sourceTree = "<group>"; };
+		608FC6F625469C9C003DB82F /* GKFloatTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKFloatTransition.m; sourceTree = "<group>"; };
+		608FC6F725469C9C003DB82F /* GKFloatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKFloatView.m; sourceTree = "<group>"; };
+		608FC6F825469C9C003DB82F /* GKFloatTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKFloatTransition.h; sourceTree = "<group>"; };
+		608FC6F925469C9C003DB82F /* GKFloatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKFloatView.h; sourceTree = "<group>"; };
 		794AFC30242F07E900BECA1B /* GKBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKBaseViewController.h; sourceTree = "<group>"; };
 		794AFC31242F07E900BECA1B /* GKBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKBaseViewController.m; sourceTree = "<group>"; };
 		794AFC35242F4FB600BECA1B /* GKBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKBaseNavigationController.h; sourceTree = "<group>"; };
@@ -252,6 +273,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		608FC6E925469C9C003DB82F /* 微信 */ = {
+			isa = PBXGroup;
+			children = (
+				608FC6EA25469C9C003DB82F /* GKWXViewController.h */,
+				608FC6F425469C9C003DB82F /* GKWXViewController.m */,
+				608FC6EB25469C9C003DB82F /* tab */,
+				608FC6F525469C9C003DB82F /* FloatView */,
+			);
+			path = "微信";
+			sourceTree = "<group>";
+		};
+		608FC6EB25469C9C003DB82F /* tab */ = {
+			isa = PBXGroup;
+			children = (
+				608FC6F325469C9C003DB82F /* GKWXHomeViewController.h */,
+				608FC6EF25469C9C003DB82F /* GKWXHomeViewController.m */,
+				608FC6ED25469C9C003DB82F /* GKWXFindViewController.h */,
+				608FC6F225469C9C003DB82F /* GKWXFindViewController.m */,
+				608FC6EE25469C9C003DB82F /* GKWXMineViewController.h */,
+				608FC6F125469C9C003DB82F /* GKWXMineViewController.m */,
+				608FC6F025469C9C003DB82F /* GKWXDetailViewController.h */,
+				608FC6EC25469C9C003DB82F /* GKWXDetailViewController.m */,
+			);
+			path = tab;
+			sourceTree = "<group>";
+		};
+		608FC6F525469C9C003DB82F /* FloatView */ = {
+			isa = PBXGroup;
+			children = (
+				608FC6F925469C9C003DB82F /* GKFloatView.h */,
+				608FC6F725469C9C003DB82F /* GKFloatView.m */,
+				608FC6F825469C9C003DB82F /* GKFloatTransition.h */,
+				608FC6F625469C9C003DB82F /* GKFloatTransition.m */,
+			);
+			path = FloatView;
+			sourceTree = "<group>";
+		};
 		79672E4A236D8BDA0054300B /* GKNavigationBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +428,7 @@
 				796CF857236D7BBF00983E9B /* 今日头条 */,
 				796CF865236D7BBF00983E9B /* 网易云音乐 */,
 				796CF873236D7BBF00983E9B /* 网易新闻 */,
+				608FC6E925469C9C003DB82F /* 微信 */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -583,7 +642,7 @@
 		796CF7E4236D781400983E9B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = QuintGao;
 				TargetAttributes = {
 					79672E92236EC8EB0054300B = {
@@ -591,6 +650,7 @@
 					};
 					796CF7EB236D781400983E9B = {
 						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1210;
 					};
 				};
 			};
@@ -704,13 +764,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				608FC6FB25469C9C003DB82F /* GKWXHomeViewController.m in Sources */,
 				79672E78236D8C960054300B /* GKNavigationBarConfigure.m in Sources */,
 				79672E79236D8C960054300B /* GKPopAnimatedTransition.m in Sources */,
+				608FC6FC25469C9C003DB82F /* GKWXMineViewController.m in Sources */,
 				79672E7A236D8C960054300B /* GKPushAnimatedTransition.m in Sources */,
 				79672E7B236D8C960054300B /* GKBaseAnimatedTransition.m in Sources */,
 				79672E7C236D8C960054300B /* UINavigationController+GKCategory.m in Sources */,
 				79672E7D236D8C960054300B /* UIBarButtonItem+GKCategory.m in Sources */,
 				79672E7E236D8C960054300B /* UIScrollView+GKCategory.m in Sources */,
+				608FC6FF25469C9C003DB82F /* GKFloatTransition.m in Sources */,
 				79672E7F236D8C960054300B /* UINavigationItem+GKCategory.m in Sources */,
 				79672E80236D8C960054300B /* UIImage+GKCategory.m in Sources */,
 				79672E81236D8C960054300B /* GKCustomNavigationBar.m in Sources */,
@@ -724,6 +787,7 @@
 				796CF8B0236D7BBF00983E9B /* GKDemoBaseViewController.m in Sources */,
 				796CF8CA236D7BBF00983E9B /* GKWYNewsLiveViewController.m in Sources */,
 				796CF8C7236D7BBF00983E9B /* GKWYNewsCommentViewController.m in Sources */,
+				608FC6FA25469C9C003DB82F /* GKWXDetailViewController.m in Sources */,
 				796CF7F1236D781400983E9B /* AppDelegate.m in Sources */,
 				796CF8C5236D7BBF00983E9B /* GKWYNewsNewViewController.m in Sources */,
 				796CF8C8236D7BBF00983E9B /* GKWYNewsDetailViewController.m in Sources */,
@@ -741,7 +805,10 @@
 				796CF8C1236D7BBF00983E9B /* GKWYMusicAccountViewController.m in Sources */,
 				796CF8C9236D7BBF00983E9B /* GKWYNewsVideoViewController.m in Sources */,
 				796CF8D6236D7BBF00983E9B /* GKDemo003ViewController.m in Sources */,
+				608FC70025469C9C003DB82F /* GKFloatView.m in Sources */,
+				608FC6FD25469C9C003DB82F /* GKWXFindViewController.m in Sources */,
 				796CF8BB236D7BBF00983E9B /* GKToutiaoMicroViewController.m in Sources */,
+				608FC6FE25469C9C003DB82F /* GKWXViewController.m in Sources */,
 				796CF8DB236D7BBF00983E9B /* GKDouyinScrollView.m in Sources */,
 				796CF8C2236D7BBF00983E9B /* GKWYMusicViewController.m in Sources */,
 				796CF802236D781700983E9B /* main.m in Sources */,
@@ -933,6 +1000,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -942,6 +1010,7 @@
 			baseConfigurationReference = C3518698EA725761EF29764E /* Pods-GKNavigationBarExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development: xinjun zhang (DNJGV7XB9Q)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = X52753HQNM;
@@ -955,6 +1024,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.gknavigationbar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = aystfm_dev_test;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -964,6 +1035,7 @@
 			baseConfigurationReference = C2B06F1CBCB2622ACE63E239 /* Pods-GKNavigationBarExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development: xinjun zhang (DNJGV7XB9Q)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = X52753HQNM;
@@ -977,6 +1049,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.gknavigationbar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = aystfm_dev_test;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -44,7 +44,7 @@
     self.toViewController.view.layer.shadowOpacity = 0.2f;
     self.toViewController.view.layer.shadowRadius = 4.0f;
     
-    [UIView animateWithDuration:[self transitionDuration:self.transitionContext] animations:^{
+    [UIView animateWithDuration:self.animationDuration animations:^{
         if (self.isScale) {
             self.shadowView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
             if (@available(iOS 11.0, *)) {

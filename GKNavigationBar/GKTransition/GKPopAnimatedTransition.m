@@ -51,7 +51,7 @@
     self.fromViewController.view.layer.shadowOpacity = 0.2f;
     self.fromViewController.view.layer.shadowRadius = 4.0f;
     
-    [UIView animateWithDuration:[self transitionDuration:self.transitionContext] animations:^{
+    [UIView animateWithDuration:self.animationDuration animations:^{
         self.fromViewController.view.frame = CGRectMake(GK_SCREEN_WIDTH, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
         if (self.isScale) {
             self.shadowView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0];

@@ -88,6 +88,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取当前APP是否是有缺口的屏幕（刘海屏）
 - (BOOL)gk_isNotchedScreen;
 
+/// 安全区域
+- (UIEdgeInsets)gk_safeAreaInsets;
+
+/// 状态栏frame
+- (CGRect)gk_statusBarFrame;
+
 #pragma mark - 内部方法
 
 /// 获取当前item修复间距

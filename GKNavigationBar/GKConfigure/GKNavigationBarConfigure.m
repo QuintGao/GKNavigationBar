@@ -74,7 +74,28 @@
 }
 
 - (UIViewController *)visibleViewController {
-    return [self getKeyWindow].rootViewController.gk_visibleViewControllerIfExist;
+    return [[GKConfigure getKeyWindow].rootViewController gk_visibleViewControllerIfExist];
+}
+
+- (UIEdgeInsets)gk_safeAreaInsets {
+    UIEdgeInsets safeAreaInsets = UIEdgeInsetsZero;
+    if (@available(iOS 11.0, *)) {
+        UIWindow *keyWindow = [GKConfigure getKeyWindow];
+        if (keyWindow) {
+            safeAreaInsets = keyWindow.safeAreaInsets;
+        }else { // 如果获取到的window是空
+            // 对于刘海屏，当window没有创建的时候，可根据状态栏设置安全区域顶部高度
+            // iOS14之后顶部安全区域不再是固定的44，所以修改为以下方式获取
+            if ([GKConfigure gk_isNotchedScreen]) {
+                safeAreaInsets = UIEdgeInsetsMake([GKConfigure gk_statusBarFrame].size.height, 0, 34, 0);
+            }
+        }
+    }
+    return safeAreaInsets;
+}
+
+- (CGRect)gk_statusBarFrame {
+    return [UIApplication sharedApplication].statusBarFrame;
 }
 
 - (BOOL)gk_isNotchedScreen {
