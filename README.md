@@ -63,6 +63,8 @@ Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/G
 
 #### 3、Carthage方式Cartfile中添加 github "QuintGao/GKNavigationBar"，执行carthage update --platform iOS，#import <GKNavigationBar/GKNavigationBar.h>，开始使用
 
+#### 4、SPM方式在Xcode中点击File->Swift Packages->Add Package Dependency，然后输入https://github.com/QuintGao/GKNavigationBar，下载相应版本的代码，开始使用
+
 ### 使用方法
 #### 1、在AppDelegate中添加导航配置
 
@@ -85,6 +87,7 @@ self.gk_navBackgroundColor = [UIColor red]
 
 ## 版本记录
 
+* 1.3.0 - 2020.10.29 功能模块拆分，可按需pod不同模块
 * 1.2.0 - 2020.10.26 优化代码宏定义，增加自定义转场demo
 * 1.1.8 - 2020.10.22 适配iPhone 12 系列手机，增加自定义转场动画属性
 * 1.1.6 - 2020.09.09 修复左滑push卡住不动的bug

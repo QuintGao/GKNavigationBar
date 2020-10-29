@@ -329,9 +329,8 @@
 			isa = PBXGroup;
 			children = (
 				79672E68236D8BDA0054300B /* GKNavigationBar.h */,
-				602E1D47254A60C000ABC246 /* GestureHandle */,
 				79672E58236D8BDA0054300B /* NavigationBar */,
-				79672E83236EA7530054300B /* GKNavigationBar.bundle */,
+				602E1D47254A60C000ABC246 /* GestureHandle */,
 			);
 			name = GKNavigationBar;
 			path = ../../GKNavigationBar;
@@ -353,6 +352,7 @@
 				79672E5D236D8BDA0054300B /* UIBarButtonItem+GKCategory.m */,
 				79672E59236D8BDA0054300B /* UIImage+GKCategory.h */,
 				79672E63236D8BDA0054300B /* UIImage+GKCategory.m */,
+				79672E83236EA7530054300B /* GKNavigationBar.bundle */,
 			);
 			path = NavigationBar;
 			sourceTree = "<group>";
@@ -823,6 +823,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = GKNavigationBarFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -850,6 +851,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = GKNavigationBarFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                    = 'GKNavigationBar'
-  s.version                 = '1.2.1'
+  s.version                 = '1.3.0'
   s.license                 = 'MIT'
   s.summary                 = '自定义导航栏--导航栏联动'
   s.homepage                = 'https://github.com/QuintGao/GKNavigationBar'
@@ -15,27 +15,10 @@ Pod::Spec.new do |s|
   
   s.subspec 'NavigationBar' do |ss|
     ss.source_files = 'GKNavigationBar/NavigationBar'
-    ss.resource     = 'GKNavigationBar/GKNavigationBar.bundle'
+    ss.resource     = 'GKNavigationBar/NavigationBar/GKNavigationBar.bundle'
   end
   
   s.subspec 'GestureHandle' do |ss|
     ss.source_files = 'GKNavigationBar/GestureHandle'
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
