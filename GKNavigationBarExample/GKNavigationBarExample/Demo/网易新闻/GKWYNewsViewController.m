@@ -8,12 +8,12 @@
 
 #import "GKWYNewsViewController.h"
 #import "GKNavigationBarConfigure.h"
-#import "UINavigationController+GKCategory.h"
 #import "GKWYNewsHomeViewController.h"
 #import "GKWYNewsNewViewController.h"
 #import "GKWYNewsLiveViewController.h"
 #import "GKWYNewsVideoViewController.h"
 #import "GKWYNewsProfileViewController.h"
+#import "UINavigationController+GKGestureHandle.h"
 
 @interface GKWYNewsViewController ()
 
@@ -27,14 +27,14 @@
     self.tabBar.barTintColor = [UIColor whiteColor];
     self.tabBar.translucent = NO;
     
-    // 统一设置导航栏样式
-    GKNavigationBarConfigure *configure = [GKNavigationBarConfigure sharedInstance];
-    [configure setupDefaultConfigure];
-    
-    // 设置自定义样式
-    configure.backgroundColor = [UIColor colorWithRed:(212 / 255.0) green:(25 /255.0) blue:(37 / 255.0) alpha:1.0];
-    configure.titleColor = [UIColor whiteColor];
-    configure.titleFont  = [UIFont systemFontOfSize:18];
+//    // 统一设置导航栏样式
+//    GKNavigationBarConfigure *configure = [GKNavigationBarConfigure sharedInstance];
+//    [configure setupDefaultConfigure];
+//    
+//    // 设置自定义样式
+//    configure.backgroundColor = [UIColor colorWithRed:(212 / 255.0) green:(25 /255.0) blue:(37 / 255.0) alpha:1.0];
+//    configure.titleColor = [UIColor whiteColor];
+//    configure.titleFont  = [UIFont systemFontOfSize:18];
     
     // 添加子控制器
     [self addChildVCs];

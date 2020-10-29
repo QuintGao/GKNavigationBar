@@ -8,6 +8,7 @@
 
 #import "GKDemo000ViewController.h"
 #import "GKDemoWebViewController.h"
+#import "UIViewController+GKGestureHandle.h"
 
 @interface GKDemo000ViewController ()<GKViewControllerPushDelegate>
 

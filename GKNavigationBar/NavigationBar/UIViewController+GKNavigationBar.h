@@ -1,71 +1,35 @@
 //
-//  UIViewController+GKCategory.h
-//  GKNavigationBar
+//  UIViewController+GKNavigationBar.h
+//  GKNavigationBarExample
 //
-//  Created by QuintGao on 2019/10/27.
-//  Copyright © 2019 QuintGao. All rights reserved.
+//  Created by gaokun on 2020/10/29.
+//  Copyright © 2020 QuintGao. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "GKCustomNavigationBar.h"
-#import "GKNavigationBarConfigure.h"
+
+// 返回按钮样式
+typedef NS_ENUM(NSUInteger, GKNavigationBarBackStyle) {
+    GKNavigationBarBackStyleNone,   // 无返回按钮
+    GKNavigationBarBackStyleBlack,  // 黑色返回按钮
+    GKNavigationBarBackStyleWhite   // 白色返回按钮
+};
 
 NS_ASSUME_NONNULL_BEGIN
 
-UIKIT_EXTERN NSString *const GKViewControllerPropertyChangedNotification;
-
-// 左滑push代理
-@protocol GKViewControllerPushDelegate <NSObject>
-
-- (void)pushToNextViewController;
-
-@end
-
-// 右滑pop代理
-@protocol GKViewControllerPopDelegate <NSObject>
-
-@optional
-- (void)viewControllerPopScrollBegan;
-- (void)viewControllerPopScrollUpdate:(float)progress;
-- (void)viewControllerPopScrollEnded;
-
-@end
-
-@interface UIViewController (GKCategory)
-
-/// 是否禁止当前控制器的滑动返回（包括全屏滑动返回和边缘滑动返回）
-@property (nonatomic, assign) BOOL gk_interactivePopDisabled;
-
-/// 是否禁止当前控制器的全屏滑动返回
-@property (nonatomic, assign) BOOL gk_fullScreenPopDisabled;
-
-/// 全屏滑动时，滑动区域距离屏幕左侧的最大位置，默认是0：表示全屏可滑动
-@property (nonatomic, assign) CGFloat gk_maxPopDistance;
-
-/// 设置状态栏是否隐藏，默认NO：不隐藏
-@property (nonatomic, assign) BOOL gk_statusBarHidden;
-
-/// 设置状态栏类型
-@property (nonatomic, assign) UIStatusBarStyle gk_statusBarStyle;
-
-/// 左滑push代理
-@property (nonatomic, weak) id<GKViewControllerPushDelegate> gk_pushDelegate;
-
-/// 右滑pop代理，如果设置了gk_popDelegate，原来的滑动返回手势将失效
-@property (nonatomic, weak) id<GKViewControllerPopDelegate> gk_popDelegate;
-
-/** 自定义push转场动画 */
-@property (nonatomic, weak) id<UIViewControllerAnimatedTransitioning> gk_pushTransition;
-
-/** 自定义pop转场动画 */
-@property (nonatomic, weak) id<UIViewControllerAnimatedTransitioning> gk_popTransition;
-
-@end
-
 @interface UIViewController (GKNavigationBar)
 
+/// 设置状态栏是否隐藏，默认NO：不隐藏
+@property (nonatomic, assign) BOOL                  gk_statusBarHidden;
+
+/// 设置状态栏类型
+@property (nonatomic, assign) UIStatusBarStyle      gk_statusBarStyle;
+
+/// 自定义导航栏
 @property (nonatomic, strong) GKCustomNavigationBar *gk_navigationBar;
 
+/// 导航栏item
 @property (nonatomic, strong) UINavigationItem      *gk_navigationItem;
 
 /// 是否创建了gk_navigationBar
@@ -77,7 +41,7 @@ UIKIT_EXTERN NSString *const GKViewControllerPropertyChangedNotification;
 @property (nonatomic, assign) CGFloat               gk_navBarAlpha;
 
 /// 设置返回按钮图片（优先级高于gk_backStyle）
-@property (nonatomic, strong) UIImage *gk_backImage;
+@property (nonatomic, strong) UIImage               *gk_backImage;
 
 /// 设置返回按钮类型
 @property (nonatomic, assign) GKNavigationBarBackStyle gk_backStyle;

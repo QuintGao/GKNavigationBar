@@ -7,6 +7,7 @@
 //
 
 #import "GKBaseAnimatedTransition.h"
+#import <objc/runtime.h>
 
 @implementation GKBaseAnimatedTransition
 

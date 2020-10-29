@@ -11,6 +11,7 @@
 #import "GKWYMusicMineViewController.h"
 #import "GKWYMusicFriendViewController.h"
 #import "GKWYMusicAccountViewController.h"
+#import "UINavigationController+GKGestureHandle.h"
 
 @interface GKWYMusicViewController ()
 

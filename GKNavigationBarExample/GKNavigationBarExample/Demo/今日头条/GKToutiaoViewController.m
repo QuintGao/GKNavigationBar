@@ -11,6 +11,7 @@
 #import "GKToutiaoVideoViewController.h"
 #import "GKToutiaoMicroViewController.h"
 #import "GKToutiaoMineViewController.h"
+#import "UINavigationController+GKGestureHandle.h"
 
 @interface GKToutiaoViewController ()
 

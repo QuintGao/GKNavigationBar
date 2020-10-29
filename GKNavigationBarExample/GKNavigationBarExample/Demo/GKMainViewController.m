@@ -12,6 +12,7 @@
 #import "GKWYNewsViewController.h"
 #import "GKDouyinHomeViewController.h"
 #import "GKWXViewController.h"
+#import "UINavigationController+GKGestureHandle.h"
 
 @interface GKMainViewController ()<UITableViewDataSource, UITableViewDelegate>
 

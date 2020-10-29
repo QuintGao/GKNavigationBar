@@ -7,6 +7,7 @@
 //
 
 #import "GKDemo001ViewController.h"
+#import "UIScrollView+GKGestureHandle.h"
 
 @interface GKDemo001ViewController()<UIScrollViewDelegate>
 
@@ -52,6 +53,7 @@
     self.scrollView.delegate        = self;
     self.scrollView.pagingEnabled   = YES;
     self.scrollView.backgroundColor = [UIColor redColor];
+    self.scrollView.gk_openGestureHandle = YES;
     [self.view addSubview:self.scrollView];
     
     CGFloat scrollW = self.scrollView.frame.size.width;

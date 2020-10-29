@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GKNavigationBarDefine.h"
+#import "UIViewController+GKNavigationBar.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 导航栏背景色，默认白色
 @property (nonatomic, strong) UIColor   *backgroundColor;
+
+/// 导航栏分割线背景色，默认nil，使用系统颜色
+@property (nonatomic, strong) UIColor   *lineColor;
+
+/// 导航栏分割线是否隐藏，默认NO
+@property (nonatomic, assign) BOOL      lineHidden;
 
 /// 导航栏标题颜色，默认黑色
 @property (nonatomic, strong) UIColor   *titleColor;
@@ -43,26 +49,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 状态栏类型，默认UIStatusBarStyleDefault
 @property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
 
-/// 左滑push过渡临界值，默认0.3，大于此值完成push操作
-@property (nonatomic, assign) CGFloat gk_pushTransitionCriticalValue;
-
-/// 右滑pop过渡临界值，默认0.5，大于此值完成pop操作
-@property (nonatomic, assign) CGFloat gk_popTransitionCriticalValue;
-
-// 以下属性需要设置导航栏转场缩放为YES
-/// 手机系统大于11.0，使用下面的值控制x、y轴的位移距离，默认（5，5）
-@property (nonatomic, assign) CGFloat gk_translationX;
-@property (nonatomic, assign) CGFloat gk_translationY;
-
-/// 手机系统小于11.0，使用下面的值控制x、y周的缩放程度，默认（0.95，0.97）
-@property (nonatomic, assign) CGFloat gk_scaleX;
-@property (nonatomic, assign) CGFloat gk_scaleY;
-
 // 调整导航栏间距时需要屏蔽的VC（默认nil），支持Class或NSString
 @property (nonatomic, strong) NSArray *shiledItemSpaceVCs;
-
-// 需要屏蔽手势处理的VC（默认nil），支持Class或NSString
-@property (nonatomic, strong) NSArray *shiledGuestureVCs;
 
 /// 导航栏左右间距，内部使用
 @property (nonatomic, assign, readonly) CGFloat navItemLeftSpace;

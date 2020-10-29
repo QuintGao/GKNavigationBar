@@ -1,30 +1,30 @@
 //
-//  UIScrollView+GKCategory.m
-//  GKNavigationBar
+//  UIScrollView+GKGestureHandle.m
+//  GKNavigationBarExample
 //
-//  Created by QuintGao on 2019/10/27.
-//  Copyright © 2019 QuintGao. All rights reserved.
+//  Created by gaokun on 2020/10/29.
+//  Copyright © 2020 QuintGao. All rights reserved.
 //
 
-#import "UIScrollView+GKCategory.h"
+#import "UIScrollView+GKGestureHandle.h"
 #import <objc/runtime.h>
 
-@implementation UIScrollView (GKCategory)
+@implementation UIScrollView (GKGestureHandle)
 
-static char kAssociatedObjectKey_gestureHandleDisabled;
-- (void)setGk_gestureHandleDisabled:(BOOL)gk_gestureHandleDisabled {
-    objc_setAssociatedObject(self, &kAssociatedObjectKey_gestureHandleDisabled, @(gk_gestureHandleDisabled), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+static char kAssociatedObjectKey_openGestureHandle;
+- (void)setGk_openGestureHandle:(BOOL)gk_openGestureHandle {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_openGestureHandle, @(gk_openGestureHandle), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (BOOL)gk_gestureHandleDisabled {
-    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_gestureHandleDisabled) boolValue];
+- (BOOL)gk_openGestureHandle {
+    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_openGestureHandle) boolValue];
 }
 
 #pragma mark - 解决全屏滑动返回时的手势冲突
 // 当UIScrollView在水平方向滑动到第一个时，默认是不能全屏滑动返回的，通过下面的方法可实现其滑动返回。
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-    if (self.gk_gestureHandleDisabled) return YES;
+    if (!self.gk_openGestureHandle) return YES;
 
     if ([self panBack:gestureRecognizer]) return NO;
     
@@ -32,7 +32,7 @@ static char kAssociatedObjectKey_gestureHandleDisabled;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    if (self.gk_gestureHandleDisabled) return NO;
+    if (!self.gk_openGestureHandle) return NO;
     
     if ([self panBack:gestureRecognizer]) return YES;
     

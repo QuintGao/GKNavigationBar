@@ -8,6 +8,7 @@
 
 #import "GKWYNewsDetailViewController.h"
 #import "GKWYNewsCommentViewController.h"
+#import "UIViewController+GKGestureHandle.h"
 
 @interface GKWYNewsDetailViewController ()<GKViewControllerPushDelegate>
 

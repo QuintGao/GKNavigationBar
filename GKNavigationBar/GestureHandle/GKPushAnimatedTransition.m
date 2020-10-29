@@ -7,6 +7,7 @@
 //
 
 #import "GKPushAnimatedTransition.h"
+#import "GKGestureHandleDefine.h"
 
 @implementation GKPushAnimatedTransition
 
@@ -14,12 +15,15 @@
     // 解决UITabbarController左滑push时的显示问题
     self.isHideTabBar = self.fromViewController.tabBarController && self.toViewController.hidesBottomBarWhenPushed;
     
+    CGFloat screenW = self.containerView.bounds.size.width;
+    CGFloat screenH = self.containerView.bounds.size.height;
+    
     __block UIView *fromView = nil;
     if (self.isHideTabBar) {
         // 获取fromViewController的截图
         UIImage *captureImage = [self getCaptureWithView:self.fromViewController.view.window];
         UIImageView *captureView = [[UIImageView alloc] initWithImage:captureImage];
-        captureView.frame = CGRectMake(0, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
+        captureView.frame = CGRectMake(0, 0, screenW, screenH);
         [self.containerView addSubview:captureView];
         fromView = captureView;
         self.fromViewController.gk_captureImage = captureImage;
@@ -33,13 +37,13 @@
     [self.containerView addSubview:self.toViewController.view];
     
     if (self.isScale) {
-        self.shadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT)];
+        self.shadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenW, screenH)];
         self.shadowView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0];
         [fromView addSubview:self.shadowView];
     }
     
     // 设置toViewController
-    self.toViewController.view.frame = CGRectMake(GK_SCREEN_WIDTH, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
+    self.toViewController.view.frame = CGRectMake(screenW, 0, screenW, screenH);
     self.toViewController.view.layer.shadowColor = [UIColor blackColor].CGColor;
     self.toViewController.view.layer.shadowOpacity = 0.2f;
     self.toViewController.view.layer.shadowRadius = 4.0f;
@@ -49,18 +53,18 @@
             self.shadowView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
             if (@available(iOS 11.0, *)) {
                 CGRect frame = fromView.frame;
-                frame.origin.x = GKConfigure.gk_translationX;
-                frame.origin.y = GKConfigure.gk_translationY;
-                frame.size.height -= 2 * GKConfigure.gk_translationY;
+                frame.origin.x = GKGestureConfigure.gk_translationX;
+                frame.origin.y = GKGestureConfigure.gk_translationY;
+                frame.size.height -= 2 * GKGestureConfigure.gk_translationY;
                 fromView.frame = frame;
             }else {
-                fromView.transform = CGAffineTransformMakeScale(GKConfigure.gk_scaleX, GKConfigure.gk_scaleY);
+                fromView.transform = CGAffineTransformMakeScale(GKGestureConfigure.gk_scaleX, GKGestureConfigure.gk_scaleY);
             }
         }else {
-            fromView.frame = CGRectMake(- (0.3 * GK_SCREEN_WIDTH), 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
+            fromView.frame = CGRectMake(- (0.3 * screenW), 0, screenW, screenH);
         }
         
-        self.toViewController.view.frame = CGRectMake(0, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
+        self.toViewController.view.frame = CGRectMake(0, 0, screenW, screenH);
     } completion:^(BOOL finished) {
         [self completeTransition];
         if (self.isHideTabBar) {

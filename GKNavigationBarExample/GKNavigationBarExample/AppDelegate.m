@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "GKMainViewController.h"
 #import "GKWYMusicViewController.h"
+#import "UINavigationController+GKGestureHandle.h"
 #import <TZImagePickerController/TZImagePickerController.h>
 
 @interface AppDelegate ()
@@ -21,10 +22,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // 配置导航栏属性
     [GKConfigure setupCustomConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
-        configure.gk_translationX = 15;
-        configure.gk_translationY = 20;
-        configure.gk_scaleX = 0.90;
-        configure.gk_scaleY = 0.92;
         // 导航栏背景色
         configure.backgroundColor = [UIColor whiteColor];
         // 导航栏标题颜色
@@ -34,10 +31,18 @@
         // 导航栏返回按钮样式
         configure.backStyle = GKNavigationBarBackStyleBlack;
         // 导航栏左右item间距
-        configure.gk_navItemLeftSpace = 30.0f;
-        configure.gk_navItemRightSpace = 30.0f;
+        configure.gk_navItemLeftSpace = 10.0f;
+        configure.gk_navItemRightSpace = 10.0f;
         
         configure.shiledItemSpaceVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController"];
+    }];
+    
+    [GKGestureConfigure setupCustomConfigure:^(GKGestureHandleConfigure * _Nonnull configure) {
+        configure.gk_translationX = 15;
+        configure.gk_translationY = 20;
+        configure.gk_scaleX = 0.90;
+        configure.gk_scaleY = 0.92;
+        configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController")];
     }];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

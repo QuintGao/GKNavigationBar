@@ -9,9 +9,10 @@
 #ifndef GKNavigationBarDefine_h
 #define GKNavigationBarDefine_h
 
-@class GKNavigationBarConfigure;
-
 #import <objc/runtime.h>
+#import "GKNavigationBarConfigure.h"
+#import "UIViewController+GKNavigationBar.h"
+#import "UIBarButtonItem+GKCategory.h"
 
 // 配置类宏定义
 #define GKConfigure                 [GKNavigationBarConfigure sharedInstance]
@@ -42,19 +43,12 @@
 // 导航栏间距，用于不同控制器之间的间距
 static const CGFloat GKNavigationBarItemSpace = -1;
 
-// 返回按钮样式
-typedef NS_ENUM(NSUInteger, GKNavigationBarBackStyle) {
-    GKNavigationBarBackStyleNone,   // 无返回按钮
-    GKNavigationBarBackStyleBlack,  // 黑色返回按钮
-    GKNavigationBarBackStyleWhite   // 白色返回按钮
-};
-
 /// iOS runtime交换方法
 /// @param prefix 交换方法的前缀
 /// @param oldClass 原始类
 /// @param oldSelector 原始方法
 /// @param newClass 新类
-static inline void gk_swizzled_instanceMethod(NSString *prefix, Class oldClass, NSString *oldSelector, Class newClass) {
+static inline void gk_navigationBar_swizzled_instanceMethod(NSString *prefix, Class oldClass, NSString *oldSelector, Class newClass) {
     NSString *newSelector = [NSString stringWithFormat:@"%@_%@", prefix, oldSelector];
     
     SEL originalSelector = NSSelectorFromString(oldSelector);

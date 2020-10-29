@@ -9,6 +9,8 @@
 #import "GKDemoWebViewController.h"
 #import <WebKit/WebKit.h>
 #import "GKDemo001ViewController.h"
+#import "UIImage+GKCategory.h"
+#import "UIScrollView+GKGestureHandle.h"
 
 @interface GKDemoWebViewController ()<WKNavigationDelegate>
 
@@ -88,6 +90,7 @@
             webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
         webView.navigationDelegate = self;
+        webView.scrollView.gk_openGestureHandle = YES;
         
         _webView = webView;
     }

@@ -7,8 +7,7 @@
 //
 
 #import "GKTransitionDelegateHandler.h"
-#import "UIViewController+GKCategory.h"
-#import "UINavigationController+GKCategory.h"
+#import "GKGestureHandleDefine.h"
 
 @interface GKNavigationControllerDelegateHandler()
 
@@ -115,7 +114,7 @@
     }else if (gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled) {
         if (self.isGesturePush) {
             if (self.pushTransition) {
-                if (progress > GKConfigure.gk_pushTransitionCriticalValue) {
+                if (progress > GKGestureConfigure.gk_pushTransitionCriticalValue) {
                     [self.pushTransition finishInteractiveTransition];
                 }else {
                     [self.pushTransition cancelInteractiveTransition];
@@ -127,7 +126,7 @@
                     [visibleVC.gk_popDelegate viewControllerPopScrollEnded];
                 }
             }else {
-                if (progress > GKConfigure.gk_popTransitionCriticalValue) {
+                if (progress > GKGestureConfigure.gk_popTransitionCriticalValue) {
                     [self.popTransition finishInteractiveTransition];
                 }else {
                     [self.popTransition cancelInteractiveTransition];

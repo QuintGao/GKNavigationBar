@@ -10,6 +10,7 @@
 #import "GKWXHomeViewController.h"
 #import "GKWXFindViewController.h"
 #import "GKWXMineViewController.h"
+#import "UINavigationController+GKGestureHandle.h"
 
 @interface GKWXViewController ()
 

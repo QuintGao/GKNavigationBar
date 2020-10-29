@@ -6,9 +6,7 @@
 //  Copyright © 2019 QuintGao. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "GKNavigationBarConfigure.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

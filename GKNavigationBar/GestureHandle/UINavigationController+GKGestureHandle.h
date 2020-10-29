@@ -1,16 +1,16 @@
 //
-//  UINavigationController+GKCategory.h
-//  GKNavigationBar
+//  UINavigationController+GKGestureHandle.h
+//  GKNavigationBarExample
 //
-//  Created by gaokun on 2019/10/30.
-//  Copyright © 2019 QuintGao. All rights reserved.
+//  Created by gaokun on 2020/10/29.
+//  Copyright © 2020 QuintGao. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UINavigationController (GKCategory)
+@interface UINavigationController (GKGestureHandle)
 
 /// 创建导航控制器并开启手势控制（无缩放）
 /// @param rootVC 根控制器

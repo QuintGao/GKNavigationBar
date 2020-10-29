@@ -7,6 +7,7 @@
 //
 
 #import "GKPopAnimatedTransition.h"
+#import "GKGestureHandleDefine.h"
 
 @implementation GKPopAnimatedTransition
 
@@ -16,10 +17,13 @@
     // 是否隐藏tabBar
     self.isHideTabBar = self.toViewController.tabBarController && self.fromViewController.hidesBottomBarWhenPushed && self.toViewController.gk_captureImage;
     
+    CGFloat screenW = self.containerView.bounds.size.width;
+    CGFloat screenH = self.containerView.bounds.size.height;
+    
     __block UIView *toView = nil;
     if (self.isHideTabBar) {
         UIImageView *captureView = [[UIImageView alloc] initWithImage:self.toViewController.gk_captureImage];
-        captureView.frame = CGRectMake(0, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
+        captureView.frame = CGRectMake(0, 0, screenW, screenH);
         [self.containerView insertSubview:captureView belowSubview:self.fromViewController.view];
         toView = captureView;
         self.toViewController.view.hidden = YES;
@@ -30,21 +34,21 @@
     self.contentView = toView;
     
     if (self.isScale) {
-        self.shadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT)];
+        self.shadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenW, screenH)];
         self.shadowView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
         [toView addSubview:self.shadowView];
         
         if (@available(iOS 11.0, *)) {
             CGRect frame = toView.frame;
-            frame.origin.x = GKConfigure.gk_translationX;
-            frame.origin.y = GKConfigure.gk_translationY;
-            frame.size.height -= 2 * GKConfigure.gk_translationY;
+            frame.origin.x = GKGestureConfigure.gk_translationX;
+            frame.origin.y = GKGestureConfigure.gk_translationY;
+            frame.size.height -= 2 * GKGestureConfigure.gk_translationY;
             toView.frame = frame;
         }else {
-            toView.transform = CGAffineTransformMakeScale(GKConfigure.gk_scaleX, GKConfigure.gk_scaleY);
+            toView.transform = CGAffineTransformMakeScale(GKGestureConfigure.gk_scaleX, GKGestureConfigure.gk_scaleY);
         }
     }else {
-        self.fromViewController.view.frame = CGRectMake(- (0.3 * GK_SCREEN_WIDTH), 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
+        self.fromViewController.view.frame = CGRectMake(- (0.3 * screenW), 0, screenW, screenH);
     }
     
     self.fromViewController.view.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -52,12 +56,12 @@
     self.fromViewController.view.layer.shadowRadius = 4.0f;
     
     [UIView animateWithDuration:self.animationDuration animations:^{
-        self.fromViewController.view.frame = CGRectMake(GK_SCREEN_WIDTH, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
+        self.fromViewController.view.frame = CGRectMake(screenW, 0, screenW, screenH);
         if (self.isScale) {
             self.shadowView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0];
         }
         if (@available(iOS 11.0, *)) {
-            toView.frame = CGRectMake(0, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
+            toView.frame = CGRectMake(0, 0, screenW, screenH);
         }else {
             toView.transform = CGAffineTransformIdentity;
         }

@@ -8,6 +8,7 @@
 #import "GKFloatView.h"
 #import "GKFloatTransition.h"
 #import "GKWXDetailViewController.h"
+#import "UIViewController+GKGestureHandle.h"
 
 #define GKFloatScreenW [UIScreen mainScreen].bounds.size.width
 #define GKFloatScreenH [UIScreen mainScreen].bounds.size.height

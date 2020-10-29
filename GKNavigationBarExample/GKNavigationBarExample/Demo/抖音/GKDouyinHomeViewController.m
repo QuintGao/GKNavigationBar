@@ -11,7 +11,7 @@
 #import "GKDouyinHomePlayerViewController.h"
 #import "GKDouyinPersonalViewController.h"
 #import "GKDouyinScrollView.h"
-
+#import "UIViewController+GKGestureHandle.h"
 
 @interface GKDouyinHomeViewController ()<GKViewControllerPushDelegate>
 

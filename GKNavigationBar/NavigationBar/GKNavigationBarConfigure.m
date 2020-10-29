@@ -7,7 +7,8 @@
 //
 
 #import "GKNavigationBarConfigure.h"
-#import "UIViewController+GKCategory.h"
+#import "GKNavigationBarDefine.h"
+#import "UIImage+GKCategory.h"
 
 @interface GKNavigationBarConfigure()
 
@@ -29,6 +30,7 @@
 
 - (void)setupDefaultConfigure {
     self.backgroundColor = [UIColor whiteColor];
+    self.lineHidden = NO;
     
     self.titleColor = [UIColor blackColor];
     self.titleFont = [UIFont boldSystemFontOfSize:17.0f];
@@ -42,14 +44,6 @@
     
     self.statusBarHidden = NO;
     self.statusBarStyle = UIStatusBarStyleDefault;
-    
-    self.gk_pushTransitionCriticalValue = 0.3f;
-    self.gk_popTransitionCriticalValue = 0.5f;
-    
-    self.gk_translationX = 5.0f;
-    self.gk_translationY = 5.0f;
-    self.gk_scaleX = 0.95f;
-    self.gk_scaleY = 0.97f;
 }
 
 - (void)setupCustomConfigure:(void (^)(GKNavigationBarConfigure * _Nonnull))block {
@@ -63,14 +57,6 @@
 
 - (void)updateConfigure:(void (^)(GKNavigationBarConfigure * _Nonnull))block {
     !block ? : block(self);
-}
-
-- (void)setupItemSpaceShiledVCs:(NSArray *)vcs {
-    self.shiledItemSpaceVCs = vcs;
-}
-
-- (void)setupGuestureShiledVCs:(NSArray *)vcs {
-    self.shiledGuestureVCs = vcs;
 }
 
 - (UIViewController *)visibleViewController {
@@ -95,7 +81,24 @@
 }
 
 - (CGRect)gk_statusBarFrame {
-    return [UIApplication sharedApplication].statusBarFrame;
+    CGRect statusBarFrame = CGRectZero;
+    if (@available(iOS 13.0, *)) {
+        statusBarFrame = [GKConfigure getKeyWindow].windowScene.statusBarManager.statusBarFrame;
+    }
+    
+    if (CGRectEqualToRect(statusBarFrame, CGRectZero)) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+#pragma clang diagnostic pop
+    }
+    
+    if (CGRectEqualToRect(statusBarFrame, CGRectZero)) {
+        CGFloat statusBarH = [GKConfigure gk_isNotchedScreen] ? 44 : 20;
+        statusBarFrame = CGRectMake(0, 0, GK_SCREEN_WIDTH, statusBarH);
+    }
+    
+    return statusBarFrame;
 }
 
 - (BOOL)gk_isNotchedScreen {
@@ -141,13 +144,15 @@
     if (!window) {
         window = [UIApplication sharedApplication].windows.firstObject;
         if (!window.isKeyWindow) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+#pragma clang diagnostic pop
             if (CGRectEqualToRect(keyWindow.bounds, UIScreen.mainScreen.bounds)) {
                 window = keyWindow;
             }
         }
     }
-    
     return window;
 }
 

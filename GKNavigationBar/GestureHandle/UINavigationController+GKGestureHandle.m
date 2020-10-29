@@ -1,17 +1,17 @@
 //
-//  UINavigationController+GKCategory.m
-//  GKNavigationBar
+//  UINavigationController+GKGestureHandle.m
+//  GKNavigationBarExample
 //
-//  Created by gaokun on 2019/10/30.
-//  Copyright © 2019 QuintGao. All rights reserved.
+//  Created by gaokun on 2020/10/29.
+//  Copyright © 2020 QuintGao. All rights reserved.
 //
 
-#import "UINavigationController+GKCategory.h"
-#import "GKNavigationBarConfigure.h"
-#import "UIViewController+GKCategory.h"
+#import "UINavigationController+GKGestureHandle.h"
+#import "UIViewController+GKGestureHandle.h"
 #import "GKTransitionDelegateHandler.h"
+#import "GKGestureHandleDefine.h"
 
-@implementation UINavigationController (GKCategory)
+@implementation UINavigationController (GKGestureHandle)
 
 + (instancetype)rootVC:(UIViewController *)rootVC {
     return [self rootVC:rootVC transitionScale:NO];
@@ -63,7 +63,7 @@ static char kAssociatedObjectKey_openGestureHandle;
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        gk_swizzled_instanceMethod(@"gkNav", self, @"viewDidLoad", self);
+        gk_gestureHandle_swizzled_instanceMethod(@"gkNav", self, @"viewDidLoad", self);
     });
 }
 
@@ -108,7 +108,7 @@ static char kAssociatedObjectKey_openGestureHandle;
     if (vc.navigationController != self) return;
     
     __block BOOL exist = NO;
-    [GKConfigure.shiledGuestureVCs enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [GKGestureConfigure.shiledGuestureVCs enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([[obj class] isSubclassOfClass:[UIViewController class]]) {
             if ([vc isKindOfClass:[obj class]]) {
                 exist = YES;

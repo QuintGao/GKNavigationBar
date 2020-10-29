@@ -8,6 +8,7 @@
 
 #import "GKToutiaoHomeViewController.h"
 #import "GKToutiaoDetailViewController.h"
+#import "UIViewController+GKGestureHandle.h"
 
 @interface GKToutiaoHomeViewController ()<GKViewControllerPushDelegate>
 

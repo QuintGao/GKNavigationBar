@@ -7,6 +7,7 @@
 //
 
 #import "GKDemoBaseViewController.h"
+#import "UIViewController+GKGestureHandle.h"
 
 @interface GKDemoBaseViewController ()
 
