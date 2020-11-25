@@ -11,23 +11,62 @@
 
 NSString *const GKViewControllerPropertyChangedNotification = @"GKViewControllerPropertyChangedNotification";
 
+@interface UIViewController (GKGestureHandle)<GKViewControllerPushDelegate, GKViewControllerPopDelegate>
+
+@property (nonatomic, assign) BOOL hasPushDelegate;
+
+@property (nonatomic, assign) BOOL hasPopDelegate;
+
+@end
+
 @implementation UIViewController (GKGestureHandle)
 
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSArray <NSString *> *oriSels = @[@"viewDidAppear:"];
+        NSArray <NSString *> *oriSels = @[@"viewWillAppear:",
+                                          @"viewDidAppear:",
+                                          @"viewDidDisappear:"];
         
         [oriSels enumerateObjectsUsingBlock:^(NSString * _Nonnull oriSel, NSUInteger idx, BOOL * _Nonnull stop) {
-            gk_gestureHandle_swizzled_instanceMethod(@"gk", self, oriSel, self);
+            gk_gestureHandle_swizzled_instanceMethod(@"gkGesture", self, oriSel, self);
         }];
     });
 }
 
-- (void)gk_viewDidAppear:(BOOL)animated {
+- (void)gkGesture_viewWillAppear:(BOOL)animated {
+    if (self.hasPushDelegate) {
+        self.gk_pushDelegate = self;
+        self.hasPushDelegate = NO;
+    }
+    
+    if (self.hasPopDelegate) {
+        self.gk_popDelegate = self;
+        self.hasPopDelegate = NO;
+    }
+    [self gkGesture_viewWillAppear:animated];
+}
+
+- (void)gkGesture_viewDidAppear:(BOOL)animated {
     [self postPropertyChangeNotification];
 
-    [self gk_viewDidAppear:animated];
+    [self gkGesture_viewDidAppear:animated];
+}
+
+- (void)gkGesture_viewDidDisappear:(BOOL)animated {
+    if (self.gk_pushDelegate == self) {
+        self.hasPushDelegate = YES;
+    }
+    
+    if (self.gk_popDelegate == self) {
+        self.hasPopDelegate = YES;
+    }
+    
+    // 这两个代理系统不会自动回收，所以要做下处理
+    self.gk_pushDelegate = nil;
+    self.gk_popDelegate = nil;
+
+    [self gkGesture_viewDidDisappear:animated];
 }
 
 static char kAssociatedObjectKey_interactivePopDisabled;
@@ -101,6 +140,24 @@ static char kAssociatedObjectKey_popTransition;
 
 - (void)setGk_popTransition:(id<UIViewControllerAnimatedTransitioning>)gk_popTransition {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_popTransition, gk_popTransition, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+static char kAssociatedObjectKey_hasPushDelegate;
+- (BOOL)hasPushDelegate {
+    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_hasPushDelegate) boolValue];
+}
+
+- (void)setHasPushDelegate:(BOOL)hasPushDelegate {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_hasPushDelegate, @(hasPushDelegate), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+static char kAssociatedObjectKey_hasPopDelegate;
+- (BOOL)hasPopDelegate {
+    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_hasPopDelegate) boolValue];
+}
+
+- (void)setHasPopDelegate:(BOOL)hasPopDelegate {
+    return objc_setAssociatedObject(self, &kAssociatedObjectKey_hasPopDelegate, @(hasPopDelegate), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma mark - Private Methods

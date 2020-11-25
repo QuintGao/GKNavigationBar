@@ -14,10 +14,10 @@
 - (void)animateTransition {
     // 解决UITabbarController左滑push时的显示问题
     self.isHideTabBar = self.fromViewController.tabBarController && self.toViewController.hidesBottomBarWhenPushed;
-    
+
     CGFloat screenW = self.containerView.bounds.size.width;
     CGFloat screenH = self.containerView.bounds.size.height;
-    
+
     __block UIView *fromView = nil;
     if (self.isHideTabBar) {
         // 获取fromViewController的截图
@@ -33,20 +33,19 @@
         fromView = self.fromViewController.view;
     }
     self.contentView = fromView;
-    
-    [self.containerView addSubview:self.toViewController.view];
-    
+
     if (self.isScale) {
         self.shadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenW, screenH)];
         self.shadowView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0];
         [fromView addSubview:self.shadowView];
     }
-    
+
     // 设置toViewController
     self.toViewController.view.frame = CGRectMake(screenW, 0, screenW, screenH);
     self.toViewController.view.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.toViewController.view.layer.shadowOpacity = 0.2f;
-    self.toViewController.view.layer.shadowRadius = 4.0f;
+    self.toViewController.view.layer.shadowOpacity = 0.15f;
+    self.toViewController.view.layer.shadowRadius = 3.0f;
+    [self.containerView addSubview:self.toViewController.view];
     
     [UIView animateWithDuration:self.animationDuration animations:^{
         if (self.isScale) {
@@ -63,14 +62,14 @@
         }else {
             fromView.frame = CGRectMake(- (0.3 * screenW), 0, screenW, screenH);
         }
-        
+
         self.toViewController.view.frame = CGRectMake(0, 0, screenW, screenH);
     } completion:^(BOOL finished) {
         [self completeTransition];
         if (self.isHideTabBar) {
             [self.contentView removeFromSuperview];
             self.contentView = nil;
-            
+
             self.fromViewController.view.hidden = NO;
             if (self.fromViewController.navigationController.childViewControllers.count == 1) {
                 self.fromViewController.tabBarController.tabBar.hidden = NO;

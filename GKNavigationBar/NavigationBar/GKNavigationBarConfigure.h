@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 状态栏类型，默认UIStatusBarStyleDefault
 @property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
 
-// 调整导航栏间距时需要屏蔽的VC（默认nil），支持Class或NSString
+// 调整导航栏间距时需要屏蔽的VC（默认nil），支持Class或NSString，NSString支持部分匹配如前缀
 @property (nonatomic, strong) NSArray *shiledItemSpaceVCs;
 
 /// 导航栏左右间距，内部使用

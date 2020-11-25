@@ -39,6 +39,9 @@
 @property (nonatomic, strong) UIBarButtonItem *moreItem;
 @property (nonatomic, strong) UIBarButtonItem *shareItem;
 
+// 是否禁止返回
+@property (nonatomic, assign) BOOL disableBack;
+
 @end
 
 @implementation GKDemo000ViewController
@@ -73,6 +76,12 @@
     self.fullScreenDistanceLabel.text = [NSString stringWithFormat:@"全屏返回手势距离：%f", self.gk_maxPopDistance];
     self.navBarAlphaSlider.value = self.gk_navBarAlpha;
     self.navBarAlphaLabel.text = [NSString stringWithFormat:@"导航栏透明度：%f", self.gk_navBarAlpha];
+}
+
+- (void)dealloc {
+    NSLog(@"GKDemo000ViewController dealloc");
+    self.gk_pushDelegate = nil;
+    self.gk_popDelegate = nil;
 }
 
 - (IBAction)interactivePopAction:(id)sender {
@@ -140,11 +149,11 @@
 }
 - (IBAction)fullScreenInterceptAction:(id)sender {
     if (self.fullScreenInterceptSwitch.on) {
-        self.gk_popDelegate = self;
+        self.disableBack = YES;
     }else {
-        self.gk_popDelegate = nil;
+        self.disableBack = NO;
     }
-    self.fullScreenInterceptLabel.text = [NSString stringWithFormat:@"全屏返回手势拦截：%@", self.fullScreenInterceptSwitch.on ? @"开" : @"关"];
+    self.fullScreenInterceptLabel.text = [NSString stringWithFormat:@"返回拦截：%@", self.fullScreenInterceptSwitch.on ? @"开" : @"关"];
 }
 
 - (IBAction)fullScreenDistanceAction:(id)sender {
@@ -163,7 +172,7 @@
         UIButton *btn = [UIButton new];
         btn.frame = CGRectMake(0, 0, 44, 44);
         [btn setTitle:@"更多" forState:UIControlStateNormal];
-        btn.backgroundColor = [UIColor blackColor];
+//        btn.backgroundColor = [UIColor blackColor];
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         
         _moreItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
@@ -186,19 +195,41 @@
 
 #pragma mark - GKViewControllerPopDelegate
 - (void)viewControllerPopScrollBegan {
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"确定要返回吗？" preferredStyle:UIAlertControllerStyleAlert];
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        self.gk_popDelegate = nil;
-        [self.navigationController popViewControllerAnimated:YES];
-    }]];
-    [self presentViewController:alertVC animated:YES completion:nil];
+    
 }
 
 #pragma mark - GKViewControllerPushDelegate
 - (void)pushToNextViewController {
     GKDemoWebViewController *webVC = [GKDemoWebViewController new];
     [self.navigationController pushViewController:webVC animated:YES];
+}
+
+#pragma mark - GKGesturePopHandlerProtocol
+- (BOOL)navigationShouldPopOnGesture {
+    if (self.disableBack) {
+        [self shouBackAlert];
+    }
+    
+    return !self.disableBack;
+}
+
+- (void)backItemClick:(id)sender {
+    if (self.disableBack)  {
+        [self shouBackAlert];
+        return;
+    }
+    
+    [super backItemClick:sender];
+}
+
+- (void)shouBackAlert {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"确定要返回吗？" preferredStyle:UIAlertControllerStyleAlert];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.disableBack = NO;
+        [self.navigationController popViewControllerAnimated:YES];
+    }]];
+    [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 @end

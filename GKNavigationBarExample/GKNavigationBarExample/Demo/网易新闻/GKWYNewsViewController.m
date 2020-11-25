@@ -25,7 +25,7 @@
     [super viewDidLoad];
     
     self.tabBar.barTintColor = [UIColor whiteColor];
-    self.tabBar.translucent = NO;
+    self.tabBar.translucent = YES;
     
 //    // 统一设置导航栏样式
 //    GKNavigationBarConfigure *configure = [GKNavigationBarConfigure sharedInstance];

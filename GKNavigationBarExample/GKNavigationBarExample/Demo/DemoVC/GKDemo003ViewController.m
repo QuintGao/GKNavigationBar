@@ -8,8 +8,9 @@
 
 #import "GKDemo003ViewController.h"
 #import "GKDemo000ViewController.h"
+#import "GKDemoTransitionViewController.h"
 
-@interface GKDemo003ViewController ()
+@interface GKDemo003ViewController ()<GKViewControllerPushDelegate, GKViewControllerPopDelegate>
 
 @end
 
@@ -23,9 +24,18 @@
     self.navigationItem.title = @"系统导航";
     
     self.gk_navItemRightSpace = 20.0f;
-    UIBarButtonItem *rightItem = [UIBarButtonItem gk_itemWithTitle:@"哈哈" target:self action:@selector(click)];
-    rightItem.customView.backgroundColor = UIColor.redColor;
+    UIBarButtonItem *rightItem = [UIBarButtonItem gk_itemWithTitle:@"push" target:self action:@selector(click)];
+    rightItem.customView.backgroundColor = [UIColor blackColor];
     self.navigationItem.rightBarButtonItem = rightItem;
+    
+    self.gk_pushDelegate = self;
+    self.gk_popDelegate  = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)click {
@@ -33,10 +43,42 @@
     [self.navigationController pushViewController:demoVC animated:YES];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+#pragma mark - GKViewControllerPushDelegate
+- (void)pushToNextViewController {
+    GKDemoTransitionViewController *transitionVC = [GKDemoTransitionViewController new];
+    transitionVC.isSystem = NO;
+    [self.navigationController pushViewController:transitionVC animated:YES];
+}
+
+- (void)viewControllerPushScrollBegan {
+    self.navigationController.navigationBarHidden = NO;
+}
+
+- (void)viewControllerPushScrollUpdate:(float)progress {
+    self.navigationController.navigationBar.alpha = 1 - progress;
+}
+
+- (void)viewControllerPushScrollEnded:(BOOL)finished {
+    self.navigationController.navigationBar.alpha = 1;
+    self.navigationController.navigationBarHidden = finished;
+}
+
+#pragma mark - GKViewControllerPopDelegate
+- (void)viewControllerPopScrollBegan {
     
-    [self.navigationController setNavigationBarHidden:NO];
+}
+
+- (void)viewControllerPopScrollUpdate:(float)progress {
+    // 由于已经出栈，所以self.navigationController为nil，不能直接获取导航控制器
+    UIViewController *vc = [GKConfigure visibleViewController];
+    vc.navigationController.navigationBar.alpha = 1 - progress;
+}
+
+- (void)viewControllerPopScrollEnded:(BOOL)finished {
+    // 由于已经出栈，所以self.navigationController为nil，不能直接获取导航控制器
+    UIViewController *vc = [GKConfigure visibleViewController];
+    vc.navigationController.navigationBar.alpha = 1;
+    vc.navigationController.navigationBarHidden = finished;
 }
 
 @end

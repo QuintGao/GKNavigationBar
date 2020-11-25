@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat gk_scaleX;
 @property (nonatomic, assign) CGFloat gk_scaleY;
 
-// 需要屏蔽手势处理的VC（默认nil），支持Class或NSString
+// 需要屏蔽手势处理的VC（默认nil），支持Class或NSString，，NSString支持部分匹配如前缀
 @property (nonatomic, strong) NSArray *shiledGuestureVCs;
 
 /// 设置默认配置

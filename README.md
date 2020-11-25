@@ -27,10 +27,12 @@ Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/G
 感谢使用该库，如果在使用过程中遇到问题可查看issue或提交issue，或者进QQ群1047100313  
 
 #### 1、手势不生效？
-看看是否使用了+ (instancetype)rootVC:(UIViewController *)rootVC 方法初始化导航控制器
+1、查看是否使用了+ (instancetype)rootVC:(UIViewController *)rootVC 方法初始化导航控制器  
+2、查看是否在控制器中禁用了手势返回self.gk_interactivePopDisabled = YES，self.gk_fullScreenPopDisabled = YES
 
 #### 2、导航栏不显示？
-看看是否调用了跟导航栏相关的方法，注意：只有调用跟导航栏相关的方法才会初始化导航栏！
+查看是否调用了跟导航栏相关的方法，如self.gk_navTitle = @"GKNavigationBar"  
+注意：只有调用跟导航栏相关的方法才会初始化导航栏！
 
 #### 3、切换控制器的时候出现状态栏显示异常（一半黑一半白等）
 解决办法：在控制器初始化方法里面设置状态栏样式
@@ -90,14 +92,71 @@ UINavigationController *nav = [UINavigationController rootVC:[GKMainViewControll
 ```
 
 #### 3、设置导航栏属性（调用即创建）
-
 ```
 self.gk_navBackgroundColor = [UIColor red]
 ```
+
+### 部分功能说明
+#### 1、返回按钮点击及返回手势拦截
+```
+// 重写下面的方法，拦截返回按钮点击
+- (void)backItemClick:(id)sender {
+    // do something
+    
+    [super backItemClick:sender];
+}
+```
+
+```
+// 重写下面的方法，拦截返回手势
+#pragma mark - GKGesturePopHandlerProtocol
+- (BOOL)navigationShouldPopOnGesture {
+    // do something
+    
+    return NO;
+}
+```
+
+#### 2、与系统导航平滑过渡
+```
+1、开启系统导航过渡处理 nav.gk_openSystemNavHandle = YES;
+2、在控制器中设置gk_popDelegate并实现下面的方法
+#pragma mark - GKViewControllerPopDelegate
+- (void)viewControllerPopScrollBegan {
+    
+}
+
+- (void)viewControllerPopScrollUpdate:(float)progress {
+    // 由于已经出栈，所以self.navigationController为nil，不能直接获取导航控制器
+    UIViewController *vc = [GKConfigure visibleViewController];
+    vc.navigationController.navigationBar.alpha = 1 - progress;
+}
+
+- (void)viewControllerPopScrollEnded:(BOOL)finished {
+    // 由于已经出栈，所以self.navigationController为nil，不能直接获取导航控制器
+    UIViewController *vc = [GKConfigure visibleViewController];
+    vc.navigationController.navigationBar.alpha = 1;
+    vc.navigationController.navigationBarHidden = finished;
+}
+
+```
+
+#### 3、屏蔽某些类的导航栏间距调整处理及手势处理
+```
+// 屏蔽导航栏间距处理
+configure.shiledItemSpaceVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
+```
+
+```
+// 屏蔽手势处理
+configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
+```
+
 更多属性及方法可在demo中查看
 
 ## 版本记录
 
+* 1.3.2 - 2020.11.25 手势滑动优化，支持与系统导航平滑衔接、控制器屏蔽支持部分匹配
 * 1.3.0 - 2020.10.29 功能模块拆分，可按需pod不同模块
 * 1.2.0 - 2020.10.26 优化代码宏定义，增加自定义转场demo
 * 1.1.8 - 2020.10.22 适配iPhone 12 系列手机，增加自定义转场动画属性

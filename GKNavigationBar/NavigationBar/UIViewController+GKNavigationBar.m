@@ -8,6 +8,7 @@
 
 #import "UIViewController+GKNavigationBar.h"
 #import "GKNavigationBarDefine.h"
+#import "UINavigationController+GKNavigationBar.h"
 #import "UIBarButtonItem+GKCategory.h"
 #import "UIImage+GKCategory.h"
 
@@ -18,6 +19,7 @@
     dispatch_once(&onceToken, ^{
         NSArray <NSString *> *oriSels = @[@"viewDidLoad",
                                           @"viewWillAppear:",
+                                          @"viewDidAppear:",
                                           @"viewWillLayoutSubviews"];
         
         [oriSels enumerateObjectsUsingBlock:^(NSString * _Nonnull oriSel, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -43,6 +45,9 @@
             if ([NSStringFromClass(self.class) isEqualToString:obj]) {
                 exist = YES;
                 *stop = YES;
+            }else if ([NSStringFromClass(self.class) containsString:obj]) {
+                exist = YES;
+                *stop = YES;
             }
         }
     }];
@@ -64,7 +69,9 @@
     
     if (self.gk_NavBarInit) {
         // 隐藏系统导航栏
-        [self.navigationController setNavigationBarHidden:YES];
+        if (!self.navigationController.gk_openSystemNavHandle) {
+            [self.navigationController setNavigationBarHidden:YES];
+        }
         
         // 将自定义导航栏放置顶层
         if (self.gk_navigationBar && !self.gk_navigationBar.hidden) {
@@ -93,6 +100,14 @@
     }
     
     [self gk_viewWillAppear:animated];
+}
+
+- (void)gk_viewDidAppear:(BOOL)animated {
+    if (self.gk_NavBarInit && !self.navigationController.isNavigationBarHidden) {
+        self.navigationController.navigationBarHidden = YES;
+    }
+    
+    [self gk_viewDidAppear:animated];
 }
 
 - (void)gk_viewWillLayoutSubviews {

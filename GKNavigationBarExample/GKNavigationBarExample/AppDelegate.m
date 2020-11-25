@@ -10,6 +10,7 @@
 #import "GKMainViewController.h"
 #import "GKWYMusicViewController.h"
 #import "UINavigationController+GKGestureHandle.h"
+#import "UINavigationController+GKNavigationBar.h"
 #import <TZImagePickerController/TZImagePickerController.h>
 
 @interface AppDelegate ()
@@ -34,7 +35,7 @@
         configure.gk_navItemLeftSpace = 10.0f;
         configure.gk_navItemRightSpace = 10.0f;
         
-        configure.shiledItemSpaceVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController"];
+        configure.shiledItemSpaceVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
     }];
     
     [GKGestureConfigure setupCustomConfigure:^(GKGestureHandleConfigure * _Nonnull configure) {
@@ -42,7 +43,7 @@
         configure.gk_translationY = 20;
         configure.gk_scaleX = 0.90;
         configure.gk_scaleY = 0.92;
-        configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController")];
+        configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
     }];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -50,6 +51,7 @@
     
     UINavigationController *nav = [UINavigationController rootVC:[GKMainViewController new]];
     nav.gk_openScrollLeftPush = YES;
+    nav.gk_openSystemNavHandle = YES;
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     

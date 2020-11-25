@@ -26,6 +26,10 @@
     [self addChildVC:[GKWXMineViewController new] title:@"我的" imageName:@"Mine"];
 }
 
+- (void)dealloc {
+    NSLog(@"GKWXViewController dealloc");
+}
+
 - (void)addChildVC:(UIViewController *)vc title:(NSString *)title imageName:(NSString *)imageName {
     vc.tabBarItem.title = title;
     vc.tabBarItem.image = [UIImage imageNamed:imageName];

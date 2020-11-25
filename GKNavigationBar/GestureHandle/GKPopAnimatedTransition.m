@@ -48,12 +48,12 @@
             toView.transform = CGAffineTransformMakeScale(GKGestureConfigure.gk_scaleX, GKGestureConfigure.gk_scaleY);
         }
     }else {
-        self.fromViewController.view.frame = CGRectMake(- (0.3 * screenW), 0, screenW, screenH);
+        toView.frame = CGRectMake(- (0.3 * screenW), 0, screenW, screenH);
     }
     
     self.fromViewController.view.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.fromViewController.view.layer.shadowOpacity = 0.2f;
-    self.fromViewController.view.layer.shadowRadius = 4.0f;
+    self.fromViewController.view.layer.shadowOpacity = 0.15f;
+    self.fromViewController.view.layer.shadowRadius = 3.0f;
     
     [UIView animateWithDuration:self.animationDuration animations:^{
         self.fromViewController.view.frame = CGRectMake(screenW, 0, screenW, screenH);
