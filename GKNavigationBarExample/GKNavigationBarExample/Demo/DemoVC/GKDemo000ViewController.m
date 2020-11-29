@@ -78,10 +78,15 @@
     self.navBarAlphaLabel.text = [NSString stringWithFormat:@"导航栏透明度：%f", self.gk_navBarAlpha];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    NSLog(@"%@", NSStringFromCGRect(self.navigationController.navigationBar.frame));
+    NSLog(@"%@", NSStringFromCGRect(self.gk_navigationBar.frame));
+}
+
 - (void)dealloc {
     NSLog(@"GKDemo000ViewController dealloc");
-    self.gk_pushDelegate = nil;
-    self.gk_popDelegate = nil;
 }
 
 - (IBAction)interactivePopAction:(id)sender {

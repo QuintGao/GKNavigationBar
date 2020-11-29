@@ -54,9 +54,9 @@
                     self.pushTransition = [UIPercentDrivenInteractiveTransition new];
                     [self.visibleVC.gk_pushDelegate pushToNextViewController];
                 }
-                if (self.visibleVC.gk_pushDelegate && [self.visibleVC.gk_pushDelegate respondsToSelector:@selector(viewControllerPushScrollBegan)]) {
-                    [self.visibleVC.gk_pushDelegate viewControllerPushScrollBegan];
-                }
+            }
+            if (self.visibleVC.gk_pushDelegate && [self.visibleVC.gk_pushDelegate respondsToSelector:@selector(viewControllerPushScrollBegan)]) {
+                [self.visibleVC.gk_pushDelegate viewControllerPushScrollBegan];
             }
         }else { // pop操作
             if (self.navigationController.gk_transitionScale) {

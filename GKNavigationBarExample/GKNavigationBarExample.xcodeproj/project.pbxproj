@@ -85,6 +85,27 @@
 		796CF8DB236D7BBF00983E9B /* GKDouyinScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF8AA236D7BBF00983E9B /* GKDouyinScrollView.m */; };
 		796CF8DC236D7BBF00983E9B /* GKDouyinPersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF8AB236D7BBF00983E9B /* GKDouyinPersonalViewController.m */; };
 		796CF8DD236D7BBF00983E9B /* GKDouyinHomeSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF8AC236D7BBF00983E9B /* GKDouyinHomeSearchViewController.m */; };
+		79C2429C257365EE00126E02 /* GKGestureHandleDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 60975077254A71BA00AE28CC /* GKGestureHandleDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79C2429D257365EE00126E02 /* GKGestureHandleConfigure.h in Headers */ = {isa = PBXBuildFile; fileRef = 60975072254A70B200AE28CC /* GKGestureHandleConfigure.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79C2429E257365EE00126E02 /* UIViewController+GKGestureHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 602E1D41254A5D7000ABC246 /* UIViewController+GKGestureHandle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79C2429F257365EE00126E02 /* UINavigationController+GKGestureHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 602E1D48254A60EC00ABC246 /* UINavigationController+GKGestureHandle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79C242A0257365EE00126E02 /* UIScrollView+GKGestureHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 602E1D51254A61D100ABC246 /* UIScrollView+GKGestureHandle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79C242A1257365EE00126E02 /* GKNavigationInteractiveTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 601BB2E1256CE906001D59C8 /* GKNavigationInteractiveTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79C242A2257365EE00126E02 /* GKBaseAnimatedTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 79672E4D236D8BDA0054300B /* GKBaseAnimatedTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79C242A3257365EE00126E02 /* GKPushAnimatedTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 79672E4C236D8BDA0054300B /* GKPushAnimatedTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79C242A4257365EE00126E02 /* GKPopAnimatedTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 79672E52236D8BDA0054300B /* GKPopAnimatedTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79C242A72573661800126E02 /* GKGestureHandleConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 60975073254A70B200AE28CC /* GKGestureHandleConfigure.m */; };
+		79C242A82573661800126E02 /* UIViewController+GKGestureHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 602E1D42254A5D7000ABC246 /* UIViewController+GKGestureHandle.m */; };
+		79C242A92573661800126E02 /* UINavigationController+GKGestureHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 602E1D49254A60EC00ABC246 /* UINavigationController+GKGestureHandle.m */; };
+		79C242AA2573661800126E02 /* UIScrollView+GKGestureHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 602E1D52254A61D100ABC246 /* UIScrollView+GKGestureHandle.m */; };
+		79C242AB2573661800126E02 /* GKNavigationInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 601BB2E2256CE906001D59C8 /* GKNavigationInteractiveTransition.m */; };
+		79C242AC2573661800126E02 /* GKBaseAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E51236D8BDA0054300B /* GKBaseAnimatedTransition.m */; };
+		79C242AD2573661800126E02 /* GKPushAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E50236D8BDA0054300B /* GKPushAnimatedTransition.m */; };
+		79C242AE2573661800126E02 /* GKPopAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 79672E4F236D8BDA0054300B /* GKPopAnimatedTransition.m */; };
+		79C242B12573663000126E02 /* UIViewController+GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 602E1D3C254A5D5300ABC246 /* UIViewController+GKNavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79C242B22573663000126E02 /* UINavigationController+GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 607A1DF3256E4770003DC401 /* UINavigationController+GKNavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79C242B52573664F00126E02 /* UIViewController+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 602E1D3D254A5D5300ABC246 /* UIViewController+GKNavigationBar.m */; };
+		79C242B62573664F00126E02 /* UINavigationController+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 607A1DF2256E4770003DC401 /* UINavigationController+GKNavigationBar.m */; };
 		79C48BBC243B0757000B0815 /* GKDemo000ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C48BBB243B0757000B0815 /* GKDemo000ViewController.m */; };
 		79C48BBE243B0775000B0815 /* GKDemo000ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79C48BBD243B0775000B0815 /* GKDemo000ViewController.xib */; };
 		79C48BC2243B3DEE000B0815 /* web.txt in Resources */ = {isa = PBXBuildFile; fileRef = 79C48BC1243B3DEE000B0815 /* web.txt */; };
@@ -586,7 +607,18 @@
 				79672EC6236EC97E0054300B /* GKCustomNavigationBar.h in Headers */,
 				79672EC9236EC97E0054300B /* UINavigationItem+GKCategory.h in Headers */,
 				79672ECA236EC97E0054300B /* UIBarButtonItem+GKCategory.h in Headers */,
+				79C242B12573663000126E02 /* UIViewController+GKNavigationBar.h in Headers */,
+				79C242B22573663000126E02 /* UINavigationController+GKNavigationBar.h in Headers */,
 				79672ECC236EC97E0054300B /* UIImage+GKCategory.h in Headers */,
+				79C2429C257365EE00126E02 /* GKGestureHandleDefine.h in Headers */,
+				79C2429D257365EE00126E02 /* GKGestureHandleConfigure.h in Headers */,
+				79C2429E257365EE00126E02 /* UIViewController+GKGestureHandle.h in Headers */,
+				79C2429F257365EE00126E02 /* UINavigationController+GKGestureHandle.h in Headers */,
+				79C242A0257365EE00126E02 /* UIScrollView+GKGestureHandle.h in Headers */,
+				79C242A1257365EE00126E02 /* GKNavigationInteractiveTransition.h in Headers */,
+				79C242A2257365EE00126E02 /* GKBaseAnimatedTransition.h in Headers */,
+				79C242A3257365EE00126E02 /* GKPushAnimatedTransition.h in Headers */,
+				79C242A4257365EE00126E02 /* GKPopAnimatedTransition.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,6 +771,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79C242B52573664F00126E02 /* UIViewController+GKNavigationBar.m in Sources */,
+				79C242B62573664F00126E02 /* UINavigationController+GKNavigationBar.m in Sources */,
+				79C242A72573661800126E02 /* GKGestureHandleConfigure.m in Sources */,
+				79C242A82573661800126E02 /* UIViewController+GKGestureHandle.m in Sources */,
+				79C242A92573661800126E02 /* UINavigationController+GKGestureHandle.m in Sources */,
+				79C242AA2573661800126E02 /* UIScrollView+GKGestureHandle.m in Sources */,
+				79C242AB2573661800126E02 /* GKNavigationInteractiveTransition.m in Sources */,
+				79C242AC2573661800126E02 /* GKBaseAnimatedTransition.m in Sources */,
+				79C242AD2573661800126E02 /* GKPushAnimatedTransition.m in Sources */,
+				79C242AE2573661800126E02 /* GKPopAnimatedTransition.m in Sources */,
 				79672EB2236EC95A0054300B /* GKNavigationBarConfigure.m in Sources */,
 				79672EB7236EC95B0054300B /* GKCustomNavigationBar.m in Sources */,
 				79672EBA236EC95B0054300B /* UINavigationItem+GKCategory.m in Sources */,
