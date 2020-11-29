@@ -81,8 +81,9 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
-    NSLog(@"%@", NSStringFromCGRect(self.navigationController.navigationBar.frame));
-    NSLog(@"%@", NSStringFromCGRect(self.gk_navigationBar.frame));
+    CGRect frame = self.gk_navigationBar.frame;
+    frame.size.height += 40;
+    self.gk_navigationBar.frame = frame;
 }
 
 - (void)dealloc {
