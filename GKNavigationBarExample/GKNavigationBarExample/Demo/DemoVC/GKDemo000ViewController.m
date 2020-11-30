@@ -78,14 +78,6 @@
     self.navBarAlphaLabel.text = [NSString stringWithFormat:@"导航栏透明度：%f", self.gk_navBarAlpha];
 }
 
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    
-    CGRect frame = self.gk_navigationBar.frame;
-    frame.size.height += 40;
-    self.gk_navigationBar.frame = frame;
-}
-
 - (void)dealloc {
     NSLog(@"GKDemo000ViewController dealloc");
 }
@@ -172,6 +164,11 @@
     self.navBarAlphaLabel.text = [NSString stringWithFormat:@"导航栏透明度：%f", self.gk_navBarAlpha];
 }
 
+- (void)moreAction {
+    GKDemoWebViewController *webVC = [GKDemoWebViewController new];
+    [self.navigationController pushViewController:webVC animated:YES];
+}
+
 #pragma mark - 懒加载
 - (UIBarButtonItem *)moreItem {
     if (!_moreItem) {
@@ -180,6 +177,7 @@
         [btn setTitle:@"更多" forState:UIControlStateNormal];
 //        btn.backgroundColor = [UIColor blackColor];
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(moreAction) forControlEvents:UIControlEventTouchUpInside];
         
         _moreItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     }

@@ -28,17 +28,40 @@
     self.tableView.contentInset = UIEdgeInsetsMake(GK_STATUSBAR_NAVBAR_HEIGHT, 0, 0, 0);
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    CGRect navFrame = self.gk_navigationBar.frame;
+    navFrame.origin.y = 0;
+    self.gk_navigationBar.frame = navFrame;
+    [self.tableView.superview addSubview:self.gk_navigationBar];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    CGRect navFrame = self.gk_navigationBar.frame;
+    navFrame.origin.y -= navFrame.size.height;
+    self.gk_navigationBar.frame = navFrame;
+    [self.view addSubview:self.gk_navigationBar];
+}
+
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
     CGRect navFrame = self.gk_navigationBar.frame;
-    navFrame.origin.y -= navFrame.size.height;
+    
+    if (self.gk_navigationBar.superview == self.view) {
+        navFrame.origin.y = -navFrame.size.height;
+    }else {
+        navFrame.origin.y = 0;
+    }
     self.gk_navigationBar.frame = navFrame;
 }
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return 20;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
