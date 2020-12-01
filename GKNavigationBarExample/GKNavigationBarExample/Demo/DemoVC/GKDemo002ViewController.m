@@ -41,7 +41,7 @@
     TZImagePickerController *pickerVC = [[TZImagePickerController alloc] initWithMaxImagesCount:9 delegate:self];
 //    GKConfigure.gk_disableFixSpace = YES;
     pickerVC.allowCrop = YES;
-    pickerVC.modalPresentationStyle = UIModalPresentationFullScreen;
+//    pickerVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:pickerVC animated:YES completion:nil];
 }
 

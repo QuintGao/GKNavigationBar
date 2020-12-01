@@ -105,8 +105,6 @@ static char kAssociatedObjectKey_maxPopDistance;
 static char kAssociatedObjectKey_pushDelegate;
 - (void)setGk_pushDelegate:(id<GKViewControllerPushDelegate>)gk_pushDelegate {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_pushDelegate, gk_pushDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
-    [self postPropertyChangeNotification];
 }
 
 - (id<GKViewControllerPushDelegate>)gk_pushDelegate {
@@ -116,8 +114,6 @@ static char kAssociatedObjectKey_pushDelegate;
 static char kAssociatedObjectKey_popDelegate;
 - (void)setGk_popDelegate:(id<GKViewControllerPopDelegate>)gk_popDelegate {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_popDelegate, gk_popDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
-    [self postPropertyChangeNotification];
 }
 
 - (id<GKViewControllerPopDelegate>)gk_popDelegate {

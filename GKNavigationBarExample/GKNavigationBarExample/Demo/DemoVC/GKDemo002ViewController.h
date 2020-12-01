@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "GKBaseViewController.h"
 
-@interface GKDemo002ViewController : UITableViewController
+@interface GKDemo002ViewController : GKBaseViewController
 
 @end
