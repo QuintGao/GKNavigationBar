@@ -63,7 +63,11 @@ static char kAssociatedObjectKey_openGestureHandle;
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        gk_gestureHandle_swizzled_instanceMethod(@"gkNav", self, @"viewDidLoad", self);
+        NSArray <NSString *> *oriSels = @[@"viewDidLoad",
+                                          @"dealloc"];
+        [oriSels enumerateObjectsUsingBlock:^(NSString * _Nonnull oriSel, NSUInteger idx, BOOL * _Nonnull stop) {
+            gk_gestureHandle_swizzled_instanceMethod(@"gkNav", self, oriSel, self);
+        }];
     });
 }
 
@@ -86,8 +90,11 @@ static char kAssociatedObjectKey_openGestureHandle;
     [self gkNav_viewDidLoad];
 }
 
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:GKViewControllerPropertyChangedNotification object:nil];
+- (void)gkNav_dealloc {
+    if (self.gk_openGestureHandle) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:GKViewControllerPropertyChangedNotification object:nil];
+    }
+    [self gkNav_dealloc];
 }
 
 - (UIViewController *)childViewControllerForStatusBarHidden {

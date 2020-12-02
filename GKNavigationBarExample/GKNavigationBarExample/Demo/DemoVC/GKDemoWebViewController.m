@@ -9,8 +9,6 @@
 #import "GKDemoWebViewController.h"
 #import <WebKit/WebKit.h>
 #import "GKDemo001ViewController.h"
-#import "UIImage+GKCategory.h"
-#import "UIScrollView+GKGestureHandle.h"
 
 @interface GKDemoWebViewController ()<WKNavigationDelegate>
 
