@@ -72,7 +72,6 @@ NSString *const GKViewControllerPropertyChangedNotification = @"GKViewController
 static char kAssociatedObjectKey_interactivePopDisabled;
 - (void)setGk_interactivePopDisabled:(BOOL)gk_interactivePopDisabled {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_interactivePopDisabled, @(gk_interactivePopDisabled), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
     [self postPropertyChangeNotification];
 }
 
@@ -83,12 +82,21 @@ static char kAssociatedObjectKey_interactivePopDisabled;
 static char kAssociatedObjectKey_fullScreenPopDisabled;
 - (void)setGk_fullScreenPopDisabled:(BOOL)gk_fullScreenPopDisabled {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_fullScreenPopDisabled, @(gk_fullScreenPopDisabled), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
     [self postPropertyChangeNotification];
 }
 
 - (BOOL)gk_fullScreenPopDisabled {
     return [objc_getAssociatedObject(self, &kAssociatedObjectKey_fullScreenPopDisabled) boolValue];
+}
+
+static char kAssociatedObjectKey_systemGestureHandleDisabled;
+- (void)setGk_systemGestureHandleDisabled:(BOOL)gk_systemGestureHandleDisabled {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_systemGestureHandleDisabled, @(gk_systemGestureHandleDisabled), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self postPropertyChangeNotification];
+}
+
+- (BOOL)gk_systemGestureHandleDisabled {
+    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_systemGestureHandleDisabled) boolValue];
 }
 
 static char kAssociatedObjectKey_maxPopDistance;
@@ -154,6 +162,11 @@ static char kAssociatedObjectKey_hasPopDelegate;
 
 - (void)setHasPopDelegate:(BOOL)hasPopDelegate {
     return objc_setAssociatedObject(self, &kAssociatedObjectKey_hasPopDelegate, @(hasPopDelegate), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+#pragma mark - GKGesturePopHandlerProtocol
+- (BOOL)navigationShouldPopOnGesture {
+    return YES;
 }
 
 #pragma mark - Private Methods

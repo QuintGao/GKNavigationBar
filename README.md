@@ -156,6 +156,7 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
 
 ## 版本记录
 
+* 1.3.7 - 2020.12.05 手势处理优化，增加禁用系统手势处理属性
 * 1.3.6 - 2020.12.02 修复iPhone 12，iPhone 12 Pro机型导航栏间距调整不准确的bug
 * 1.3.4 - 2020.12.01 修复可能出现的卡死情况#53
 * 1.3.3 - 2020.11.29 手势滑动优化，支持与系统导航平滑衔接、控制器屏蔽支持部分匹配

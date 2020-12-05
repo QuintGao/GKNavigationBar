@@ -76,6 +76,9 @@
     self.fullScreenDistanceLabel.text = [NSString stringWithFormat:@"全屏返回手势距离：%f", self.gk_maxPopDistance];
     self.navBarAlphaSlider.value = self.gk_navBarAlpha;
     self.navBarAlphaLabel.text = [NSString stringWithFormat:@"导航栏透明度：%f", self.gk_navBarAlpha];
+    
+    self.gk_systemGestureHandleDisabled = YES;
+    self.gk_popDelegate = self;
 }
 
 - (void)dealloc {
@@ -199,7 +202,15 @@
 
 #pragma mark - GKViewControllerPopDelegate
 - (void)viewControllerPopScrollBegan {
-    
+    NSLog(@"滑动返回开始");
+}
+
+- (void)viewControllerPopScrollUpdate:(float)progress {
+    NSLog(@"滑动返回进度更新：%f", progress);
+}
+
+- (void)viewControllerPopScrollEnded:(BOOL)finished {
+    NSLog(@"滑动返回结束：%@", finished ? @"完成" : @"取消");
 }
 
 #pragma mark - GKViewControllerPushDelegate
