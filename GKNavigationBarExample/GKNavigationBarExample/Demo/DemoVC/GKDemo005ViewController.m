@@ -35,6 +35,7 @@
 }
 
 - (void)dealloc {
+    [self.webView removeObserver:self forKeyPath:@"title"];
     [self.webView removeObserver:self forKeyPath:@"canGoBack"];
 }
 
