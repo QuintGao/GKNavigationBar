@@ -1,0 +1,63 @@
+//
+//  GKDemo005ViewController.m
+//  GKNavigationBarExample
+//
+//  Created by gaokun on 2020/12/17.
+//  Copyright © 2020 QuintGao. All rights reserved.
+//
+
+#import "GKDemo005ViewController.h"
+#import <WebKit/WebKit.h>
+
+@interface GKDemo005ViewController()
+
+@property (nonatomic, strong) WKWebView *webView;
+
+@end
+
+@implementation GKDemo005ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self.view addSubview:self.webView];
+    [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.gk_navigationBar.mas_bottom);
+        make.left.right.bottom.equalTo(self.view);
+    }];
+    
+    self.gk_interactivePopDisabled = YES;
+    [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:NULL];
+    [self.webView addObserver:self forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:NULL];
+    
+    NSString *url = @"https://www.baidu.com";
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+}
+
+- (void)dealloc {
+    [self.webView removeObserver:self forKeyPath:@"canGoBack"];
+}
+
+#pragma mark - KVO
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"title"]) {
+        self.gk_navTitle = self.webView.title;
+    }else if ([keyPath isEqualToString:@"canGoBack"]) {
+        if ([self.webView canGoBack]) {
+            self.gk_interactivePopDisabled = YES;
+        }else {
+            self.gk_interactivePopDisabled = NO;
+        }
+    }
+}
+
+#pragma mark - 懒加载
+- (WKWebView *)webView {
+    if (!_webView) {
+        _webView = [[WKWebView alloc] init];
+        _webView.allowsBackForwardNavigationGestures = YES;
+    }
+    return _webView;
+}
+
+@end

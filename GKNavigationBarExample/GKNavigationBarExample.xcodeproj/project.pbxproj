@@ -22,6 +22,7 @@
 		608FC6FF25469C9C003DB82F /* GKFloatTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 608FC6F625469C9C003DB82F /* GKFloatTransition.m */; };
 		608FC70025469C9C003DB82F /* GKFloatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 608FC6F725469C9C003DB82F /* GKFloatView.m */; };
 		60975074254A70B200AE28CC /* GKGestureHandleConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 60975073254A70B200AE28CC /* GKGestureHandleConfigure.m */; };
+		60B3D7A8258AFBAF003A4C7C /* GKDemo005ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B3D7A7258AFBAF003A4C7C /* GKDemo005ViewController.m */; };
 		60B70D77256F8A11008D62FC /* GKDemo004ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B70D76256F8A11008D62FC /* GKDemo004ViewController.m */; };
 		794AFC32242F07EA00BECA1B /* GKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794AFC31242F07E900BECA1B /* GKBaseViewController.m */; };
 		794AFC37242F4FB600BECA1B /* GKBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794AFC36242F4FB600BECA1B /* GKBaseNavigationController.m */; };
@@ -146,6 +147,8 @@
 		60975072254A70B200AE28CC /* GKGestureHandleConfigure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKGestureHandleConfigure.h; sourceTree = "<group>"; };
 		60975073254A70B200AE28CC /* GKGestureHandleConfigure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKGestureHandleConfigure.m; sourceTree = "<group>"; };
 		60975077254A71BA00AE28CC /* GKGestureHandleDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKGestureHandleDefine.h; sourceTree = "<group>"; };
+		60B3D7A6258AFBAF003A4C7C /* GKDemo005ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKDemo005ViewController.h; sourceTree = "<group>"; };
+		60B3D7A7258AFBAF003A4C7C /* GKDemo005ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKDemo005ViewController.m; sourceTree = "<group>"; };
 		60B70D75256F8A11008D62FC /* GKDemo004ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKDemo004ViewController.h; sourceTree = "<group>"; };
 		60B70D76256F8A11008D62FC /* GKDemo004ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKDemo004ViewController.m; sourceTree = "<group>"; };
 		794AFC30242F07E900BECA1B /* GKBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKBaseViewController.h; sourceTree = "<group>"; };
@@ -568,6 +571,8 @@
 				796CF89D236D7BBF00983E9B /* GKDemo003ViewController.m */,
 				60B70D75256F8A11008D62FC /* GKDemo004ViewController.h */,
 				60B70D76256F8A11008D62FC /* GKDemo004ViewController.m */,
+				60B3D7A6258AFBAF003A4C7C /* GKDemo005ViewController.h */,
+				60B3D7A7258AFBAF003A4C7C /* GKDemo005ViewController.m */,
 				601BB2D3256CA96B001D59C8 /* GKDemoTransitionViewController.h */,
 				601BB2D4256CA96B001D59C8 /* GKDemoTransitionViewController.m */,
 				79C6AFEA237ED92900C636B9 /* GKDemoWebViewController.h */,
@@ -668,7 +673,7 @@
 		796CF7E4236D781400983E9B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = QuintGao;
 				TargetAttributes = {
 					79672E92236EC8EB0054300B = {
@@ -846,6 +851,7 @@
 				796CF802236D781700983E9B /* main.m in Sources */,
 				602E1D3E254A5D5300ABC246 /* UIViewController+GKNavigationBar.m in Sources */,
 				796CF8D2236D7BBF00983E9B /* GKDemo001ViewController.m in Sources */,
+				60B3D7A8258AFBAF003A4C7C /* GKDemo005ViewController.m in Sources */,
 				796CF8DA236D7BBF00983E9B /* GKDouyinHomeViewController.m in Sources */,
 				796CF8AE236D7BBF00983E9B /* GKMainViewController.m in Sources */,
 				794AFC32242F07EA00BECA1B /* GKBaseViewController.m in Sources */,
