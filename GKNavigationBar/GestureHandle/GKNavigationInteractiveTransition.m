@@ -238,7 +238,7 @@
         
         if (maxAllowDistance > 0 && beginningLocation.x > maxAllowDistance) return NO;
     }else {
-        if (self.navigationController.viewControllers.count <= 1) return NO;
+        return NO;
     }
     
     // 忽略导航控制器正在做转场动画
