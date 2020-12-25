@@ -101,7 +101,11 @@
     if (self.statusBarStyleSwitch.on) {
         self.gk_statusBarStyle = UIStatusBarStyleLightContent;
     }else {
-        self.gk_statusBarStyle = UIStatusBarStyleDefault;
+        if (@available(iOS 13.0, *)) {
+            self.gk_statusBarStyle = UIStatusBarStyleDarkContent;
+        } else {
+            self.gk_statusBarStyle = UIStatusBarStyleDefault;
+        }
     }
     self.statusBarStyleLabel.text = [NSString stringWithFormat:@"状态栏样式：%@", self.statusBarStyleSwitch.on ? @"LightContent" : @"Default"];
 }
