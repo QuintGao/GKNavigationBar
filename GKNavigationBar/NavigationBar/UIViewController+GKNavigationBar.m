@@ -17,7 +17,8 @@
         NSArray <NSString *> *oriSels = @[@"viewDidLoad",
                                           @"viewWillAppear:",
                                           @"viewDidAppear:",
-                                          @"viewWillLayoutSubviews"];
+                                          @"viewWillLayoutSubviews",
+                                          @"traitCollectionDidChange:"];
         
         [oriSels enumerateObjectsUsingBlock:^(NSString * _Nonnull oriSel, NSUInteger idx, BOOL * _Nonnull stop) {
             gk_navigationBar_swizzled_instanceMethod(@"gk", self, oriSel, self);
@@ -112,6 +113,17 @@
         [self setupNavBarFrame];
     }
     [self gk_viewWillLayoutSubviews];
+}
+
+- (void)gk_traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    if (@available(iOS 13.0, *)) {
+        if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
+            // 重新设置导航栏颜色
+            [self setNavBackgroundColor:self.gk_navBackgroundColor];
+            [self setNavShadowColor:self.gk_navShadowColor];
+        }
+    }
+    [self gk_traitCollectionDidChange:previousTraitCollection];
 }
 
 #pragma mark - 状态栏
@@ -233,9 +245,7 @@ static char kAssociatedObjectKey_navBackgroundColor;
 - (void)setGk_navBackgroundColor:(UIColor *)gk_navBackgroundColor {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navBackgroundColor, gk_navBackgroundColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    if (gk_navBackgroundColor) {
-        [self.gk_navigationBar setBackgroundImage:[UIImage gk_imageWithColor:gk_navBackgroundColor] forBarMetrics:UIBarMetricsDefault];
-    }
+    [self setNavBackgroundColor:gk_navBackgroundColor];
 }
 
 - (UIColor *)gk_navBackgroundColor {
@@ -257,7 +267,7 @@ static char kAssociatedObjectKey_navShadowColor;
 - (void)setGk_navShadowColor:(UIColor *)gk_navShadowColor {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navShadowColor, gk_navShadowColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    self.gk_navigationBar.shadowImage = [UIImage gk_changeImage:[UIImage gk_imageNamed:@"nav_line"] color:gk_navShadowColor];
+    [self setNavShadowColor:gk_navShadowColor];
 }
 
 - (UIColor *)gk_navShadowColor {
@@ -326,28 +336,22 @@ static char kAssociatedObjectKey_navTitleColor;
 - (void)setGk_navTitleColor:(UIColor *)gk_navTitleColor {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navTitleColor, gk_navTitleColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    if (gk_navTitleColor && self.gk_navTitleFont) {
-        self.gk_navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: gk_navTitleColor, NSFontAttributeName: self.gk_navTitleFont};
-    }
+    [self setNavTitleColor:gk_navTitleColor];
 }
 
 - (UIColor *)gk_navTitleColor {
-    id objc = objc_getAssociatedObject(self, &kAssociatedObjectKey_navTitleColor);
-    return objc;
+    return objc_getAssociatedObject(self, &kAssociatedObjectKey_navTitleColor);
 }
 
 static char kAssociatedObjectKey_navTitleFont;
 - (void)setGk_navTitleFont:(UIFont *)gk_navTitleFont {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navTitleFont, gk_navTitleFont, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    if (gk_navTitleFont && self.gk_navTitleColor) {
-        self.gk_navigationBar.titleTextAttributes = @{NSFontAttributeName: gk_navTitleFont, NSForegroundColorAttributeName: self.gk_navTitleColor};
-    }
+    [self setNavTitleFont:self.gk_navTitleFont];
 }
 
 - (UIFont *)gk_navTitleFont {
-    id objc = objc_getAssociatedObject(self, &kAssociatedObjectKey_navTitleFont);
-    return objc;
+    return objc_getAssociatedObject(self, &kAssociatedObjectKey_navTitleFont);
 }
 
 static char kAssociatedObjectKey_navLeftBarButtonItem;
@@ -550,6 +554,39 @@ static char kAssociatedObjectKey_navItemRightSpace;
     if (!image) return;
     
     self.gk_navLeftBarButtonItem = [UIBarButtonItem gk_itemWithImage:image target:self action:@selector(backItemClick:)];
+}
+
+- (void)setNavBackgroundColor:(UIColor *)color {
+    if (!color) return;
+    [self.gk_navigationBar setBackgroundImage:[UIImage gk_imageWithColor:color] forBarMetrics:UIBarMetricsDefault];
+}
+
+- (void)setNavShadowColor:(UIColor *)color {
+    if (!color) return;
+    self.gk_navigationBar.shadowImage = [UIImage gk_changeImage:[UIImage gk_imageNamed:@"nav_line"] color:color];
+}
+
+- (void)setNavTitleColor:(UIColor *)color {
+    if (!color) return;
+    
+    NSMutableDictionary *attr = [NSMutableDictionary dictionary];
+    attr[NSForegroundColorAttributeName] = color;
+    if (self.gk_navTitleFont) {
+        attr[NSFontAttributeName] = self.gk_navTitleFont;
+    }
+    
+    self.gk_navigationBar.titleTextAttributes = attr;
+}
+
+- (void)setNavTitleFont:(UIFont *)font {
+    if (!font) return;
+    
+    NSMutableDictionary *attr = [NSMutableDictionary dictionary];
+    if (self.gk_navTitleColor) {
+        attr[NSForegroundColorAttributeName] = self.gk_navTitleColor;
+    }
+    attr[NSFontAttributeName] = font;
+    self.gk_navigationBar.titleTextAttributes = attr;
 }
 
 @end

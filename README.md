@@ -156,6 +156,7 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
 
 ## 版本记录
 
+* 1.4.1 - 2021.02.07 暗黑模式适配优化，导航栏背景色和分割线颜色支持设置动态颜色
 * 1.3.9 - 2020.12.24 手势处理优化，解决可能出现的卡死问题，push、pop手势灵敏度优化
 * 1.3.7 - 2020.12.05 手势处理优化，增加禁用系统手势处理属性
 * 1.3.6 - 2020.12.02 修复iPhone 12，iPhone 12 Pro机型导航栏间距调整不准确的bug
