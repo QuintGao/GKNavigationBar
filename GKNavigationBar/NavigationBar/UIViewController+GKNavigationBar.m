@@ -9,6 +9,14 @@
 #import "UIViewController+GKNavigationBar.h"
 #import "GKNavigationBarDefine.h"
 
+#if __has_include(<GKNavigationBar/GKGestureHandleDefine.h>)
+#import <GKNavigationBar/GKGestureHandleDefine.h>
+#elif __has_include("GKGestureHandleDefine.h")
+#import "GKGestureHandleDefine.h"
+#endif
+
+#define HasGestureHandle (__has_include(<GKNavigationBar/GKGestureHandleDefine.h>) || __has_include("GKGestureHandleDefine.h"))
+
 @implementation UIViewController (GKNavigationBar)
 
 + (void)load {
@@ -442,7 +450,17 @@ static char kAssociatedObjectKey_navItemRightSpace;
 }
 
 - (void)backItemClick:(id)sender {
+#if HasGestureHandle
+    BOOL shouldPop = [self navigationShouldPop];
+    if ([self respondsToSelector:@selector(navigationShouldPopOnClick)]) {
+        shouldPop = [self navigationShouldPopOnClick];
+    }
+    if (shouldPop) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+#else
     [self.navigationController popViewControllerAnimated:YES];
+#endif
 }
 
 - (UIViewController *)gk_visibleViewControllerIfExist {
@@ -506,12 +524,12 @@ static char kAssociatedObjectKey_navItemRightSpace;
     CGFloat height = [UIScreen mainScreen].bounds.size.height;
     
     CGFloat navBarH = 0.0f;
-    if (width > height) { // 横屏
-        if (GK_IS_iPad) {
-            CGFloat statusBarH = [UIApplication sharedApplication].statusBarFrame.size.height;
-            CGFloat navigaBarH = self.navigationController.navigationBar.frame.size.height;
-            navBarH = statusBarH + navigaBarH;
-        }else if (GK_NOTCHED_SCREEN) { // 刘海屏横屏时高度为32
+    if (GK_IS_iPad) { // ipad
+        CGFloat statusBarH = [UIApplication sharedApplication].statusBarFrame.size.height;
+        CGFloat navigaBarH = self.navigationController.navigationBar.frame.size.height;
+        navBarH = statusBarH + navigaBarH;
+    }else if (width > height) { // iphone 横屏
+        if (GK_NOTCHED_SCREEN) { // 刘海屏横屏时高度为32
             navBarH = 32.0f;
         }else {
             // iOS13之后，横屏不再显示状态栏了，做下区分
@@ -522,7 +540,7 @@ static char kAssociatedObjectKey_navItemRightSpace;
                     navBarH = 32.0f;
                 }
             }else {
-                if (width == 736.0f && height == 414.0f) {  // plus横屏
+                if (width == 736.0f && height == 414.0f) { // plus
                     navBarH = self.gk_statusBarHidden ? GK_NAVBAR_HEIGHT : GK_STATUSBAR_NAVBAR_HEIGHT;
                 }else { // 其他机型横屏
                     navBarH = self.gk_statusBarHidden ? 32.0f : 52.0f;
@@ -539,7 +557,6 @@ static char kAssociatedObjectKey_navItemRightSpace;
 
 - (void)setBackItemImage:(UIImage *)image {
     if (!self.gk_NavBarInit) return;
-    
     // 根控制器不作处理
     if (self.navigationController.childViewControllers.count <= 1) return;
     

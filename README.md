@@ -97,19 +97,27 @@ self.gk_navBackgroundColor = [UIColor red]
 ```
 
 ### 部分功能说明
-#### 1、返回按钮点击及返回手势拦截
-```
-// 重写下面的方法，拦截返回按钮点击
-- (void)backItemClick:(id)sender {
-    // do something
-    
-    [super backItemClick:sender];
-}
-```
-
+#### 1、返回拦截包括点击返回和手势返回
 ```
 // 重写下面的方法，拦截返回手势
 #pragma mark - GKGesturePopHandlerProtocol
+- (BOOL)navigationShouldPop {
+    // do something
+    
+    return NO;
+}
+```
+也可以单独处理点击返回和手势返回
+```
+// 重写下面的方法，拦截点击返回
+- (BOOL)navigationShouldPopOnClick {
+    // do something
+    
+    return NO;
+}
+```
+```
+// 重写下面的方法，拦截手势返回
 - (BOOL)navigationShouldPopOnGesture {
     // do something
     
@@ -156,6 +164,7 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
 
 ## 版本记录
 
+* 1.4.2 - 2021.02.20 返回拦截优化，增加同时处理点击返回和手势返回的方法
 * 1.4.1 - 2021.02.07 暗黑模式适配优化，导航栏背景色和分割线颜色支持设置动态颜色
 * 1.4.0 - 2020.12.25 修复边缘滑动返回失效的bug #60
 * 1.3.9 - 2020.12.24 手势处理优化，解决可能出现的卡死问题，push、pop手势灵敏度优化

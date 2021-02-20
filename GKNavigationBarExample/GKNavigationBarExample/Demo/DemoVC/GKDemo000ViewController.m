@@ -224,21 +224,11 @@
 }
 
 #pragma mark - GKGesturePopHandlerProtocol
-- (BOOL)navigationShouldPopOnGesture {
+- (BOOL)navigationShouldPop {
     if (self.disableBack) {
         [self shouBackAlert];
     }
-    
     return !self.disableBack;
-}
-
-- (void)backItemClick:(id)sender {
-    if (self.disableBack)  {
-        [self shouBackAlert];
-        return;
-    }
-    
-    [super backItemClick:sender];
 }
 
 - (void)shouBackAlert {

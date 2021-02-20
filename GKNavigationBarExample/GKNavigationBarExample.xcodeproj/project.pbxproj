@@ -673,7 +673,7 @@
 		796CF7E4236D781400983E9B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = QuintGao;
 				TargetAttributes = {
 					79672E92236EC8EB0054300B = {

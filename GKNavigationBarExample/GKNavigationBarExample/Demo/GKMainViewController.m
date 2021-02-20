@@ -89,6 +89,8 @@
     [super viewWillAppear:animated];
     
     [self.tableView reloadData];
+    
+    self.gk_interactivePopDisabled = YES;
 }
 
 - (void)setupTableView {

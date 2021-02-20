@@ -43,6 +43,12 @@
     [self.navigationController pushViewController:demoVC animated:YES];
 }
 
+#pragma mark - GKGesturePopHandlerProtocol
+- (BOOL)navigationShouldPopOnClick {
+    self.navigationController.navigationBar.hidden = YES;
+    return YES;
+}
+
 #pragma mark - GKViewControllerPushDelegate
 - (void)pushToNextViewController {
     GKDemoTransitionViewController *transitionVC = [GKDemoTransitionViewController new];
