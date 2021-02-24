@@ -67,6 +67,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, strong) UIBarButtonItem       *gk_navRightBarButtonItem;
 @property (nullable, nonatomic, strong) NSArray<UIBarButtonItem *> *gk_navRightBarButtonItems;
 
+/// 是否禁止调整当前控制器导航栏间距，默认GKConfigure.gk_disableFixSpace
+@property (nonatomic, assign) BOOL                  gk_disableFixNavItemSpace;
+
+/// 导航栏左右按钮距离屏幕边缘的距离，需在设置左右item之前设置此属性
 @property (nonatomic, assign) CGFloat               gk_navItemLeftSpace;
 @property (nonatomic, assign) CGFloat               gk_navItemRightSpace;
 

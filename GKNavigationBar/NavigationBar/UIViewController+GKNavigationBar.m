@@ -38,30 +38,7 @@
     // 设置默认导航栏间距
     self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
     self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
-    
-    // 判断是否需要屏蔽导航栏间距调整
-    __block BOOL exist = NO;
-    [GKConfigure.shiledItemSpaceVCs enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([[obj class] isSubclassOfClass:[UIViewController class]]) {
-            if ([self isKindOfClass:[obj class]]) {
-                exist = YES;
-                *stop = YES;
-            }
-        }else if ([obj isKindOfClass:[NSString class]]) {
-            if ([NSStringFromClass(self.class) isEqualToString:obj]) {
-                exist = YES;
-                *stop = YES;
-            }else if ([NSStringFromClass(self.class) containsString:obj]) {
-                exist = YES;
-                *stop = YES;
-            }
-        }
-    }];
-    
-    [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
-        configure.gk_disableFixSpace = exist;
-    }];
-    
+    self.gk_disableFixNavItemSpace = [self checkFixNavItemSpace];
     [self gk_viewDidLoad];
 }
 
@@ -89,7 +66,8 @@
     }
     
     // 允许调整导航栏间距
-    if (!GKConfigure.gk_disableFixSpace) {
+    if (!self.gk_disableFixNavItemSpace) {
+        // 每次控制器出现的时候重置导航栏间距
         if (self.gk_navItemLeftSpace == GKNavigationBarItemSpace) {
             self.gk_navItemLeftSpace = GKConfigure.navItemLeftSpace;
         }
@@ -97,14 +75,7 @@
         if (self.gk_navItemRightSpace == GKNavigationBarItemSpace) {
             self.gk_navItemRightSpace = GKConfigure.navItemRightSpace;
         }
-        
-        // 重置navItem_space
-        [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
-            configure.gk_navItemLeftSpace  = self.gk_navItemLeftSpace;
-            configure.gk_navItemRightSpace = self.gk_navItemRightSpace;
-        }];
     }
-    
     [self gk_viewWillAppear:animated];
 }
 
@@ -112,7 +83,6 @@
     if (self.gk_NavBarInit && !self.navigationController.isNavigationBarHidden) {
         self.navigationController.navigationBarHidden = YES;
     }
-    
     [self gk_viewDidAppear:animated];
 }
 
@@ -406,6 +376,21 @@ static char kAssociatedObjectKey_navRightBarButtonItems;
     return objc_getAssociatedObject(self, &kAssociatedObjectKey_navRightBarButtonItems);
 }
 
+static char kAssociatedObjectKey_disableFixNavItemSpace;
+- (void)setGk_disableFixNavItemSpace:(BOOL)gk_disableFixNavItemSpace {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_disableFixNavItemSpace, @(gk_disableFixNavItemSpace), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    if (gk_disableFixNavItemSpace != GKConfigure.gk_disableFixSpace) {
+        [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
+            configure.gk_disableFixSpace = gk_disableFixNavItemSpace;
+        }];
+    }
+}
+
+- (BOOL)gk_disableFixNavItemSpace {
+    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_disableFixNavItemSpace) boolValue];
+}
+
 static char kAssociatedObjectKey_navItemLeftSpace;
 - (void)setGk_navItemLeftSpace:(CGFloat)gk_navItemLeftSpace {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navItemLeftSpace, @(gk_navItemLeftSpace), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -520,39 +505,43 @@ static char kAssociatedObjectKey_navItemRightSpace;
 }
 
 - (void)setupNavBarFrame {
-    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-    CGFloat height = [UIScreen mainScreen].bounds.size.height;
-    
     CGFloat navBarH = 0.0f;
-    if (GK_IS_iPad) { // ipad
-        CGFloat statusBarH = [UIApplication sharedApplication].statusBarFrame.size.height;
-        CGFloat navigaBarH = self.navigationController.navigationBar.frame.size.height;
-        navBarH = statusBarH + navigaBarH;
-    }else if (width > height) { // iphone 横屏
-        if (GK_NOTCHED_SCREEN) { // 刘海屏横屏时高度为32
-            navBarH = 32.0f;
+    if (GK_IS_iPad) { // iPad
+        navBarH = self.gk_statusBarHidden ? GK_NAVBAR_HEIGHT : GK_STATUSBAR_NAVBAR_HEIGHT;
+    }else if (GK_IS_LANDSCAPE) { // 横屏不显示状态栏
+        navBarH = GK_NAVBAR_HEIGHT;
+    }else {
+        if (GK_NOTCHED_SCREEN) { // 刘海屏手机
+            navBarH = GK_SAFEAREA_TOP + GK_NAVBAR_HEIGHT;
         }else {
-            // iOS13之后，横屏不再显示状态栏了，做下区分
-            if (@available(iOS 13.0, *)) {
-                if (width == 736.0f && height == 414.0f) {
-                    navBarH = GK_NAVBAR_HEIGHT;
-                }else {
-                    navBarH = 32.0f;
-                }
-            }else {
-                if (width == 736.0f && height == 414.0f) { // plus
-                    navBarH = self.gk_statusBarHidden ? GK_NAVBAR_HEIGHT : GK_STATUSBAR_NAVBAR_HEIGHT;
-                }else { // 其他机型横屏
-                    navBarH = self.gk_statusBarHidden ? 32.0f : 52.0f;
-                }
-            }
+            navBarH = self.gk_statusBarHidden ? GK_NAVBAR_HEIGHT : GK_STATUSBAR_NAVBAR_HEIGHT;
         }
-    }else { // 竖屏
-        navBarH = self.gk_statusBarHidden ? (GK_SAFEAREA_TOP + GK_NAVBAR_HEIGHT) : GK_STATUSBAR_NAVBAR_HEIGHT;
     }
-    self.gk_navigationBar.frame = CGRectMake(0, 0, width, navBarH);
+    self.gk_navigationBar.frame = CGRectMake(0, 0, GK_SCREEN_WIDTH, navBarH);
     self.gk_navigationBar.gk_statusBarHidden = self.gk_statusBarHidden;
     [self.gk_navigationBar layoutSubviews];
+}
+
+- (BOOL)checkFixNavItemSpace {
+    // 判断是否需要屏蔽导航栏间距调整
+    __block BOOL exist = NO;
+    [GKConfigure.shiledItemSpaceVCs enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([[obj class] isSubclassOfClass:[UIViewController class]]) {
+            if ([self isKindOfClass:[obj class]]) {
+                exist = YES;
+                *stop = YES;
+            }
+        }else if ([obj isKindOfClass:[NSString class]]) {
+            if ([NSStringFromClass(self.class) isEqualToString:obj]) {
+                exist = YES;
+                *stop = YES;
+            }else if ([NSStringFromClass(self.class) containsString:obj]) {
+                exist = YES;
+                *stop = YES;
+            }
+        }
+    }];
+    return exist;
 }
 
 - (void)setBackItemImage:(UIImage *)image {

@@ -21,6 +21,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+//    [IQKeyboardManager sharedManager].enable = YES;
+    
+//    NSLog(@"%@", NSStringFromUIEdgeInsets([GKConfigure gk_safeAreaInsets]));
     // 配置导航栏属性
     [GKConfigure setupCustomConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
         // 导航栏背景色
