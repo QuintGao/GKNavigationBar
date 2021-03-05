@@ -19,12 +19,4 @@
     // Do any additional setup after loading the view.
 }
 
-- (BOOL)prefersStatusBarHidden {
-    return self.gk_statusBarHidden;
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return self.gk_statusBarStyle;
-}
-
 @end

@@ -70,13 +70,9 @@
 }
 
 - (CGFloat)gk_fixedSpace {
-    CGSize screenSize = [UIScreen mainScreen].bounds.size;
-    
     // 经测试发现iPhone 12和iPhone 12 Pro，默认导航栏间距是16，需要单独处理
-    CGFloat deviceWidth = MIN(screenSize.width, screenSize.height);
-    CGFloat deviceHeight = MAX(screenSize.width, screenSize.height);
-    if (deviceWidth == 390.0f && deviceHeight == 844.0f) return 16;
-    return deviceWidth > 375.0f ? 20 : 16;
+    if ([GKNavigationBarConfigure is61InchScreenAndiPhone12]) return 16;
+    return DEVICE_WIDTH > 375.0f ? 20 : 16;
 }
 
 @end
@@ -267,9 +263,12 @@ static NSInteger is55InchScreen = -1;
     return is55InchScreen > 0;
 }
 
+
+
 static NSInteger is54InchScreen = -1;
 + (BOOL)is54InchScreen {
     if (is54InchScreen < 0) {
+        // iPhone XS 和 iPhone X 的物理尺寸是一致的，因此无需比较机器 Identifier
         is54InchScreen = (DEVICE_WIDTH == self.screenSizeFor54Inch.width && DEVICE_HEIGHT == self.screenSizeFor54Inch.height) ? 1 : 0;
     }
     return is54InchScreen > 0;

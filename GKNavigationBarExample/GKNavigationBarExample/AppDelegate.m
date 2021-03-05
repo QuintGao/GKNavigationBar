@@ -47,6 +47,7 @@
         configure.gk_scaleX = 0.90;
         configure.gk_scaleY = 0.92;
         configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
+        configure.gk_openScrollViewGestureHandle = YES;
     }];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

@@ -25,7 +25,7 @@
     } else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
-    self.tableView.contentInset = UIEdgeInsetsMake(GK_STATUSBAR_NAVBAR_HEIGHT, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(self.gk_navigationBar.frame.size.height, 0, 0, 0);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
