@@ -75,6 +75,9 @@ static GKFloatView *_floatView;
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick)];
         [self.imgView addGestureRecognizer:tap];
+        
+        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
+        [self.imgView addGestureRecognizer:pan];
     }
     return self;
 }
@@ -110,6 +113,7 @@ static GKFloatView *_floatView;
     self.toVC.gk_popTransition = nil;
 }
 
+#pragma mark - Action
 - (void)imgClick {
     UIViewController *visibleVC = GKConfigure.visibleViewController;
     visibleVC.gk_pushTransition = [GKFloatTransition transitionWithType:GKFloatTransitionTypePush];
@@ -123,17 +127,21 @@ static GKFloatView *_floatView;
     [GKFloatView hide];
 }
 
-#pragma mark - Touch Event
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    self.center = [touches.anyObject locationInView:self.superview];
-}
-
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self panEnd:[touches.anyObject locationInView:self.superview]];
-}
-
-- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self panEnd:[touches.anyObject locationInView:self.superview]];
+- (void)panAction:(UIPanGestureRecognizer *)pan {
+    CGPoint point = [pan locationInView:self.superview];
+    switch (pan.state) {
+        case UIGestureRecognizerStateChanged: {
+            self.center = point;
+        }
+            break;
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled: {
+            [self panEnd:point];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)panEnd:(CGPoint)point {
