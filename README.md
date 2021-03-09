@@ -164,6 +164,7 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
 
 ## 版本记录
 
+* 1.5.1 - 2021.03.09 返回手势优化，新增backStyle对应的image，可全局配置
 * 1.5.0 - 2021.03.05  
 ----1、优化状态栏样式修改及显隐方法，可以不用在基类实现相关方法  
 ----2、导航栏添加机制优化，修复某些情况下可能出现两个导航栏的bug  

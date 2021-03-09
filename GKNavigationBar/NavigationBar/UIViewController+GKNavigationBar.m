@@ -216,6 +216,30 @@ static char kAssociatedObjectKey_backImage;
     return objc_getAssociatedObject(self, &kAssociatedObjectKey_backImage);
 }
 
+static char kAssociatedObjectKey_blackBackImage;
+- (void)setGk_blackBackImage:(UIImage *)gk_blackBackImage {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_blackBackImage, gk_blackBackImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    [self setBackItemImage:gk_blackBackImage];
+}
+
+- (UIImage *)gk_blackBackImage {
+    id object = objc_getAssociatedObject(self, &kAssociatedObjectKey_blackBackImage);
+    return object ?: GKConfigure.blackBackImage;
+}
+
+static char kAssociatedObjectKey_whiteBackImage;
+- (void)setGk_whiteBackImage:(UIImage *)gk_whiteBackImage {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_whiteBackImage, gk_whiteBackImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    [self setBackItemImage:gk_whiteBackImage];
+}
+
+- (UIImage *)gk_whiteBackImage {
+    id object = objc_getAssociatedObject(self, &kAssociatedObjectKey_whiteBackImage);
+    return object ?: GKConfigure.whiteBackImage;
+}
+
 static char kAssociatedObjectKey_backStyle;
 - (void)setGk_backStyle:(GKNavigationBarBackStyle)gk_backStyle {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_backStyle, @(gk_backStyle), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -559,8 +583,7 @@ static char kAssociatedObjectKey_navItemRightSpace;
     
     if (!image) {
         if (self.gk_backStyle != GKNavigationBarBackStyleNone) {
-            NSString *imageName = self.gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white";
-            image = [UIImage gk_imageNamed:imageName];
+            image = (self.gk_backStyle == GKNavigationBarBackStyleBlack) ? self.gk_blackBackImage : self.gk_whiteBackImage;
         }
     }
     

@@ -13,8 +13,9 @@
 + (UIImage *)gk_imageNamed:(NSString *)name {
     NSString *bundleName = [@"GKNavigationBar.bundle" stringByAppendingPathComponent:name];
     NSString *frameWorkName = [@"Frameworks/GKNavigationBar.framework/GKNavigationBar.bundle" stringByAppendingPathComponent:name];
-
-    return [UIImage imageNamed:bundleName] ? : [UIImage imageNamed:frameWorkName];
+    UIImage *image = [UIImage imageNamed:bundleName] ?: [UIImage imageNamed:frameWorkName];
+    if (!image) image = [UIImage imageNamed:name];
+    return image;
 }
 
 + (UIImage *)gk_imageWithColor:(UIColor *)color {
@@ -23,7 +24,6 @@
 
 + (UIImage *)gk_imageWithColor:(UIColor *)color size:(CGSize)size {
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
-    
     UIGraphicsBeginImageContext(size);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, color.CGColor);

@@ -117,6 +117,8 @@
                         [self.popTransition cancelInteractiveTransition];
                     }
                 }
+            }else if ([GKGestureConfigure isVelocityInSensitivity:velocity.x] && velocity.x > 0) {
+                popFinished = YES;
             }
             [self popScrollEnded:popFinished];
         }

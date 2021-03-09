@@ -34,6 +34,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// 返回按钮图片(默认nil，优先级高于backStyle)
 @property (nonatomic, strong) UIImage   *backImage;
 
+/// backStyle为GKNavigationBarBackStyleBlack时对应的图片，默认btn_back_black
+@property (nonatomic, strong) UIImage   *blackBackImage;
+
+/// backStyle为GKNavigationBarBackStyleWhite时对应的图片，默认btn_back_white
+@property (nonatomic, strong) UIImage   *whiteBackImage;
+
 /// 返回按钮样式，默认GKNavigationBarBackStyleBlack
 @property (nonatomic, assign) GKNavigationBarBackStyle backStyle;
 

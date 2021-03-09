@@ -41,6 +41,8 @@
     self.titleColor = [UIColor blackColor];
     self.titleFont = [UIFont boldSystemFontOfSize:17.0f];
     
+    self.blackBackImage = [UIImage gk_imageNamed:@"btn_back_black"];
+    self.whiteBackImage = [UIImage gk_imageNamed:@"btn_back_white"];
     self.backStyle = GKNavigationBarBackStyleBlack;
     self.gk_disableFixSpace = NO;
     self.gk_navItemLeftSpace = 0;
