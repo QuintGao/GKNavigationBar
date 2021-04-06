@@ -18,6 +18,8 @@
     [super viewDidLoad];
     
     self.gk_navTitle = @"UITableViewController";
+    self.gk_navBackgroundColor = UIColor.blueColor;
+    self.gk_navBarAlpha = 0;
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     if (@available(iOS 11.0, *)) {
@@ -57,6 +59,22 @@
         navFrame.origin.y = 0;
     }
     self.gk_navigationBar.frame = navFrame;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat navbarH = self.gk_navigationBar.frame.size.height;
+    
+    CGFloat offsetY = scrollView.contentOffset.y + navbarH;
+    
+    CGFloat alpha = 0;
+    if (offsetY <= 0) {
+        alpha = 0;
+    }else if (alpha >= navbarH) {
+        alpha = 1;
+    }else {
+        alpha = offsetY / navbarH;
+    }
+    self.gk_navBarAlpha = alpha;
 }
 
 #pragma mark - Table view data source
