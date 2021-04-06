@@ -9,7 +9,7 @@
 #import "GKDemo005ViewController.h"
 #import <WebKit/WebKit.h>
 
-@interface GKDemo005ViewController()
+@interface GKDemo005ViewController()<WKNavigationDelegate, WKUIDelegate>
 
 @property (nonatomic, strong) WKWebView *webView;
 
@@ -26,17 +26,22 @@
         make.left.right.bottom.equalTo(self.view);
     }];
     
-    self.gk_interactivePopDisabled = YES;
     [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:NULL];
     [self.webView addObserver:self forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:NULL];
     
-    NSString *url = @"https://www.baidu.com";
+//    NSString *url = @"https://www.baidu.com";
+    NSString *url = @"http://www.qukanvideo.com/cloud/h5/1609067279049903";
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
 }
 
 - (void)dealloc {
     [self.webView removeObserver:self forKeyPath:@"title"];
     [self.webView removeObserver:self forKeyPath:@"canGoBack"];
+}
+
+#pragma mark - GKGesturePopHandlerProtocol
+- (BOOL)popGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
 }
 
 #pragma mark - KVO

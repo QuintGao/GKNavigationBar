@@ -164,6 +164,7 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
 
 ## 版本记录
 
+* 1.5.2 - 2021.04.06 增加协议方法，解决返回手势与WKWebView中的手势冲突问题
 * 1.5.1 - 2021.03.09 返回手势优化，新增backStyle对应的image，可全局配置
 * 1.5.0 - 2021.03.05  
 ----1、优化状态栏样式修改及显隐方法，可以不用在基类实现相关方法  
