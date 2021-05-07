@@ -44,7 +44,7 @@ Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/G
     return self;
 }
 ```
-#### 4、Xcode 11.4 在调试的时候会出现状态栏样式改变不了的情况
+#### 4、状态栏相关方法无效？
 解决办法：在基类控制器里实现下面两个方法
 ```
 - (BOOL)prefersStatusBarHidden {
@@ -164,6 +164,7 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
 
 ## 版本记录
 
+* 1.5.3 - 2021.05.07 修复直接设置背景色无效的问题#71，#74，增加对非全屏的支持
 * 1.5.2 - 2021.04.06 增加协议方法，解决返回手势与WKWebView中的手势冲突问题
 * 1.5.1 - 2021.03.09 返回手势优化，新增backStyle对应的image，可全局配置
 * 1.5.0 - 2021.03.05  

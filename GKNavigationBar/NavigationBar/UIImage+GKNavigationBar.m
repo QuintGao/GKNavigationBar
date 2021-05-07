@@ -7,13 +7,13 @@
 //
 
 #import "UIImage+GKNavigationBar.h"
+#import "GKNavigationBarDefine.h"
 
 @implementation UIImage (GKNavigationBar)
 
 + (UIImage *)gk_imageNamed:(NSString *)name {
-    NSString *bundleName = [@"GKNavigationBar.bundle" stringByAppendingPathComponent:name];
-    NSString *frameWorkName = [@"Frameworks/GKNavigationBar.framework/GKNavigationBar.bundle" stringByAppendingPathComponent:name];
-    UIImage *image = [UIImage imageNamed:bundleName] ?: [UIImage imageNamed:frameWorkName];
+    if (![GKConfigure gk_libraryBundle]) return [UIImage imageNamed:name];
+    UIImage *image = [UIImage imageNamed:name inBundle:[GKConfigure gk_libraryBundle] compatibleWithTraitCollection:nil];
     if (!image) image = [UIImage imageNamed:name];
     return image;
 }

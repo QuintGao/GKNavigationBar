@@ -19,12 +19,12 @@
     // Do any additional setup after loading the view.
 }
 
-- (UIViewController *)childViewControllerForStatusBarHidden {
-    return self.topViewController;
-}
-
-- (UIViewController *)childViewControllerForStatusBarStyle {
-    return self.topViewController;
-}
+//- (UIViewController *)childViewControllerForStatusBarHidden {
+//    return self.topViewController;
+//}
+//
+//- (UIViewController *)childViewControllerForStatusBarStyle {
+//    return self.topViewController;
+//}
 
 @end

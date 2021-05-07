@@ -535,22 +535,45 @@ static char kAssociatedObjectKey_navItemRightSpace;
     if (self.gk_backStyle == GKNavigationBarBackStyleNone) {
         self.gk_backStyle = GKConfigure.backStyle;
     }
+    
+    self.gk_navTitle = nil;
 }
 
 - (void)setupNavBarFrame {
+    UIViewController *parentVC = self;
+    while (parentVC.parentViewController) {
+        parentVC = parentVC.parentViewController;
+    }
+    
+    CGFloat viewW = parentVC.view.frame.size.width;
+    CGFloat viewH = parentVC.view.frame.size.height;
+    if (viewW == 0 || viewH == 0) return;
+    
+    BOOL isNonFullScreen = self.presentingViewController && viewH < GK_SCREEN_HEIGHT;
+    
     CGFloat navBarH = 0.0f;
     if (GK_IS_iPad) { // iPad
-        navBarH = self.gk_statusBarHidden ? GK_NAVBAR_HEIGHT : GK_STATUSBAR_NAVBAR_HEIGHT;
-    }else if (GK_IS_LANDSCAPE) { // 横屏不显示状态栏
-        navBarH = GK_NAVBAR_HEIGHT;
-    }else {
-        if (GK_NOTCHED_SCREEN) { // 刘海屏手机
-            navBarH = GK_SAFEAREA_TOP + GK_NAVBAR_HEIGHT;
+        if (isNonFullScreen) {
+            navBarH = GK_NAVBAR_HEIGHT_NFS;
+            self.gk_navigationBar.gk_nonFullScreen = YES;
         }else {
             navBarH = self.gk_statusBarHidden ? GK_NAVBAR_HEIGHT : GK_STATUSBAR_NAVBAR_HEIGHT;
         }
+    }else if (GK_IS_LANDSCAPE) { // 横屏不显示状态栏，没有非全屏模式
+        navBarH = GK_NAVBAR_HEIGHT;
+    }else {
+        if (isNonFullScreen) {
+            navBarH = GK_NAVBAR_HEIGHT_NFS;
+            self.gk_navigationBar.gk_nonFullScreen = YES;
+        }else {
+            if (GK_NOTCHED_SCREEN) { // 刘海屏手机
+                navBarH = GK_SAFEAREA_TOP + GK_NAVBAR_HEIGHT;
+            }else {
+                navBarH = self.gk_statusBarHidden ? GK_NAVBAR_HEIGHT : GK_STATUSBAR_NAVBAR_HEIGHT;
+            }
+        }
     }
-    self.gk_navigationBar.frame = CGRectMake(0, 0, GK_SCREEN_WIDTH, navBarH);
+    self.gk_navigationBar.frame = CGRectMake(0, 0, viewW, navBarH);
     [self.gk_navigationBar layoutSubviews];
 }
 

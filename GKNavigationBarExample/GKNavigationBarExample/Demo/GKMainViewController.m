@@ -13,6 +13,7 @@
 #import "GKDouyinHomeViewController.h"
 #import "GKWXViewController.h"
 #import "UINavigationController+GKGestureHandle.h"
+#import "GKPresentViewController.h"
 
 @interface GKMainViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -36,7 +37,8 @@
                         @"今日头条",
                         @"网易云音乐",
                         @"网易新闻",
-                        @"微信(自定义push，pop)"];
+                        @"微信(自定义push，pop)",
+                        @"present非全屏"];
     }
     return _dataSource;
 }
@@ -52,8 +54,8 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.gk_navigationItem.title = @"MainVC";
-//    self.gk_navBackgroundColor = [UIColor redColor];
+//    self.gk_navigationItem.title = @"MainVC";
+    self.gk_navBackgroundColor = [UIColor redColor];
     self.gk_statusBarStyle = UIStatusBarStyleLightContent;
     self.gk_navTitleFont = [UIFont systemFontOfSize:18.0f];
     
@@ -165,6 +167,9 @@
             GKWXViewController *wxVC = [GKWXViewController new];
             wxVC.modalPresentationStyle = UIModalPresentationFullScreen;
             [self presentViewController:wxVC animated:YES completion:nil];
+        }else if (indexPath.row == 11) {
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[GKPresentViewController new]];
+            [self presentViewController:nav animated:YES completion:nil];
         }
     }
 }
