@@ -54,8 +54,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-//    self.gk_navigationItem.title = @"MainVC";
-    self.gk_navBackgroundColor = [UIColor redColor];
+    self.gk_navigationItem.title = @"MainVC";
     self.gk_statusBarStyle = UIStatusBarStyleLightContent;
     self.gk_navTitleFont = [UIFont systemFontOfSize:18.0f];
     
