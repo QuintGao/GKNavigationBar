@@ -12,7 +12,7 @@ GKNavigationBarViewController的分类实现方式，耦合度底，使用更加
 
 Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/GKNavigationBarSwift)
 
-## 介绍：(本框架的特性)
+## 框架特性
 
 * 无侵入性，低耦合性
 * 支持自定义导航栏样式（隐藏、透明等）
@@ -22,39 +22,6 @@ Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/G
 * 完美解决UITableView，UIScrollView滑动手势冲突
 * 可实现push，pop时控制器缩放效果（如：今日头条）
 * 可实现左滑push一个控制器的效果（如：网易新闻）
-
-## 重要！！！
-感谢使用该库，如果在使用过程中遇到问题可查看issue或提交issue，或者进QQ群1047100313  
-
-#### 1、手势不生效？
-1、查看是否使用了+ (instancetype)rootVC:(UIViewController *)rootVC 方法初始化导航控制器  
-2、查看是否在控制器中禁用了手势返回self.gk_interactivePopDisabled = YES，self.gk_fullScreenPopDisabled = YES
-
-#### 2、导航栏不显示？
-查看是否调用了跟导航栏相关的方法，如self.gk_navTitle = @"GKNavigationBar"  
-注意：只有调用跟导航栏相关的方法才会初始化导航栏！
-
-#### 3、切换控制器的时候出现状态栏显示异常（一半黑一半白等）
-解决办法：在控制器初始化方法里面设置状态栏样式
-```
-- (instancetype)init {
-    if (self = [super init]) {
-        self.gk_statusBarStyle = UIStatusBarStyleLightContent;
-    }
-    return self;
-}
-```
-#### 4、状态栏相关方法无效？
-解决办法：在基类控制器里实现下面两个方法
-```
-- (BOOL)prefersStatusBarHidden {
-    return self.gk_statusBarHidden;
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return self.gk_statusBarStyle;
-}
-```
 
 ## 使用说明
 
@@ -86,6 +53,7 @@ Cartfile中添加 github "QuintGao/GKNavigationBar"，执行carthage update --pl
 ```
 
 #### 2、创建根导航控制器
+若要开启手势处理，需使用+ (instancetype)rootVC:(UIViewController *)rootVC方法创建导航控制器
 
 ```
 UINavigationController *nav = [UINavigationController rootVC:[GKMainViewController new]];
@@ -94,6 +62,39 @@ UINavigationController *nav = [UINavigationController rootVC:[GKMainViewControll
 #### 3、设置导航栏属性（调用即创建）
 ```
 self.gk_navBackgroundColor = [UIColor red]
+```
+
+## 常见问题
+感谢使用该库，如果在使用过程中遇到问题可查看issue或提交issue，或者进QQ群1047100313  
+
+#### 1、手势不生效？
+1、查看是否使用了+ (instancetype)rootVC:(UIViewController *)rootVC 方法初始化导航控制器  
+2、查看是否在控制器中禁用了手势返回self.gk_interactivePopDisabled = YES，self.gk_fullScreenPopDisabled = YES
+
+#### 2、导航栏不显示？
+查看是否调用了跟导航栏相关的方法，如self.gk_navTitle = @"GKNavigationBar"  
+注意：只有调用跟导航栏相关的方法才会初始化导航栏！
+
+#### 3、切换控制器的时候出现状态栏显示异常（一半黑一半白等）
+解决办法：在控制器初始化方法里面设置状态栏样式
+```
+- (instancetype)init {
+    if (self = [super init]) {
+        self.gk_statusBarStyle = UIStatusBarStyleLightContent;
+    }
+    return self;
+}
+```
+#### 4、状态栏相关方法无效？
+解决办法：在基类控制器里实现下面两个方法
+```
+- (BOOL)prefersStatusBarHidden {
+    return self.gk_statusBarHidden;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return self.gk_statusBarStyle;
+}
 ```
 
 ### 部分功能说明
