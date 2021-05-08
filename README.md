@@ -23,7 +23,7 @@ Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/G
 * 可实现push，pop时控制器缩放效果（如：今日头条）
 * 可实现左滑push一个控制器的效果（如：网易新闻）
 
-## 使用说明
+## 使用
 ### 1、在AppDelegate中添加导航配置
 
 ```
@@ -44,15 +44,7 @@ self.gk_navBackgroundColor = [UIColor red]
 
 
 ## 安装
-<details>
-  <summary><font size=3>手动导入</font></summary>
-
-```
-直接拖入GKNavigationBar文件夹到项目，#import "GKNavigationBar.h"，开始使用
-```
-</details>
-
-<details>
+<details open>
   <summary><font size=3>CocoaPods</font></summary>
 
 ```
@@ -80,6 +72,13 @@ github "QuintGao/GKNavigationBar"
 
 ```
 在Xcode中点击File->Swift Packages->Add Package Dependency，然后输入https://github.com/QuintGao/GKNavigationBar
+```
+</details>
+<details>
+  <summary><font size=3>手动导入</font></summary>
+
+```
+直接拖入GKNavigationBar文件夹到项目，#import "GKNavigationBar.h"，开始使用
 ```
 </details>
 
@@ -254,9 +253,10 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
 
 ## 作者
 
-- QQ: 1094887059
+- QQ： [1094887059](http://wpa.qq.com/msgrd?v=3&uin=1094887059&site=qq&menu=yes)  
+- QQ群：[1047100313](https://qm.qq.com/cgi-bin/qm/qr?k=Aj_f4C5-R3X1_KEdeb_Ttg8pxK_41ZJu&jump_from=webapi)
 
-<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=Aj_f4C5-R3X1_KEdeb_Ttg8pxK_41ZJu&jump_from=webapi"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="GKNavigationBar" title="GKNavigationBar"></a>
+- [简书](https://www.jianshu.com/u/ba61bbfc87e8)
 
 - 支持作者
 
