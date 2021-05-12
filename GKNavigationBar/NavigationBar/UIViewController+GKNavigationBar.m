@@ -44,10 +44,14 @@
 }
 
 - (void)gk_viewDidLoad {
-    // 设置默认导航栏间距
-    self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
-    self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
-    self.gk_disableFixNavItemSpace = [self checkFixNavItemSpace];
+    // bug fix #76，修改添加了子控制器后调整导航栏间距无效的bug
+    // 当创建了gk_navigationBar或者父控制器是导航控制器的时候才去调整导航栏间距
+    if (self.gk_NavBarInit || [self.parentViewController isKindOfClass:[UINavigationController class]]) {
+        // 设置默认导航栏间距
+        self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
+        self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
+        self.gk_disableFixNavItemSpace = [self checkFixNavItemSpace];
+    }
     [self gk_viewDidLoad];
 }
 
@@ -540,6 +544,8 @@ static char kAssociatedObjectKey_navItemRightSpace;
 }
 
 - (void)setupNavBarFrame {
+    // 防止在init方法中创建导航栏会提前触发viewDidLoad方法，所以做下判断
+    if (!self.isViewLoaded) return;
     UIViewController *parentVC = self;
     while (parentVC.parentViewController) {
         parentVC = parentVC.parentViewController;

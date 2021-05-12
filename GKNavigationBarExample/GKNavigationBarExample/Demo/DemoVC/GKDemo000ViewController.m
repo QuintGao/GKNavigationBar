@@ -63,6 +63,7 @@
     self.gk_navShadowColor = [UIColor blackColor];
     self.gk_backStyle = GKNavigationBarBackStyleWhite;
     self.gk_navItemRightSpace = 0;
+    self.gk_navItemRightSpace = 30;
     self.gk_navRightBarButtonItem = self.moreItem;
     
     self.leftPushSwitch.on = NO;
@@ -79,6 +80,11 @@
     
     self.gk_systemGestureHandleDisabled = YES;
     self.gk_popDelegate = self;
+    
+    UIViewController *vc = UIViewController.new;
+    vc.view.userInteractionEnabled = NO;
+    [self.view addSubview:vc.view];
+    [self addChildViewController:vc];
 }
 
 - (void)dealloc {
