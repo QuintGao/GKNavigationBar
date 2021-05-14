@@ -628,6 +628,10 @@ static char kAssociatedObjectKey_navItemRightSpace;
         if (self.gk_backStyle != GKNavigationBarBackStyleNone) {
             image = (self.gk_backStyle == GKNavigationBarBackStyleBlack) ? self.gk_blackBackImage : self.gk_whiteBackImage;
         }
+    }else {
+        if (self.gk_backStyle == GKNavigationBarBackStyleNone) {
+            image = nil;
+        }
     }
     
     // 没有image

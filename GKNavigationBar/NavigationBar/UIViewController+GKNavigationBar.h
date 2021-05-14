@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 是否创建了gk_navigationBar
 /// 返回YES表明当前控制器使用了自定义的gk_navigationBar，默认为NO
-@property (nonatomic, assign, readonly) BOOL                  gk_NavBarInit;
+@property (nonatomic, assign, readonly) BOOL        gk_NavBarInit;
 
 /// 设置状态栏是否隐藏，默认NO：不隐藏
 @property (nonatomic, assign) BOOL                  gk_statusBarHidden;
