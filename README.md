@@ -206,7 +206,8 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
   <summary><font size=4>最近更新</font></summary>
 
 ```
-1.5.4 - 2021.05.12 修复bug #76，修复可能提前触发viewDidLoad方法的问题
+1.5.5 - 2021.05.14 修复导航栏间距失效的问题#76
+1.5.4 - 2021.05.12 修复可能提前触发viewDidLoad方法的问题
 1.5.3 - 2021.05.07 修复直接设置背景色无效的问题#71，#74，增加对非全屏的支持
 1.5.2 - 2021.04.06 增加协议方法，解决返回手势与WKWebView中的手势冲突问题
 1.5.1 - 2021.03.09 返回手势优化，新增backStyle对应的image，可全局配置

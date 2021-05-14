@@ -46,7 +46,7 @@
 - (void)gk_viewDidLoad {
     // bug fix #76，修改添加了子控制器后调整导航栏间距无效的bug
     // 当创建了gk_navigationBar或者父控制器是导航控制器的时候才去调整导航栏间距
-    if (self.gk_NavBarInit || [self.parentViewController isKindOfClass:[UINavigationController class]]) {
+    if ([self navItemSpaceChangeIfNeeded]) {
         // 设置默认导航栏间距
         self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
         self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
@@ -75,17 +75,27 @@
         }
     }
     
-    // 允许调整导航栏间距
-    if (!self.gk_disableFixNavItemSpace) {
+    // bug fix #76，修改添加了子控制器后调整导航栏间距无效的bug
+    // 当创建了gk_navigationBar或者父控制器是导航控制器的时候才去调整导航栏间距
+    if ([self navItemSpaceChangeIfNeeded] && !self.gk_disableFixNavItemSpace) {
         // 每次控制器出现的时候重置导航栏间距
         if (self.gk_navItemLeftSpace == GKNavigationBarItemSpace) {
             self.gk_navItemLeftSpace = GKConfigure.navItemLeftSpace;
+        }else {
+            [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
+                configure.gk_navItemLeftSpace = self.gk_navItemLeftSpace;
+            }];
         }
         
         if (self.gk_navItemRightSpace == GKNavigationBarItemSpace) {
             self.gk_navItemRightSpace = GKConfigure.navItemRightSpace;
+        }else {
+            [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
+                configure.gk_navItemRightSpace = self.gk_navItemRightSpace;
+            }];
         }
     }
+    
     [self gk_viewWillAppear:animated];
 }
 
@@ -603,6 +613,10 @@ static char kAssociatedObjectKey_navItemRightSpace;
         }
     }];
     return exist;
+}
+
+- (BOOL)navItemSpaceChangeIfNeeded {
+    return self.gk_NavBarInit || [self.parentViewController isKindOfClass:[UINavigationController class]];
 }
 
 - (void)setBackItemImage:(UIImage *)image {
