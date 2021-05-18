@@ -167,7 +167,11 @@
             wxVC.modalPresentationStyle = UIModalPresentationFullScreen;
             [self presentViewController:wxVC animated:YES completion:nil];
         }else if (indexPath.row == 11) {
-            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[GKPresentViewController new]];
+            GKPresentViewController *presentVC = [GKPresentViewController new];
+            presentVC.gk_navTitle = @"presentVC";
+            
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:presentVC];
+            
             [self presentViewController:nav animated:YES completion:nil];
         }
     }

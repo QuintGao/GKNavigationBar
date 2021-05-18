@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                    = 'GKNavigationBar'
-  s.version                 = '1.5.5'
+  s.version                 = '1.5.6'
   s.license                 = 'MIT'
   s.summary                 = '自定义导航栏--导航栏联动'
   s.homepage                = 'https://github.com/QuintGao/GKNavigationBar'
@@ -8,7 +8,6 @@ Pod::Spec.new do |s|
   s.authors                 = { '高坤' => '1094887059@qq.com' }
   s.source                  = { :git => 'https://github.com/QuintGao/GKNavigationBar.git', :tag => s.version }
   s.ios.deployment_target   = '9.0'
-  
   s.source_files            = 'GKNavigationBar/GKNavigationBar.h'
   
   s.subspec 'NavigationBar' do |ss|

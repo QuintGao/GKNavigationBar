@@ -143,6 +143,8 @@ static char kAssociatedObjectKey_openGestureHandle;
     if ([vc isKindOfClass:[UITabBarController class]]) return;
     if (!vc.navigationController) return;
     if (vc.navigationController != self) return;
+    // 修复非导航控制器子类时出现的问题
+    if (vc.parentViewController != self) return;
     
     __block BOOL exist = NO;
     [GKGestureConfigure.shiledGuestureVCs enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

@@ -52,6 +52,10 @@
         self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
         self.gk_disableFixNavItemSpace = [self checkFixNavItemSpace];
     }
+    // 如果是根控制器，取消返回按钮
+    if (self.navigationController && self.navigationController.childViewControllers.count <= 1) {
+        self.gk_navLeftBarButtonItem = nil;
+    }
     [self gk_viewDidLoad];
 }
 
@@ -554,18 +558,23 @@ static char kAssociatedObjectKey_navItemRightSpace;
 }
 
 - (void)setupNavBarFrame {
+    BOOL isNonFullScreen = NO;
+    CGFloat viewW = GK_SCREEN_WIDTH;
+    CGFloat viewH = GK_SCREEN_HEIGHT;
     // 防止在init方法中创建导航栏会提前触发viewDidLoad方法，所以做下判断
-    if (!self.isViewLoaded) return;
-    UIViewController *parentVC = self;
-    while (parentVC.parentViewController) {
-        parentVC = parentVC.parentViewController;
+    if (self.isViewLoaded) {
+        UIViewController *parentVC = self;
+        // 找到最上层的父类
+        while (parentVC.parentViewController) {
+            parentVC = parentVC.parentViewController;
+        }
+        viewW = parentVC.view.frame.size.width;
+        viewH = parentVC.view.frame.size.height;
+        if (viewW == 0 || viewH == 0) return;
+        
+        // 如果是通过present方式弹出且高度小于屏幕高度，则认为是非全屏
+        isNonFullScreen = self.presentingViewController && viewH < GK_SCREEN_HEIGHT;
     }
-    
-    CGFloat viewW = parentVC.view.frame.size.width;
-    CGFloat viewH = parentVC.view.frame.size.height;
-    if (viewW == 0 || viewH == 0) return;
-    
-    BOOL isNonFullScreen = self.presentingViewController && viewH < GK_SCREEN_HEIGHT;
     
     CGFloat navBarH = 0.0f;
     if (GK_IS_iPad) { // iPad
@@ -622,7 +631,10 @@ static char kAssociatedObjectKey_navItemRightSpace;
 - (void)setBackItemImage:(UIImage *)image {
     if (!self.gk_NavBarInit) return;
     // 根控制器不作处理
-    if (self.navigationController.childViewControllers.count <= 1) return;
+    if (self.navigationController && self.navigationController.childViewControllers.count <= 1) {
+        self.gk_navLeftBarButtonItem = nil;
+        return;
+    }
     
     if (!image) {
         if (self.gk_backStyle != GKNavigationBarBackStyleNone) {
