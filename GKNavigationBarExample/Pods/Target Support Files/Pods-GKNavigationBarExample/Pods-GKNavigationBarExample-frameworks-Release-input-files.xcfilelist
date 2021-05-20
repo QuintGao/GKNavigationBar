@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-GKNavigationBarExample/Pods-GKNavigationBarExample-frameworks.sh
+${BUILT_PRODUCTS_DIR}/GKNavigationBar/GKNavigationBar.framework
 ${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
 ${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework

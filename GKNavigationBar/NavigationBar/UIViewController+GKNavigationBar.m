@@ -45,7 +45,7 @@
 
 - (void)gk_viewDidLoad {
     // bug fix #76，修改添加了子控制器后调整导航栏间距无效的bug
-    // 当创建了gk_navigationBar或者父控制器是导航控制器的时候才去调整导航栏间距
+    // 当创建了gk_navigationBar并且父控制器是导航控制器的时候才去调整导航栏间距
     if ([self navItemSpaceChangeIfNeeded]) {
         // 设置默认导航栏间距
         self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
@@ -54,6 +54,7 @@
     }
     // 如果是根控制器，取消返回按钮
     if (self.navigationController && self.navigationController.childViewControllers.count <= 1) {
+        if (!self.gk_NavBarInit) return;
         self.gk_navLeftBarButtonItem = nil;
     }
     [self gk_viewDidLoad];

@@ -206,6 +206,7 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
   <summary><font size=4>最近更新</font></summary>
 
 ```
+1.5.7 - 2021.05.20 修复bug #78，创建导航栏item方法优化
 1.5.6 - 2021.05.18 优化导航栏返回按钮及高度处理#77，手势处理优化
 1.5.5 - 2021.05.14 修复导航栏间距失效的问题#76
 1.5.4 - 2021.05.12 修复可能提前触发viewDidLoad方法的问题

@@ -9,7 +9,7 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-#import "GKNavigationBar.h"
+#import <GKNavigationBar/GKNavigationBar.h>
 #import <Masonry/Masonry.h>
 
 #endif /* PrefixHeader_pch */

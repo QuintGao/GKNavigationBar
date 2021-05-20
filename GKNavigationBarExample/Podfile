@@ -6,7 +6,7 @@ inhibit_all_warnings!
 
 target 'GKNavigationBarExample' do
   use_frameworks!
-
+  pod 'GKNavigationBar', :path => '../'
   pod 'Masonry'
   pod 'TZImagePickerController'
 

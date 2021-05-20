@@ -1,8 +1,14 @@
 PODS:
+  - GKNavigationBar (1.5.7):
+    - GKNavigationBar/GestureHandle (= 1.5.7)
+    - GKNavigationBar/NavigationBar (= 1.5.7)
+  - GKNavigationBar/GestureHandle (1.5.7)
+  - GKNavigationBar/NavigationBar (1.5.7)
   - Masonry (1.1.0)
   - TZImagePickerController (3.5.4)
 
 DEPENDENCIES:
+  - GKNavigationBar (from `../`)
   - Masonry
   - TZImagePickerController
 
@@ -11,10 +17,15 @@ SPEC REPOS:
     - Masonry
     - TZImagePickerController
 
+EXTERNAL SOURCES:
+  GKNavigationBar:
+    :path: "../"
+
 SPEC CHECKSUMS:
+  GKNavigationBar: a09106dc614e6a458d5c64048e7945a47a266fb8
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   TZImagePickerController: 891421e1fa0d8dfa295388e1f8a8ce2d5152ae88
 
-PODFILE CHECKSUM: e41004507d5cd54ad2721c07efc1902cf7e66a7d
+PODFILE CHECKSUM: 95fda486a7cfa7f6da3af0b1d5950da0b15791fd
 
 COCOAPODS: 1.10.1

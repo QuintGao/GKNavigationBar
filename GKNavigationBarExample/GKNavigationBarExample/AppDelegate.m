@@ -9,8 +9,6 @@
 #import "AppDelegate.h"
 #import "GKMainViewController.h"
 #import "GKWYMusicViewController.h"
-#import "UINavigationController+GKGestureHandle.h"
-#import "UINavigationController+GKNavigationBar.h"
 #import <TZImagePickerController/TZImagePickerController.h>
 
 @interface AppDelegate ()
