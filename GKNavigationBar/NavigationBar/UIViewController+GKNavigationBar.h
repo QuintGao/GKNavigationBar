@@ -93,8 +93,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param sender sender
 - (void)backItemClick:(id)sender;
 
-/// 获取当前controller里的最高层可见viewController（可见的意思是还会判断self.view.window是否存在）
-- (UIViewController *)gk_visibleViewControllerIfExist;
+/// 查找当前显示的控制器
+/// @param isRoot 是否是根控制器
+- (UIViewController *)gk_findCurrentViewControllerIsRoot:(BOOL)isRoot;
 
 @end
 

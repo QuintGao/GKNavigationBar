@@ -95,7 +95,7 @@
 		794AFC36242F4FB600BECA1B /* GKBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKBaseNavigationController.m; sourceTree = "<group>"; };
 		79672E89236EC04A0054300B /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = .travis.yml; path = ../../.travis.yml; sourceTree = "<group>"; };
 		79672E8A236EC0520054300B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
-		79672E8C236EC0740054300B /* GKNavigationBar.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GKNavigationBar.podspec; path = ../../GKNavigationBar.podspec; sourceTree = "<group>"; };
+		79672E8C236EC0740054300B /* GKNavigationBar.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GKNavigationBar.podspec; path = ../../GKNavigationBar.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		79672E93236EC8EB0054300B /* GKNavigationBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GKNavigationBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79672E96236EC8EB0054300B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		796CF7EC236D781400983E9B /* GKNavigationBarExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GKNavigationBarExample.app; sourceTree = BUILT_PRODUCTS_DIR; };

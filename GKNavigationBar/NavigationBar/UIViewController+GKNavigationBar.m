@@ -46,7 +46,7 @@
 - (void)gk_viewDidLoad {
     // bug fix #76，修改添加了子控制器后调整导航栏间距无效的bug
     // 当创建了gk_navigationBar或者父控制器是导航控制器的时候才去调整导航栏间距
-    if ([self navItemSpaceChangeIfNeeded]) {
+    if ([self shouldHandleNavBar]) {
         // 设置默认导航栏间距
         self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
         self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
@@ -70,19 +70,21 @@
     
     if (self.gk_NavBarInit) {
         // 隐藏系统导航栏
-        if (!self.navigationController.gk_openSystemNavHandle && !self.navigationController.isNavigationBarHidden) {
-            [self.navigationController setNavigationBarHidden:YES];
+        if (!self.navigationController.gk_openSystemNavHandle) {
+            [self hiddenSystemNavBar];
         }
         
         // 将自定义导航栏放置顶层
         if (self.gk_navigationBar && !self.gk_navigationBar.hidden) {
             [self.view bringSubviewToFront:self.gk_navigationBar];
         }
+    }else {
+        [self restoreSystemNavBar];
     }
     
     // bug fix #76，修改添加了子控制器后调整导航栏间距无效的bug
     // 当创建了gk_navigationBar或者父控制器是导航控制器的时候才去调整导航栏间距
-    if ([self navItemSpaceChangeIfNeeded] && !self.gk_disableFixNavItemSpace) {
+    if ([self shouldHandleNavBar] && !self.gk_disableFixNavItemSpace) {
         // 每次控制器出现的时候重置导航栏间距
         if (self.gk_navItemLeftSpace == GKNavigationBarItemSpace) {
             self.gk_navItemLeftSpace = GKConfigure.navItemLeftSpace;
@@ -105,8 +107,10 @@
 }
 
 - (void)gk_viewDidAppear:(BOOL)animated {
-    if (self.gk_NavBarInit && !self.navigationController.isNavigationBarHidden) {
-        [self.navigationController setNavigationBarHidden:YES];
+    if (self.gk_NavBarInit) {
+        [self hiddenSystemNavBar];
+    }else {
+        [self restoreSystemNavBar];
     }
     [self gk_viewDidAppear:animated];
 }
@@ -500,22 +504,63 @@ static char kAssociatedObjectKey_navItemRightSpace;
 #endif
 }
 
-- (UIViewController *)gk_visibleViewControllerIfExist {
-    if (self.presentedViewController) {
-        return [self.presentedViewController gk_visibleViewControllerIfExist];
-    }
-    if ([self isKindOfClass:[UINavigationController class]]) {
-        return [((UINavigationController *)self).topViewController gk_visibleViewControllerIfExist];
+- (UIViewController *)gk_findCurrentViewControllerIsRoot:(BOOL)isRoot {
+    if ([self canFindPresentedViewController:self.presentedViewController]) {
+        return [self.presentedViewController gk_findCurrentViewControllerIsRoot:NO];
     }
     if ([self isKindOfClass:[UITabBarController class]]) {
-        return [((UITabBarController *)self).selectedViewController gk_visibleViewControllerIfExist];
+        return [[(UITabBarController *)self selectedViewController] gk_findCurrentViewControllerIsRoot:NO];;
     }
-    if ([self isViewLoaded] && self.view.window) {
-        return self;
-    }else {
-        NSLog(@"找不到可见的控制器，viewcontroller.self = %@，self.view.window=%@", self, self.view.window);
-        return nil;
+    if ([self isKindOfClass:[UINavigationController class]]) {
+        [[(UINavigationController *)self topViewController] gk_findCurrentViewControllerIsRoot:NO];
     }
+    if (self.childViewControllers.count > 0) {
+        if (self.childViewControllers.count == 1 && isRoot) {
+            return [self.childViewControllers.firstObject gk_findCurrentViewControllerIsRoot:NO];
+        }else {
+            __block UIViewController *currentViewController = self;
+            // 从最上层遍历（逆序），查找正在显示的UITabBarController 或 UINavigationController 类型的
+            // 是否包含 UITabBarController 或 UINavigationController 类全屏显示的 controller
+            [self.childViewControllers enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                // 判断obj.view 是否加载，如果尚未加载，调用 obj.view 会触发 viewDidLoad
+                if (obj.isViewLoaded) {
+                    CGPoint point = [obj.view convertPoint:CGPointZero toView:nil];
+                    CGSize windowSize = obj.view.window.bounds.size;
+                    // 正在全屏显示
+                    BOOL isFullScreenShow = !obj.view.hidden && obj.view.alpha > 0.01 && CGPointEqualToPoint(point, CGPointZero) && CGSizeEqualToSize(obj.view.bounds.size, windowSize);
+                    // 判断类型
+                    BOOL isStopFindController = [obj isKindOfClass:UINavigationController.class] || [obj isKindOfClass:UITabBarController.class];
+                    if (isFullScreenShow && isStopFindController) {
+                        currentViewController = [obj gk_findCurrentViewControllerIsRoot:NO];
+                        *stop = YES;
+                    }
+                }
+            }];
+            return currentViewController;
+        }
+    }else if ([self respondsToSelector:NSSelectorFromString(@"contentViewController")]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        UIViewController *tempViewController = [self performSelector:NSSelectorFromString(@"contentViewController")];
+#pragma clang diagnostic pop
+        if (tempViewController) {
+            return [tempViewController gk_findCurrentViewControllerIsRoot:NO];
+        }
+    }
+    return self;
+}
+
+- (BOOL)canFindPresentedViewController:(UIViewController *)viewController {
+    if (!viewController) {
+        return NO;
+    }
+    if ([viewController isKindOfClass:UIAlertController.class]) {
+        return NO;
+    }
+    if ([@"_UIContextMenuActionsOnlyViewController" isEqualToString:NSStringFromClass(viewController.class)]) {
+        return NO;
+    }
+    return YES;
 }
 
 #pragma mark - Private Methods
@@ -625,7 +670,21 @@ static char kAssociatedObjectKey_navItemRightSpace;
     return exist;
 }
 
-- (BOOL)navItemSpaceChangeIfNeeded {
+- (void)hiddenSystemNavBar {
+    if (!self.navigationController.isNavigationBarHidden) {
+        [self.navigationController setNavigationBarHidden:YES];
+    }
+}
+
+- (void)restoreSystemNavBar {
+    if (GKConfigure.gk_restoreSystemNavBar && [self shouldHandleNavBar]) {
+        if (self.navigationController.isNavigationBarHidden) {
+            [self.navigationController setNavigationBarHidden:NO];
+        }
+    }
+}
+
+- (BOOL)shouldHandleNavBar {
     return self.gk_NavBarInit || [self.parentViewController isKindOfClass:[UINavigationController class]];
 }
 

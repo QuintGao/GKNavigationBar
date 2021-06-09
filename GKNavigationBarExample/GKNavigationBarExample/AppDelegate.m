@@ -36,7 +36,10 @@
         configure.gk_navItemLeftSpace = 10.0f;
         configure.gk_navItemRightSpace = 10.0f;
         
-        configure.shiledItemSpaceVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
+        configure.gk_restoreSystemNavBar = YES;
+        
+//        configure.shiledItemSpaceVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
+        configure.shiledItemSpaceVCs = @[@"UIActivityViewController", @"UIActivityContentViewController"];
     }];
     
     [GKGestureConfigure setupCustomConfigure:^(GKGestureHandleConfigure * _Nonnull configure) {
@@ -56,6 +59,10 @@
     nav.gk_openSystemNavHandle = YES;
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
+    
+//    [UIView appearance].semanticContentAttribute = UISemanticContentAttributeForceRightToLeft;
+//    [UISearchBar appearance].semanticContentAttribute = UISemanticContentAttributeForceRightToLeft;
+//    [[UINavigationBar appearance] setSemanticContentAttribute:UISemanticContentAttributeForceRightToLeft];
     
     return YES;
 }

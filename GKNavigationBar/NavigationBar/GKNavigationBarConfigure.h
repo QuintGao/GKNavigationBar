@@ -65,6 +65,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) CGFloat navItemLeftSpace;
 @property (nonatomic, assign, readonly) CGFloat navItemRightSpace;
 
+/// 用于恢复系统导航栏的显示，默认NO
+@property (nonatomic, assign) BOOL gk_restoreSystemNavBar;
+
 /// 单例，设置一次全局使用
 + (instancetype)sharedInstance;
 

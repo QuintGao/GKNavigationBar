@@ -178,8 +178,22 @@
 }
 
 - (void)moreAction {
-    GKDemoWebViewController *webVC = [GKDemoWebViewController new];
-    [self.navigationController pushViewController:webVC animated:YES];
+//    GKDemoWebViewController *webVC = [GKDemoWebViewController new];
+//    [self.navigationController pushViewController:webVC animated:YES];
+    NSString *textToShare = @"GKNavigationBar是一个自定义导航栏";
+         
+    UIImage *imageToShare = [UIImage imageNamed:@"Activity_selected"];
+         
+    NSURL *urlToShare = [NSURL URLWithString:@"https://github.com/QuintGao/GKNavigationBar"];
+    
+    NSArray *activityItems = @[textToShare, imageToShare, urlToShare];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    
+    //不出现在活动项目
+    activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll];
+    
+    [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 #pragma mark - 懒加载
