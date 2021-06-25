@@ -30,4 +30,6 @@
 
 + (instancetype)viewFromBgColor:(UIColor *)bgColor;
 
+- (UIImage *)imageWithColors:(NSArray *)colors;
+
 @end

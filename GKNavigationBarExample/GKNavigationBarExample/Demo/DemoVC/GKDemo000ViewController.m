@@ -66,6 +66,26 @@
     self.gk_navItemRightSpace = 30;
     self.gk_navRightBarButtonItem = self.moreItem;
     
+    if (@available(iOS 13.0, *)) {
+        self.gk_navBackgroundColor = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
+            if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
+                return UIColor.whiteColor;
+            }else {
+                return UIColor.redColor;
+            }
+        }];
+        self.gk_navTitleColor = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
+            if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
+                return UIColor.blackColor;
+            }else {
+                return UIColor.whiteColor;
+            }
+        }];
+    }else {
+        self.gk_navBackgroundColor = UIColor.redColor;
+        self.gk_navTitleColor = [UIColor whiteColor];
+    }
+    
     self.leftPushSwitch.on = NO;
     self.moreItemSwitch.on = NO;
     self.fullScreenInterceptSwitch.on = NO;

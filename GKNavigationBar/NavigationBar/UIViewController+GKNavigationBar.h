@@ -52,9 +52,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置返回按钮类型
 @property (nonatomic, assign) GKNavigationBarBackStyle gk_backStyle;
 
-/// 导航栏背景
-@property (nonatomic, strong) UIColor               *gk_navBackgroundColor;
+/// 导航栏背景，gk_navBackgroundImage优先级较高
 @property (nonatomic, strong) UIImage               *gk_navBackgroundImage;
+@property (nonatomic, strong) UIColor               *gk_navBackgroundColor;
 
 /// 导航栏分割线
 @property (nonatomic, strong) UIColor               *gk_navShadowColor;

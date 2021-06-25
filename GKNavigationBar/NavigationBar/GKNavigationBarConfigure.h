@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 导航栏背景色，默认白色
 @property (nonatomic, strong) UIColor   *backgroundColor;
 
+/// 导航栏背景色，默认nil，优先级高于backgroundColor
+@property (nonatomic, strong) UIImage   *backgroundImage;
+
 /// 导航栏分割线背景色，默认nil，使用系统颜色
 @property (nonatomic, strong) UIColor   *lineColor;
 

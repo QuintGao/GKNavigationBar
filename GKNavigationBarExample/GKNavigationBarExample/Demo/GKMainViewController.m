@@ -56,31 +56,7 @@
     self.gk_navigationItem.title = @"MainVC";
     self.gk_statusBarStyle = UIStatusBarStyleLightContent;
     self.gk_navTitleFont = [UIFont systemFontOfSize:18.0f];
-    
-    if (@available(iOS 13.0, *)) {
-        self.gk_navTitleColor = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
-            if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-                return UIColor.blackColor;
-            }else {
-                return UIColor.whiteColor;
-            }
-        }];
-    }else {
-        self.gk_navTitleColor = [UIColor whiteColor];
-    }
-    
-    if (@available(iOS 13.0, *)) {
-        self.gk_navBackgroundColor = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
-            if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-                return UIColor.whiteColor;
-            }else {
-                return UIColor.redColor;
-            }
-        }];
-    } else {
-        // Fallback on earlier versions
-        self.gk_navBackgroundColor = UIColor.redColor;
-    }
+    self.gk_navTitleColor = UIColor.whiteColor;
     
     [self setupTableView];
 }

@@ -278,7 +278,7 @@ static char kAssociatedObjectKey_backStyle;
 static char kAssociatedObjectKey_navBackgroundColor;
 - (void)setGk_navBackgroundColor:(UIColor *)gk_navBackgroundColor {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navBackgroundColor, gk_navBackgroundColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
+
     [self setNavBackgroundColor:gk_navBackgroundColor];
 }
 
@@ -565,8 +565,12 @@ static char kAssociatedObjectKey_navItemRightSpace;
 
 #pragma mark - Private Methods
 - (void)setupNavBarAppearance {
-    // 设置默认背景色
-    if (self.gk_navBackgroundColor == nil) {
+    // 设置默认背景
+    if (self.gk_navBackgroundImage == nil) {
+        self.gk_navBackgroundImage = GKConfigure.backgroundImage;
+    }
+    
+    if (self.gk_navBackgroundColor == nil && self.gk_navBackgroundImage == nil) {
         self.gk_navBackgroundColor = GKConfigure.backgroundColor;
     }
     
