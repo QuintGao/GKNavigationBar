@@ -42,6 +42,7 @@
 
 - (void)pageAction {
     GKWYNewsDetailViewController *detailVC = [GKWYNewsDetailViewController new];
+    detailVC.gk_systemGestureHandleDisabled = YES;
     detailVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
