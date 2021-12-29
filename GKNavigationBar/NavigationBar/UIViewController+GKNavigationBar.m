@@ -436,6 +436,7 @@ static char kAssociatedObjectKey_disableFixNavItemSpace;
 - (void)setGk_disableFixNavItemSpace:(BOOL)gk_disableFixNavItemSpace {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_disableFixNavItemSpace, @(gk_disableFixNavItemSpace), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
+    if (GKConfigure.gk_disableFixSpace) return;
     if (gk_disableFixNavItemSpace != GKConfigure.gk_disableFixSpace) {
         [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
             configure.gk_disableFixSpace = gk_disableFixNavItemSpace;

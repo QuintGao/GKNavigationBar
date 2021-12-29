@@ -39,7 +39,6 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     TZImagePickerController *pickerVC = [[TZImagePickerController alloc] initWithMaxImagesCount:9 delegate:self];
-//    GKConfigure.gk_disableFixSpace = YES;
     pickerVC.allowCrop = YES;
 //    pickerVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:pickerVC animated:YES completion:nil];
@@ -47,15 +46,6 @@
 
 - (void)dealloc {
     NSLog(@"%@ dealloc", NSStringFromClass([self class]));
-}
-
-#pragma mark - TZImagePickerControllerDelegate
-- (void)tz_imagePickerControllerDidCancel:(TZImagePickerController *)picker {
-//    GKConfigure.gk_disableFixSpace = NO;
-}
-
-- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto infos:(NSArray<NSDictionary *> *)infos {
-//    GKConfigure.gk_disableFixSpace = NO;
 }
 
 @end
