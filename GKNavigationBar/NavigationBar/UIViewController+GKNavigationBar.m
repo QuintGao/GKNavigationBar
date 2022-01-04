@@ -258,8 +258,10 @@ static char kAssociatedObjectKey_darkBackImage;
 - (void)setGk_darkBackImage:(UIImage *)gk_darkBackImage {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_darkBackImage, gk_darkBackImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-        [self setBackItemImage:gk_darkBackImage];
+    if (@available(iOS 12.0, *)) {
+        if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
+            [self setBackItemImage:gk_darkBackImage];
+        }
     }
 }
 
@@ -329,8 +331,10 @@ static char kAssociatedObjectKey_darkNavBackgroundImage;
 - (void)setGk_darkNavBackgroundImage:(UIImage *)gk_darkNavBackgroundImage{
     objc_setAssociatedObject(self, &kAssociatedObjectKey_darkNavBackgroundImage, gk_darkNavBackgroundImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-        [self setNavBackgroundImage:gk_darkNavBackgroundImage];
+    if (@available(iOS 12.0, *)) {
+        if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
+            [self setNavBackgroundImage:gk_darkNavBackgroundImage];
+        }
     }
 }
 
@@ -364,8 +368,10 @@ static char kAssociatedObjectKey_darkNavShadowImage;
 - (void)setGk_darkNavShadowImage:(UIImage *)gk_darkNavShadowImage {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_darkNavShadowImage, gk_darkNavShadowImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-        [self setNavShadowImage:gk_darkNavShadowImage];
+    if (@available(iOS 12.0, *)) {
+        if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
+            [self setNavShadowImage:gk_darkNavShadowImage];
+        }
     }
 }
 
@@ -771,8 +777,10 @@ static char kAssociatedObjectKey_navItemRightSpace;
         return;
     }
     
-    if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-        image = self.gk_darkBackImage;
+    if (@available(iOS 12.0, *)) {
+        if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
+            image = self.gk_darkBackImage;
+        }
     }
     
     if (!image) {
@@ -793,9 +801,12 @@ static char kAssociatedObjectKey_navItemRightSpace;
 
 - (void)setNavBackgroundImage:(UIImage *)image {
     if (!image) return;
-    if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-        image = self.gk_darkNavBackgroundImage;
+    if (@available(iOS 12.0, *)) {
+        if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
+            image = self.gk_darkNavBackgroundImage;
+        }
     }
+    
     if (!image) {
         image = self.gk_navBackgroundImage;
     }
@@ -810,9 +821,12 @@ static char kAssociatedObjectKey_navItemRightSpace;
 
 - (void)setNavShadowImage:(UIImage *)image {
     if (!image) return;
-    if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-        image = self.gk_darkNavShadowImage;
+    if (@available(iOS 12.0, *)) {
+        if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
+            image = self.gk_darkNavShadowImage;
+        }
     }
+    
     if (!image) {
         image = self.gk_navShadowImage;
     }
