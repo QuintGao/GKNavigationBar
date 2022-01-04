@@ -41,7 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat               gk_navBarAlpha;
 
 /// 设置返回按钮图片（优先级高于gk_backStyle）
-@property (nonatomic, strong) UIImage               *gk_backImage;
+@property (nonatomic, strong, nullable) UIImage     *gk_backImage;
+@property (nonatomic, strong, nullable) UIImage     *gk_darkBackImage;
 
 /// gk_backStyle为GKNavigationBarBackStyleBlack时的图片
 @property (nonatomic, strong) UIImage               *gk_blackBackImage;
@@ -53,12 +54,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) GKNavigationBarBackStyle gk_backStyle;
 
 /// 导航栏背景，gk_navBackgroundImage优先级较高
-@property (nonatomic, strong) UIImage               *gk_navBackgroundImage;
+@property (nonatomic, strong, nullable) UIImage     *gk_navBackgroundImage;
+@property (nonatomic, strong, nullable) UIImage     *gk_darkNavBackgroundImage;
 @property (nonatomic, strong) UIColor               *gk_navBackgroundColor;
 
 /// 导航栏分割线
 @property (nonatomic, strong) UIColor               *gk_navShadowColor;
-@property (nonatomic, strong) UIImage               *gk_navShadowImage;
+@property (nonatomic, strong, nullable) UIImage     *gk_navShadowImage;
+@property (nonatomic, strong, nullable) UIImage     *gk_darkNavShadowImage;
 @property (nonatomic, assign) BOOL                  gk_navLineHidden;
 
 /// 导航栏标题

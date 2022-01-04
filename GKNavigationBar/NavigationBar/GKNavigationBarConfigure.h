@@ -22,8 +22,17 @@ NS_ASSUME_NONNULL_BEGIN
 /// 导航栏背景色，默认nil，优先级高于backgroundColor
 @property (nonatomic, strong) UIImage   *backgroundImage;
 
+/// 暗黑模式下的背景图，优先级高于backgroundColor
+@property (nonatomic, strong) UIImage   *darkBackgroundImage;
+
 /// 导航栏分割线背景色，默认nil，使用系统颜色
 @property (nonatomic, strong) UIColor   *lineColor;
+
+/// 导航栏分割线图片，默认nil，优先级高于lineColor
+@property (nonatomic, strong) UIImage   *lineImage;
+
+/// 暗黑模式下的分割线图片，优先级高于lineColor
+@property (nonatomic, strong) UIImage   *darkLineImage;
 
 /// 导航栏分割线是否隐藏，默认NO
 @property (nonatomic, assign) BOOL      lineHidden;
@@ -36,6 +45,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 返回按钮图片(默认nil，优先级高于backStyle)
 @property (nonatomic, strong) UIImage   *backImage;
+
+/// 暗黑模式下的返回图片，优先级高于backStyle
+@property (nonatomic, strong) UIImage   *darkBackImage;
 
 /// backStyle为GKNavigationBarBackStyleBlack时对应的图片，默认btn_back_black
 @property (nonatomic, strong) UIImage   *blackBackImage;

@@ -65,7 +65,7 @@
     self.gk_navItemRightSpace = 0;
     self.gk_navItemRightSpace = 30;
     self.gk_navRightBarButtonItem = self.moreItem;
-    
+    self.gk_navBackgroundImage = nil;
     if (@available(iOS 13.0, *)) {
         self.gk_navBackgroundColor = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
             if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
