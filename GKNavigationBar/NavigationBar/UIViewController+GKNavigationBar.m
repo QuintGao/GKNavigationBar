@@ -112,6 +112,17 @@
     }else {
         [self restoreSystemNavBar];
     }
+    
+    if (self.gk_disableFixNavItemSpace) {
+        [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
+            configure.gk_disableFixSpace = YES;
+        }];
+    }else {
+        [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
+            configure.gk_disableFixSpace = configure.disableFixSpace;
+        }];
+    }
+    
     [self gk_viewDidAppear:animated];
 }
 

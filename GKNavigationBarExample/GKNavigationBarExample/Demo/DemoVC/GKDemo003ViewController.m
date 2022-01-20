@@ -23,7 +23,8 @@
     
     self.navigationItem.title = @"系统导航";
     
-    self.gk_navItemRightSpace = 20.0f;
+    self.gk_disableFixNavItemSpace = YES;
+    self.gk_navItemRightSpace = 40.0f;
     UIBarButtonItem *rightItem = [UIBarButtonItem gk_itemWithTitle:@"push" target:self action:@selector(click)];
     rightItem.customView.backgroundColor = [UIColor blackColor];
     self.navigationItem.rightBarButtonItem = rightItem;

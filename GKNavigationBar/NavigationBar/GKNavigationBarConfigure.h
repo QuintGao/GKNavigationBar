@@ -77,6 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray *shiledItemSpaceVCs;
 
 /// 导航栏左右间距，内部使用
+@property (nonatomic, assign, readonly) BOOL    disableFixSpace;
 @property (nonatomic, assign, readonly) CGFloat navItemLeftSpace;
 @property (nonatomic, assign, readonly) CGFloat navItemRightSpace;
 

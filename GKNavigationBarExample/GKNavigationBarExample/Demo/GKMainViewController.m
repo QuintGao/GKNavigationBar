@@ -57,6 +57,8 @@
     self.gk_statusBarStyle = UIStatusBarStyleLightContent;
     self.gk_navTitleFont = [UIFont systemFontOfSize:18.0f];
     self.gk_navTitleColor = UIColor.whiteColor;
+//    self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"你好" target:self action:@selector(backItemClick:)];
+//    self.gk_navRightBarButtonItem.customView.backgroundColor = UIColor.redColor;
     
     [self setupTableView];
 }
@@ -65,6 +67,11 @@
     [super viewWillAppear:animated];
     
     [self.tableView reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
 }
 
 - (void)setupTableView {

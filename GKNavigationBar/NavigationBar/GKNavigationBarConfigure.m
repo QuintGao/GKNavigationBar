@@ -18,6 +18,7 @@
 
 @interface GKNavigationBarConfigure()
 
+@property (nonatomic, assign) BOOL    disableFixSpace;
 @property (nonatomic, assign) CGFloat navItemLeftSpace;
 @property (nonatomic, assign) CGFloat navItemRightSpace;
 
@@ -44,6 +45,7 @@
     self.blackBackImage = [UIImage gk_imageNamed:@"btn_back_black"];
     self.whiteBackImage = [UIImage gk_imageNamed:@"btn_back_white"];
     self.backStyle = GKNavigationBarBackStyleBlack;
+    self.disableFixSpace = NO;
     self.gk_disableFixSpace = NO;
     self.gk_navItemLeftSpace = 0;
     self.gk_navItemRightSpace = 0;
@@ -59,6 +61,7 @@
     
     !block ? : block(self);
     
+    self.disableFixSpace   = self.gk_disableFixSpace;
     self.navItemLeftSpace  = self.gk_navItemLeftSpace;
     self.navItemRightSpace = self.gk_navItemRightSpace;
 }
@@ -69,7 +72,7 @@
 
 - (UIViewController *)visibleViewController {
     return [[GKNavigationBarConfigure keyWindow].rootViewController gk_findCurrentViewControllerIsRoot:YES];
-}
+}  
 
 - (CGFloat)gk_fixedSpace {
     // 经测试发现iPhone 12和iPhone 12 Pro，默认导航栏间距是16，需要单独处理

@@ -8,7 +8,7 @@
  
 ## 重要提示1：提issue前，请先对照Demo、常见问题自查！Demo正常说明你可以升级下新版试试。          
  
-## 重要提示2：3.5.2版本适配了iOS14、iPhone12，修复2个严重问题，强烈建议尽快更新  
+## 重要提示2：3.7.0版本修复了iOS15.2下初次授权相册权限时的长时间卡顿&白屏问题，强烈建议尽快更新  
      关于iOS14模拟器的问题
  PHAuthorizationStatusLimited授权模式下，iOS14模拟器有bug，未授权照片无法显示，真机正常，暂可忽略：https://github.com/banchichen/TZImagePickerController/issues/1347 
  
@@ -87,7 +87,8 @@ A：请参考 https://github.com/banchichen/TZImagePickerController/issues/443 �
 A：3.0.1版本已支持，需新接一个库：[TZImagePreviewController](https://github.com/banchichen/TZImagePreviewController)，请参考里面的Demo使用。       
 
 **Q：设置可选视频的最大/最小时长？照片的最小/最大尺寸？不符合要求的不显示**       
-A：可以的，参照Demo的isAssetCanSelect方法实现。我会返回asset出来，显示与否你来决定，注意这个是一个同步方法，对于需要根据asset去异步获取的信息如视频的大小、视频是否存在iCloud里来过滤的，无法做到。如果真要这样做，相册打开速度会变慢，你需要改我源码。
+A：可以的，参照Demo的isAssetCanBeDisplayed方法实现。我会返回asset出来，显示与否你来决定，注意这个是一个同步方法，对于需要根据asset去异步获取的信息如视频的大小、视频是否存在iCloud里来过滤的，无法做到。如果真要这样做，相册打开速度会变慢，你需要改我源码。       
+如果需要显示，选择时才提醒用户不可选，则实现isAssetCanBeSelected，用户选择时会调用它        
 
 **Q：预览页面出现了导航栏？**        
 A：https://github.com/banchichen/TZImagePickerController/issues/652         
@@ -96,7 +97,7 @@ A：https://github.com/banchichen/TZImagePickerController/issues/652
 A：考虑下，优先级低  
 
 **Q：是否有QQ/微信群？**            
-A：有QQ群：778723997        
+A：有QQ群：859033147           
 
 **Q：想提交一个Pull Request？**           
 A：请先加下面钉钉群说下方案，和我确认下，避免同时改动同一处内容。**一个PR请只修复1个问题，变动内容越少越好**。     
@@ -104,6 +105,9 @@ A：请先加下面钉钉群说下方案，和我确认下，避免同时改动�
 
 **Q：demo在真机上跑不起来？**             
 A：1、team选你自己的；2、bundleId也改成你自己的或改成一个不会和别人重复的。可参考[简书的这篇博客](https://www.jianshu.com/p/cbe59138fca6)             
+
+**Q：3.6.4以上版本设置导航栏颜色无效？**            
+A：参考Demo里的代码，加上imagePickerVc.navigationBar.standardAppearance的相关设置                     
 
 **Q：设置导航栏颜色无效？导航栏颜色总是白色？**            
 A：是否有集成WRNavigationBar？如有，参考其readme调一下它的wr_setBlackList，把TZImagePickerController相关的控制器放到黑名单里，使得不受WRNavigationBar的影响。如果没有集成，可在issues列表里搜一下看看类似的issue参考下，如实在没头绪，可加群提供个能复现该问题的demo，0~2天给你解决。最近发现WRNavigationBar的黑名单会有不生效的情况，临时解决方案大家可参考：[https://github.com/wangrui460/WRNavigationBar/issues/145](https://github.com/wangrui460/WRNavigationBar/issues/145)                          
@@ -124,7 +128,10 @@ A：不要去拿PHImageFileURLKey，没用的，只有通过Photos框架才能�
 
 ## 六. Release Notes 最近更新     
 
-3.5.4 修复iOS14下iCloud视频导出失败问题        
+**3.7.2 修复iOS15.2下初次授权相册权限时的长时间卡顿&白屏问题** [#1547](https://github.com/banchichen/TZImagePickerController/issues/1547)               
+**3.6.7 修复Xcode13&iOS15下导航栏颜色异常问题**        
+3.6.2 新增allowEditVideo，单选视频时支持裁剪        
+3.6.0 修复iOS14下iCloud视频导出失败问题        
 **3.5.2 适配iPhone12系列设备**        
 3.4.4 支持Dark Mode      
 **3.4.2 适配iOS14，若干问题修复**                  

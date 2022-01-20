@@ -206,6 +206,7 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
   <summary><font size=4>最近更新</font></summary>
 
 ```
+1.6.5 - 2022.01.20 修复设置gk_disableFixNavItemSpace后gk_disableFixSpace无效的bug#93
 1.6.4 - 2022.01.04 新增darkBackgroundImage、darkLineImage等适配暗黑模式导航图片
 1.6.2 - 2021.12.29 修复设置gk_disableFixSpace为YES无效的bug #16
 1.6.1 - 2021.11.08 1、修复设置gk_systemGestureHandleDisabled后TabBar偏移问题 #90

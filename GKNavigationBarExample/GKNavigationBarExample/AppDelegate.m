@@ -37,13 +37,11 @@
         // 导航栏返回按钮样式
         configure.backStyle = GKNavigationBarBackStyleBlack;
         // 导航栏左右item间距
-        configure.gk_navItemLeftSpace = 10.0f;
+        configure.gk_navItemLeftSpace = 0.0f;
         configure.gk_navItemRightSpace = 10.0f;
-        
         configure.gk_restoreSystemNavBar = YES;
         
-//        configure.shiledItemSpaceVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
-        configure.shiledItemSpaceVCs = @[@"UIActivityViewController", @"UIActivityContentViewController"];
+        configure.shiledItemSpaceVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
     }];
     
     [GKGestureConfigure setupCustomConfigure:^(GKGestureHandleConfigure * _Nonnull configure) {
@@ -51,7 +49,6 @@
         configure.gk_translationY = 20;
         configure.gk_scaleX = 0.90;
         configure.gk_scaleY = 0.92;
-        configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
         configure.gk_openScrollViewGestureHandle = YES;
     }];
     
