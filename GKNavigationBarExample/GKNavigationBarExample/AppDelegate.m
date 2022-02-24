@@ -37,11 +37,10 @@
         // 导航栏返回按钮样式
         configure.backStyle = GKNavigationBarBackStyleBlack;
         // 导航栏左右item间距
+//        configure.gk_disableFixSpace = YES;
         configure.gk_navItemLeftSpace = 0.0f;
         configure.gk_navItemRightSpace = 10.0f;
         configure.gk_restoreSystemNavBar = YES;
-        
-        configure.shiledItemSpaceVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
     }];
     
     [GKGestureConfigure setupCustomConfigure:^(GKGestureHandleConfigure * _Nonnull configure) {

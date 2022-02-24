@@ -32,6 +32,7 @@
                         @"系统导航",
                         @"UITableViewController",
                         @"WKWebView",
+                        @"系统功能",
                         @"抖音左右滑动",
                         @"今日头条",
                         @"网易云音乐",
@@ -127,28 +128,28 @@
     if (vc) {
         [self.navigationController pushViewController:vc animated:YES];
     }else {
-        if (indexPath.row == 6) {
+        if (indexPath.row == 7) {
             UINavigationController *nav = [UINavigationController rootVC:[GKDouyinHomeViewController new]];
             nav.gk_openScrollLeftPush = YES;
             nav.modalPresentationStyle = UIModalPresentationFullScreen;
             [self presentViewController:nav animated:YES completion:nil];
-        }else if (indexPath.row == 7) {
+        }else if (indexPath.row == 8) {
             GKToutiaoViewController *toutiaoVC = [GKToutiaoViewController new];
             toutiaoVC.modalPresentationStyle = UIModalPresentationFullScreen;
             [self presentViewController:toutiaoVC animated:YES completion:nil];
-        }else if (indexPath.row == 8) {
+        }else if (indexPath.row == 9) {
             GKWYMusicViewController *musicVC = [GKWYMusicViewController new];
             musicVC.modalPresentationStyle = UIModalPresentationFullScreen;
             [self presentViewController:musicVC animated:YES completion:nil];
-        }else if (indexPath.row == 9) {
+        }else if (indexPath.row == 10) {
             GKWYNewsViewController *newsVC = [GKWYNewsViewController new];
             newsVC.modalPresentationStyle = UIModalPresentationFullScreen;
             [self presentViewController:newsVC animated:YES completion:nil];
-        }else if (indexPath.row == 10) {
+        }else if (indexPath.row == 11) {
             GKWXViewController *wxVC = [GKWXViewController new];
             wxVC.modalPresentationStyle = UIModalPresentationFullScreen;
             [self presentViewController:wxVC animated:YES completion:nil];
-        }else if (indexPath.row == 11) {
+        }else if (indexPath.row == 12) {
             GKPresentViewController *presentVC = [GKPresentViewController new];
             presentVC.gk_navTitle = @"presentVC";
             

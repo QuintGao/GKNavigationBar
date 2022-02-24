@@ -59,7 +59,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) GKNavigationBarBackStyle backStyle;
 
 /// 是否禁止导航栏左右item间距调整，默认是NO
+/// 1.7.0版本之后 只对带有GKCustomNavigationBar的控制器有效
 @property (nonatomic, assign) BOOL      gk_disableFixSpace;
+
+/// 开启普通控制器的导航栏item间距调整，只能在对应的控制器中开启
+@property (nonatomic, assign) BOOL      openSystemFixSpace;
 
 /// 导航栏左侧按钮距屏幕左边间距，默认是0，可自行调整
 @property (nonatomic, assign) CGFloat   gk_navItemLeftSpace;
@@ -72,9 +76,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 状态栏类型，默认UIStatusBarStyleDefault
 @property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
-
-// 调整导航栏间距时需要屏蔽的VC（默认nil），支持Class或NSString，NSString支持部分匹配如前缀
-@property (nonatomic, strong) NSArray *shiledItemSpaceVCs;
 
 /// 导航栏左右间距，内部使用
 @property (nonatomic, assign, readonly) BOOL    disableFixSpace;
@@ -108,6 +109,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 获取bundle
 - (NSBundle *)gk_libraryBundle;
+
+/// 是否禁止调整导航栏item间距
+- (BOOL)fixNavItemSpaceDisabled;
 
 @end
 

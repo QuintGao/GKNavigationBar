@@ -16,6 +16,7 @@
 		608FC6FF25469C9C003DB82F /* GKFloatTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 608FC6F625469C9C003DB82F /* GKFloatTransition.m */; };
 		608FC70025469C9C003DB82F /* GKFloatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 608FC6F725469C9C003DB82F /* GKFloatView.m */; };
 		609E890D2644E3A300C15CB1 /* GKPresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E890C2644E3A300C15CB1 /* GKPresentViewController.m */; };
+		60AF462C27C6061E00E6B76F /* GKDemo006ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AF462B27C6061E00E6B76F /* GKDemo006ViewController.m */; };
 		60B3D7A8258AFBAF003A4C7C /* GKDemo005ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B3D7A7258AFBAF003A4C7C /* GKDemo005ViewController.m */; };
 		60B70D77256F8A11008D62FC /* GKDemo004ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B70D76256F8A11008D62FC /* GKDemo004ViewController.m */; };
 		794AFC32242F07EA00BECA1B /* GKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794AFC31242F07E900BECA1B /* GKBaseViewController.m */; };
@@ -85,6 +86,8 @@
 		608FC6F925469C9C003DB82F /* GKFloatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKFloatView.h; sourceTree = "<group>"; };
 		609E890B2644E3A300C15CB1 /* GKPresentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKPresentViewController.h; sourceTree = "<group>"; };
 		609E890C2644E3A300C15CB1 /* GKPresentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKPresentViewController.m; sourceTree = "<group>"; };
+		60AF462A27C6061E00E6B76F /* GKDemo006ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKDemo006ViewController.h; sourceTree = "<group>"; };
+		60AF462B27C6061E00E6B76F /* GKDemo006ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKDemo006ViewController.m; sourceTree = "<group>"; };
 		60B3D7A6258AFBAF003A4C7C /* GKDemo005ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKDemo005ViewController.h; sourceTree = "<group>"; };
 		60B3D7A7258AFBAF003A4C7C /* GKDemo005ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKDemo005ViewController.m; sourceTree = "<group>"; };
 		60B70D75256F8A11008D62FC /* GKDemo004ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKDemo004ViewController.h; sourceTree = "<group>"; };
@@ -435,6 +438,8 @@
 				60B70D76256F8A11008D62FC /* GKDemo004ViewController.m */,
 				60B3D7A6258AFBAF003A4C7C /* GKDemo005ViewController.h */,
 				60B3D7A7258AFBAF003A4C7C /* GKDemo005ViewController.m */,
+				60AF462A27C6061E00E6B76F /* GKDemo006ViewController.h */,
+				60AF462B27C6061E00E6B76F /* GKDemo006ViewController.m */,
 				601BB2D3256CA96B001D59C8 /* GKDemoTransitionViewController.h */,
 				601BB2D4256CA96B001D59C8 /* GKDemoTransitionViewController.m */,
 				79C6AFEA237ED92900C636B9 /* GKDemoWebViewController.h */,
@@ -633,6 +638,7 @@
 				796CF8B8236D7BBF00983E9B /* GKToutiaoMineViewController.m in Sources */,
 				796CF8B7236D7BBF00983E9B /* GKToutiaoViewController.m in Sources */,
 				796CF8B1236D7BBF00983E9B /* UIView+Extension.m in Sources */,
+				60AF462C27C6061E00E6B76F /* GKDemo006ViewController.m in Sources */,
 				796CF8B0236D7BBF00983E9B /* GKDemoBaseViewController.m in Sources */,
 				796CF8CA236D7BBF00983E9B /* GKWYNewsLiveViewController.m in Sources */,
 				796CF8C7236D7BBF00983E9B /* GKWYNewsCommentViewController.m in Sources */,
