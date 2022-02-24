@@ -24,9 +24,9 @@ Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/G
 * 可实现左滑push一个控制器的效果（如：网易新闻）
 
 ## 1.7.0版本升级指南
-1.7.0版本重写了导航栏item间距调整的逻辑，1.7.0版本之后导航栏item间距调整只对使用GKCustomNavigationBar的控制器默认开启，其他控制器不会调整导航栏item间距，所以需要注意下面两点：  
-1、对于使用GKCustomNavigationBar的控制器，无需修改，如果想关闭导航栏间距调整设置gk_disableFixNavItemSpace即可
-2、对于使用系统导航栏的控制器，如果想要调整导航栏间距，需要在viewDidLoad中设置gk_openFixNavItemSpace为YES 全局配置是无效的。
+1.7.0版本重写了导航栏item间距调整的逻辑，1.7.0版本之后导航栏item间距调整只对使用GKCustomNavigationBar的控制器默认开启，其他控制器不会调整导航栏item间距，所以需要注意下面几点：  
+1、对于使用GKCustomNavigationBar的控制器，无需修改，如果想关闭导航栏间距调整设置gk_disableFixNavItemSpace即可        
+2、对于使用系统导航栏的控制器，如果想要调整导航栏间距，需要在viewDidLoad中设置gk_openFixNavItemSpace为YES 全局配置是无效的。       
 3、去掉了shiledItemSpaceVCs属性，可在单独控制器中处理。
 
 ## 使用
