@@ -142,8 +142,13 @@
 - (void)gk_traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
     if (@available(iOS 13.0, *)) {
         if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
-            // 重新设置返回按钮
-            if (self.gk_backImage) {
+            if ([self isKindOfClass:[UINavigationController class]]) return;
+            if ([self isKindOfClass:[UITabBarController class]]) return;
+            if (!self.gk_NavBarInit) return;
+            
+            // 非根控制器重新设置返回按钮
+            BOOL isRootVC = self == self.navigationController.childViewControllers.firstObject;
+            if (!isRootVC && self.gk_backImage) {
                 [self setBackItemImage:self.gk_backImage];
             }
             
