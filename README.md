@@ -1,5 +1,6 @@
 ## GKNavigationBar
-GKNavigationBarViewController的分类实现方式，耦合度底，使用更加便捷
+
+iOS自定义导航栏 - 导航栏联动效果
 
 [![Build Status](http://img.shields.io/travis/QuintGao/GKNavigationBar/master.svg?style=flat)](https://travis-ci.org/QuintGao/GKNavigationBar)
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKNavigationBar/master/LICENSE)
@@ -9,6 +10,7 @@ GKNavigationBarViewController的分类实现方式，耦合度底，使用更加
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/QuintGao/GKNavigationBar)
 [![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
 
+GKNavigationBarViewController的分类实现方式，耦合度底，使用更加便捷
 
 Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/GKNavigationBarSwift)
 
