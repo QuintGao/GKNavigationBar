@@ -410,8 +410,7 @@ static char kAssociatedObjectKey_navLineHidden;
         }else if (self.gk_navShadowColor) {
             shadowImage = [UIImage gk_changeImage:[UIImage gk_imageNamed:@"nav_line"] color:self.gk_navShadowColor];
         }
-        
-        self.gk_navigationBar.shadowImage = shadowImage;
+        [self setNavShadowImage:shadowImage color:nil];
     }
     [self.gk_navigationBar layoutSubviews];
 }
@@ -821,16 +820,14 @@ static char kAssociatedObjectKey_navItemRightSpace;
         }
     }
     
-    if (!image) {
-        image = self.gk_navBackgroundImage;
-    }
+    if (!image) image = self.gk_navBackgroundImage;
     if (!image) return;
-    [self.gk_navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    [self setNavBackgroundImage:image color:nil];
 }
 
 - (void)setNavBackgroundColor:(UIColor *)color {
     if (!color) return;
-    [self.gk_navigationBar setBackgroundImage:[UIImage gk_imageWithColor:color] forBarMetrics:UIBarMetricsDefault];
+    [self setNavBackgroundImage:nil color:color];
 }
 
 - (void)setNavShadowImage:(UIImage *)image {
@@ -841,16 +838,14 @@ static char kAssociatedObjectKey_navItemRightSpace;
         }
     }
     
-    if (!image) {
-        image = self.gk_navShadowImage;
-    }
+    if (!image) image = self.gk_navShadowImage;
     if (!image) return;
-    self.gk_navigationBar.shadowImage = image;
+    [self setNavShadowImage:image color:nil];
 }
 
 - (void)setNavShadowColor:(UIColor *)color {
     if (!color) return;
-    self.gk_navigationBar.shadowImage = [UIImage gk_changeImage:[UIImage gk_imageNamed:@"nav_line"] color:color];
+    [self setNavShadowImage:nil color:color];
 }
 
 - (void)setNavTitleColor:(UIColor *)color {
@@ -861,8 +856,7 @@ static char kAssociatedObjectKey_navItemRightSpace;
     if (self.gk_navTitleFont) {
         attr[NSFontAttributeName] = self.gk_navTitleFont;
     }
-    
-    self.gk_navigationBar.titleTextAttributes = attr;
+    [self setNavTitleAttributes:attr];
 }
 
 - (void)setNavTitleFont:(UIFont *)font {
@@ -873,7 +867,48 @@ static char kAssociatedObjectKey_navItemRightSpace;
         attr[NSForegroundColorAttributeName] = self.gk_navTitleColor;
     }
     attr[NSFontAttributeName] = font;
-    self.gk_navigationBar.titleTextAttributes = attr;
+    [self setNavTitleAttributes:attr];
+}
+
+- (void)setNavBackgroundImage:(UIImage *)image color:(UIColor *)color {
+    if (@available(iOS 13.0, *)) {
+        UINavigationBarAppearance *appearance = self.gk_navigationBar.standardAppearance;
+        appearance.backgroundImage = image;
+        appearance.backgroundColor = color;
+        self.gk_navigationBar.standardAppearance = appearance;
+        self.gk_navigationBar.scrollEdgeAppearance = appearance;
+    }else {
+        if (!image && color) {
+            image = [UIImage gk_imageWithColor:color];
+        }
+        [self.gk_navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    }
+}
+
+- (void)setNavShadowImage:(UIImage *)image color:(UIColor *)color {
+    if (@available(iOS 13.0, *)) {
+        UINavigationBarAppearance *appearance = self.gk_navigationBar.standardAppearance;
+        appearance.shadowImage = image;
+        appearance.shadowColor = color;
+        self.gk_navigationBar.standardAppearance = appearance;
+        self.gk_navigationBar.scrollEdgeAppearance = appearance;
+    }else {
+        if (!image && color) {
+            image = [UIImage gk_changeImage:[UIImage gk_imageNamed:@"nav_line"] color:color];
+        }
+        self.gk_navigationBar.shadowImage = image;
+    }
+}
+
+- (void)setNavTitleAttributes:(NSDictionary<NSAttributedStringKey, id> *)attr {
+    if (@available(iOS 13.0, *)) {
+        UINavigationBarAppearance *appearance = self.gk_navigationBar.standardAppearance;
+        appearance.titleTextAttributes = attr;
+        self.gk_navigationBar.standardAppearance = appearance;
+        self.gk_navigationBar.scrollEdgeAppearance = appearance;
+    }else {
+        self.gk_navigationBar.titleTextAttributes = attr;
+    }
 }
 
 @end

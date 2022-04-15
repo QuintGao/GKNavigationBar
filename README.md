@@ -214,6 +214,7 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
   <summary><font size=4>最近更新</font></summary>
 
 ```
+1.7.3 - 2022.04.15 导航栏设置适配iOS13及以后
 1.7.2 - 2022.03.21 细节优化，修复push UITabBarController时的问题
 1.7.1 - 2022.03.09 根控制器左侧item处理优化，暗黑模式适配优化
 1.7.0 - 2022.02.25 导航栏item间距优化处理
