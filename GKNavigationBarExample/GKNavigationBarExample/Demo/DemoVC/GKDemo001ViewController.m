@@ -36,7 +36,10 @@
     [super viewDidLoad];
     
 //    self.navigationController.navigationBar.hidden = YES;
-    self.gk_navigationBar.hidden = YES;
+//    self.gk_navigationBar.hidden = YES;
+    self.gk_navBackgroundColor = UIColor.clearColor;
+    self.gk_navShadowColor = UIColor.clearColor;
+    self.gk_navTitle = @"兼容UIScrollView";
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -53,6 +56,11 @@
     self.scrollView.delegate        = self;
     self.scrollView.pagingEnabled   = YES;
     self.scrollView.backgroundColor = [UIColor redColor];
+    if (@available(iOS 11.0, *)) {
+        self.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
     [self.view addSubview:self.scrollView];
     
     CGFloat scrollW = self.scrollView.frame.size.width;

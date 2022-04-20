@@ -59,32 +59,13 @@
     // 设置默认样式
     self.gk_navTitle = @"Demo";
     self.gk_navTitleColor = [UIColor whiteColor];
+    self.gk_navShadowColor = [UIColor greenColor];
     self.gk_navBackgroundColor = [UIColor redColor];
-    self.gk_navShadowColor = [UIColor blackColor];
     self.gk_backStyle = GKNavigationBarBackStyleWhite;
     self.gk_navItemRightSpace = 0;
     self.gk_navItemRightSpace = 30;
     self.gk_navRightBarButtonItem = self.moreItem;
     self.gk_navBackgroundImage = nil;
-    if (@available(iOS 13.0, *)) {
-        self.gk_navBackgroundColor = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
-            if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-                return UIColor.whiteColor;
-            }else {
-                return UIColor.redColor;
-            }
-        }];
-        self.gk_navTitleColor = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
-            if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-                return UIColor.blackColor;
-            }else {
-                return UIColor.whiteColor;
-            }
-        }];
-    }else {
-        self.gk_navBackgroundColor = UIColor.redColor;
-        self.gk_navTitleColor = [UIColor whiteColor];
-    }
     
     self.leftPushSwitch.on = NO;
     self.moreItemSwitch.on = NO;

@@ -873,8 +873,13 @@ static char kAssociatedObjectKey_navItemRightSpace;
 - (void)setNavBackgroundImage:(UIImage *)image color:(UIColor *)color {
     if (@available(iOS 13.0, *)) {
         UINavigationBarAppearance *appearance = self.gk_navigationBar.standardAppearance;
+        UIColor *shadowColor = appearance.shadowColor;
+        UIImage *shadowImage = appearance.shadowImage;
+        [appearance configureWithTransparentBackground];
         appearance.backgroundImage = image;
         appearance.backgroundColor = color;
+        appearance.shadowColor = shadowColor;
+        appearance.shadowImage = shadowImage;
         self.gk_navigationBar.standardAppearance = appearance;
         self.gk_navigationBar.scrollEdgeAppearance = appearance;
     }else {
@@ -888,8 +893,13 @@ static char kAssociatedObjectKey_navItemRightSpace;
 - (void)setNavShadowImage:(UIImage *)image color:(UIColor *)color {
     if (@available(iOS 13.0, *)) {
         UINavigationBarAppearance *appearance = self.gk_navigationBar.standardAppearance;
+        UIColor *backgroundColor = appearance.backgroundColor;
+        UIImage *backgroundImage = appearance.backgroundImage;
+        [appearance configureWithTransparentBackground];
         appearance.shadowImage = image;
         appearance.shadowColor = color;
+        appearance.backgroundColor = backgroundColor;
+        appearance.backgroundImage = backgroundImage;
         self.gk_navigationBar.standardAppearance = appearance;
         self.gk_navigationBar.scrollEdgeAppearance = appearance;
     }else {
