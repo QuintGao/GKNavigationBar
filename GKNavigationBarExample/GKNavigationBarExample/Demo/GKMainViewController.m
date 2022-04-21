@@ -156,7 +156,7 @@
             presentVC.gk_navTitle = @"presentVC";
             
             UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:presentVC];
-            
+            nav.modalPresentationCapturesStatusBarAppearance = YES;
             [self presentViewController:nav animated:YES completion:nil];
         }
     }

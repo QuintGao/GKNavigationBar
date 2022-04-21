@@ -21,6 +21,7 @@
     self.gk_navTitle = @"presentVC";
     self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"关闭" target:self action:@selector(close)];
     self.gk_navBackgroundColor = UIColor.blueColor;
+    self.gk_statusBarStyle = UIStatusBarStyleLightContent;
 }
 
 - (void)viewWillLayoutSubviews {
