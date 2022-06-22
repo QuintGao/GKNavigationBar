@@ -468,6 +468,7 @@ static char kAssociatedObjectKey_navLeftBarButtonItem;
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navLeftBarButtonItem, gk_navLeftBarButtonItem, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     self.gk_navigationItem.leftBarButtonItem = gk_navLeftBarButtonItem;
+    if (self.gk_backImage) self.gk_backImage = nil;
 }
 
 - (UIBarButtonItem *)gk_navLeftBarButtonItem {
@@ -479,6 +480,7 @@ static char kAssociatedObjectKey_navLeftBarButtonItems;
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navLeftBarButtonItems, gk_navLeftBarButtonItems, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     self.gk_navigationItem.leftBarButtonItems = gk_navLeftBarButtonItems;
+    if (self.gk_backImage) self.gk_backImage = nil;
 }
 
 - (NSArray<UIBarButtonItem *> *)gk_navLeftBarButtonItems {

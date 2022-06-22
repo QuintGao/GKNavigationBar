@@ -214,6 +214,7 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
   <summary><font size=4>最近更新</font></summary>
 
 ```
+1.7.5 - 2022.06.22 优化backImage的显示
 1.7.4 - 2022.04.20 修复设置背景色为[UIColor clearColor]无效的bug #100，#101
 1.7.3 - 2022.04.15 导航栏设置适配iOS13及以后
 1.7.2 - 2022.03.21 细节优化，修复push UITabBarController时的问题
