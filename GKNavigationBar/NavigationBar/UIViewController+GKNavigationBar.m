@@ -148,7 +148,7 @@
             
             // 非根控制器重新设置返回按钮
             BOOL isRootVC = self == self.navigationController.childViewControllers.firstObject;
-            if (!isRootVC && self.gk_backImage) {
+            if (!isRootVC && self.gk_backImage && !self.gk_navLeftBarButtonItem && !self.gk_navLeftBarButtonItems) {
                 [self setBackItemImage:self.gk_backImage];
             }
             
@@ -468,7 +468,6 @@ static char kAssociatedObjectKey_navLeftBarButtonItem;
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navLeftBarButtonItem, gk_navLeftBarButtonItem, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     self.gk_navigationItem.leftBarButtonItem = gk_navLeftBarButtonItem;
-    if (self.gk_backImage) self.gk_backImage = nil;
 }
 
 - (UIBarButtonItem *)gk_navLeftBarButtonItem {
@@ -480,7 +479,6 @@ static char kAssociatedObjectKey_navLeftBarButtonItems;
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navLeftBarButtonItems, gk_navLeftBarButtonItems, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     self.gk_navigationItem.leftBarButtonItems = gk_navLeftBarButtonItems;
-    if (self.gk_backImage) self.gk_backImage = nil;
 }
 
 - (NSArray<UIBarButtonItem *> *)gk_navLeftBarButtonItems {
@@ -811,7 +809,7 @@ static char kAssociatedObjectKey_navItemRightSpace;
     // 没有image
     if (!image) return;
     
-    self.gk_navLeftBarButtonItem = [UIBarButtonItem gk_itemWithImage:image target:self action:@selector(backItemClick:)];
+    self.gk_navigationItem.leftBarButtonItem = [UIBarButtonItem gk_itemWithImage:image target:self action:@selector(backItemClick:)];
 }
 
 - (void)setNavBackgroundImage:(UIImage *)image {
