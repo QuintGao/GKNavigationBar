@@ -1,0 +1,6 @@
+framework module JXCategoryViewExt {
+  umbrella header "JXCategoryViewExt-umbrella.h"
+
+  export *
+  module * { export * }
+}

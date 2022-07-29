@@ -9,6 +9,7 @@ target 'GKNavigationBarExample' do
   pod 'GKNavigationBar', :path => '../'
   pod 'Masonry'
   pod 'TZImagePickerController'
+  pod 'JXCategoryViewExt', :subspecs => ['Title', 'Indicator/Line']
 
 end
 

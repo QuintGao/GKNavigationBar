@@ -1,19 +1,27 @@
 PODS:
-  - GKNavigationBar (1.6.5):
-    - GKNavigationBar/GestureHandle (= 1.6.5)
-    - GKNavigationBar/NavigationBar (= 1.6.5)
-  - GKNavigationBar/GestureHandle (1.6.5)
-  - GKNavigationBar/NavigationBar (1.6.5)
+  - GKNavigationBar (1.7.6):
+    - GKNavigationBar/GestureHandle (= 1.7.6)
+    - GKNavigationBar/NavigationBar (= 1.7.6)
+  - GKNavigationBar/GestureHandle (1.7.6)
+  - GKNavigationBar/NavigationBar (1.7.6)
+  - JXCategoryViewExt/Core (1.1.7)
+  - JXCategoryViewExt/Indicator/Line (1.1.7):
+    - JXCategoryViewExt/Core
+  - JXCategoryViewExt/Title (1.1.7):
+    - JXCategoryViewExt/Core
   - Masonry (1.1.0)
   - TZImagePickerController (3.7.2)
 
 DEPENDENCIES:
   - GKNavigationBar (from `../`)
+  - JXCategoryViewExt/Indicator/Line
+  - JXCategoryViewExt/Title
   - Masonry
   - TZImagePickerController
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - JXCategoryViewExt
     - Masonry
     - TZImagePickerController
 
@@ -22,10 +30,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  GKNavigationBar: 6ff26aab2246e9f258aef2a02735dc823be314f8
+  GKNavigationBar: 169c7491c1739cffe569c07ffdeb8bf4c327f699
+  JXCategoryViewExt: b4a05d3fb001ea6cbc72e3092ab5bcaff62b7dde
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   TZImagePickerController: 0f926234c46362d3c4ed128832b6da59b2d9917e
 
-PODFILE CHECKSUM: 95fda486a7cfa7f6da3af0b1d5950da0b15791fd
+PODFILE CHECKSUM: e63767b1f086530e604fbcef8cb2494eff7936c1
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

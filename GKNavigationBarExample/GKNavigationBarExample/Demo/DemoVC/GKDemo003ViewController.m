@@ -23,7 +23,8 @@
     
     self.navigationItem.title = @"系统导航";
     
-//    self.gk_openFixNavItemSpace = YES;
+    // 系统导航，需设置下面的属性导航栏间距才能生效
+    self.gk_openFixNavItemSpace = YES;
     self.gk_navItemRightSpace = 40.0f;
     UIBarButtonItem *rightItem = [UIBarButtonItem gk_itemWithTitle:@"push" target:self action:@selector(click)];
     rightItem.customView.backgroundColor = [UIColor blackColor];

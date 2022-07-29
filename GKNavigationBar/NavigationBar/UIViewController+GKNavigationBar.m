@@ -92,7 +92,7 @@
     
     // bug fix #76，修改添加了子控制器后调整导航栏间距无效的bug
     // 当创建了gk_navigationBar或者父控制器是导航控制器的时候才去调整导航栏间距
-    if (self.gk_openFixNavItemSpace) {
+    if ([self shouldFixItemSpace]) {
         // 每次控制器出现的时候重置导航栏间距
         if (self.gk_navItemLeftSpace == GKNavigationBarItemSpace) {
             self.gk_navItemLeftSpace = GKConfigure.navItemLeftSpace;
@@ -780,6 +780,17 @@ static char kAssociatedObjectKey_navItemRightSpace;
     if ([self isKindOfClass:UITabBarController.class]) return NO;
     if ([self.parentViewController isKindOfClass:UINavigationController.class]) return YES;
     return NO;
+}
+
+- (BOOL)shouldFixItemSpace {
+    if (self.gk_NavBarInit) {
+        if ([self isKindOfClass:UINavigationController.class]) return NO;
+        if ([self isKindOfClass:UITabBarController.class]) return NO;
+        if (!self.navigationController) return NO;
+        if (![self.parentViewController isKindOfClass:UINavigationController.class]) return NO;
+        return YES;
+    }
+    return self.gk_openFixNavItemSpace;
 }
 
 - (void)setBackItemImage:(UIImage *)image {

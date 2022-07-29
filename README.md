@@ -214,6 +214,7 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
   <summary><font size=4>最近更新</font></summary>
 
 ```
+1.7.7 - 2022.07.29 修复当字控制器有GKNavigationBar时，导航栏item间距失效的问题 #103
 1.7.6 - 2022.07.22 修复只设置backImage后，返回按钮显示错误的问题
 1.7.5 - 2022.06.22 优化backImage的显示
 1.7.4 - 2022.04.20 修复设置背景色为[UIColor clearColor]无效的bug #100，#101
