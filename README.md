@@ -196,18 +196,6 @@ github "QuintGao/GKNavigationBar"
 ```
 </details>
 
-<details>
-  <summary><font size=3>7、如何屏蔽某些控制器？</font></summary>
-
-```
-// 屏蔽导航栏间距处理
-configure.shiledItemSpaceVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
-
-// 屏蔽手势处理
-configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
-```
-</details>
-
 ## 版本记录
 
 <details open>
