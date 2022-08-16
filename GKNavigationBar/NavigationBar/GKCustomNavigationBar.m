@@ -14,6 +14,9 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.gk_navBarBackgroundAlpha = 1.0f;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
+        [self addGestureRecognizer:tap];
     }
     return self;
 }
@@ -78,6 +81,23 @@
     if (self.clipsToBounds != isClipsToBounds) {
         self.clipsToBounds = isClipsToBounds;
     }
+}
+
+#pragma - 屏蔽父试图的touches事件
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+}
+
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
 }
 
 @end
