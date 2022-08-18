@@ -43,7 +43,7 @@
         // 设置状态栏样式
         configure.statusBarStyle = UIStatusBarStyleLightContent;
         // 导航栏左右item间距
-        configure.gk_navItemLeftSpace = 0.0f;
+        configure.gk_navItemLeftSpace = 10.0f;
         configure.gk_navItemRightSpace = 10.0f;
         configure.gk_restoreSystemNavBar = YES;
     }];

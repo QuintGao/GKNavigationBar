@@ -46,12 +46,11 @@
 - (void)gk_viewDidLoad {
     // 设置默认状态
     self.gk_disableFixNavItemSpace = YES;
-    self.gk_openFixNavItemSpace = NO;
     
     if ([self shouldHandleNavBar]) {
         // 设置默认导航栏间距
-        self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
-        self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
+        self.gk_navItemLeftSpace  = GKNavigationBarItemSpace;
+        self.gk_navItemRightSpace = GKNavigationBarItemSpace;
     }
     
     // 如果是根控制器，取消返回按钮
@@ -120,7 +119,6 @@
     }else {
         [self restoreSystemNavBar];
     }
-    
     [self gk_viewDidAppear:animated];
 }
 

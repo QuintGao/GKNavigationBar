@@ -62,8 +62,7 @@
 //    self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"你好" target:self action:@selector(backItemClick:)];
 //    self.gk_navRightBarButtonItem.customView.backgroundColor = UIColor.redColor;
     
-//    self.gk_navBackgroundImage = [UIImage imageNamed:@"reecharge_bg"];
-    
+    self.gk_navLeftBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"菜单" target:self action:@selector(menuAction)];
     [self setupTableView];
 }
 
@@ -104,6 +103,10 @@
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;
+}
+
+- (void)menuAction {
+    
 }
 
 #pragma mark - UITableViewDataSource
