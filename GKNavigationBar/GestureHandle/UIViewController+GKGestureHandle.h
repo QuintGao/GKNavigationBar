@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GKNavigationInteractiveTransition.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -69,6 +70,20 @@ UIKIT_EXTERN NSString *const GKViewControllerPropertyChangedNotification;
 
 @end
 
+@protocol GKViewControllerTransitionDelegate <NSObject>
+
+@optional
+
+- (void)panGestureAction:(UIPanGestureRecognizer *)gesture transition:(GKNavigationInteractiveTransition *)transition;
+
+- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer transition:(GKNavigationInteractiveTransition *)transition;
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC transition:(GKNavigationInteractiveTransition *)transition;
+
+- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController transition:(GKNavigationInteractiveTransition *)transition;
+
+@end
+
 @interface UIViewController (GKGestureHandle)<GKGesturePopHandlerProtocol>
 
 /// 是否禁止当前控制器的滑动返回（包括全屏滑动返回和边缘滑动返回）
@@ -89,6 +104,9 @@ UIKIT_EXTERN NSString *const GKViewControllerPropertyChangedNotification;
 
 /// 右滑pop代理，如果设置了gk_popDelegate，原来的滑动返回手势将失效
 @property (nonatomic, weak) id<GKViewControllerPopDelegate> gk_popDelegate;
+
+/// 自定义转场代理
+@property (nonatomic, weak) id<GKViewControllerTransitionDelegate> gk_transitionDelegate;
 
 /** 自定义push转场动画 */
 @property (nonatomic, weak) id<UIViewControllerAnimatedTransitioning> gk_pushTransition;

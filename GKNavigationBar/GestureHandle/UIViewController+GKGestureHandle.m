@@ -128,6 +128,15 @@ static char kAssociatedObjectKey_popDelegate;
     return objc_getAssociatedObject(self, &kAssociatedObjectKey_popDelegate);
 }
 
+static char kAssociatedObjectKey_transitionDelegate;
+- (void)setGk_transitionDelegate:(id<GKViewControllerTransitionDelegate>)gk_transitionDelegate {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_transitionDelegate, gk_transitionDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (id<GKViewControllerTransitionDelegate>)gk_transitionDelegate {
+    return objc_getAssociatedObject(self, &kAssociatedObjectKey_transitionDelegate);
+}
+
 static char kAssociatedObjectKey_pushTransition;
 - (id<UIViewControllerAnimatedTransitioning>)gk_pushTransition {
     return objc_getAssociatedObject(self, &kAssociatedObjectKey_pushTransition);

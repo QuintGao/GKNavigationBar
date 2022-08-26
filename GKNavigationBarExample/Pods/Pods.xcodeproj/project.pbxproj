@@ -192,7 +192,7 @@
 		017B8A41B02AF96BA3391D17E7226804 /* JXCategoryBaseView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryBaseView.h; path = JXCategoryView/Core/Base/JXCategoryBaseView.h; sourceTree = "<group>"; };
 		06F64DFB0F5FA42306B81BEDC8059031 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
 		07707BE69D9F3730A00EF26C89D47B1D /* GKNavigationBar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GKNavigationBar.modulemap; sourceTree = "<group>"; };
-		078E66F5D8BEE8C97C4E0BCE6A9E1E8B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		078E66F5D8BEE8C97C4E0BCE6A9E1E8B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0896425F6D9179BE5A08AB35D9D0DA1D /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
 		08F169070D2A0264CFBC1B6F332D66C7 /* UINavigationController+GKGestureHandle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+GKGestureHandle.m"; path = "GKNavigationBar/GestureHandle/UINavigationController+GKGestureHandle.m"; sourceTree = "<group>"; };
 		09D540ECAA029BB65015D6B13A99BF20 /* UIView+TZLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+TZLayout.m"; path = "TZImagePickerController/TZImagePickerController/UIView+TZLayout.m"; sourceTree = "<group>"; };
@@ -291,7 +291,7 @@
 		9C5FAD7003C0C159991F23628505FF44 /* Pods-GKNavigationBarExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GKNavigationBarExample-umbrella.h"; sourceTree = "<group>"; };
 		9CE54182ED2E030336E01248B1FF9788 /* TZVideoPlayerController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TZVideoPlayerController.h; path = TZImagePickerController/TZImagePickerController/TZVideoPlayerController.h; sourceTree = "<group>"; };
 		9D3868A522B0C1748A7A2B138CDC280A /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E0F9EE769023D8CA6F29009A92E73F7 /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
 		9E402FC643865561C55EBBF8379DE4D9 /* NSBundle+TZImagePicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle+TZImagePicker.h"; path = "TZImagePickerController/TZImagePickerController/NSBundle+TZImagePicker.h"; sourceTree = "<group>"; };
 		9FF81E54C50B468E1F58119DC6092AC3 /* JXCategoryViewDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryViewDefines.h; path = JXCategoryView/Core/Common/JXCategoryViewDefines.h; sourceTree = "<group>"; };
@@ -313,7 +313,7 @@
 		B7E7C6AEF98F49607E47E562FE0B4E48 /* Masonry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.debug.xcconfig; sourceTree = "<group>"; };
 		B8C526D7AF79AC961ECC1299A3A8566A /* GKPopAnimatedTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKPopAnimatedTransition.h; path = GKNavigationBar/GestureHandle/GKPopAnimatedTransition.h; sourceTree = "<group>"; };
 		B8C706E9EA77A15D00659E168B839962 /* TZLocationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TZLocationManager.h; path = TZImagePickerController/TZImagePickerController/TZLocationManager.h; sourceTree = "<group>"; };
-		B8E6C8A0112D1D61157A92F871B2444B /* GKNavigationBar.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = GKNavigationBar.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B8E6C8A0112D1D61157A92F871B2444B /* GKNavigationBar.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = GKNavigationBar.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B9D58FA73FF2197EBA206865EEB7B056 /* TZImagePickerController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TZImagePickerController.debug.xcconfig; sourceTree = "<group>"; };
 		B9E7729FC7FF082B16A04294B1FDD5D4 /* TZLocationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TZLocationManager.m; path = TZImagePickerController/TZImagePickerController/TZLocationManager.m; sourceTree = "<group>"; };
 		BB501DF05C3F074AE15BFAA8E86BF5FD /* GKNavigationInteractiveTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKNavigationInteractiveTransition.h; path = GKNavigationBar/GestureHandle/GKNavigationInteractiveTransition.h; sourceTree = "<group>"; };
@@ -361,7 +361,7 @@
 		F0D1EFE62857C7A3B7D3C2B1D9B3A2FF /* UINavigationController+GKNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+GKNavigationBar.h"; path = "GKNavigationBar/NavigationBar/UINavigationController+GKNavigationBar.h"; sourceTree = "<group>"; };
 		F129068D3CC9B9BE0ABEBA1D25E3308F /* JXCategoryViewExt-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JXCategoryViewExt-prefix.pch"; sourceTree = "<group>"; };
 		F179C5065D3531F1983D369F726A4481 /* TZAssetModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TZAssetModel.h; path = TZImagePickerController/TZImagePickerController/TZAssetModel.h; sourceTree = "<group>"; };
-		F1967A0BB5E297C70F89E8BC91F7B0CF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		F1967A0BB5E297C70F89E8BC91F7B0CF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		F1B2E434BF00E468FE14EC7D7A62D0F5 /* Masonry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.release.xcconfig; sourceTree = "<group>"; };
 		F2C0EDA48143CEF9409F4FF289873115 /* JXCategoryIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorView.h; path = JXCategoryView/Core/Indicator/JXCategoryIndicatorView.h; sourceTree = "<group>"; };
 		F6E298F6D09DBE6A49923E99932882B4 /* UIView+TZLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+TZLayout.h"; path = "TZImagePickerController/TZImagePickerController/UIView+TZLayout.h"; sourceTree = "<group>"; };
@@ -598,7 +598,6 @@
 				422F47D03BE04F9EE5372F5775B7C7A1 /* ViewController+MASAdditions.m */,
 				637572F739FB7E3BFC240F16F7FEB711 /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -694,7 +693,6 @@
 				D36706A808DA2F34EBCCD61E454A929D /* Support Files */,
 				ADD523B3CE952FD25792C46C6871EDF5 /* Title */,
 			);
-			name = JXCategoryViewExt;
 			path = JXCategoryViewExt;
 			sourceTree = "<group>";
 		};
@@ -784,7 +782,6 @@
 				8BBB46D30543A344ACD13A96BA16F712 /* Resources */,
 				825AF43C510F284DA11A99C8FFF9619D /* Support Files */,
 			);
-			name = TZImagePickerController;
 			path = TZImagePickerController;
 			sourceTree = "<group>";
 		};
@@ -1013,7 +1010,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1340;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";

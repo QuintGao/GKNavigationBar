@@ -13,6 +13,8 @@
 #import "GKDouyinHomeViewController.h"
 #import "GKWXViewController.h"
 #import "GKPresentViewController.h"
+#import "GKPlayerViewController.h"
+#import "GKPlayerTransition.h"
 
 @interface GKMainViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -39,7 +41,8 @@
                         @"网易云音乐",
                         @"网易新闻",
                         @"微信(自定义push，pop)",
-                        @"present非全屏"];
+                        @"present非全屏",
+                        @"播放器(自定义push，pop)"];
     }
     return _dataSource;
 }
@@ -162,6 +165,11 @@
             UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:presentVC];
             nav.modalPresentationCapturesStatusBarAppearance = YES;
             [self presentViewController:nav animated:YES completion:nil];
+        }else if (indexPath.row == 14) {
+            GKPlayerViewController *playerVC = [[GKPlayerViewController alloc] init];
+            self.gk_pushTransition = [GKPlayerTransition transitionWithType:GKPlayerTransitionType_Push];
+            playerVC.gk_popTransition = [GKPlayerTransition transitionWithType:GKPlayerTransitionType_Pop];
+            [self.navigationController pushViewController:playerVC animated:YES];
         }
     }
 }

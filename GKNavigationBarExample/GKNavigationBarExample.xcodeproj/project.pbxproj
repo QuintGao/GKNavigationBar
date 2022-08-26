@@ -59,12 +59,15 @@
 		796CF8DB236D7BBF00983E9B /* GKDouyinScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF8AA236D7BBF00983E9B /* GKDouyinScrollView.m */; };
 		796CF8DC236D7BBF00983E9B /* GKDouyinPersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF8AB236D7BBF00983E9B /* GKDouyinPersonalViewController.m */; };
 		796CF8DD236D7BBF00983E9B /* GKDouyinHomeSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF8AC236D7BBF00983E9B /* GKDouyinHomeSearchViewController.m */; };
+		79A1900328B862C000578979 /* GKPlayerTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A1900228B862C000578979 /* GKPlayerTransitionDelegate.m */; };
 		79C48BBC243B0757000B0815 /* GKDemo000ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C48BBB243B0757000B0815 /* GKDemo000ViewController.m */; };
 		79C48BBE243B0775000B0815 /* GKDemo000ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79C48BBD243B0775000B0815 /* GKDemo000ViewController.xib */; };
 		79C48BC2243B3DEE000B0815 /* web.txt in Resources */ = {isa = PBXBuildFile; fileRef = 79C48BC1243B3DEE000B0815 /* web.txt */; };
 		79C6AFEC237ED92900C636B9 /* GKDemoWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C6AFEB237ED92900C636B9 /* GKDemoWebViewController.m */; };
 		79E572262893793D005EB065 /* GKDemo007ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E572252893793D005EB065 /* GKDemo007ViewController.m */; };
 		79E5722928937E07005EB065 /* GKDemo007ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E5722828937E07005EB065 /* GKDemo007ListViewController.m */; };
+		79F6E3B828AF5E52004A5837 /* GKPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F6E3B728AF5E52004A5837 /* GKPlayerViewController.m */; };
+		79F6E3BB28AF5E6E004A5837 /* GKPlayerTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F6E3BA28AF5E6E004A5837 /* GKPlayerTransition.m */; };
 		A8DAB537E488DAD24E9CB664 /* Pods_GKNavigationBarExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E89D0D10B663CF9EF209C1 /* Pods_GKNavigationBarExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -175,6 +178,8 @@
 		796CF8AC236D7BBF00983E9B /* GKDouyinHomeSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDouyinHomeSearchViewController.m; sourceTree = "<group>"; };
 		796CF8AD236D7BBF00983E9B /* GKDouyinHomePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDouyinHomePlayerViewController.h; sourceTree = "<group>"; };
 		796CF8DE236D7BD900983E9B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		79A1900128B862C000578979 /* GKPlayerTransitionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKPlayerTransitionDelegate.h; sourceTree = "<group>"; };
+		79A1900228B862C000578979 /* GKPlayerTransitionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKPlayerTransitionDelegate.m; sourceTree = "<group>"; };
 		79C48BBA243B0757000B0815 /* GKDemo000ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKDemo000ViewController.h; sourceTree = "<group>"; };
 		79C48BBB243B0757000B0815 /* GKDemo000ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKDemo000ViewController.m; sourceTree = "<group>"; };
 		79C48BBD243B0775000B0815 /* GKDemo000ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GKDemo000ViewController.xib; sourceTree = "<group>"; };
@@ -185,6 +190,10 @@
 		79E572252893793D005EB065 /* GKDemo007ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKDemo007ViewController.m; sourceTree = "<group>"; };
 		79E5722728937E07005EB065 /* GKDemo007ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKDemo007ListViewController.h; sourceTree = "<group>"; };
 		79E5722828937E07005EB065 /* GKDemo007ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKDemo007ListViewController.m; sourceTree = "<group>"; };
+		79F6E3B628AF5E52004A5837 /* GKPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKPlayerViewController.h; sourceTree = "<group>"; };
+		79F6E3B728AF5E52004A5837 /* GKPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKPlayerViewController.m; sourceTree = "<group>"; };
+		79F6E3B928AF5E6E004A5837 /* GKPlayerTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKPlayerTransition.h; sourceTree = "<group>"; };
+		79F6E3BA28AF5E6E004A5837 /* GKPlayerTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKPlayerTransition.m; sourceTree = "<group>"; };
 		C2B06F1CBCB2622ACE63E239 /* Pods-GKNavigationBarExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKNavigationBarExample.release.xcconfig"; path = "Target Support Files/Pods-GKNavigationBarExample/Pods-GKNavigationBarExample.release.xcconfig"; sourceTree = "<group>"; };
 		C3518698EA725761EF29764E /* Pods-GKNavigationBarExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKNavigationBarExample.debug.xcconfig"; path = "Target Support Files/Pods-GKNavigationBarExample/Pods-GKNavigationBarExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -320,6 +329,7 @@
 				796CF865236D7BBF00983E9B /* 网易云音乐 */,
 				796CF873236D7BBF00983E9B /* 网易新闻 */,
 				608FC6E925469C9C003DB82F /* 微信 */,
+				79F6E3B528AF5E13004A5837 /* 播放器 */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -476,6 +486,19 @@
 			path = "抖音";
 			sourceTree = "<group>";
 		};
+		79F6E3B528AF5E13004A5837 /* 播放器 */ = {
+			isa = PBXGroup;
+			children = (
+				79F6E3B628AF5E52004A5837 /* GKPlayerViewController.h */,
+				79F6E3B728AF5E52004A5837 /* GKPlayerViewController.m */,
+				79F6E3B928AF5E6E004A5837 /* GKPlayerTransition.h */,
+				79F6E3BA28AF5E6E004A5837 /* GKPlayerTransition.m */,
+				79A1900128B862C000578979 /* GKPlayerTransitionDelegate.h */,
+				79A1900228B862C000578979 /* GKPlayerTransitionDelegate.m */,
+			);
+			path = "播放器";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -532,7 +555,7 @@
 		796CF7E4236D781400983E9B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1340;
 				ORGANIZATIONNAME = QuintGao;
 				TargetAttributes = {
 					79672E92236EC8EB0054300B = {
@@ -644,6 +667,7 @@
 				608FC6FC25469C9C003DB82F /* GKWXMineViewController.m in Sources */,
 				608FC6FF25469C9C003DB82F /* GKFloatTransition.m in Sources */,
 				796CF8D1236D7BBF00983E9B /* GKDemo002ViewController.m in Sources */,
+				79F6E3B828AF5E52004A5837 /* GKPlayerViewController.m in Sources */,
 				796CF8C4236D7BBF00983E9B /* GKWYNewsHomeViewController.m in Sources */,
 				796CF8B8236D7BBF00983E9B /* GKToutiaoMineViewController.m in Sources */,
 				796CF8B7236D7BBF00983E9B /* GKToutiaoViewController.m in Sources */,
@@ -678,6 +702,8 @@
 				796CF8BB236D7BBF00983E9B /* GKToutiaoMicroViewController.m in Sources */,
 				608FC6FE25469C9C003DB82F /* GKWXViewController.m in Sources */,
 				796CF8DB236D7BBF00983E9B /* GKDouyinScrollView.m in Sources */,
+				79F6E3BB28AF5E6E004A5837 /* GKPlayerTransition.m in Sources */,
+				79A1900328B862C000578979 /* GKPlayerTransitionDelegate.m in Sources */,
 				796CF8C2236D7BBF00983E9B /* GKWYMusicViewController.m in Sources */,
 				796CF802236D781700983E9B /* main.m in Sources */,
 				796CF8D2236D7BBF00983E9B /* GKDemo001ViewController.m in Sources */,

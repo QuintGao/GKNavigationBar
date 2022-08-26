@@ -25,6 +25,9 @@
 /// pop动画
 @property (nonatomic, strong) UIPercentDrivenInteractiveTransition *popTransition;
 
+/// pop的vc
+@property (nonatomic, weak) UIViewController *fromVC;
+
 @end
 
 @implementation GKNavigationInteractiveTransition
@@ -38,6 +41,11 @@
     if (gesture.state == UIGestureRecognizerStateBegan) {
         self.isGesturePush = velocity.x < 0 ? YES : NO;
         self.visibleVC = self.navigationController.visibleViewController;
+    }
+    
+    if ([self.visibleVC.gk_transitionDelegate respondsToSelector:@selector(panGestureAction:transition:)]) {
+        [self.visibleVC.gk_transitionDelegate panGestureAction:gesture transition:self];
+        return;
     }
     
     // push时progress < 0 需要做处理
@@ -69,6 +77,9 @@
                     self.popTransition = [UIPercentDrivenInteractiveTransition new];
                     [self.navigationController popViewControllerAnimated:YES];
                 }
+            }else if (self.visibleVC.gk_popTransition) {
+                self.popTransition = [UIPercentDrivenInteractiveTransition new];
+                [self.navigationController popViewControllerAnimated:YES];
             }
             [self popScrollBegan];
         }
@@ -167,6 +178,10 @@
 
 #pragma mark - UINavigationControllerDelegate
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+    self.fromVC = fromVC;
+    if ([self.fromVC.gk_transitionDelegate respondsToSelector:@selector(navigationController:animationControllerForOperation:fromViewController:toViewController:transition:)]) {
+        return [self.fromVC.gk_transitionDelegate navigationController:navigationController animationControllerForOperation:operation fromViewController:fromVC toViewController:toVC transition:self];
+    }
    
     if (fromVC.gk_pushTransition && operation == UINavigationControllerOperationPush) {
         return fromVC.gk_pushTransition;
@@ -190,11 +205,23 @@
 
 - (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
     
+    if ([self.fromVC.gk_transitionDelegate respondsToSelector:@selector(navigationController:interactionControllerForAnimationController:transition:)]) {
+        return [self.fromVC.gk_transitionDelegate navigationController:navigationController interactionControllerForAnimationController:animationController transition:self];
+    }
+    
     if (self.pushTransition && [animationController isKindOfClass:[GKPushAnimatedTransition class]]) {
         return self.pushTransition;
     }
     
     if (self.popTransition && [animationController isKindOfClass:[GKPopAnimatedTransition class]]) {
+        return self.popTransition;
+    }
+    
+    if (self.visibleVC.gk_pushTransition && animationController == self.visibleVC.gk_pushTransition) {
+        return self.pushTransition;
+    }
+    
+    if (self.visibleVC.gk_popTransition && animationController == self.visibleVC.gk_popTransition) {
         return self.popTransition;
     }
     
@@ -205,6 +232,10 @@
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
     // 获取当前显示的VC
     UIViewController *visibleVC = self.navigationController.visibleViewController;
+    
+    if ([visibleVC.gk_transitionDelegate respondsToSelector:@selector(gestureRecognizerShouldBegin:transition:)]) {
+        return [visibleVC.gk_transitionDelegate gestureRecognizerShouldBegin:gestureRecognizer transition:self];
+    }
     
     // 当前VC禁止滑动返回
     if (visibleVC.gk_interactivePopDisabled) return NO;
