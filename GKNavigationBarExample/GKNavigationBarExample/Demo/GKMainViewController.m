@@ -34,6 +34,7 @@
                         @"WKWebView",
                         @"系统功能",
                         @"分类页面",
+                        @"网易新闻push",
                         @"抖音左右滑动",
                         @"今日头条",
                         @"网易云音乐",
@@ -135,27 +136,30 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else {
         if (indexPath.row == 8) {
+            GKWYNewsViewController *wyVC = [[GKWYNewsViewController alloc] init];
+            [self.navigationController pushViewController:wyVC animated:YES];
+        }else if (indexPath.row == 9) {
             UINavigationController *nav = [UINavigationController rootVC:[GKDouyinHomeViewController new]];
             nav.gk_openScrollLeftPush = YES;
             nav.modalPresentationStyle = UIModalPresentationFullScreen;
             [self presentViewController:nav animated:YES completion:nil];
-        }else if (indexPath.row == 9) {
+        }else if (indexPath.row == 10) {
             GKToutiaoViewController *toutiaoVC = [GKToutiaoViewController new];
             toutiaoVC.modalPresentationStyle = UIModalPresentationFullScreen;
             [self presentViewController:toutiaoVC animated:YES completion:nil];
-        }else if (indexPath.row == 10) {
+        }else if (indexPath.row == 11) {
             GKWYMusicViewController *musicVC = [GKWYMusicViewController new];
             musicVC.modalPresentationStyle = UIModalPresentationFullScreen;
             [self presentViewController:musicVC animated:YES completion:nil];
-        }else if (indexPath.row == 11) {
+        }else if (indexPath.row == 12) {
             GKWYNewsViewController *newsVC = [GKWYNewsViewController new];
             newsVC.modalPresentationStyle = UIModalPresentationFullScreen;
             [self presentViewController:newsVC animated:YES completion:nil];
-        }else if (indexPath.row == 12) {
+        }else if (indexPath.row == 13) {
             GKWXViewController *wxVC = [GKWXViewController new];
             wxVC.modalPresentationStyle = UIModalPresentationFullScreen;
             [self presentViewController:wxVC animated:YES completion:nil];
-        }else if (indexPath.row == 13) {
+        }else if (indexPath.row == 14) {
             GKPresentViewController *presentVC = [GKPresentViewController new];
             presentVC.gk_navTitle = @"presentVC";
             
