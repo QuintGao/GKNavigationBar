@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) UIButton *shareBtn;
 
+@property (nonatomic, strong) UIView *topView;
+
 @end
 
 @implementation GKDemo006ViewController
@@ -24,9 +26,16 @@
     
     self.gk_navTitle = @"系统功能";
     self.view.backgroundColor = UIColor.whiteColor;
-    self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"哈哈" target:self action:@selector(systemAction:)];
+//    self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"哈哈" target:self action:@selector(systemAction:)];
     self.gk_navItemRightSpace = 40;
     
+    NSLog(@"%f", GK_STATUSBAR_HEIGHT);
+//    [self.gk_navigationBar addSubview:self.topView];
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSLog(@"%f", GK_STATUSBAR_HEIGHT);
+    });
     [self.view addSubview:self.printBtn];
     [self.view addSubview:self.shareBtn];
     
@@ -117,6 +126,18 @@
     [self presentViewController:activityVC animated:YES completion:nil];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+//    NSLog(@"%@", self.gk_navigationBar);
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+//    NSLog(@"%@", self.gk_navigationBar);
+}
+
 #pragma mark - UIPrintInteractionControllerDelegate
 
 
@@ -138,6 +159,14 @@
         [_shareBtn addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _shareBtn;
+}
+
+- (UIView *)topView {
+    if (!_topView) {
+        _topView = [[UIView alloc] initWithFrame:CGRectMake(50, 0, self.view.frame.size.width - 100, 44)];
+        _topView.backgroundColor = UIColor.redColor;
+    }
+    return _topView;
 }
 
 @end

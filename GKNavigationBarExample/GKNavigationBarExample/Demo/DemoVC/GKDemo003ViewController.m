@@ -29,9 +29,31 @@
     UIBarButtonItem *rightItem = [UIBarButtonItem gk_itemWithTitle:@"push" target:self action:@selector(click)];
     rightItem.customView.backgroundColor = [UIColor blackColor];
     self.navigationItem.rightBarButtonItem = rightItem;
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_bg"] forBarMetrics:UIBarMetricsDefault];
+    
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"返回" target:self action:@selector(backItemClick:)];
+    
+    if (@available(iOS 13.0, *)) {
+        UINavigationBarAppearance *appearance = self.navigationController.navigationBar.standardAppearance;
+        appearance.backgroundColor = UIColor.redColor;
+        self.navigationController.navigationBar.standardAppearance = appearance;
+        self.navigationController.navigationBar.scrollEdgeAppearance = appearance;
+    } else {
+        // Fallback on earlier versions
+    }
     
     self.gk_pushDelegate = self;
     self.gk_popDelegate  = self;
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, GK_STATUSBAR_NAVBAR_HEIGHT, self.view.bounds.size.width, CGFLOAT_MAX)];
+    [self.view addSubview:label];
+    
+    label.text = @"你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好";
+    label.numberOfLines = 0;
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.view).offset(GK_STATUSBAR_NAVBAR_HEIGHT);
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

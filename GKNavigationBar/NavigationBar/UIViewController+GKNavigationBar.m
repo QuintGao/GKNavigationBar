@@ -748,7 +748,10 @@ static char kAssociatedObjectKey_navItemRightSpace;
             self.gk_navigationBar.gk_nonFullScreen = YES;
         }else {
             if (GK_NOTCHED_SCREEN) { // 刘海屏手机
-                navBarH = GK_SAFEAREA_TOP + GK_NAVBAR_HEIGHT;
+                // iOS 14 pro 状态栏高度与安全区域高度不一致，这里改为使用状态栏高度
+                CGFloat topH = GK_STATUSBAR_HEIGHT;
+                if (topH == 20) topH = GK_SAFEAREA_TOP;
+                navBarH = topH + GK_NAVBAR_HEIGHT;
             }else {
                 navBarH = self.gk_statusBarHidden ? GK_NAVBAR_HEIGHT : GK_STATUSBAR_NAVBAR_HEIGHT;
             }
