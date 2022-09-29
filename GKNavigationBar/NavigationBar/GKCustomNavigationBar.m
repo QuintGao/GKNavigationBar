@@ -14,9 +14,6 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.gk_navBarBackgroundAlpha = 1.0f;
-        
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
-        [self addGestureRecognizer:tap];
     }
     return self;
 }
