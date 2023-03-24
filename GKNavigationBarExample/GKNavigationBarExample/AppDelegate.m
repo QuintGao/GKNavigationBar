@@ -50,8 +50,6 @@
     
     // 设置手势返回
     [GKGestureConfigure setupCustomConfigure:^(GKGestureHandleConfigure * _Nonnull configure) {
-        configure.gk_translationX = 15;
-        configure.gk_translationY = 20;
         configure.gk_scaleX = 0.90;
         configure.gk_scaleY = 0.92;
         configure.gk_openScrollViewGestureHandle = YES;

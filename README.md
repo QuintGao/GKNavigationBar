@@ -202,6 +202,7 @@ github "QuintGao/GKNavigationBar"
   <summary><font size=4>最近更新</font></summary>
 
 ```
+* 1.8.3 - 2023.03.24 1、push、pop转场动画修改为只截取tabBar播放 2、缩放转场动画优化
 * 1.8.2 - 2022.12.27 iPhone 14适配优化
 * 1.8.1 - 2022.09.29 移除导航栏上的点击事件
 * 1.8.0 - 2022.09.16 导航栏高度适配iPhone 14系列新设备
