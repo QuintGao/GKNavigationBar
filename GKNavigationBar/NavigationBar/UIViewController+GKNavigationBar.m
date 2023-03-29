@@ -46,6 +46,7 @@
 - (void)gk_viewDidLoad {
     // 设置默认状态
     self.gk_disableFixNavItemSpace = YES;
+    self.gk_openFixNavItemSpace = NO;
     
     if ([self shouldHandleNavBar]) {
         // 设置默认导航栏间距

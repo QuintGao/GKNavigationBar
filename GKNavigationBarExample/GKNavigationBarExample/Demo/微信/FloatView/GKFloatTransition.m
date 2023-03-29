@@ -14,6 +14,8 @@
 
 @property (nonatomic, assign) GKFloatTransitionType type;
 
+@property (nonatomic, strong) UIView *contentView;
+
 @end
 
 @implementation GKFloatTransition

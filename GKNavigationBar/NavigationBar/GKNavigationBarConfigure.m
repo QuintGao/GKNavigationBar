@@ -307,8 +307,6 @@ static NSInteger is55InchScreen = -1;
     return is55InchScreen > 0;
 }
 
-
-
 static NSInteger is54InchScreen = -1;
 + (BOOL)is54InchScreen {
     if (is54InchScreen < 0) {
