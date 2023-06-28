@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -886,7 +886,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P756K496H9;
+				DEVELOPMENT_TEAM = 75UA6PQ9U3;
 				GCC_PREFIX_HEADER = GKNavigationBarExample/PrefixHeader.pch;
 				INFOPLIST_FILE = GKNavigationBarExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -894,7 +894,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.gknavigationbar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.gknavigationbar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -911,7 +911,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P756K496H9;
+				DEVELOPMENT_TEAM = 75UA6PQ9U3;
 				GCC_PREFIX_HEADER = GKNavigationBarExample/PrefixHeader.pch;
 				INFOPLIST_FILE = GKNavigationBarExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -919,7 +919,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.gknavigationbar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.gknavigationbar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

@@ -29,7 +29,7 @@
 - (void)setupNavBar {
     // 配置导航栏属性
     [GKConfigure setupCustomConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, GK_SCREEN_WIDTH, GK_STATUSBAR_NAVBAR_HEIGHT)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, GK_STATUSBAR_NAVBAR_HEIGHT)];
         configure.backgroundImage = [view imageWithColors:@[(__bridge id)[UIColor colorWithRed:127/255.0 green:23/255.0 blue:135/255.0 alpha:1.0].CGColor, (__bridge id)[UIColor colorWithRed:37/255.0 green:26/255.0 blue:188/255.0 alpha:1.0].CGColor]];
         configure.darkBackgroundImage = [UIImage gk_imageWithColor:UIColor.lightGrayColor];
         // 导航栏背景色

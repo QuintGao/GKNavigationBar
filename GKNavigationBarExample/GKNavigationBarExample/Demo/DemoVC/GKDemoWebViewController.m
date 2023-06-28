@@ -80,7 +80,7 @@
         // 设置偏好设置对象
         wkWebConfig.preferences = preference;
         
-        CGRect frame = CGRectMake(0, 0, GK_SCREEN_WIDTH, 0);
+        CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width, 0);
         
         WKWebView *webView = [[WKWebView alloc] initWithFrame:frame configuration:wkWebConfig];
         webView.scrollView.alwaysBounceVertical = NO;
