@@ -45,8 +45,10 @@
 
 - (void)gk_viewDidLoad {
     // 设置默认状态
-    self.gk_disableFixNavItemSpace = YES;
-    self.gk_openFixNavItemSpace = NO;
+    if (self.navigationController && self.navigationController == self.parentViewController) {
+        self.gk_disableFixNavItemSpace = YES;
+        self.gk_openFixNavItemSpace = NO;
+    }
     
     if ([self shouldHandleNavBar]) {
         // 设置默认导航栏间距
@@ -83,7 +85,7 @@
             [self.view bringSubviewToFront:self.gk_navigationBar];
         }
     }else {
-        if (self.navigationController && !self.navigationController.isNavigationBarHidden && ![self isNonFullScreen]) {
+        if (self.navigationController && self.navigationController == self.parentViewController && !self.navigationController.isNavigationBarHidden && ![self isNonFullScreen]) {
             self.gk_disableFixNavItemSpace = self.gk_disableFixNavItemSpace;
             self.gk_openFixNavItemSpace = self.gk_openFixNavItemSpace;
         }

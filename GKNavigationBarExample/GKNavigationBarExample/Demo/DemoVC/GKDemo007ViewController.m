@@ -24,8 +24,10 @@
     [super viewDidLoad];
     
     self.gk_navTitle = @"分类";
-    self.gk_navItemRightSpace = 30;
+    self.gk_navItemRightSpace = 0;
     self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:@"更多" target:self action:@selector(moreAction)];
+    self.gk_navRightBarButtonItem.customView.backgroundColor = UIColor.blueColor;
+    [self.gk_navigationBar layoutIfNeeded];
     
     [self.view addSubview:self.categoryView];
     [self.view addSubview:self.containerView];
