@@ -202,6 +202,7 @@ github "QuintGao/GKNavigationBar"
   <summary><font size=4>最近更新</font></summary>
 
 ```
+* 1.8.7 - 2023.08.15 导航栏部分属性支持StoryBoard，手势处理优化
 * 1.8.6 - 2023.07.17 修复导航栏间距调整可能无效的问题
 * 1.8.5 - 2023.06.28 导航栏宽度适配Mac
 * 1.8.4 - 2023.03.29 修复导航栏间距调整bug
