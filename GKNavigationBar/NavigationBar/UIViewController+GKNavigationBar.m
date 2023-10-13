@@ -727,7 +727,11 @@ static char kAssociatedObjectKey_navItemRightSpace;
         if (viewW == 0 || viewH == 0) return NO;
         
         // 如果是通过present方式弹出且高度小于屏幕高度，则认为是非全屏
-        isNonFullScreen = self.presentingViewController && viewH < self.view.bounds.size.height;
+        UIWindow *window = self.view.window;
+        if (!window) {
+            window = GKNavigationBarConfigure.keyWindow;
+        }
+        isNonFullScreen = self.presentingViewController && viewH < window.bounds.size.height;
     }
     return isNonFullScreen;
 }
