@@ -2,7 +2,7 @@
 //  GKDemo005ViewController.h
 //  GKNavigationBarExample
 //
-//  Created by gaokun on 2020/12/17.
+//  Created by QuintGao on 2020/12/17.
 //  Copyright © 2020 QuintGao. All rights reserved.
 //
 

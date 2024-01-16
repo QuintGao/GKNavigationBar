@@ -2,7 +2,7 @@
 //  GKPresentViewController.m
 //  GKNavigationBarExample
 //
-//  Created by gaokun on 2021/5/7.
+//  Created by QuintGao on 2021/5/7.
 //  Copyright © 2021 QuintGao. All rights reserved.
 //
 

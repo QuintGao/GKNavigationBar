@@ -2,7 +2,7 @@
 //  GKDemo006ViewController.m
 //  GKNavigationBarExample
 //
-//  Created by gaokun on 2022/2/23.
+//  Created by QuintGao on 2022/2/23.
 //  Copyright © 2022 QuintGao. All rights reserved.
 //
 
