@@ -1,16 +1,16 @@
 {
   "name": "GKNavigationBar",
-  "version": "1.7.6",
+  "version": "1.8.9",
   "license": "MIT",
   "summary": "自定义导航栏--导航栏联动",
   "homepage": "https://github.com/QuintGao/GKNavigationBar",
   "social_media_url": "https://github.com/QuintGao",
   "authors": {
-    "高坤": "1094887059@qq.com"
+    "QuintGao": "1094887059@qq.com"
   },
   "source": {
     "git": "https://github.com/QuintGao/GKNavigationBar.git",
-    "tag": "1.7.6"
+    "tag": "1.8.9"
   },
   "platforms": {
     "ios": "9.0"
@@ -20,7 +20,10 @@
     {
       "name": "NavigationBar",
       "source_files": "GKNavigationBar/NavigationBar",
-      "resources": "GKNavigationBar/NavigationBar/GKNavigationBar.bundle"
+      "resources": "GKNavigationBar/GKNavigationBar.bundle",
+      "resource_bundles": {
+        "GKNavigationBar.privacy": "GKNavigationBar/PrivacyInfo.xcprivacy"
+      }
     },
     {
       "name": "GestureHandle",

@@ -1,9 +1,9 @@
 PODS:
-  - GKNavigationBar (1.7.6):
-    - GKNavigationBar/GestureHandle (= 1.7.6)
-    - GKNavigationBar/NavigationBar (= 1.7.6)
-  - GKNavigationBar/GestureHandle (1.7.6)
-  - GKNavigationBar/NavigationBar (1.7.6)
+  - GKNavigationBar (1.8.9):
+    - GKNavigationBar/GestureHandle (= 1.8.9)
+    - GKNavigationBar/NavigationBar (= 1.8.9)
+  - GKNavigationBar/GestureHandle (1.8.9)
+  - GKNavigationBar/NavigationBar (1.8.9)
   - JXCategoryViewExt/Core (1.1.7)
   - JXCategoryViewExt/Indicator/Line (1.1.7):
     - JXCategoryViewExt/Core
@@ -30,11 +30,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  GKNavigationBar: 169c7491c1739cffe569c07ffdeb8bf4c327f699
+  GKNavigationBar: e74603adaba5181f1ec2300c6fe64a2a92a66b03
   JXCategoryViewExt: b4a05d3fb001ea6cbc72e3092ab5bcaff62b7dde
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   TZImagePickerController: 0f926234c46362d3c4ed128832b6da59b2d9917e
 
 PODFILE CHECKSUM: e63767b1f086530e604fbcef8cb2494eff7936c1
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.15.2

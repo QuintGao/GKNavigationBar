@@ -12,7 +12,8 @@ Pod::Spec.new do |s|
   
   s.subspec 'NavigationBar' do |ss|
     ss.source_files = 'GKNavigationBar/NavigationBar'
-    ss.resource     = 'GKNavigationBar/NavigationBar/GKNavigationBar.bundle'
+    ss.resource     = 'GKNavigationBar/GKNavigationBar.bundle'
+    ss.resource_bundles = {'GKNavigationBar.privacy' => 'GKNavigationBar/PrivacyInfo.xcprivacy'}
   end
   
   s.subspec 'GestureHandle' do |ss|
