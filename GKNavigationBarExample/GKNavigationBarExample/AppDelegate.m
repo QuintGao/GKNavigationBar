@@ -10,6 +10,8 @@
 #import "GKMainViewController.h"
 #import "UIView+Extension.h"
 #import "GKDemo007ViewController.h"
+#import <math.h>
+#import <sys/utsname.h>
 
 @interface AppDelegate ()
 
@@ -25,6 +27,14 @@
     [self setupWindow];
     
     return YES;
+}
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    if (self.isSupportLandscape) {
+        return UIInterfaceOrientationMaskAll;
+    }else {
+        return UIInterfaceOrientationMaskPortrait;
+    }
 }
 
 - (void)setupNavBar {

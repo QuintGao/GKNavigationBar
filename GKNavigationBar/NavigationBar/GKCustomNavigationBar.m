@@ -29,8 +29,14 @@
                 frame.size.height = self.frame.size.height;
                 obj.frame = frame;
             }else {
+                CGFloat navBarHNFS = GK_NAVBAR_HEIGHT_NFS;
+                CGFloat navBarH = GK_NAVBAR_HEIGHT;
+                if (self.viewController && !(self.viewController.supportedInterfaceOrientations & UIInterfaceOrientationMaskLandscape)) {
+                    navBarH = [GKNavigationBarConfigure navBarHeightForPortrait];
+                }
+                
                 CGRect frame = obj.frame;
-                frame.origin.y = self.frame.size.height - (self.gk_nonFullScreen ? GK_NAVBAR_HEIGHT_NFS : GK_NAVBAR_HEIGHT);
+                frame.origin.y = self.frame.size.height - (self.gk_nonFullScreen ? navBarHNFS : navBarH);
                 obj.frame = frame;
             }
         }];

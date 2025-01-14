@@ -21,6 +21,8 @@
 		60B70D77256F8A11008D62FC /* GKDemo004ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B70D76256F8A11008D62FC /* GKDemo004ViewController.m */; };
 		794AFC32242F07EA00BECA1B /* GKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794AFC31242F07E900BECA1B /* GKBaseViewController.m */; };
 		794AFC37242F4FB600BECA1B /* GKBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794AFC36242F4FB600BECA1B /* GKBaseNavigationController.m */; };
+		794BB31C2D362DFE00F49D4A /* GKDemo008ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794BB31B2D362DFE00F49D4A /* GKDemo008ViewController.m */; };
+		794BB31F2D363E6F00F49D4A /* GKAVPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794BB31E2D363E6F00F49D4A /* GKAVPlayerViewController.m */; };
 		79672E8B236EC0520054300B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 79672E8A236EC0520054300B /* README.md */; };
 		79672E8D236EC0740054300B /* GKNavigationBar.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 79672E8C236EC0740054300B /* GKNavigationBar.podspec */; };
 		796CF7F1236D781400983E9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF7F0236D781400983E9B /* AppDelegate.m */; };
@@ -98,6 +100,10 @@
 		794AFC31242F07E900BECA1B /* GKBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKBaseViewController.m; sourceTree = "<group>"; };
 		794AFC35242F4FB600BECA1B /* GKBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKBaseNavigationController.h; sourceTree = "<group>"; };
 		794AFC36242F4FB600BECA1B /* GKBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKBaseNavigationController.m; sourceTree = "<group>"; };
+		794BB31A2D362DFE00F49D4A /* GKDemo008ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKDemo008ViewController.h; sourceTree = "<group>"; };
+		794BB31B2D362DFE00F49D4A /* GKDemo008ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKDemo008ViewController.m; sourceTree = "<group>"; };
+		794BB31D2D363E6F00F49D4A /* GKAVPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKAVPlayerViewController.h; sourceTree = "<group>"; };
+		794BB31E2D363E6F00F49D4A /* GKAVPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKAVPlayerViewController.m; sourceTree = "<group>"; };
 		79672E89236EC04A0054300B /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = .travis.yml; path = ../../.travis.yml; sourceTree = "<group>"; };
 		79672E8A236EC0520054300B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		79672E8C236EC0740054300B /* GKNavigationBar.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GKNavigationBar.podspec; path = ../../GKNavigationBar.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -454,6 +460,10 @@
 				601BB2D4256CA96B001D59C8 /* GKDemoTransitionViewController.m */,
 				79C6AFEA237ED92900C636B9 /* GKDemoWebViewController.h */,
 				79C6AFEB237ED92900C636B9 /* GKDemoWebViewController.m */,
+				794BB31A2D362DFE00F49D4A /* GKDemo008ViewController.h */,
+				794BB31B2D362DFE00F49D4A /* GKDemo008ViewController.m */,
+				794BB31D2D363E6F00F49D4A /* GKAVPlayerViewController.h */,
+				794BB31E2D363E6F00F49D4A /* GKAVPlayerViewController.m */,
 				79C48BC1243B3DEE000B0815 /* web.txt */,
 			);
 			path = DemoVC;
@@ -648,6 +658,7 @@
 				796CF8B8236D7BBF00983E9B /* GKToutiaoMineViewController.m in Sources */,
 				796CF8B7236D7BBF00983E9B /* GKToutiaoViewController.m in Sources */,
 				79E572262893793D005EB065 /* GKDemo007ViewController.m in Sources */,
+				794BB31F2D363E6F00F49D4A /* GKAVPlayerViewController.m in Sources */,
 				796CF8B1236D7BBF00983E9B /* UIView+Extension.m in Sources */,
 				60AF462C27C6061E00E6B76F /* GKDemo006ViewController.m in Sources */,
 				796CF8B0236D7BBF00983E9B /* GKDemoBaseViewController.m in Sources */,
@@ -690,6 +701,7 @@
 				79C48BBC243B0757000B0815 /* GKDemo000ViewController.m in Sources */,
 				796CF8C0236D7BBF00983E9B /* GKWYMusicMineViewController.m in Sources */,
 				79E5722928937E07005EB065 /* GKDemo007ListViewController.m in Sources */,
+				794BB31C2D362DFE00F49D4A /* GKDemo008ViewController.m in Sources */,
 				796CF8BC236D7BBF00983E9B /* GKToutiaoHomeViewController.m in Sources */,
 				796CF8D9236D7BBF00983E9B /* GKDouyinHomePlayerViewController.m in Sources */,
 			);
@@ -886,7 +898,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 75UA6PQ9U3;
+				DEVELOPMENT_TEAM = JWMR39G949;
 				GCC_PREFIX_HEADER = GKNavigationBarExample/PrefixHeader.pch;
 				INFOPLIST_FILE = GKNavigationBarExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -911,7 +923,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 75UA6PQ9U3;
+				DEVELOPMENT_TEAM = JWMR39G949;
 				GCC_PREFIX_HEADER = GKNavigationBarExample/PrefixHeader.pch;
 				INFOPLIST_FILE = GKNavigationBarExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

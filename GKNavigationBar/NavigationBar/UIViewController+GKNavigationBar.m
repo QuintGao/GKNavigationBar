@@ -745,23 +745,20 @@ static char kAssociatedObjectKey_navItemRightSpace;
             navBarH = GK_NAVBAR_HEIGHT_NFS;
             self.gk_navigationBar.gk_nonFullScreen = YES;
         }else {
-            navBarH = self.gk_statusBarHidden ? GK_NAVBAR_HEIGHT : GK_STATUSBAR_NAVBAR_HEIGHT;
+            navBarH = [GKNavigationBarConfigure navBarFullHeight];
         }
     }else if (GK_IS_LANDSCAPE) { // 横屏不显示状态栏，没有非全屏模式
-        navBarH = GK_NAVBAR_HEIGHT;
+        if ([self isLandScape]) {
+            navBarH = [GKNavigationBarConfigure navBarFullHeight];
+        }else {
+            navBarH = [GKNavigationBarConfigure navBarHeightForPortrait];
+        }
     }else {
         if (isNonFullScreen) {
             navBarH = GK_NAVBAR_HEIGHT_NFS;
             self.gk_navigationBar.gk_nonFullScreen = YES;
         }else {
-            if (GK_NOTCHED_SCREEN) { // 刘海屏手机
-                // iOS 14 pro 状态栏高度与安全区域高度不一致，这里改为使用状态栏高度
-                CGFloat topH = GK_STATUSBAR_HEIGHT;
-                if (topH == 20) topH = GK_SAFEAREA_TOP;
-                navBarH = topH + GK_NAVBAR_HEIGHT;
-            }else {
-                navBarH = self.gk_statusBarHidden ? GK_NAVBAR_HEIGHT : GK_STATUSBAR_NAVBAR_HEIGHT;
-            }
+            navBarH = [GKNavigationBarConfigure navBarFullHeight];
         }
     }
     self.gk_navigationBar.frame = CGRectMake(0, 0, self.view.frame.size.width, navBarH);
@@ -799,6 +796,15 @@ static char kAssociatedObjectKey_navItemRightSpace;
         return YES;
     }
     return self.gk_openFixNavItemSpace;
+}
+
+- (BOOL)isLandScape {
+    // 当前控制器支持横屏
+    if ([self supportedInterfaceOrientations] & UIInterfaceOrientationMaskLandscape) {
+        return YES;
+    }
+    // 当前控制器是横屏状态
+    return (self.view.frame.size.width > self.view.frame.size.height);
 }
 
 - (void)setBackItemImage:(UIImage *)image {

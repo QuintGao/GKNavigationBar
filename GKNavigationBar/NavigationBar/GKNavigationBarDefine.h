@@ -25,6 +25,9 @@
 // 判断是否是刘海屏
 #define GK_NOTCHED_SCREEN           [GKNavigationBarConfigure isNotchedScreen]
 
+// 判断是否是灵动岛屏幕
+#define GK_DYNAMICISLAND_SCREEN     [GKNavigationBarConfigure isDynamicIslandScreen]
+
 // 判断是否是iPad
 #define GK_IS_iPad                  [GKNavigationBarConfigure isIPad]
 
@@ -38,8 +41,8 @@
 #define GK_NAVBAR_HEIGHT            [GKNavigationBarConfigure navBarHeight]
 // 非全屏导航栏高度
 #define GK_NAVBAR_HEIGHT_NFS        [GKNavigationBarConfigure navBarHeight_nonFullScreen]
-// 状态栏+导航栏高度
-#define GK_STATUSBAR_NAVBAR_HEIGHT  (GK_STATUSBAR_HEIGHT + GK_NAVBAR_HEIGHT)
+// 导航栏整体高度
+#define GK_STATUSBAR_NAVBAR_HEIGHT  [GKNavigationBarConfigure navBarFullHeight]
 // tabbar高度
 #define GK_TABBAR_HEIGHT            [GKNavigationBarConfigure tabBarHeight]
 

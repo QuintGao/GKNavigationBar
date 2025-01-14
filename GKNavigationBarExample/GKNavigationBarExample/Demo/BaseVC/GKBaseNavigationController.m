@@ -19,6 +19,14 @@
     // Do any additional setup after loading the view.
 }
 
+- (BOOL)shouldAutorotate {
+    return self.topViewController.shouldAutorotate;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return self.topViewController.supportedInterfaceOrientations;
+}
+
 //- (UIViewController *)childViewControllerForStatusBarHidden {
 //    return self.topViewController;
 //}

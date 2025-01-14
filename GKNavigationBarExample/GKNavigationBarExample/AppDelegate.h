@@ -12,5 +12,7 @@
 
 @property (nonatomic, strong) UIWindow *window;
 
+@property (nonatomic, assign) BOOL isSupportLandscape;
+
 @end
 

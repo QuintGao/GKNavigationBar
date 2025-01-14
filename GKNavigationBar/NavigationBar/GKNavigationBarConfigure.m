@@ -76,7 +76,7 @@
 
 - (CGFloat)gk_fixedSpace {
     // 经测试发现iPhone 12和iPhone 12 Pro，iPhone 14 Pro默认导航栏间距是16，需要单独处理
-    if ([GKNavigationBarConfigure is61InchScreenAndiPhone12Later] || [GKNavigationBarConfigure is61InchScreenAndiPhone14Pro]) return 16;
+    if ([GKNavigationBarConfigure is61InchScreenAndiPhone12Later] || [GKNavigationBarConfigure is61InchScreenAndiPhone14ProLater]) return 16;
     return GK_DEVICE_WIDTH > 375.0f ? 20 : 16;
 }
 
@@ -190,6 +190,30 @@ static NSInteger isSimulator = -1;
     return NO;
 }
 
+
+//@"iPhone15,2" : @"iPhone 14 Pro",
+//@"iPhone15,3" : @"iPhone 14 Pro Max",
+//@"iPhone15,4" : @"iPhone 15",
+//@"iPhone15,5" : @"iPhone 15 Plus",
+//@"iPhone16,1" : @"iPhone 15 Pro",
+//@"iPhone16,2" : @"iPhone 15 Pro Max",
+//@"iPhone17,1" : @"iPhone 16 Pro",
+//@"iPhone17,2" : @"iPhone 16 Pro Max",
+//@"iPhone17,3" : @"iPhone 16",
+//@"iPhone17,4" : @"iPhone 16 Plus",
+static NSInteger isDynamicIslandScreen = -1;
++ (BOOL)isDynamicIslandScreen {
+    if (![self isIPhone]) return NO;
+    if (isDynamicIslandScreen < 0) {
+        NSArray *models = @[@"iPhone15", @"iPhone16", @"iPhone17"];
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+            return [evaluatedObject isKindOfClass:NSString.class] && [[self deviceModel] hasPrefix:evaluatedObject];
+        }];
+        isDynamicIslandScreen = [models filteredArrayUsingPredicate:predicate].count > 0 ? 1 : 0;
+    }
+    return isDynamicIslandScreen > 0;
+}
+
 static NSInteger isNotchedScreen = -1;
 + (BOOL)isNotchedScreen {
     if (isNotchedScreen < 0) {
@@ -236,15 +260,26 @@ static NSInteger isNotchedScreen = -1;
 }
 
 + (BOOL)isRegularScreen {
-    return [self isIPad] || (![self isZoomedMode] && ([self is67InchScreenAndiPhone14ProMax] || [self is67InchScreen] || [self is65InchScreen] || [self is61InchScreen] || [self is55InchScreen]));
+    if ([self isDynamicIslandScreen]) {
+        return YES;
+    }
+    return [self isIPad] || (![self isZoomedMode] && ([self is67InchScreenAndiPhone14Later] || [self is67InchScreen] || [self is65InchScreen] || [self is61InchScreen] || [self is55InchScreen]));
 }
 
-static NSInteger is67InchScreenAndiPhone14ProMax = -1;
-+ (BOOL)is67InchScreenAndiPhone14ProMax {
-    if (is67InchScreenAndiPhone14ProMax < 0) {
-        is67InchScreenAndiPhone14ProMax = (GK_DEVICE_WIDTH == self.screenSizeFor67InchAndiPhone14ProMax.width && GK_DEVICE_HEIGHT == self.screenSizeFor67InchAndiPhone14ProMax.height) ? 1 : 0;
+static NSInteger is69InchScreen = -1;
++ (BOOL)is69InchScreen {
+    if (is69InchScreen < 0) {
+        is69InchScreen = (GK_DEVICE_WIDTH == self.screenSizeFor69Inch.width && GK_DEVICE_HEIGHT == self.screenSizeFor69Inch.height) ? 1 : 0;
     }
-    return is67InchScreenAndiPhone14ProMax > 0;
+    return is69InchScreen > 0;
+}
+
+static NSInteger is67InchScreenAndiPhone14Later = -1;
++ (BOOL)is67InchScreenAndiPhone14Later {
+    if (is67InchScreenAndiPhone14Later < 0) {
+        is67InchScreenAndiPhone14Later = (GK_DEVICE_WIDTH == self.screenSizeFor67InchAndiPhone14Later.width && GK_DEVICE_HEIGHT == self.screenSizeFor67InchAndiPhone14Later.height) ? 1 : 0;
+    }
+    return is67InchScreenAndiPhone14Later > 0;
 }
 
 static NSInteger is67InchScreen = -1;
@@ -265,12 +300,20 @@ static NSInteger is65InchScreen = -1;
     return is65InchScreen > 0;
 }
 
-static NSInteger is61InchScreenAndiPhone14Pro = -1;
-+ (BOOL)is61InchScreenAndiPhone14Pro {
-    if (is61InchScreenAndiPhone14Pro < 0) {
-        is61InchScreenAndiPhone14Pro = (GK_DEVICE_WIDTH == self.screenSizeFor61InchAndiPhone14Pro.width && GK_DEVICE_HEIGHT == self.screenSizeFor61InchAndiPhone14Pro.height) ? 1 : 0;
+static NSInteger is63InchScreen = -1;
++ (BOOL)is63InchScreen {
+    if (is63InchScreen < 0) {
+        is63InchScreen = (GK_DEVICE_WIDTH == self.screenSizeFor63Inch.width && GK_DEVICE_HEIGHT == self.screenSizeFor63Inch.height) ? 1 : 0;
     }
-    return is61InchScreenAndiPhone14Pro > 0;
+    return is63InchScreen > 0;
+}
+
+static NSInteger is61InchScreenAndiPhone14ProLater = -1;
++ (BOOL)is61InchScreenAndiPhone14ProLater {
+    if (is61InchScreenAndiPhone14ProLater < 0) {
+        is61InchScreenAndiPhone14ProLater = (GK_DEVICE_WIDTH == self.screenSizeFor61InchAndiPhone14ProLater.width && GK_DEVICE_HEIGHT == self.screenSizeFor61InchAndiPhone14ProLater.height) ? 1 : 0;
+    }
+    return is61InchScreenAndiPhone14ProLater > 0;
 }
 
 static NSInteger is61InchScreenAndiPhone12Later = -1;
@@ -340,7 +383,11 @@ static NSInteger is35InchScreen = -1;
     return is35InchScreen > 0;
 }
 
-+ (CGSize)screenSizeFor67InchAndiPhone14ProMax {
++ (CGSize)screenSizeFor69Inch {
+    return CGSizeMake(440, 956);
+}
+
++ (CGSize)screenSizeFor67InchAndiPhone14Later {
     return CGSizeMake(430, 932);
 }
 
@@ -352,7 +399,11 @@ static NSInteger is35InchScreen = -1;
     return CGSizeMake(414, 896);
 }
 
-+ (CGSize)screenSizeFor61InchAndiPhone14Pro {
++ (CGSize)screenSizeFor63Inch {
+    return CGSizeMake(402, 874);
+}
+
++ (CGSize)screenSizeFor61InchAndiPhone14ProLater {
     return CGSizeMake(393, 852);
 }
 
@@ -401,6 +452,89 @@ static NSInteger is35InchScreen = -1;
 
 + (CGFloat)navBarHeight_nonFullScreen {
     return 56;
+}
+
++ (CGFloat)navBarFullHeight {
+    NSString *deviceModel = [self deviceModel];
+    CGFloat pixelOne = 1.0 / UIScreen.mainScreen.scale;
+    CGFloat result = [self statusBarFullHeight];
+    if (isIPad) {
+        result += 50;
+    }else if (GK_IS_LANDSCAPE) {
+        result += ([self isRegularScreen] ? 44 : 32);
+    }else {
+        result += 44;
+        if ([deviceModel isEqualToString:@"iPhone17,1"] || [deviceModel isEqualToString:@"iPhone17,2"]) { // 16 Pro / 16 Pro Max
+            result += (2 + pixelOne); // 56.333
+        }else if ([self isDynamicIslandScreen]) {
+            result -= pixelOne;  //53.667
+        }
+    }
+    return result;
+}
+
++ (CGFloat)navBarHeightForPortrait {
+    NSString *deviceModel = [self deviceModel];
+    CGFloat pixelOne = 1.0 / UIScreen.mainScreen.scale;
+    CGFloat result = [self statusBarHeightForPortrait];
+    if (isIPad) {
+        result += 50;
+    }else {
+        result += 44;
+        if ([deviceModel isEqualToString:@"iPhone17,1"] || [deviceModel isEqualToString:@"iPhone17,2"]) { // 16 Pro / 16 Pro Max
+            result += (2 + pixelOne); // 56.333
+        }else if ([self isDynamicIslandScreen]) {
+            result -= pixelOne;  //53.667
+        }
+    }
+    return result;
+}
+
++ (CGFloat)statusBarFullHeight {
+    if (!UIApplication.sharedApplication.statusBarHidden) {
+        return UIApplication.sharedApplication.statusBarFrame.size.height;
+    }
+    if ([self isIPad]) {
+        return [self isNotchedScreen] ? 24 : 20;
+    }
+    if (![self isNotchedScreen]) {
+        return 20;
+    }
+    if (GK_IS_LANDSCAPE) {
+        return 0;
+    }
+    return [self statusBarHeightForPortrait];
+}
+
++ (CGFloat)statusBarHeightForPortrait {
+    if ([self isIPad]) {
+        return [self isNotchedScreen] ? 24 : 20;
+    }
+    if (![self isNotchedScreen]) {
+        return 20;
+    }
+    if ([[self deviceModel] isEqualToString:@"iPhone12,1"]) {
+        // iPhone 13 Mini
+        return 48;
+    }
+    if ([self isDynamicIslandScreen]) {
+        return 54;
+    }
+    if ([self is61InchScreenAndiPhone12Later] || [self is67InchScreen]) {
+        return 47;
+    }
+    
+    // iPhone XR/11 在iOS14之后状态栏高度为48，之前为44
+    if ([self is61InchScreen]) {
+        if (@available(iOS 14.0, *)) {
+            return 48;
+        }else {
+            return 44;
+        }
+    }
+    
+    double version = UIDevice.currentDevice.systemVersion.doubleValue;
+    return ([self is54InchScreen] && version >= 15.0) ? 50 : 44;
 }
 
 static CGFloat tabBarHeight = -1;
@@ -515,6 +649,62 @@ static CGFloat tabBarHeight = -1;
     static NSDictionary<NSString *, NSDictionary<NSNumber *, NSValue *> *> *dict;
     if (!dict) {
         dict = @{
+            // iPhone 16 Pro
+            @"iPhone17,1": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(62, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 62, 21, 62)],
+            },
+            // iPhone 16 Pro Max
+            @"iPhone17,2": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(62, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 62, 21, 62)],
+            },
+            // iPhone 16
+            @"iPhone17,3": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(59, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 59, 21, 59)],
+            },
+            // iPhone 16 Plus
+            @"iPhone17,4": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(59, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 59, 21, 59)],
+            },
+            // iPhone 15
+            @"iPhone15,4": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(47, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 47, 21, 47)],
+            },
+            @"iPhone15,4-Zoom": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(48, 0, 28, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 48, 21, 48)],
+            },
+            // iPhone 15 Plus
+            @"iPhone15,5": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(47, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 47, 21, 47)],
+            },
+            @"iPhone15,5-Zoom": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(41, 0, 30, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 41, 21, 41)],
+            },
+            // iPhone 15 Pro
+            @"iPhone16,1": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(59, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 59, 21, 59)],
+            },
+            @"iPhone16,1-Zoom": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(48, 0, 28, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 48, 21, 48)],
+            },
+            // iPhone 15 Pro Max
+            @"iPhone16,2": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(59, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 59, 21, 59)],
+            },
+            @"iPhone16,2-Zoom": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(51, 0, 31, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 51, 21, 51)],
+            },
             // iPhone 14
             @"iPhone14,7": @{
                 @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(47, 0, 34, 0)],

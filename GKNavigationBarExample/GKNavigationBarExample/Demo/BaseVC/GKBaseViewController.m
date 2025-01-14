@@ -32,4 +32,12 @@
     NSLog(@"%@ dealloc", NSStringFromClass([self class]));
 }
 
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 @end
