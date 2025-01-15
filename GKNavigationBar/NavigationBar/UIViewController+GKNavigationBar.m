@@ -17,10 +17,23 @@
 
 #define HasGestureHandle (__has_include(<GKNavigationBar/GKGestureHandleDefine.h>) || __has_include("GKGestureHandleDefine.h"))
 
-@interface UIViewController (GKNavigationBar)
+@interface UIViewController (GKNavigationBarPrivate)
 
 /// 导航栏是否添加过
 @property (nonatomic, assign) BOOL gk_navBarAdded;
+
+@end
+
+@implementation UIViewController (GKNavigationBarPrivate)
+
+static char kAssociatedObjectKey_navBarAdded;
+- (void)setGk_navBarAdded:(BOOL)gk_navBarAdded {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_navBarAdded, @(gk_navBarAdded), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)gk_navBarAdded {
+    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_navBarAdded) boolValue];
+}
 
 @end
 
@@ -237,15 +250,6 @@ static char kAssociatedObjectKey_navBarInit;
 
 - (BOOL)gk_NavBarInit {
     return [objc_getAssociatedObject(self, &kAssociatedObjectKey_navBarInit) boolValue];
-}
-
-static char kAssociatedObjectKey_navBarAdded;
-- (void)setGk_navBarAdded:(BOOL)gk_navBarAdded {
-    objc_setAssociatedObject(self, &kAssociatedObjectKey_navBarAdded, @(gk_navBarAdded), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (BOOL)gk_navBarAdded {
-    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_navBarAdded) boolValue];
 }
 
 #pragma mark - 常用属性快速设置
