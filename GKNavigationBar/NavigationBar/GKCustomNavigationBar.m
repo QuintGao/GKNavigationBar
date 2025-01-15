@@ -31,8 +31,13 @@
             }else {
                 CGFloat navBarHNFS = GK_NAVBAR_HEIGHT_NFS;
                 CGFloat navBarH = GK_NAVBAR_HEIGHT;
-                if (self.viewController && !(self.viewController.supportedInterfaceOrientations & UIInterfaceOrientationMaskLandscape)) {
-                    navBarH = [GKNavigationBarConfigure navBarHeightForPortrait];
+                
+                if (GK_IS_LANDSCAPE) {
+                    if (self.viewController && [self.viewController gk_isLandscape]) {
+                        navBarH = GK_NAVBAR_HEIGHT;
+                    }else {
+                        navBarH = [UIDevice navBarHeightForPortrait];
+                    }
                 }
                 
                 CGRect frame = obj.frame;

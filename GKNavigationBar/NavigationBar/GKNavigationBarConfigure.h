@@ -116,7 +116,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 // from QMUI
-@interface GKNavigationBarConfigure (UIDevice)
+@interface UIDevice (GKNavigationBar)
+
+@property (class, nonatomic, readonly) NSString *deviceModel;
+@property (class, nonatomic, readonly) NSString *deviceName;
 
 @property (class, nonatomic, readonly) BOOL isIPad;
 @property (class, nonatomic, readonly) BOOL isIPod;
@@ -148,10 +151,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// iPhone 16 Pro
 @property (class, nonatomic, readonly) BOOL is63InchScreen;
 
-/// iPhone 14 Pro / 15 Pro
+/// iPhone 14 Pro / 15 / 16 / 15 Pro
 @property (class, nonatomic, readonly) BOOL is61InchScreenAndiPhone14ProLater;
 
-/// iPhone 12,13 / 12,13 Pro
+/// iPhone 12 / 13 / 14 / 12 Pro / 13 Pro
 @property (class, nonatomic, readonly) BOOL is61InchScreenAndiPhone12Later;
 
 /// iPhone XR / 11
@@ -205,12 +208,14 @@ NS_ASSUME_NONNULL_BEGIN
 // iPad iOS12之前是44，之后是50                                    56
 // 导航栏高度（无状态栏）
 @property (class, nonatomic, readonly) CGFloat      navBarHeight;
+// 导航栏竖屏高度（无状态栏）
+@property (class, nonatomic, readonly) CGFloat      navBarHeightForPortrait;
 // 非全屏导航栏高度
 @property (class, nonatomic, readonly) CGFloat      navBarHeight_nonFullScreen;
 /// 导航栏完整高度（状态栏+导航栏），状态栏隐藏时只有导航栏高度
 @property (class, nonatomic, readonly) CGFloat      navBarFullHeight;
 /// 竖屏导航栏完整高度（状态栏+导航栏）
-@property (class, nonatomic, readonly) CGFloat      navBarHeightForPortrait;
+@property (class, nonatomic, readonly) CGFloat      navBarFullHeightForPortrait;
 /// 状态栏完整高度
 @property (class, nonatomic, readonly) CGFloat      statusBarFullHeight;
 /// 竖屏状态栏高度

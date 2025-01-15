@@ -202,6 +202,7 @@ static char kAssociatedObjectKey_navigationBar;
     GKCustomNavigationBar *navigationBar = objc_getAssociatedObject(self, &kAssociatedObjectKey_navigationBar);
     if (!navigationBar) {
         navigationBar = [[GKCustomNavigationBar alloc] init];
+        navigationBar.viewController = self;
         objc_setAssociatedObject(self, &kAssociatedObjectKey_navigationBar, navigationBar, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
         self.gk_NavBarInit = YES;
@@ -729,7 +730,7 @@ static char kAssociatedObjectKey_navItemRightSpace;
         // 如果是通过present方式弹出且高度小于屏幕高度，则认为是非全屏
         UIWindow *window = self.view.window;
         if (!window) {
-            window = GKNavigationBarConfigure.keyWindow;
+            window = UIDevice.keyWindow;
         }
         isNonFullScreen = self.presentingViewController && viewH < window.bounds.size.height;
     }
@@ -745,20 +746,20 @@ static char kAssociatedObjectKey_navItemRightSpace;
             navBarH = GK_NAVBAR_HEIGHT_NFS;
             self.gk_navigationBar.gk_nonFullScreen = YES;
         }else {
-            navBarH = [GKNavigationBarConfigure navBarFullHeight];
+            navBarH = [UIDevice navBarFullHeight];
         }
     }else if (GK_IS_LANDSCAPE) { // 横屏不显示状态栏，没有非全屏模式
-        if ([self isLandScape]) {
-            navBarH = [GKNavigationBarConfigure navBarFullHeight];
+        if ([self gk_isLandscape]) {
+            navBarH = [UIDevice navBarFullHeight];
         }else {
-            navBarH = [GKNavigationBarConfigure navBarHeightForPortrait];
+            navBarH = [UIDevice navBarFullHeightForPortrait];
         }
     }else {
         if (isNonFullScreen) {
             navBarH = GK_NAVBAR_HEIGHT_NFS;
             self.gk_navigationBar.gk_nonFullScreen = YES;
         }else {
-            navBarH = [GKNavigationBarConfigure navBarFullHeight];
+            navBarH = [UIDevice navBarFullHeight];
         }
     }
     self.gk_navigationBar.frame = CGRectMake(0, 0, self.view.frame.size.width, navBarH);
@@ -798,7 +799,7 @@ static char kAssociatedObjectKey_navItemRightSpace;
     return self.gk_openFixNavItemSpace;
 }
 
-- (BOOL)isLandScape {
+- (BOOL)gk_isLandscape {
     // 当前控制器支持横屏
     if ([self supportedInterfaceOrientations] & UIInterfaceOrientationMaskLandscape) {
         return YES;
