@@ -2,8 +2,6 @@
 
 iOS自定义导航栏 - 导航栏联动效果
 
-[<img src="https://api.gitsponsors.com/api/badge/img?id=219126307" height="40">](https://api.gitsponsors.com/api/badge/link?p=GuEUaNwxuzu+Mb0RdEkXj9K7ZUUkSfnmRwrY2Gibu1KBXrQm6gNL7wjp3F1HjqM1atJe4yQuJeiQbGNepdF4HIJ5JZy3POOGdg5TVsYHLgCLVeZtzBYBgwP/CqaeI9z4OvKUJN58c5HLars76sKY8A==)
-
 [![Build Status](http://img.shields.io/travis/QuintGao/GKNavigationBar/master.svg?style=flat)](https://travis-ci.org/QuintGao/GKNavigationBar)
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKNavigationBar/master/LICENSE)
 [![platform](http://img.shields.io/cocoapods/p/GKNavigationBar.svg?style=flat)](http://cocoadocs.org/docsets/GKNavigationBar)
