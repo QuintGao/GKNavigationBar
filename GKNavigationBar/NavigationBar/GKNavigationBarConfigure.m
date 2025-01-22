@@ -761,10 +761,6 @@ static NSInteger is35InchScreen = -1;
     if (![self isNotchedScreen]) {
         return 20;
     }
-    if ([[self deviceModel] isEqualToString:@"iPhone12,1"]) {
-        // iPhone 13 Mini
-        return 48;
-    }
     if ([self isDynamicIslandScreen]) {
         return 54;
     }
@@ -832,21 +828,12 @@ static CGFloat tabBarHeight = -1;
 + (CGRect)statusBarFrame {
     CGRect statusBarFrame = CGRectZero;
     if (@available(iOS 13.0, *)) {
-        statusBarFrame = [self keyWindow].windowScene.statusBarManager.statusBarFrame;
+        NSSet *set = UIApplication.sharedApplication.connectedScenes;
+        UIWindowScene *windowScene = [set anyObject];
+        statusBarFrame = windowScene.statusBarManager.statusBarFrame;
+    }else {
+        statusBarFrame = UIApplication.sharedApplication.statusBarFrame;
     }
-    
-    if (CGRectEqualToRect(statusBarFrame, CGRectZero)) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
-#pragma clang diagnostic pop
-    }
-    
-    if (CGRectEqualToRect(statusBarFrame, CGRectZero)) {
-        CGFloat statusBarH = [self isNotchedScreen] ? 44 : 20;
-        statusBarFrame = CGRectMake(0, 0, [self keyWindow].bounds.size.width, statusBarH);
-    }
-    
     return statusBarFrame;
 }
 
@@ -919,8 +906,8 @@ static CGFloat tabBarHeight = -1;
             },
             // iPhone 15
             @"iPhone15,4": @{
-                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(47, 0, 34, 0)],
-                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 47, 21, 47)],
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(59, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 59, 21, 59)],
             },
             @"iPhone15,4-Zoom": @{
                 @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(48, 0, 28, 0)],
@@ -928,8 +915,8 @@ static CGFloat tabBarHeight = -1;
             },
             // iPhone 15 Plus
             @"iPhone15,5": @{
-                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(47, 0, 34, 0)],
-                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 47, 21, 47)],
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(59, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 59, 21, 59)],
             },
             @"iPhone15,5-Zoom": @{
                 @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(41, 0, 30, 0)],
@@ -1088,7 +1075,7 @@ static CGFloat tabBarHeight = -1;
     
     NSString *deviceKey = [self deviceModel];
     if (!dict[deviceKey]) {
-        deviceKey = @"iPhone14,2"; // 默认按最新的 iPhone 13 Pro 处理，因为新出的设备肯定更大概率与上一代设备相似
+        deviceKey = @"iPhone16,1"; // 默认按最新的机型处理，因为新出的设备肯定更大概率与上一代设备相似
     }
     if ([self isZoomedMode]) {
         deviceKey = [NSString stringWithFormat:@"%@-Zoom", deviceKey];

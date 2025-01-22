@@ -23,6 +23,7 @@
 		794AFC37242F4FB600BECA1B /* GKBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794AFC36242F4FB600BECA1B /* GKBaseNavigationController.m */; };
 		794BB31C2D362DFE00F49D4A /* GKDemo008ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794BB31B2D362DFE00F49D4A /* GKDemo008ViewController.m */; };
 		794BB31F2D363E6F00F49D4A /* GKAVPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794BB31E2D363E6F00F49D4A /* GKAVPlayerViewController.m */; };
+		795442922D40A9FD00D2DEB4 /* UIDevice+GKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 795442912D40A9FD00D2DEB4 /* UIDevice+GKExtension.m */; };
 		79672E8B236EC0520054300B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 79672E8A236EC0520054300B /* README.md */; };
 		79672E8D236EC0740054300B /* GKNavigationBar.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 79672E8C236EC0740054300B /* GKNavigationBar.podspec */; };
 		796CF7F1236D781400983E9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CF7F0236D781400983E9B /* AppDelegate.m */; };
@@ -104,6 +105,8 @@
 		794BB31B2D362DFE00F49D4A /* GKDemo008ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKDemo008ViewController.m; sourceTree = "<group>"; };
 		794BB31D2D363E6F00F49D4A /* GKAVPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKAVPlayerViewController.h; sourceTree = "<group>"; };
 		794BB31E2D363E6F00F49D4A /* GKAVPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKAVPlayerViewController.m; sourceTree = "<group>"; };
+		795442902D40A9FD00D2DEB4 /* UIDevice+GKExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+GKExtension.h"; sourceTree = "<group>"; };
+		795442912D40A9FD00D2DEB4 /* UIDevice+GKExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GKExtension.m"; sourceTree = "<group>"; };
 		79672E89236EC04A0054300B /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = .travis.yml; path = ../../.travis.yml; sourceTree = "<group>"; };
 		79672E8A236EC0520054300B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		79672E8C236EC0740054300B /* GKNavigationBar.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GKNavigationBar.podspec; path = ../../GKNavigationBar.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -268,6 +271,15 @@
 			path = FloatView;
 			sourceTree = "<group>";
 		};
+		7954428C2D40A9C700D2DEB4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				795442902D40A9FD00D2DEB4 /* UIDevice+GKExtension.h */,
+				795442912D40A9FD00D2DEB4 /* UIDevice+GKExtension.m */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		79672E94236EC8EB0054300B /* GKNavigationBarFramework */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,6 +338,7 @@
 				796CF865236D7BBF00983E9B /* 网易云音乐 */,
 				796CF873236D7BBF00983E9B /* 网易新闻 */,
 				608FC6E925469C9C003DB82F /* 微信 */,
+				7954428C2D40A9C700D2DEB4 /* Extension */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -700,6 +713,7 @@
 				796CF8AF236D7BBF00983E9B /* GKTabBaseViewController.m in Sources */,
 				79C48BBC243B0757000B0815 /* GKDemo000ViewController.m in Sources */,
 				796CF8C0236D7BBF00983E9B /* GKWYMusicMineViewController.m in Sources */,
+				795442922D40A9FD00D2DEB4 /* UIDevice+GKExtension.m in Sources */,
 				79E5722928937E07005EB065 /* GKDemo007ListViewController.m in Sources */,
 				794BB31C2D362DFE00F49D4A /* GKDemo008ViewController.m in Sources */,
 				796CF8BC236D7BBF00983E9B /* GKToutiaoHomeViewController.m in Sources */,

@@ -12,6 +12,7 @@
 #import "GKDemo007ViewController.h"
 #import <math.h>
 #import <sys/utsname.h>
+#import "UIDevice+GKExtension.h"
 
 @interface AppDelegate ()
 
@@ -25,6 +26,16 @@
     [self setupNavBar];
     
     [self setupWindow];
+    
+//    CGFloat statusH = [UIDevice statusBarFullHeight];
+//    CGFloat navbarH = [UIDevice navBarHeight];
+//    CGFloat statusNavBarH = [UIDevice navBarFullHeight];
+//    UIEdgeInsets safeInsets = [UIDevice safeAreaInsets];
+//    
+//    NSLog(@"状态栏高度---%f", statusH);
+//    NSLog(@"导航栏高度---%f", navbarH);
+//    NSLog(@"状态栏+导航栏高度---%f", statusNavBarH);
+//    NSLog(@"安全区域---%@", NSStringFromUIEdgeInsets(safeInsets));
     
     return YES;
 }
