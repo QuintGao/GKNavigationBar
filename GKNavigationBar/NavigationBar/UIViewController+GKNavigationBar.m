@@ -84,23 +84,21 @@ static char kAssociatedObjectKey_navBarAdded;
     if ([self isKindOfClass:[UIVideoEditorController class]]) return;
     if ([NSStringFromClass(self.class) isEqualToString:@"PUPhotoPickerHostViewController"]) return;
     if (!self.navigationController) return;
-    // 新增判断：如果是正在 pop 过渡，则不处理导航栏显示/隐藏
-    id <UIViewControllerTransitionCoordinator> coordinator = self.transitionCoordinator;
-    if (coordinator) {
-        UIViewController *fromVC = [coordinator viewControllerForKey:UITransitionContextFromViewControllerKey];
-        if (fromVC && ![self.navigationController.viewControllers containsObject:fromVC]) {
-            // 是 pop 操作，直接调用原始方法，不做导航栏处理
-            [self gk_viewWillAppear:animated];
-            return;
-        }
-    }
     
     if (self.gk_NavBarInit) {
         self.gk_disableFixNavItemSpace = self.gk_disableFixNavItemSpace;
         self.gk_openFixNavItemSpace = self.gk_openFixNavItemSpace;
-        // 隐藏系统导航栏
-        if (!self.navigationController.gk_openSystemNavHandle) {
-            [self hiddenSystemNavBar];
+        
+        // 新增判断：如果是正在 pop 过渡，则不处理导航栏显示/隐藏
+        id <UIViewControllerTransitionCoordinator> coordinator = self.transitionCoordinator;
+        UIViewController *fromVC = [coordinator viewControllerForKey:UITransitionContextFromViewControllerKey];
+        if (coordinator && fromVC && ![self.navigationController.viewControllers containsObject:fromVC]) {
+            // 是 pop 操作，直接调用原始方法，不做导航栏处理
+        } else {
+            // 隐藏系统导航栏
+            if (!self.navigationController.gk_openSystemNavHandle) {
+                [self hiddenSystemNavBar];
+            }
         }
         
         // 将自定义导航栏放置顶层
